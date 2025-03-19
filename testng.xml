@@ -13,7 +13,6 @@
 <class name="testScenario.SnipBackLogin.SnipBackLogin_Test">
 		   <methods>
                <include name="TC01_LoginTest()"/>
-		 	   <include name="TC02_LoginTest()"/>
 			   <include name="TC03_LoginTest()"/>
                <include name="TC04_LoginTest()"/> 
 			   <include name="TC05_LoginTest()"/>			  

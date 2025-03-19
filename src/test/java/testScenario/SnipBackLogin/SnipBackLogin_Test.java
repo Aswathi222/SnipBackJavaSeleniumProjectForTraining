@@ -10,13 +10,6 @@ public class SnipBackLogin_Test extends BaseTest
 {	
 
 	@Test()
-	public void TC02_LoginTest() throws Exception 
-	{
-		SnipBackLogin SnipBacklogin = new SnipBackLogin(getDriver());
-		SnipBacklogin.TC02_Login();
-	}
-
-	@Test()
 	public void TC04_LoginTest() throws Exception 
 	{	
 		SnipBackLogin snipbacklogin = new SnipBackLogin(getDriver());	

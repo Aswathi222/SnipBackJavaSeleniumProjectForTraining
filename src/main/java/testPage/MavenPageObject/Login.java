@@ -8,7 +8,6 @@ import org.testng.Assert;
 import TestData.CommonData;
 import TestData.SnipBackLogin_TestData;
 import objectRepository.LoginPage_Obj;
-import objectRepository.ForgotPassword_Obj;
 import utilPack.BasePge;
 
 //import basePackage.BasePge;

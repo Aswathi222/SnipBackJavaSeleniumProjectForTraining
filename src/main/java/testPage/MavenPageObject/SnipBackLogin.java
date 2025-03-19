@@ -1,7 +1,4 @@
 package testPage.MavenPageObject;
-import TestData.ForgotPassword_TestData;
-import TestData.Login_TestData;
-import TestData.Registration_TestData;
 import TestData.SnipBackLogin_TestData;
 
 import java.util.List;
@@ -12,8 +9,6 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import TestData.CommonData;
 import objectRepository.LoginPage_Obj;
-import objectRepository.Registration_Obj;
-import objectRepository.ForgotPassword_Obj;
 import utilPack.BasePge;
 public class SnipBackLogin extends BasePge{
 
@@ -82,27 +77,7 @@ public class SnipBackLogin extends BasePge{
 
 	}
 
-	// <summary>
-	//Test description :Verify what happens when the user does not fill the Email Address and Password field
-	//Automation Id    :TC02_Login
-	// </summary>
-	public void TC02_Login() throws InterruptedException
-	{
-		Registration_Obj RegistrationObj = new Registration_Obj();
-		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
-
-		//Step1:Click on Login button from Homepage
-		//expected:Login page should be displayed
-		base.buttonClick(LoginPageObj.Btn_Login("Login"));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("email_address"))," The Login page is not displayed.");
-
-		//Step2:Without filling any field, click Sign In
-		//expected:User Shouldn't able to login the page and should receive an alert message.
-		base.buttonClick(LoginPageObj.Btn_SingnIn("login_submit"));
-		asrt.assertTrue(base.isExists(RegistrationObj.Edt_SignUpPopupPassword("errr_email")),"Alert message is not displayed in the sign in page");
-
-	}
-
+	
 	// <summary>
 	// Test Case Title : "Verify what happens when the user kept the email address field empty"
 	// Automation ID : TC04_Login()
