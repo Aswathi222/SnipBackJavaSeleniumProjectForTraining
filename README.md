@@ -1,1 +1,1 @@
-# SnipBackJavaSeleniumProjectForTraining
+# snipback_auto
