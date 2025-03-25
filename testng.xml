@@ -4,20 +4,25 @@
 <listeners>
 		<listener class-name="extentReporterPack.ExtentReportListner" />
 	</listeners>
-
   <test thread-count="1" name="Test">
-     <parameter name="Browser" value="Chrome"/>
-     
+     <parameter name="Browser" value="Chrome"/>    
     <classes>  
-
-<class name="testScenario.SnipBackLogin.SnipBackLogin_Test">
+      
+<class name="testScenario.ForgotPassword.ForgotPassword_Test">
 		   <methods>
-               <include name="TC01_SH_LoginTest()"/>
+               <include name="FP_1_ForgotPasswordTest()"/>				
+      </methods> 
+       </class>
+      
+<class name="testScenario.SnipBackLogin.SnipBackLogin_Test">
+		  <methods>
+              <include name="TC01_SH_LoginTest()"/>
+       </methods> 
+       </class>
 			   
-				
+
 		   </methods> 
        </class>
-
      </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
