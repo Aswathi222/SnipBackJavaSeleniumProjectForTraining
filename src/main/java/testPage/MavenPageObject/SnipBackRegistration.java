@@ -39,8 +39,8 @@ public class SnipBackRegistration extends BasePge{
 		//Step 2: Click on sign up button
 		//Expected : User should click on signup button
 		base.buttonClick(RegistrationObj.Btn_SignUp("signup-btn","Sign Up"));
-		asrt.assertTrue(base.isExists(RegistrationObj.Ele_Name("form-inlines","first_name")),"User is unable to click on signup button");		
-
+		asrt.assertTrue(base.isExists(RegistrationObj.Btn_SigUp1("btn-signup")),"User is unable to click the sign up button'.");
+	
 		//Step 3 : Verify if the name field is mandatory or shows an error message when left blank.
 		//Expected : There should be a pop-up message "Please enter ur name"
 		base.setData(RegistrationObj.Ele_Name("form-inlines","first_name"), SnipBackRegistration_TestData.TC01_RegistrationInvalidName);
