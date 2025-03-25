@@ -24,12 +24,8 @@ public class SocialMediaSignIn extends BasePge{
 		SocialMediaSignIn_obj SocialMediaSignInObj=new SocialMediaSignIn_obj();
 		
 		//step 1  : Navigate to Snipback Website
-		//Expected: User should navigate to Login page
+		//Expected: There should be a option to view 'Sign In with Google' in login page
 		base.buttonClick(LoginPageObj.Btn_Login("Login"));
-		asrt.assertTrue(base.isExists(LoginPageObj.Btn_Login("Login")),"User is unable to login the website");
-		
-		//step 2  : To verify there is an option 'Sign in with google' in login page
-	    //Expected: There should be a option to Sign In with Google in login page
 		asrt.assertTrue(base.isExists(SocialMediaSignInObj.Btn_Login(" Sign In with Google")),"User is unable to view the Sign in with google button in the login page");	
 	}
 	
@@ -42,9 +38,9 @@ public class SocialMediaSignIn extends BasePge{
 		SocialMediaSignIn_obj SocialMediaSignInObj=new SocialMediaSignIn_obj();
 		
 		//step 1:Navigate to Snipback Website
-		//Expected: User should be able to navigate to Snipback website
+		//Expected: There should be an option to view 'Sign In with Google' in login page.
 		base.buttonClick(LoginPageObj.Btn_Login("Login"));
-		asrt.assertTrue(base.isExists(LoginPageObj.Btn_Login("Login")),"User is unable to login the website");
+		asrt.assertTrue(base.isExists(SocialMediaSignInObj.Btn_Login(" Sign In with Google")),"User is unable to view the Sign in with google button in the login page");
 		
 		//step 2: User should able to click Sign In with Google
 		//Expected: User able to click Sign in with Google button.
