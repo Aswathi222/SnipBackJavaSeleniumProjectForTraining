@@ -12,4 +12,5 @@ public class Registration_Obj
 	//Ele
 	public By Ele_Name(String text1, String text2) {return By.xpath("//div[@class='"+text1+"']//input[@id='"+text2+"']");}
 	public By Ele_Emailerror(String text1) {return By.xpath("//span[@id='"+text1+"']");}
+	public By Ele_Email(String text1) {return By.xpath("//input[@id='"+text1+"']");}
 }

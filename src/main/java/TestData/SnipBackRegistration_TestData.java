@@ -6,6 +6,8 @@ public class SnipBackRegistration_TestData
 	public static String TC01_RegistrationInvalidName="   ";	
 	public static String TC01_RegistrationInvalidCharName="Tintu89";
 	public static String TC01_RegistrationValidName="TINTU";
+	
+	
 }
 
 
