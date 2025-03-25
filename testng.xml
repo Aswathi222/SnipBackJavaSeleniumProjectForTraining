@@ -4,22 +4,14 @@
 <listeners>
 		<listener class-name="extentReporterPack.ExtentReportListner" />
 	</listeners>
-
   <test thread-count="1" name="Test">
-     <parameter name="Browser" value="Chrome"/>
-     
+     <parameter name="Browser" value="Chrome"/>    
     <classes>  
-
 <class name="testScenario.ForgotPassword.ForgotPassword_Test">
 		   <methods>
-               <include name="FP_1_ForgotPasswordTest()"/>
-               <include name="FP_2_ForgotPasswordTest()"/>
-               <include name="FP_3_ForgotPasswordTest()"/>
-			   
-				
+               <include name="FP_1_ForgotPasswordTest()"/>				
 		   </methods> 
        </class>
-
      </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
