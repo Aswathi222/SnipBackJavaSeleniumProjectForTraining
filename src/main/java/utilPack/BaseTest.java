@@ -49,8 +49,8 @@ public WebDriver driver;
 			 
 			 driver.manage().window().maximize();
 		    // driver.navigate().to("https://snipback.com/");
-		     //driver.get("https://web06-stg-ch.snipback.com/");
-			 driver.get("https://snipback.com/");
+		     driver.get("https://web06-stg-ch.snipback.com/");
+			 //driver.get("https://snipback.com/");
 		     
 		     String userAgent = (String) ((JavascriptExecutor) driver).executeScript("return navigator.userAgent;");
 		     System.out.println("User Agent: " + userAgent);
