@@ -32,7 +32,6 @@ public class CreateEditDeletePool extends BasePge {
 			LoginPage_Obj loginObj=new LoginPage_Obj();
 			Login login=new Login(driver);
 			CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
-			SnipBackLogin_Obj snipBackLoginObj=new SnipBackLogin_Obj();
 			CreateEditDeletePool_TestData createEditDeletePool_testdata=new CreateEditDeletePool_TestData();
 			
 			//Step 1: Navigate to Snipback page
@@ -47,11 +46,11 @@ public class CreateEditDeletePool extends BasePge {
 			//step 3:Go to Film page
 			//Expected: User should be able to click film
 			base.buttonClick(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
-			asrt.assertTrue(base.isExists(snipBackLoginObj.Btn_Signin("POOLS")), "User is unable to click the Film");
+			asrt.assertTrue(base.isExists(loginObj.Btn_SignInButton("POOLS")), "User is unable to click the Film");
 
 			//step 4: Under Games section, go to Pools page
 			//Expected: There should be an option to create pool
-			base.excuteJsClick(snipBackLoginObj.Btn_Signin("POOLS"));
+			base.excuteJsClick(loginObj.Btn_SignInButton("POOLS"));
 			asrt.assertTrue(base.isExists(loginObj.Edt_Alert1("Create Pool")), "User is unable to view an option to create pool");
 
 			//step 5: Click "+Create Pool" button
@@ -74,7 +73,7 @@ public class CreateEditDeletePool extends BasePge {
 			//step 8:Click Create
 			//Expected: User should able to click create
 			base.buttonClick(createEditDeletePoolObj.Btn_CreatePoolAlert("submit", "CREATE"));
-			asrt.assertTrue(base.isExists(snipBackLoginObj.Btn_Signin("OK")), "User is unable to click create");
+			asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("OK")), "User is unable to click create");
 			
 	}
 }
