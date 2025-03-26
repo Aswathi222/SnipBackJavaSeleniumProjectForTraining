@@ -10,5 +10,11 @@ public class ForgotPassword_Test extends BaseTest
 	{	
 		ForgotPassword ForgotPassword = new ForgotPassword(getDriver());
 		ForgotPassword.FP_1_ForgotPassword();			
-	}	
+	}
+	@Test()
+	public void FP_2_ForgotPasswordTest() throws Exception 
+	{	
+		ForgotPassword ForgotPassword = new ForgotPassword(getDriver());
+		ForgotPassword.FP_2_ForgotPassword();			
+	}
 }

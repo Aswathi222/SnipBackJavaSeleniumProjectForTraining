@@ -1,5 +1,4 @@
 package objectRepository;
-
 import org.openqa.selenium.By;
 
 public class CreateEditDeletePool_Obj {
@@ -9,5 +8,6 @@ public class CreateEditDeletePool_Obj {
 		
 		//sel
 		public By Sel_PoolType(String text) {return By.xpath("//select[@id='"+text+"']");}
-	}
+	
+}
 
