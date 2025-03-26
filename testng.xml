@@ -13,6 +13,19 @@
                <include name="TC_02SocialMediaSignIn_Test"></include>      
 		   </methods> 
        </class>
+
+<class name="testScenario.ForgotPassword.ForgotPassword_Test">
+		   <methods>
+               <include name="FP_1_ForgotPasswordTest()"/>				
+      </methods> 
+       </class>
+      
+<class name="testScenario.SnipBackLogin.SnipBackLogin_Test">
+		  <methods>
+              <include name="TC01_SH_LoginTest()"/>
+       </methods> 
+       </class>
+      
      </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
