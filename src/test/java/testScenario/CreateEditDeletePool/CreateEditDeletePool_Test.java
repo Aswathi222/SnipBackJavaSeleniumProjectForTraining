@@ -12,11 +12,5 @@ public class CreateEditDeletePool_Test extends BaseTest
 	{	
 		CreateEditDeletePool createEditDeletePoolTest = new CreateEditDeletePool(getDriver());
 		createEditDeletePoolTest.TC_01_CreateEditDeletePool();			
-	}	
-	@Test()
-	public void TC_02_CreateEditDeletePool() throws Exception 
-	{	
-		CreateEditDeletePool createEditDeletePoolTest = new CreateEditDeletePool(getDriver());
-		createEditDeletePoolTest.TC_02_CreateEditDeletePool();			
-	}	
+	}		
 }
