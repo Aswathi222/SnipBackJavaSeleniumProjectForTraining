@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import TestData.CommonData;
+import objectRepository.ForgotPassword_Obj;
 import objectRepository.LoginPage_Obj;
 import objectRepository.Registration_Obj;
 import utilPack.BasePge;
@@ -47,13 +48,13 @@ public class SnipBackRegistration extends BasePge{
 		//Expected : There should be a pop-up message "Please enter ur name"
 		base.setData(RegistrationObj.Ele_Name("form-inlines","first_name"), SnipBackRegistration_TestData.TC01_RegistrationInvalidName);
 		base.buttonClick(loginpageobj.Btn_SingnIn("btn-signup"));
-		asrt.assertTrue(base.isExists(loginpageobj.Btn_SingnIn("btn-signup")),"User is unable to find the pop up message as 'Please enter your name'.");
+		asrt.assertTrue(base.isExists(RegistrationObj.Ele_Emailerror("err_name")),"User is unable to find the pop up message as 'Please enter your name'.");
 
 		//Step 4 : Verify if the field shows error message for numbers and special characters entry
 		//Expected : There should be a pop-up message "Name field must only contain letters "
 		base.setData(RegistrationObj.Ele_Name("form-inlines","first_name"),SnipBackRegistration_TestData.TC01_RegistrationInvalidCharName);
 		base.buttonClick(loginpageobj.Btn_SingnIn("btn-signup"));
-		asrt.assertTrue(base.isExists(loginpageobj.Btn_SingnIn("btn-signup")),"User is unable to find the pop up message as 'Name field must only contain letters'.");
+		asrt.assertTrue(base.isExists(RegistrationObj.Ele_Emailerror("err_name")),"User is unable to find the pop up message as 'Name field must only contain letters'.");
 
 		//Step5 : Verify if the name field uses only alphabets
 		//Expected : It should accept mentioned test data.
@@ -77,6 +78,7 @@ public class SnipBackRegistration extends BasePge{
 		Registration_Obj   RegistrationObj = new Registration_Obj();
 		LoginPage_Obj loginpageobj = new LoginPage_Obj();
 		SnipBackRegistration_TestData  snipbackregistrationtestdata = new SnipBackRegistration_TestData();
+		ForgotPassword_Obj forgotPasswordobj = new ForgotPassword_Obj();
 
 		//Step 1 :  Click on Login button
 		//Expected : User should click on login button
@@ -99,19 +101,20 @@ public class SnipBackRegistration extends BasePge{
 		//Expected : There should be a pop-up message "Please enter the valid email, the invalid characters are &/\#,+()$~%.^':*?<>{}"
 		base.setData(loginpageobj.Edt_LoginEmail("user_email"), SnipBackRegistration_TestData.TC02_RegistrationInvalidEmail);
 		base.buttonClick(loginpageobj.Btn_SingnIn("btn-signup"));
-		asrt.assertTrue(base.isExists(loginpageobj.Edt_LoginEmail("user_email")),"User is unable to find the popup message as 'Please enter the valid email, the invalid characters are &/\\#,+()$~%.^':*?<>{}\"'");
+		asrt.assertTrue(base.isExists(forgotPasswordobj.Ele_Error("commonValidateErr active")),"User is unable to find the popup message as 'Please enter the valid email, the invalid characters are &/\\#,+()$~%.^':*?<>{}\"'");
 
 		//Step 5 : Verify if the email address shows an error message when left blank.
 		//Expected : There should be a pop-up message "Please enter your email address"
+		base.setData(loginpageobj.Edt_LoginEmail("first_name"),SnipBackRegistration_TestData.TC02_RegistrationValidUsername );
 		base.setData(loginpageobj.Edt_LoginEmail("user_email"), SnipBackRegistration_TestData.TC02_RegistrationEmailEmpty);
 		base.buttonClick(loginpageobj.Btn_SingnIn("btn-signup"));
-		asrt.assertTrue(base.isExists(loginpageobj.Edt_LoginEmail("user_email")),"User is unable to find the popup message as 'Please enter your email address'");
+		asrt.assertTrue(base.isExists(RegistrationObj.Ele_Emailerror("err_email")),"User is unable to find the popup message as 'Please enter your email address'");
 
 		//Step 6 :  Verify the field with leading/trailing spaces or extra parameters.
 		//Expected : There should be a pop-up message " a part followed by '@' should not contain the     symbol ' ' ','.
 		base.setData(loginpageobj.Edt_LoginEmail("user_email"), SnipBackRegistration_TestData.TC02_RegistrationExtraEmail);
 		base.buttonClick(loginpageobj.Btn_SingnIn("btn-signup"));
-		asrt.assertTrue(base.isExists(loginpageobj.Edt_LoginEmail("user_email")),"User is unable to find the popup message as 'A part followed by '@' should not contain the symbol ' ' ','.'");
+		asrt.assertTrue(base.isExists(forgotPasswordobj.Ele_Error("commonValidateErr active")),"User is unable to find the popup message as 'A part followed by '@' should not contain the symbol ' ' ','.'");
 
 		//Step 7 :  Verify if the email address is duplicate/already existing in the database.
 		//Expected : There should be a pop-up message "Email already exist"
