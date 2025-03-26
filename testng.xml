@@ -5,9 +5,15 @@
 		<listener class-name="extentReporterPack.ExtentReportListner" />
 	</listeners>
   <test thread-count="1" name="Test">
-     <parameter name="Browser" value="Chrome"/>    
+     <parameter name="Browser" value="Chrome"/>
     <classes>  
-      
+<class name="testScenario.SocialMediaSignIn.SocialMediaSignIn_Test">
+		   <methods>
+               <include name="TC_01SocialMediaSignIn_Test"/> 
+               <include name="TC_02SocialMediaSignIn_Test"></include>      
+		   </methods> 
+       </class>
+
 <class name="testScenario.ForgotPassword.ForgotPassword_Test">
 		   <methods>
                <include name="FP_1_ForgotPasswordTest()"/>				
@@ -19,10 +25,7 @@
               <include name="TC01_SH_LoginTest()"/>
        </methods> 
        </class>
-			   
-
-		   </methods> 
-       </class>
+      
      </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
