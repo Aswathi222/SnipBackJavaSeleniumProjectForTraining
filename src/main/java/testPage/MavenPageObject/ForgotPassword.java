@@ -60,6 +60,8 @@ public class ForgotPassword extends BasePge {
 		//Step 3 : Enter an invalid email id
 		//Expected : User should be able to enter invalid email id
 		base.setData(LoginPageObj.Edt_LoginEmail("forgot-email"), ForgotPasswordTestData.FP_2_ForgotPasswordInvalidEmail);
+		String InvalidEmail = base.GetValue(LoginPageObj.Edt_LoginEmail("forgot-email"));
+		asrt.assertEquals(InvalidEmail, ForgotPasswordTestData.FP_2_ForgotPasswordInvalidEmail);
 		
 		//Step 4 : Click submit button after entering an invalid email id
 		//Expected : An error message like "Please enter the valid email, the invalid characters are &/\#,+()$~%.^':*?<>{}"Please enter a valid email address" should be displayed, and the user is not allowed to proceed.
