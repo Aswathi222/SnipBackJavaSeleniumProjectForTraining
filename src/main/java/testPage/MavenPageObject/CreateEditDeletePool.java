@@ -73,7 +73,8 @@ public class CreateEditDeletePool extends BasePge {
 			//step 8:Click Create
 			//Expected: User should able to click create
 			base.buttonClick(createEditDeletePoolObj.Btn_CreatePoolAlert("submit", "CREATE"));
-			asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("OK")), "User is unable to click create");
+			asrt.assertTrue(base.isExists(loginObj.Btn_SignInButton("OK")), "User is unable to click create");
 			
 	}
+		
 }
