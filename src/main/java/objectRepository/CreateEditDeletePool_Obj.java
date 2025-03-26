@@ -9,4 +9,3 @@ public class CreateEditDeletePool_Obj {
 	//sel
 	public By Sel_PoolType(String text) {return By.xpath("//select[@id='"+text+"']");}
 }
-////ul[@class='navbar-nav ms-auto']//a[text()='Tags']
