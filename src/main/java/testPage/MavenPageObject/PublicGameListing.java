@@ -1,6 +1,8 @@
 package testPage.MavenPageObject;
 
 import org.openqa.selenium.WebDriver;
+import java.util.List;
+import java.util.ArrayList;
 import org.testng.Assert;
 import objectRepository.LoginPage_Obj;
 import objectRepository.PublicGameListing_Obj;
@@ -51,10 +53,13 @@ public class PublicGameListing extends BasePge{
 		//2.Film
 		//3.Pricing
 		//4.Login button
-		asrt.assertTrue(base.isExists(PublicGameObj.Btn_Home("Home","menu_link nav-link  active ")), "User is unable to view Home Option when entering into the  SnipBack Website");
-		asrt.assertTrue(base.isExists(PublicGameObj.Btn_Home("Film","menu_link nav-link ")), "User is unable to view Film Option when entering into the  SnipBack Website");
-		asrt.assertTrue(base.isExists(PublicGameObj.Btn_Home("Pricing","menu_link nav-link ")), "User is unable to view Pricing Option when entering into the  SnipBack Website");
+        ArrayList<String> menu = new ArrayList<>();
+        menu.add("Home");
+        menu.add("Film");
+        menu.add("Pricing");
+        for (String option : menu) {
+            Assert.assertTrue(base.isExists(PublicGameObj.Btn_Menu(option, "menu_link nav-link ")),"User is unable to view " + option + " Option when entering into the SnipBack Website");
+        }
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_Login("Login")), "User is unable to view Login Option when entering into the  SnipBack Website");
 	}
-	
 }
