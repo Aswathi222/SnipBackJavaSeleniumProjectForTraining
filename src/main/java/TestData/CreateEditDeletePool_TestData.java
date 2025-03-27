@@ -4,12 +4,14 @@ import utilPack.BasePge;
 
 public class CreateEditDeletePool_TestData {
 
-	// TC02_CreateEditDeletePool
-	public static String TC_02_CreateEditDeletePool= BasePge.CreateRandomWithoutNumbers(8);
-	public static String TC_02_CreateEditDeletePool_dropdwn="SemiPrivate";
+	// TC03_CreateEditDeletePool
+	public static String TC03_CreateEditDeletePool=BasePge.CreateRandomWithoutNumbers(2);
+	public static String TC03_CreateEditDeletePool_dropdwn="SemiPrivate";
 
 	
 
+	
 }
+
 
 
