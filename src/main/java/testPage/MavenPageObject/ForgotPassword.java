@@ -98,6 +98,35 @@ public class ForgotPassword extends BasePge {
 		base.buttonClick(LoginPageObj.Btn_SingnIn("forgot-submit"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("Reset password link sucessfully sent to your Email")),"A success message is not displayed (\"A one-time passcode has been sent to your registered email address. Please check your inbox.\"), and the user do not receives the email.");		
 	}
+	//<summery>
+	//Test Case Title : Verify that entering an unregistered email displays an appropriate error message.
+	//Automation ID : FP - 4
+	//</summery>
+	public void FP04_ForgotPassword() {
 
+		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+		ForgotPassword_Obj ForgotPasswordObj =new ForgotPassword_Obj();
+		ForgotPassword_TestData ForgotPasswordTestData =new ForgotPassword_TestData();
 
+		//Step 1 : Navigate to Home page
+		//Expected : Home page should be displayed
+		base.buttonClick(LoginPageObj.Btn_Login("Login"));
+		asrt.assertTrue(base.isExists(LoginPageObj.Btn_SingnIn("login_submit")));
+
+		//Step 2 : On the login screen, click the "Forgot Password" icon
+		//Expected : The system navigates to the "Forgot Password" page
+		base.buttonClick(LoginPageObj.Btn_LoginButton("forget-password"));
+		asrt.assertTrue(base.isExists(ForgotPasswordObj.Ele_ResetPasswordHeading("Reset Password"))); 
+
+		//Step 3 : Enter an unregistered email id
+		//Expected : User should be able to enter an unregistered email id
+		base.setData(LoginPageObj.Edt_LoginEmail("forgot-email"), ForgotPasswordTestData.FP_4_ForgotPasswordUnregisteredEmail);
+		String UnregisteredEmail = base.GetValue(LoginPageObj.Edt_LoginEmail("forgot-email"));
+		asrt.assertEquals(UnregisteredEmail, ForgotPasswordTestData.FP_4_ForgotPasswordUnregisteredEmail);
+
+		//Step 4 : Click submit button after entering an unregistered email id
+		//Expected : The system should display an error message like "User not found" and should not send a reset link.
+		base.buttonClick(LoginPageObj.Btn_SingnIn("forgot-submit"));
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("User not found")),"The system is not displaying an error message like 'User not found'");		
+	}
 }
