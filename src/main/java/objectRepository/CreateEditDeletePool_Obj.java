@@ -11,5 +11,5 @@ public class CreateEditDeletePool_Obj {
 	//Ddl
 		public By Ddl_PoolType(String text) {return By.xpath("//option[text()='"+text+"']");}
 		public By Ddl_addUser(String text){return By.xpath("//a[@id='"+text+"']");}
-	
+
 }
