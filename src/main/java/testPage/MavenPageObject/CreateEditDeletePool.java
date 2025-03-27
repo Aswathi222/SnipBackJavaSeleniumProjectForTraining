@@ -27,11 +27,11 @@ public class CreateEditDeletePool extends BasePge {
 		//Test case Title:To verify whether user can able to create a new pool.
 		//Automation ID: TC_02
 		//</Summary>
-		public void TC_02_CreateEditDeletePool() throws InterruptedException{
+		public void TC02_CreateEditDeletePool() throws InterruptedException{
 			LoginPage_Obj loginObj=new LoginPage_Obj();
 			Login login=new Login(driver);
 			CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
-			CreateEditDeletePool_TestData createEditDeletePool_testdata=new CreateEditDeletePool_TestData();
+			CreateEditDeletePool_TestData createEditDeletePoolTestdata=new CreateEditDeletePool_TestData();
 			
 			//Step 1: Navigate to Snipback page
 			//Expected : User should be able to view Snipback page
@@ -59,15 +59,15 @@ public class CreateEditDeletePool extends BasePge {
 			
 			//step 6: Enter the Pool Name
 			//Expected: User should able to enter pool name
-			base.setData(loginObj.Edt_LoginEmail("pool_name"), createEditDeletePool_testdata.TC_02_CreateEditDeletePool);
+			base.setData(loginObj.Edt_LoginEmail("pool_name"), createEditDeletePoolTestdata.TC02_CreateEditDeletePool);
 	        String poolName=base.GetValue(loginObj.Edt_LoginEmail("pool_name"));
-	        asrt.assertEquals(poolName, createEditDeletePool_testdata.TC_02_CreateEditDeletePool);
+	        asrt.assertEquals(poolName, createEditDeletePoolTestdata.TC02_CreateEditDeletePool);
 			
 			//step 7:Select the Pool Type
 			//Expected: User should able to select pool type
-			base.selectorByVisibleText(createEditDeletePoolObj.Sel_PoolType("pool_type"),createEditDeletePool_testdata.TC_02_CreateEditDeletePool_dropdwn );
-			//String poolType=base.GetText(createEditDeletePoolObj.Sel_PoolType("pool_type"));
-			asrt.assertTrue(base.isExists(createEditDeletePoolObj.Sel_PoolType("pool_type")),"User unable to navigate to the pool type");
+			base.selectorByVisibleText(createEditDeletePoolObj.Sel_PoolType("pool_type"),createEditDeletePoolTestdata.TC02_CreateEditDeletePool_dropdwn);
+	        String poolType=base.GetText(createEditDeletePoolObj.Ddl_PoolType("SemiPrivate"));
+	        asrt.assertEquals(poolType, createEditDeletePoolTestdata.TC02_CreateEditDeletePool_dropdwn);
 			
 			//step 8:Click Create
 			//Expected: User should able to click create
@@ -80,7 +80,7 @@ public class CreateEditDeletePool extends BasePge {
 	//Test Case Title: To verify whether there is an option to Create new pool.
 	//Automation ID: TC_01
 	//</Summary>
-	public void TC_01_CreateEditDeletePool() throws InterruptedException{
+	public void TC01_CreateEditDeletePool() throws InterruptedException{
 		LoginPage_Obj loginObj=new LoginPage_Obj();
 		Login login=new Login(driver);
 		CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
