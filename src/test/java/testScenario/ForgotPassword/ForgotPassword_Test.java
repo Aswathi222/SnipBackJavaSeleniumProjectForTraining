@@ -9,19 +9,19 @@ public class ForgotPassword_Test extends BaseTest
 	public void FP01_ForgotPasswordTest() throws Exception 
 	{	
 		ForgotPassword ForgotPassword = new ForgotPassword(getDriver());
-		ForgotPassword.FP_1_ForgotPassword();			
+		ForgotPassword.FP01_ForgotPassword();			
 	}
 	@Test()
 	public void FP02_ForgotPasswordTest() throws Exception 
 	{	
 		ForgotPassword ForgotPassword = new ForgotPassword(getDriver());
-		ForgotPassword.FP_2_ForgotPassword();			
-}
+		ForgotPassword.FP02_ForgotPassword();			
+	}
 
 	public void FP03_ForgotPasswordTest() throws Exception 
 	{	
 		ForgotPassword ForgotPassword = new ForgotPassword(getDriver());
-		ForgotPassword.FP_3_ForgotPassword();			
+		ForgotPassword.FP03_ForgotPassword();			
 	}
-  
+
 }
