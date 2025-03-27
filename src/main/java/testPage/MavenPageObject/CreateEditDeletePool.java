@@ -61,14 +61,14 @@ public class CreateEditDeletePool extends BasePge {
 			//Expected: User should able to enter pool name
 			base.setData(loginObj.Edt_LoginEmail("pool_name"), createEditDeletePoolTestdata.TC02_CreateEditDeletePool);
 	        String poolName=base.GetValue(loginObj.Edt_LoginEmail("pool_name"));
-	        asrt.assertEquals(poolName, createEditDeletePoolTestdata.TC02_CreateEditDeletePool);
+	        asrt.assertEquals(poolName, createEditDeletePoolTestdata.TC02_CreateEditDeletePool, "User is not able to enter the pool name");
 			
 			//step 7:Select the Pool Type
 			//Expected: User should able to select pool type
 			base.selectorByVisibleText(createEditDeletePoolObj.Sel_PoolType("pool_type"),createEditDeletePoolTestdata.TC02_CreateEditDeletePool_dropdwn);
 	        String poolType=base.GetText(createEditDeletePoolObj.Ddl_PoolType("SemiPrivate"));
-	        asrt.assertEquals(poolType, createEditDeletePoolTestdata.TC02_CreateEditDeletePool_dropdwn);
-			
+	        asrt.assertEquals(poolType, createEditDeletePoolTestdata.TC02_CreateEditDeletePool_dropdwn, "User is not able to select the pool type");
+
 			//step 8:Click Create
 			//Expected: User should able to click create
 			base.buttonClick(createEditDeletePoolObj.Btn_CreatePoolAlert("submit", "CREATE"));
