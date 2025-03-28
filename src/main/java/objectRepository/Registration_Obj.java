@@ -14,6 +14,8 @@ public class Registration_Obj
 	public By Ele_Email(String text1) {return By.xpath("//input[@id='"+text1+"']");}
 	public By Ele_Username(String text1,String text2) {return By.xpath("//div[@class='"+text1+"']//label[@class='"+text2+"']");}
 	public By Ele_UsernameValid(String text1,String text2) {return By.xpath("//form[@id='"+text1+"']//label[text()='"+text2+"']");}
-	
+	public By Ele_BlankValue(String text1,String text2) {return By.xpath("//div[@class='"+text1+"']//span[@id='"+text2+"']");}
+	public By Ele_Numberror(String text1,String text2) {return By.xpath("//span[@class='"+text1+"' and @id='"+text2+"']");}
+	public By Ele_ErrorMessage(String text1,String text2) {return By.xpath("//span[@id='"+text1+"']//li[text()='"+text2+"']");}
 }
 
