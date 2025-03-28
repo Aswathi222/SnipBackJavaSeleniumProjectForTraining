@@ -62,4 +62,21 @@ public class PublicGameListing extends BasePge{
         }
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_Login("Login")), "User is unable to view Login Option when entering into the  SnipBack Website");
 	}
+	//<summary>
+	//Verify that the user should be able to click on "FILM" tab without login to snipback
+	//Automation ID:GameListing_03
+	//</summary>
+		public void GameListing_03_PublicGameListing() {
+			LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+			PublicGameListing_Obj PublicGameObj=new PublicGameListing_Obj();
+			
+			// Step1: User navigated to SnipBack Website after entering snipback url
+			// Expected:The user should be able to navigate to the  Snipback website after entering the URL
+			asrt.assertTrue(base.isExists(LoginPageObj.Ele_SnipBackHomePageLogo("light-logo")), "User is unable to navigate to SnipBack website after entering the URL");	
+			
+			//Step2:Click on FILM Tab without login
+			//Expected:The user should be able to click on "FILM" tab without login to snipback
+			base.buttonClick(PublicGameObj.Btn_Menu("Film","menu_link nav-link "));
+			asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");	
+		}	
 }
