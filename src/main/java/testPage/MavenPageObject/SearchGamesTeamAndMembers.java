@@ -26,7 +26,6 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		LoginPage_Obj loginObj=new LoginPage_Obj();
 		Login login=new Login(driver);
 		CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
-		CreateEditDeletePool_TestData createEditDeletePoolTestdata=new CreateEditDeletePool_TestData();
 		
 		//Step 1: Navigate to Snipback page
 		//Expected : User should be able to view Snipback page
@@ -47,5 +46,5 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		base.buttonClick(loginObj.Edt_Alert1("GAMES"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to search games in games listing page.");
 }
-	
+
 }
