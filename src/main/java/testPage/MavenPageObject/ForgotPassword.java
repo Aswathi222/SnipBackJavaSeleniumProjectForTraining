@@ -111,12 +111,12 @@ public class ForgotPassword extends BasePge {
 		//Step 1 : Navigate to Home page
 		//Expected : Home page should be displayed
 		base.buttonClick(LoginPageObj.Btn_Login("Login"));
-		asrt.assertTrue(base.isExists(LoginPageObj.Btn_SingnIn("login_submit")));
+		asrt.assertTrue(base.isExists(LoginPageObj.Btn_SingnIn("login_submit")),"Home Page is not displayed.");
 
 		//Step 2 : On the login screen, click the "Forgot Password" icon
 		//Expected : The system navigates to the "Forgot Password" page
 		base.buttonClick(LoginPageObj.Btn_LoginButton("forget-password"));
-		asrt.assertTrue(base.isExists(ForgotPasswordObj.Ele_ResetPasswordHeading("Reset Password"))); 
+		asrt.assertTrue(base.isExists(ForgotPasswordObj.Ele_ResetPasswordHeading("Reset Password")),"The system is not navigated to the Forgot Password page");  
 
 		//Step 3 : Enter an unregistered email id
 		//Expected : User should be able to enter an unregistered email id
