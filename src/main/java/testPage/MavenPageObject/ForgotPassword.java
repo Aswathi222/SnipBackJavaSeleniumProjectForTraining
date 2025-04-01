@@ -122,7 +122,7 @@ public class ForgotPassword extends BasePge {
 		//Expected : User should be able to enter an unregistered email id
 		base.setData(LoginPageObj.Edt_LoginEmail("forgot-email"), ForgotPasswordTestData.FP_4_ForgotPasswordUnregisteredEmail);
 		String UnregisteredEmail = base.GetValue(LoginPageObj.Edt_LoginEmail("forgot-email"));
-		asrt.assertEquals(UnregisteredEmail, ForgotPasswordTestData.FP_4_ForgotPasswordUnregisteredEmail);
+		asrt.assertEquals(UnregisteredEmail, ForgotPasswordTestData.FP_4_ForgotPasswordUnregisteredEmail,"User is not able to enter an unregistered email id");
 
 		//Step 4 : Click submit button after entering an unregistered email id
 		//Expected : The system should display an error message like "User not found" and should not send a reset link.
