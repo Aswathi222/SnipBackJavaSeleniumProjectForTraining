@@ -206,7 +206,6 @@ public class SnipBackRegistration extends BasePge{
 		Registration_Obj   RegistrationObj = new Registration_Obj();
 		SnipBackRegistration_TestData  snipbackregistrationtestdata = new SnipBackRegistration_TestData();
 		LoginPage_Obj loginpageobj = new LoginPage_Obj();
-		ForgotPassword_Obj   forgotpasswordobj = new ForgotPassword_Obj();
 		
 		//Step 1 :  Click on Login button
 		//Expected : User should click on login button
