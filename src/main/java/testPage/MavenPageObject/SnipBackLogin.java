@@ -20,10 +20,10 @@ public class SnipBackLogin extends BasePge{
 		super(driver);
 		base = new BasePge(driver);
 	}
-	///<summary>
-	///Testcase Title:Verify whether the user can be able to  login 
-	///Automation ID:TC_01
-	///</summary>
+	//<summary>
+	//Testcase Title:Verify whether the user can be able to  login 
+	//Automation ID:TC_01
+	//</summary>
     public void SH_SnipBackLogin_TC01() {
     
     	SnipBackLogin_Obj SnipBackLoginObj=new SnipBackLogin_Obj();
