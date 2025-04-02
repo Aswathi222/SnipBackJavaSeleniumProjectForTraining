@@ -190,6 +190,87 @@ public class SnipBackRegistration extends BasePge{
 		base.buttonClick(loginpageobj.Btn_SingnIn("btn-signup"));	
 		asrt.assertEquals(ActualTrimUsername,SnipBackRegistration_TestData.TC03_RegistrationTrimName,"User is unable to trim the username and cannot accept the username");	
 	}
+	/*<summary>
+	Test Case Title :"1. Verify password should be a minimum and maximum characters long.
+                      2. Verify password should have at least 1 uppercase and 1 lowercase letter
+                      3. Verify Password should consist of at least 1 number.
+                      4. Verify the field must have at least 1 special character.
+                      5. Verify if the input in the password matches with the confirm password fields.
+                      6. Verify the error messages are shown for blank password field
+                      7. Verify password should be Minimum 7 charater with atleast 1 uppercase, lowercase, number, andspecial character
+	Automation ID :TC04_Registration
+    </summary> */
+
+	public void TC04_Registration() throws InterruptedException 
+	{
+		Registration_Obj   RegistrationObj = new Registration_Obj();
+		SnipBackRegistration_TestData  snipbackregistrationtestdata = new SnipBackRegistration_TestData();
+		LoginPage_Obj loginpageobj = new LoginPage_Obj();
+		
+		//Step 1 :  Click on Login button
+		//Expected : User should click on login button
+		base.buttonClick(RegistrationObj.Btn_Login("nav-link btn btn-white sm", "Login"));
+		asrt.assertTrue(base.isExists(RegistrationObj.Btn_SignUp("signup-btn","Sign Up")),"User unable to find Login button.");
+
+		//Step 2: Click on sign up button
+		//Expected : User should click on signup button
+		base.buttonClick(RegistrationObj.Btn_SignUp("signup-btn","Sign Up"));
+		asrt.assertTrue(base.isExists(loginpageobj.Btn_SingnIn("btn-signup")),"User is unable to click the sign up button in the login page.");
+		
+		//Step 3 :  Verify password should be a minimum and maximum characters long.
+		//Expected : There should be a pop-up message "The password should contain minimum 7 characters."
+		base.setData(loginpageobj.Edt_LoginEmail("user_pass"),snipbackregistrationtestdata.TC04_RegistrationPasswrdMin);
+	    asrt.assertTrue(base.isExists(RegistrationObj.Ele_ErrorMessage("invalid-pswd","missing minimum length 7")),"User is unable to find the popup message as 'Missing minimum length 7'");
+		
+		//Step 4 : Verify password should have at least 1 uppercase and 1 lowercase letter
+		//Expected : There should be a pop up message as 1.'Missing numeric digits'   2.'Missing special characters (@ $ * !)'
+		base.setData(loginpageobj.Edt_LoginEmail("user_pass"),snipbackregistrationtestdata.TC04_RegistrationUpperLower);
+		asrt.assertTrue(base.isExists(RegistrationObj.Ele_ErrorMessage("invalid-pswd","missing numeric digits")),"User is unable to find the popup message as 'Missing numeric digits'");
+		asrt.assertTrue(base.isExists(RegistrationObj.Ele_ErrorMessage("invalid-pswd","missing special characters (@ $ * !)")),"User is unable to find the popup message as 'Missing special characters (@ $ * !)'");
+		
+		//Step 5 : Verify Password should consist of at least 1 number.
+		//Expected : There should be a pop-up message 1."Missing lowercase letters" 2."Missing uppercase letters" 3."Missing special characters (@ $ * !)"
+		base.setData(loginpageobj.Edt_LoginEmail("user_pass"),snipbackregistrationtestdata.TC04_RegistartionNumber);
+		String[] ErrorMessages = {"missing lowercase letters", "missing uppercase letters", "missing special characters (@ $ * !)"};		 
+		for (String Messages : ErrorMessages) 
+		{ 
+			asrt.assertTrue(base.isExists(RegistrationObj.Ele_ErrorMessage("invalid-pswd",Messages)), "User is not able to view the popup message as  " + Messages + "in the Signup page");
+		}	
+					
+		//Step 6: Verify the field must have at least 1 special character.
+		//Expected : 1. There should be a pop-up message "Special characters other than @, $, *, ! is not allowed".
+		base.setData(loginpageobj.Edt_LoginEmail("user_pass"),snipbackregistrationtestdata.TC04_RegistrationSpecialNotAllowed);
+		asrt.assertTrue(base.isExists(RegistrationObj.Ele_ErrorMessage("invalid-pswd","special characters other than @, $, *, ! is not allowed")),"User is Unable to find the popup message as 'Special characters other than @, $, *, ! is not allowed'");
+		
+		//Step 6: Verify the field must have at least 1 special character.
+		//Expected : "2. There should be a pop-up message "Missing numeric digits""Missing minimum length 7"
+		base.setData(loginpageobj.Edt_LoginEmail("user_pass"),snipbackregistrationtestdata.TC04_RegistrationSpecialAllowed);
+		asrt.assertTrue(base.isExists(RegistrationObj.Ele_ErrorMessage("invalid-pswd","missing numeric digits")),"User is unable to find the popup message as 'Missing numeric digits'");
+		asrt.assertTrue(base.isExists(RegistrationObj.Ele_ErrorMessage("invalid-pswd","missing minimum length 7")),"User is unable to find the popup message as 'Missing minimum length 7'");
+		
+		//Step 7 : Verify if the input in the password matches with the confirm password fields.
+		//Expected : There should be a pop-up message "Passwords are not same"
+		base.setData(RegistrationObj.Ele_Name("form-inlines","first_name"),snipbackregistrationtestdata.TC04_RegistrationValidName);
+		base.setData(loginpageobj.Edt_LoginEmail("user_email"),snipbackregistrationtestdata.TC04_registrationvalidemail);
+		base.setData(loginpageobj.Edt_LoginEmail("user_name"),snipbackregistrationtestdata.TC04_RegistrationValidName);
+		base.setData(loginpageobj.Edt_LoginEmail("user_pass"),snipbackregistrationtestdata.TC04_RegistrationEnteredPassword);
+		base.setData(loginpageobj.Edt_LoginEmail("user_confirm_password"),snipbackregistrationtestdata.TC04_RegistrationConfirmPassword);
+		base.buttonClick(loginpageobj.Btn_SingnIn("btn-signup"));
+		asrt.assertTrue(base.isExists(RegistrationObj.Ele_Emailerror("err_cpassword")), "User is unable to find the popup message as 'Passwords are not same'");
+		
+		//Step 8 : Verify the error messages are shown for blank password field
+		//Expected : There should be a pop-up message "Password is required"
+		base.setData(loginpageobj.Edt_LoginEmail("user_pass"),snipbackregistrationtestdata.TC04_RegistrationEmptyPassword);
+		base.buttonClick(loginpageobj.Btn_SingnIn("btn-signup"));
+		asrt.assertTrue(base.isExists(RegistrationObj.Ele_BlankValue("textFieldslogin mb-4","err_password")),"User is unable to find the pop up message as 'Password is required'.");
+		
+		//Step 9 :Verify password should be Minimum 7 charater with atleast 1 uppercase, lowercase, number, andspecial character
+		//Expected : It should accept mentioned test data.
+		base.setData(loginpageobj.Edt_LoginEmail("user_pass"),snipbackregistrationtestdata.TC04_RegistrationValidPassword);
+		base.buttonClick(loginpageobj.Btn_SingnIn("btn-signup"));
+		String ActualPassword=base.GetValue(RegistrationObj.Ele_Email("user_pass"));
+		asrt.assertEquals(ActualPassword,snipbackregistrationtestdata.TC04_RegistrationValidPassword,"User is unable to accept the valid password");		
+	}
 }
 
 
