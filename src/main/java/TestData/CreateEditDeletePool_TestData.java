@@ -11,8 +11,11 @@ public class CreateEditDeletePool_TestData {
 	// TC03_CreateEditDeletePool
 	public static String TC03_CreateEditDeletePool=BasePge.CreateRandomWithoutNumbers(1);
 	public static String TC03_CreateEditDeletePool_dropdwn="SemiPrivate";
-	
+
 	// TC04_CreateEditDeletePool
 	public static String TC04_CreateEditDeletePool_dropdwn="SemiPrivate";
+
+	// TC05_CreateEditDeletePool
+	public static String TC05_CreateEditDeletePool=BasePge.CreateRandomWithoutNumbers(6);
 }
 
