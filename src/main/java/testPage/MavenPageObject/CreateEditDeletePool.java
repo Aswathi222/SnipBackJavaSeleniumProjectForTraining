@@ -23,6 +23,51 @@ public class CreateEditDeletePool extends BasePge {
 		base = new BasePge(driver);
 	}
 	//<Summary>
+	//Test case Title:To verify what happens when user kept the Pool Name field empty.
+	//Automation ID: TC_04
+	//</Summary>
+	public void TC04_CreateEditDeletePool() throws InterruptedException{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login=new Login(driver);
+		CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
+		CreateEditDeletePool_TestData createEditDeletePoolTestdata=new CreateEditDeletePool_TestData();
+
+		//Step 1: Navigate to Snipback page
+		//Expected : User should be able to view Snipback page
+		asrt.assertTrue(base.isExists(loginObj.Btn_Login("Login")),"User is unable to view SnipBack page" );
+
+		//Step 2: Click Login button
+		//Expected: user should be able to login to the SnipBack
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"))," User is unable to login to SnipBack");
+
+		//step 3:Go to Film page
+		//Expected: User should be able to click film
+		base.buttonClick(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		asrt.assertTrue(base.isExists(loginObj.Btn_SignInButton("POOLS")), "User is unable to click the Film");
+
+		//step 4: Under Games section, go to Pools page
+		//Expected: There should be an option to create pool
+		base.excuteJsClick(loginObj.Btn_SignInButton("POOLS"));
+		asrt.assertTrue(base.isExists(loginObj.Edt_Alert1("Create Pool")), "User is unable to view an option to create pool");
+
+		//step 5: Click "+Create Pool" button
+		//Expected: User should able to click '+ Create Pool'
+		base.buttonClick(loginObj.Edt_Alert1("Create Pool"));
+		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("pool_name")), "User is unable to click '+Create Pool' button");
+
+		//step 6:Select the Pool Type
+		//Expected: User should able to select pool type
+		base.selectorByVisibleText(createEditDeletePoolObj.Sel_PoolType("pool_type"),createEditDeletePoolTestdata.TC04_CreateEditDeletePool_dropdwn);
+		String poolType=base.GetText(createEditDeletePoolObj.Ddl_PoolType("SemiPrivate"));
+		asrt.assertEquals(poolType, createEditDeletePoolTestdata.TC04_CreateEditDeletePool_dropdwn, "User is not able to select the pool type");
+
+		//step 7:Click Create
+		//Expected: The user will receive an alert message as "The Pool Name field is required."
+		base.buttonClick(createEditDeletePoolObj.Btn_CreatePoolAlert("submit", "CREATE"));
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("Pool Name is required!..")), "User is unable to receive an alert message as 'The Pool name field is required'");
+	}
+	//<Summary>
 	//Test case Title:To verify what happens when the user enters an invalid pool name.
 	//Automation ID: TC_03
 	//</Summary>
