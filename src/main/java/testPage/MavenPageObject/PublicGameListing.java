@@ -1,5 +1,5 @@
 package testPage.MavenPageObject;
-package
+
 import org.openqa.selenium.WebDriver;
 import java.util.List;
 import java.util.ArrayList;
