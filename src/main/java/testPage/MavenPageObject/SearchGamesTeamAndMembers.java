@@ -81,7 +81,7 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		//step 5:Click search bar
 		//Expected:User should click search bar
 		base.buttonClick(loginObj.Edt_LoginEmail("search"));
-		asrt.assertTrue(base.isExists(snipBackLoginObj.Btn_Login("T-enable")), "User is unable to click search bar");
+		asrt.assertTrue(base.isEnabledBy(loginObj.Edt_LoginEmail("search")), "User is unable to click search bar");
 
 		//step 6:Enter the first letter of game name
 		//Expected:User should enter first letter of game name
@@ -94,4 +94,5 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		base.pressKey(loginObj.Edt_LoginEmail("search"),"KEYBOARD_ENTER" );
 		asrt.assertTrue(base.isExists(snipBackLoginObj.Btn_Login("T-disable")), "User is unable to view the list of games with given first letter");
 	}
+	
 }
