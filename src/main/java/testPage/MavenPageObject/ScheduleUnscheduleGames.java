@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import TestData.CommonData;
+import TestData.ScheduleUnschedule_TestData;
 import objectRepository.LoginPage_Obj;
 import objectRepository.ScheduleUnscheduleGames_Obj;
 import objectRepository.SnipBackLogin_Obj;
@@ -34,7 +35,7 @@ public class ScheduleUnscheduleGames extends BasePge {
 		//Step 2 : Login to Snipback
 		//Expected : User should be able to login.
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("SCHEDULE")),"There is no section for Schedule games under Film page.");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("SCHEDULE")),"User not able to login");
 
 		//Step 3: Verify whether there is a section as Schedule in Film page
 		//Expected: There should be a section for scheduled games under Film page.
@@ -59,7 +60,7 @@ public class ScheduleUnscheduleGames extends BasePge {
 		//Step 2 : Login to Snipback
 		//Expected : User should be able to login.
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("SCHEDULE")),"There is no section for Schedule games under Film page.");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("SCHEDULE")),"User not able to login");
 
 		//Step 3: Verify whether there is schedule icon near the games under Events
 		//Expected: There should be a schedule icon near the games under Events..
@@ -71,7 +72,6 @@ public class ScheduleUnscheduleGames extends BasePge {
 		//Expected: There should be a schedule icon near the games under Practices..
 		base.buttonClick(SnipBackLoginObj.Btn_Signin("PRACTICES"));
 		asrt.assertTrue(base.isExists(ScheduleUnscheduleGamesObj.Btn_ScheduleUnschedule("game-row ","1","calendar-list scheduled","practice_film")),
-				"There is no schedule icon near the games under Practices.");
-		
+				"There is no schedule icon near the games under Practices.");		
 	}
 }

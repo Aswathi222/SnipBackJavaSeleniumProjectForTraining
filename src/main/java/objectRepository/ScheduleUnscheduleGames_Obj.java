@@ -5,9 +5,14 @@ import org.openqa.selenium.By;
 public class ScheduleUnscheduleGames_Obj {	
 	
 	//Btn
-	public By Btn_ScheduleUnschedule(String text1, String text2, String text3, String text4) 
+	public By Btn_ScheduleUnschedule(String class1, String text2, String class2, String dtType) 
 	{
-		return By.xpath("//tr[@class='"+text1+"']//td[text()='"+text2+"']/following-sibling::td//span[contains(@class, '"+text3+"')and @data-type='"+text4+"']");
+		return By.xpath("//tr[@class='"+class1+"']//td[text()='"+text2+"']/following-sibling::td//span[contains(@class, '"+class2+"')and @data-type='"+dtType+"']");
 	}
+	//Ddl
+	public By DdlOrg(String class1) {return By.xpath("//select[@class='"+class1+"']");}
+	
+	//Ele
+	public By Ele_TeamNameFromList(String id1,String text1) {return By.xpath("//div[@id='"+id1+"']//span[text()='"+text1+"']");}
 }
 
