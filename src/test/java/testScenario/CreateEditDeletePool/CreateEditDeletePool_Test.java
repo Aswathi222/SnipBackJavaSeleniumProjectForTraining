@@ -8,6 +8,12 @@ import utilPack.BaseTest;
 public class CreateEditDeletePool_Test extends BaseTest 
 {	
 	@Test()
+	public void TC04_CreateEditDeletePool() throws Exception 
+	{	
+		CreateEditDeletePool createEditDeletePoolTest = new CreateEditDeletePool(getDriver());
+		createEditDeletePoolTest.TC04_CreateEditDeletePool();			
+	}
+	@Test()
 	public void TC03_CreateEditDeletePool() throws Exception 
 	{	
 		CreateEditDeletePool createEditDeletePoolTest = new CreateEditDeletePool(getDriver());
