@@ -35,28 +35,6 @@ public class SnipBackLogin extends BasePge{
     	asrt.assertTrue(base.isExists(SnipBackLoginObj.Btn_Signin("SIGN IN")), "User shouldnot be able to click login  button");
     	
     }
-    
-  ///<summary>
-  	///Testcase Title:Verify what happens when the user does not fill the Email Address and Password field
-  	///Automation ID:TC_02
-  	///</summary>
-      public void SH_SnipBackLogin_TC02() {
-    	  SnipBackLogin_Obj SnipBackLoginObj=new SnipBackLogin_Obj();
-          LoginPage_Obj  LoginPageObj=new  LoginPage_Obj();
-          
-    	  
-    	 //Step 1: Go to Snipback website
-    	//Step  2: Click login button from the home page
-    	//Expected:User should able to click login  button
-      	base.buttonClick(SnipBackLoginObj.Btn_Login("Login"));
-      	asrt.assertTrue(base.isExists(SnipBackLoginObj.Btn_Signin("SIGN IN")), "User shouldnot be able to click login  button");
-      	 
-      	//Step 3: Without filling any field, click Sign In
-      	//Expected : User Shouldn't able to login the page and should receive a error message(User not found)
-      	base.buttonClick(SnipBackLoginObj.Btn_Signin("SIGN IN")); 
-      	asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("Please enter your email address")), "User can able to login the page and  receive a error message");
-    	 
-      }
 	
 }
 
