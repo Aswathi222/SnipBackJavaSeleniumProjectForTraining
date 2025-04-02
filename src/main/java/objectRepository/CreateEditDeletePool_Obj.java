@@ -8,4 +8,7 @@ public class CreateEditDeletePool_Obj {
 
 	//sel
 	public By Sel_PoolType(String text) {return By.xpath("//select[@id='"+text+"']");}
+	//Ddl
+	public By Ddl_PoolType(String text) {return By.xpath("//option[text()='"+text+"']");}
+	public By Ddl_addUser(String text){return By.xpath("//a[@id='"+text+"']");}
 }
