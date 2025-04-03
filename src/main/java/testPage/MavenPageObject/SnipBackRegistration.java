@@ -37,7 +37,7 @@ public class SnipBackRegistration extends BasePge{
 		//Step 1 :  Click on Login button
 		//Expected : User should click on login button
 		base.buttonClick(RegistrationObj.Btn_Login("nav-link btn btn-white sm", "Login"));
-		asrt.assertTrue(base.isExists(RegistrationObj.Btn_SignUp("signup-btn","Sign Up")),"User unable to find signup button in login page.");
+		asrt.assertTrue(base.isExists(RegistrationObj.Btn_SignUp("signup-btn","Sign Up")),"User unable to click Login button in snipback home page");
 
 		//Step 2: Click on sign up button
 		//Expected : User should click on signup button
@@ -82,7 +82,7 @@ public class SnipBackRegistration extends BasePge{
 		//Step 1 :  Click on Login button
 		//Expected : User should click on login button
 		base.buttonClick(RegistrationObj.Btn_Login("nav-link btn btn-white sm", "Login"));
-		asrt.assertTrue(base.isExists(RegistrationObj.Btn_SignUp("signup-btn","Sign Up")),"User unable to find signup button in login page.");
+		asrt.assertTrue(base.isExists(RegistrationObj.Btn_SignUp("signup-btn","Sign Up")),"User unable to click Login button in snipback home page");
 
 		//Step 2: Click on sign up button
 		//Expected : User should click on signup button
@@ -146,7 +146,7 @@ public class SnipBackRegistration extends BasePge{
 		//Step 1 :  Click on Login button
 		//Expected : User should click on login button
 		base.buttonClick(RegistrationObj.Btn_Login("nav-link btn btn-white sm", "Login"));
-		asrt.assertTrue(base.isExists(RegistrationObj.Btn_SignUp("signup-btn","Sign Up")),"User unable to find signup button in login page.");
+		asrt.assertTrue(base.isExists(RegistrationObj.Btn_SignUp("signup-btn","Sign Up")),"User unable to click Login button in snipback home page");
 
 		//Step 2: Click on sign up button
 		//Expected : User should click on signup button
@@ -210,7 +210,7 @@ public class SnipBackRegistration extends BasePge{
 		//Step 1 :  Click on Login button
 		//Expected : User should click on login button
 		base.buttonClick(RegistrationObj.Btn_Login("nav-link btn btn-white sm", "Login"));
-		asrt.assertTrue(base.isExists(RegistrationObj.Btn_SignUp("signup-btn","Sign Up")),"User unable to find Login button in login page.");
+		asrt.assertTrue(base.isExists(RegistrationObj.Btn_SignUp("signup-btn","Sign Up")),"User unable to click Login button in snipback home page");
 
 		//Step 2: Click on sign up button
 		//Expected : User should click on signup button
@@ -225,8 +225,7 @@ public class SnipBackRegistration extends BasePge{
 		//Step 4 : Verify password should have at least 1 uppercase and 1 lowercase letter
 		//Expected : There should be a pop up message as 1.'Missing numeric digits'   2.'Missing special characters (@ $ * !)'
 		base.setData(loginpageobj.Edt_LoginEmail("user_pass"),snipbackregistrationtestdata.TC04_RegistrationUpperLower);
-		asrt.assertTrue(base.isExists(RegistrationObj.Ele_ErrorMessage("invalid-pswd","missing numeric digits")),"User is unable to find the popup message as 'Missing numeric digits'");
-		asrt.assertTrue(base.isExists(RegistrationObj.Ele_ErrorMessage("invalid-pswd","missing special characters (@ $ * !)")),"User is unable to find the popup message as 'Missing special characters (@ $ * !)'");
+		asrt.assertTrue(base.isExists(RegistrationObj.Ele_ErrorMessage("invalid-pswd", "missing numeric digits")) && base.isExists(RegistrationObj.Ele_ErrorMessage("invalid-pswd", "missing special characters (@ $ * !)")),"User is unable to find the popup messages as 'Missing numeric digits' and 'Missing special characters (@ $ * !)'");
 
 		//Step 5 : Verify Password should consist of at least 1 number.
 		//Expected : There should be a pop-up message 1."Missing lowercase letters" 2."Missing uppercase letters" 3."Missing special characters (@ $ * !)"
@@ -245,8 +244,7 @@ public class SnipBackRegistration extends BasePge{
 		//Step 6: Verify the field must have at least 1 special character.
 		//Expected : "2. There should be a pop-up message "Missing numeric digits""Missing minimum length 7"
 		base.setData(loginpageobj.Edt_LoginEmail("user_pass"),snipbackregistrationtestdata.TC04_RegistrationSpecialAllowed);
-		asrt.assertTrue(base.isExists(RegistrationObj.Ele_ErrorMessage("invalid-pswd","missing numeric digits")),"User is unable to find the popup message as 'Missing numeric digits'");
-		asrt.assertTrue(base.isExists(RegistrationObj.Ele_ErrorMessage("invalid-pswd","missing minimum length 7")),"User is unable to find the popup message as 'Missing minimum length 7'");
+		asrt.assertTrue(base.isExists(RegistrationObj.Ele_ErrorMessage("invalid-pswd", "missing numeric digits")) && base.isExists(RegistrationObj.Ele_ErrorMessage("invalid-pswd", "missing minimum length 7")),"User is unable to find the popup messages as 'Missing numeric digits' and 'Missing minimum length 7'");
 
 		//Step 7 : Verify if the input in the password matches with the confirm password fields.
 		//Expected : There should be a pop-up message "Passwords are not same"
@@ -291,7 +289,7 @@ public class SnipBackRegistration extends BasePge{
 		//Step 1 :  Click on Login button
 		//Expected : User should click on login button
 		base.buttonClick(RegistrationObj.Btn_Login("nav-link btn btn-white sm", "Login"));
-		asrt.assertTrue(base.isExists(RegistrationObj.Btn_SignUp("signup-btn","Sign Up")),"User unable to find Login button in login page");
+		asrt.assertTrue(base.isExists(RegistrationObj.Btn_SignUp("signup-btn","Sign Up")),"User unable to click Login button in snipback home page");
 
 		//Step 2: Click on sign up button
 		//Expected : User should click on signup button
@@ -306,8 +304,7 @@ public class SnipBackRegistration extends BasePge{
 		//Step 4 : Verify password should have at least 1 uppercase and 1 lowercase letter
 		//Expected :1. Missing numeric digits  2. Missing special characters (@ $ * !)
 		base.setData(loginpageobj.Edt_LoginEmail("user_confirm_password"),snipbackregistrationtestdata.TC05_RegistrationUpperLowerPassword);
-		asrt.assertTrue(base.isExists(RegistrationObj.Ele_ErrorMessage("invalid-pswd","missing numeric digits")),"User is unable to find the popup message in confirm password field as 'Missing numeric digits'");
-		asrt.assertTrue(base.isExists(RegistrationObj.Ele_ErrorMessage("invalid-pswd","missing special characters (@ $ * !)")),"User is unable to find the popup message in confirm password field as 'Missing special characters (@ $ * !)'");
+		asrt.assertTrue(base.isExists(RegistrationObj.Ele_ErrorMessage("invalid-pswd", "missing numeric digits")) && base.isExists(RegistrationObj.Ele_ErrorMessage("invalid-pswd", "missing special characters (@ $ * !)")), "User is unable to find the popup messages in confirm password field as 'Missing numeric digits' and 'Missing special characters (@ $ * !)'");
 
 		//Step 5 : Verify Password should consist of at least 1 number.
 		//Expected : There should be a pop-up message 1."Missing lowercase letters" 2."Missing uppercase letters" 3."Missing special characters (@ $ * !)"
@@ -326,8 +323,7 @@ public class SnipBackRegistration extends BasePge{
 		//Step 7: Verify the field must have at least 1 special character.
 		//Expected :There should be a pop-up message "Missing numeric digits""Missing minimum length 7"
 		base.setData(loginpageobj.Edt_LoginEmail("user_confirm_password"),snipbackregistrationtestdata.TC05_RegistrationAllowedSpecial);
-		asrt.assertTrue(base.isExists(RegistrationObj.Ele_ErrorMessage("invalid-pswd","missing numeric digits")),"User is unable to find the popup message in confirm password field as 'Missing numeric digits'");
-		asrt.assertTrue(base.isExists(RegistrationObj.Ele_ErrorMessage("invalid-pswd","missing minimum length 7")),"User is unable to find the popup message in confirm password field as 'Missing minimum length 7'");
+		asrt.assertTrue(base.isExists(RegistrationObj.Ele_ErrorMessage("invalid-pswd", "missing numeric digits")) && base.isExists(RegistrationObj.Ele_ErrorMessage("invalid-pswd", "missing minimum length 7")),"User is unable to find the popup messages in confirm password field as 'Missing numeric digits' and 'Missing minimum length 7'");
 
 		//Step 8 : Verify if the input the confirm password matches with the password fields.
 		//Expected : There should be a pop-up message "Passwords are not same"
