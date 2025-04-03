@@ -30,4 +30,16 @@ public class ScheduleUnscheduleGames_Test extends BaseTest
 		ScheduleUnscheduleGames scheduleUnscheduleGames = new ScheduleUnscheduleGames(getDriver());
 		scheduleUnscheduleGames.SG_04_ScheduleUnscheduleGames();			
 	}
+	@Test()
+	public void SG_05_ScheduleUnscheduleGamesTest() throws Exception 
+	{	
+		ScheduleUnscheduleGames scheduleUnscheduleGames = new ScheduleUnscheduleGames(getDriver());
+		scheduleUnscheduleGames.SG_05_ScheduleUnscheduleGames();			
+	}
+	@Test()
+	public void SG_06_ScheduleUnscheduleGamesTest() throws Exception 
+	{	
+		ScheduleUnscheduleGames scheduleUnscheduleGames = new ScheduleUnscheduleGames(getDriver());
+		scheduleUnscheduleGames.SG_06_ScheduleUnscheduleGames();			
+	}
 }

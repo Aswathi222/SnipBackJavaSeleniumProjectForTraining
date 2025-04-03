@@ -18,7 +18,6 @@ public class ScheduleUnscheduleGames_Obj {
 	//Ele
 	public By Ele_TeamNameFromList(String id1,String text1) {return By.xpath("//div[@id='"+id1+"']//span[text()='"+text1+"']");}
 	public By Ele_CreateGameFor(String text1) {return By.xpath("//h3[text()='"+text1+"']");}
-	public By Ele_SearchGame(String cls) {return By.xpath("//input[@class='"+cls+"']");}
-	
+	public By Ele_SearchGame(String cls) {return By.xpath("//input[@class='"+cls+"']");}	
 }
 
