@@ -1,8 +1,13 @@
 package testPage.MavenPageObject;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import java.util.List;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 import org.testng.Assert;
+import TestData.PublicGameListing_TestData;
 import objectRepository.LoginPage_Obj;
 import objectRepository.PublicGameListing_Obj;
 import objectRepository.SnipBackLogin_Obj;
@@ -119,10 +124,35 @@ public class PublicGameListing extends BasePge{
 			asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");	
 			
 			//Step 3  :"Verify user able to see the public games as per the condition"
-			//Expected:"User should be able to see the public games as per the recent dates along with day(eg: Wednesday, Oct 23 2024) after entering into FILM page" 
-			asrt.assertTrue(base.isExists(PublicGameObj.Btn_Sort("myCheckbox1")),"User is unable to see the 'Sort by Date' Up Arrow button on the Film page of Snipback.");
-			base.buttonClick(PublicGameObj.Btn_Sort("myCheckbox1"));
-			asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText("PublicGameLisitngTestGame")) &&  base.isExists(PublicGameObj.Ele_Date("Friday,", " Mar 28 2025")), "User is unable to see public games as per the recent dates.");
-		}
-		
+			//Expected:"User should be able to see the public games as per the recent dates along with day after entering into FILM page" 
+			
+			ArrayList<LocalDate> extractedDates = new ArrayList<>();
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd yyyy", Locale.US);
+			
+			String todayDate = base.getFormattedDate(PublicGameObj.Ele_GameDate(2, "redText"));  
+
+			for (int i = 2; i <= 26; i++) {  
+			    By dateLocate = PublicGameObj.Ele_GameDate(i, "redText"); 
+			    String dateText = base.GetText(dateLocate).trim(); 
+
+			    dateText = dateText.substring(0, 1).toUpperCase() + dateText.substring(1).toLowerCase();
+			    
+			    LocalDate extractedDate = LocalDate.parse(dateText, formatter);
+			    
+			    if (!extractedDate.equals(todayDate)) {
+			        extractedDates.add(extractedDate);
+			    }
+			}
+
+			boolean isSorted = true;
+			for (int i = 2; i < extractedDates.size() - 1; i++) {
+			    if (extractedDates.get(i).isBefore(extractedDates.get(i + 1))) {
+			        isSorted = false;
+			        break;
+			    }
+			}
+
+			asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText("asd")) && base.isExists(PublicGameObj.Ele_Date("Wednesday,", " Apr 02 2025")),"User is unable to see the recent public game 'asd' with date 'Wednesday, Apr 02 2025' on the Films page");
+
+		}				
 }
