@@ -70,9 +70,13 @@ public class CreateEditDeletePool extends BasePge {
 		base.buttonClick(createEditDeletePoolObj.Ddl_addUser1("ui-corner-all", createEditDeletePoolTestdata.TC06_CreateEditDeletePool_addUser));
 		String poolUser=base.GetText(createEditDeletePoolObj.Ele_PoolUser("poolUser", createEditDeletePoolTestdata.TC06_CreateEditDeletePool_poolUser));
 		asrt.assertEquals(poolUser, createEditDeletePoolTestdata.TC06_CreateEditDeletePool_poolUser, "User is not able to select the pool type as Private");
-
+		base.setData(loginObj.Edt_LoginEmail("pool_userSearch"),createEditDeletePoolTestdata.TC06_CreateEditDeletePool_addUser2 );
+		base.buttonClick(createEditDeletePoolObj.Ddl_addUser1("ui-corner-all", createEditDeletePoolTestdata.TC06_CreateEditDeletePool_addUser2));
+		String poolUser2=base.GetText(createEditDeletePoolObj.Ele_PoolUser("poolUser", createEditDeletePoolTestdata.TC06_CreateEditDeletePool_poolUser2));
+		asrt.assertEquals(poolUser2, createEditDeletePoolTestdata.TC06_CreateEditDeletePool_poolUser2, "User is not able to select the pool type as Private");
+		
 		//step 8:Click Create
-		//Expected:The user can add multiple users to that pool. So that users can also have the access to this pool.
+		//Expected:The user can add multiple users to that pool.
 		base.buttonClick(createEditDeletePoolObj.Btn_CreatePoolAlert("submit", "CREATE"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("Pool created successfully")), "User is unable to add multiple users to the pool.");
 	}
