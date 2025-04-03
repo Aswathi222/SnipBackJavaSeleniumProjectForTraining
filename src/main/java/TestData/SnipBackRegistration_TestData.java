@@ -40,6 +40,19 @@ public class SnipBackRegistration_TestData
 	public static String TC04_registrationvalidemail="neethumahendran@gmail.com";
 	public static String TC04_RegistrationValidUsername="anglestar";
 
+	//TC05_Registration
+	public static String TC05_RegistrationConfirmPasswordMin="Test";
+	public static String TC05_RegistrationUpperLowerPassword="Testones";
+	public static String TC05_RegistrationConfirmPasswordNumber="12345678";
+	public static String TC05_RegistrationAllowedSpecial="Test@";
+	public static String TC05_RegistrationNotAllowedSpecial="@#$%^&*()";
+	public static String TC05_RegistrationConfirmPasswordCorrect="Test@1234";
+	public static String TC05_RegistrationEnteredPassword="Test@123";
+	public static String TC05_RegistrationBlankConfirmPassword="";
+	public static String TC05_RegistrationValidName="TINTUSAM";
+	public static String TC05_registrationvalidemail="neethumahendran@gmail.com";
+	public static String TC05_RegistrationValidUsername="ANGEL";
+
 }
 
 
