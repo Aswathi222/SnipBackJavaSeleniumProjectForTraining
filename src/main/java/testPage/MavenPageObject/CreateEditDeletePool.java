@@ -74,7 +74,7 @@ public class CreateEditDeletePool extends BasePge {
 		//step 8:Click Create
 		//Expected:The user can add multiple users to that pool. So that users can also have the access to this pool.
 		base.buttonClick(createEditDeletePoolObj.Btn_CreatePoolAlert("submit", "CREATE"));
-		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("Pool created successfully")), "User cannot add multiple users to the pool.");
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("Pool created successfully")), "User is unable to add multiple users to the pool.");
 	}
 	//<Summary>
 	//Test case Title:To verify what happens when user doesn't select the pool type.
