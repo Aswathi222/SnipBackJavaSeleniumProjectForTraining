@@ -66,7 +66,8 @@ public class CreateEditDeletePool extends BasePge {
 		//step 7:Select the Pool Type
 		//Expected: User should able to select pool type as Private
 		base.selectorByVisibleText(createEditDeletePoolObj.Sel_PoolType("pool_type"),createEditDeletePoolTestdata.TC06_CreateEditDeletePool_dropdwn);
-		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("pool_userSearch")), "User is unable to select pool type as private");
+		asrt.assertTrue(base.isExists(createEditDeletePoolObj.Ele_PoolType("col-md-6 flex-column mt-3 pool-user", "Users ")), "User is unable to select pool type as Private");
+		
 		
 		//step 8:Click Create
 		//Expected:The user can add multiple users to that pool.

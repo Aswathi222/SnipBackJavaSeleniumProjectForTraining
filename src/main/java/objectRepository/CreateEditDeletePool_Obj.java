@@ -16,4 +16,5 @@ public class CreateEditDeletePool_Obj {
 	// Ele
 	public By Ele_PoolUser(String class1, String text1){return By.xpath("//span[@class='"+class1+"' and text()='"+text1+"']");}
 	public By Ele_Pooldots(String text, String value){return By.xpath("//a[text()='"+text+"']/../../..//button[@data-toggle='"+value+"'] ");}
+	public By Ele_PoolType(String class1, String text){return By.xpath("//div[@class='"+class1+"']//label[text()='"+text+"']");}
 }
