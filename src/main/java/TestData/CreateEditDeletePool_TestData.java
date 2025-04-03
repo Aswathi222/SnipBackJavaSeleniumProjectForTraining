@@ -17,5 +17,13 @@ public class CreateEditDeletePool_TestData {
 
 	// TC05_CreateEditDeletePool
 	public static String TC05_CreateEditDeletePool=BasePge.CreateRandomWithoutNumbers(6);
+
+	// TC06_CreateEditDeletePool
+	public static String TC06_CreateEditDeletePool=BasePge.CreateRandomWithoutNumbers(5);
+	public static String TC06_CreateEditDeletePool_dropdwn="Private";
+	public static String TC06_CreateEditDeletePool_addUser="neethumahendran5@gmail.com";
+	public static String TC06_CreateEditDeletePool_poolUser="Neethu";
+	public static String TC06_CreateEditDeletePool_addUser2="netthubharthi@gmail.com";
+	public static String TC06_CreateEditDeletePool_poolUser2="Neethu Bharathi";
 }
 
