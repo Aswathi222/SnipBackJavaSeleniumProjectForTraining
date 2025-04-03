@@ -22,6 +22,62 @@ public class CreateEditDeletePool extends BasePge {
 		super(driver);
 		base = new BasePge(driver);
 	}
+
+	//<Summary>
+	//Test case Title:To verify what happens when user select the Pool Type as Private.
+	//Automation ID: TC_06
+	//</Summary>
+	public void TC06_CreateEditDeletePool() throws InterruptedException{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login=new Login(driver);
+		CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
+		CreateEditDeletePool_TestData createEditDeletePoolTestdata=new CreateEditDeletePool_TestData();
+
+		//Step 1: Navigate to Snipback page
+		//Expected : User should be able to view Snipback page
+		asrt.assertTrue(base.isExists(loginObj.Btn_Login("Login")),"User is unable to view SnipBack page" );
+
+		//Step 2: Click Login button
+		//Expected: user should be able to login to the SnipBack
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"))," User is unable to login to SnipBack");
+
+		//step 3:Go to Film page
+		//Expected: User should be able to click film
+		base.buttonClick(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		asrt.assertTrue(base.isExists(loginObj.Btn_SignInButton("POOLS")), "User is unable to click the Film");
+
+		//step 4: Under Games section, go to Pools page
+		//Expected: There should be an option to create pool
+		base.excuteJsClick(loginObj.Btn_SignInButton("POOLS"));
+		asrt.assertTrue(base.isExists(loginObj.Edt_Alert1("Create Pool")), "User is unable to view an option to create pool");
+
+		//step 5: Click "+Create Pool" button
+		//Expected: User should able to click '+ Create Pool'
+		base.buttonClick(loginObj.Edt_Alert1("Create Pool"));
+		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("pool_name")), "User is unable to click '+Create Pool' button");
+
+		//step 6: Enter the Pool Name
+		//Expected: User should able to enter pool name
+		base.setData(loginObj.Edt_LoginEmail("pool_name"), createEditDeletePoolTestdata.TC06_CreateEditDeletePool);
+		String poolName=base.GetValue(loginObj.Edt_LoginEmail("pool_name"));
+		asrt.assertEquals(poolName, createEditDeletePoolTestdata.TC06_CreateEditDeletePool, "User is not able to enter the pool name");
+
+		//step 7:Select the Pool Type
+		//Expected: User should able to select pool type as Private
+		base.selectorByVisibleText(createEditDeletePoolObj.Sel_PoolType("pool_type"),createEditDeletePoolTestdata.TC06_CreateEditDeletePool_dropdwn);
+		asrt.assertTrue(base.isExists(createEditDeletePoolObj.Ele_PoolType("col-md-6 flex-column mt-3 pool-user", "Users ")), "User is unable to select pool type as Private");
+		
+		
+		//step 8:Click Create
+		//Expected:The user can add multiple users to that pool.
+		base.setData(loginObj.Edt_LoginEmail("pool_userSearch"),createEditDeletePoolTestdata.TC06_CreateEditDeletePool_addUser );
+		base.buttonClick(createEditDeletePoolObj.Ddl_addUser1("ui-corner-all", createEditDeletePoolTestdata.TC06_CreateEditDeletePool_addUser));
+		base.setData(loginObj.Edt_LoginEmail("pool_userSearch"),createEditDeletePoolTestdata.TC06_CreateEditDeletePool_addUser2 );
+		base.buttonClick(createEditDeletePoolObj.Ddl_addUser1("ui-corner-all", createEditDeletePoolTestdata.TC06_CreateEditDeletePool_addUser2));
+		base.buttonClick(createEditDeletePoolObj.Btn_CreatePoolAlert("submit", "CREATE"));
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("Pool created successfully")), "User is unable to add multiple users to the pool.");
+	}
 	//<Summary>
 	//Test case Title:To verify what happens when user doesn't select the pool type.
 	//Automation ID: TC_05
