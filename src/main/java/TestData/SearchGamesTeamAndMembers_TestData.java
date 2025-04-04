@@ -6,5 +6,5 @@ public class SearchGamesTeamAndMembers_TestData {
 	public static String TC02_SearchGamesTeamAndMembers="T";
 	
 	//TC03_SearchGamesTeamAndMembers
-	public static String TC03_SearchGamesTeamAndMembers_Number="2";
+	public static String TC03_SearchGamesTeamAndMembers_Number="1";
 }

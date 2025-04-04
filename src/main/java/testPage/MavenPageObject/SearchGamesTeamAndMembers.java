@@ -1,6 +1,10 @@
 package testPage.MavenPageObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import TestData.CommonData;
@@ -8,6 +12,7 @@ import TestData.CreateEditDeletePool_TestData;
 import TestData.SearchGamesTeamAndMembers_TestData;
 import objectRepository.CreateEditDeletePool_Obj;
 import objectRepository.LoginPage_Obj;
+import objectRepository.SearchGameTeamAndMembers_Obj;
 import objectRepository.SnipBackLogin_Obj;
 import utilPack.BasePge;
 
@@ -103,6 +108,7 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
 		SearchGamesTeamAndMembers_TestData searchGamesTeamAndMembersTestData=new SearchGamesTeamAndMembers_TestData();
 		SnipBackLogin_Obj snipBackLoginObj=new SnipBackLogin_Obj();
+		SearchGameTeamAndMembers_Obj searchGameTeamAndMembersObj=new SearchGameTeamAndMembers_Obj();
 
 		//Step 1: Navigate to Snipback page
 		//Expected : User should be able to view Snipback page
@@ -137,6 +143,7 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		//step 7:Click Enter
 		//Expected:User can see list of games with the given number.
 		base.pressKey(loginObj.Edt_LoginEmail("search"),"KEYBOARD_ENTER" );
-		asrt.assertTrue(base.isExists(snipBackLoginObj.Btn_Login("T-disable")), "User is unable to view the list of games with given number");
+		List<String> gameTexts = base.GetElementTexts(searchGameTeamAndMembersObj.Ele_GameList1("table table-striped film-list"));
+		asrt.assertTrue(base.isExistsInText(gameTexts, searchGamesTeamAndMembersTestData.TC03_SearchGamesTeamAndMembers_Number), "User is unable to view the list of games with the given number.");
 	}
 }

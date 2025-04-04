@@ -199,18 +199,18 @@ public class BasePge {
 
 	}
 	/// <summary>
-		/// isExists Negative Validation		        
-		/// </summary>
+	/// isExists Negative Validation		        
+	/// </summary>
 	public boolean isExistsNegative(By locator) {
-	    try {
-	        WebDriverWait wait = new WebDriverWait(driver, 3); // Short timeout
-	        wait.until(ExpectedConditions.presenceOfElementLocated(locator)); // Check if element is present
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, 3); // Short timeout
+			wait.until(ExpectedConditions.presenceOfElementLocated(locator)); // Check if element is present
 
-	        WebElement webElement = driver.findElement(locator);
-	        return webElement.isDisplayed(); // Returns true if the element is visible
-	    } catch (NoSuchElementException | TimeoutException e) {
-	        return false; // Returns false if the element is not found
-	    }
+			WebElement webElement = driver.findElement(locator);
+			return webElement.isDisplayed(); // Returns true if the element is visible
+		} catch (NoSuchElementException | TimeoutException e) {
+			return false; // Returns false if the element is not found
+		}
 	}
 
 
@@ -373,7 +373,7 @@ public class BasePge {
 
 	/// <summary>
 	/// JS click
-	 
+
 	/// </summary>
 	public void JsClick(String locator) throws InterruptedException {
 
@@ -384,7 +384,7 @@ public class BasePge {
 	}
 	/// <summary>
 	/// Perform Action On Alert
-	        
+
 	/// </summary>
 	public void PerformActionOnAlert(String Action,String ExpectedAlertMessage, String InputValue) throws Exception {
 		switch (Action) 
@@ -413,35 +413,35 @@ public class BasePge {
 
 
 	/// <summary>
-		/// Reusable Method for Switching to a New Window by Index
-		/// </summary>
-		public void switchToWindowByIndex(WebDriver driver, int index) {
-			// Get all window handles
-			WebDriverWait wait = new WebDriverWait(driver, 60); // Timeout in seconds
+	/// Reusable Method for Switching to a New Window by Index
+	/// </summary>
+	public void switchToWindowByIndex(WebDriver driver, int index) {
+		// Get all window handles
+		WebDriverWait wait = new WebDriverWait(driver, 60); // Timeout in seconds
 
-	        // Wait until the number of windows is greater than the target index
-	        wait.until(new ExpectedCondition<Boolean>() {
-	            @Override
-	            public Boolean apply(WebDriver d) {
-	                return d.getWindowHandles().size() > index;
-	            }
-	        });
-			Set<String> allWindows = driver.getWindowHandles();
-			List<String> windowList = new ArrayList<>(allWindows);
-
-			// Ensure the index is valid
-			if (index < windowList.size()) {
-				// Switch to the desired window by index
-				driver.switchTo().window(windowList.get(index));
-			} else {
-				throw new IllegalArgumentException("Invalid window index: " + index);
+		// Wait until the number of windows is greater than the target index
+		wait.until(new ExpectedCondition<Boolean>() {
+			@Override
+			public Boolean apply(WebDriver d) {
+				return d.getWindowHandles().size() > index;
 			}
+		});
+		Set<String> allWindows = driver.getWindowHandles();
+		List<String> windowList = new ArrayList<>(allWindows);
+
+		// Ensure the index is valid
+		if (index < windowList.size()) {
+			// Switch to the desired window by index
+			driver.switchTo().window(windowList.get(index));
+		} else {
+			throw new IllegalArgumentException("Invalid window index: " + index);
 		}
+	}
 
 
 	/// <summary>
 	/// Reusable Method for Returning to the Original Window
-	        
+
 	/// </summary>
 	public void returnToMainWindow(WebDriver driver) {
 		// Capture the current (main) window handle
@@ -581,12 +581,12 @@ public class BasePge {
 			actions.sendKeys("[").perform();
 			break;
 		case "KEYBOARD_1-9":
-			 for (int i = 0; i <= 9; i++) {
-	                String keys = String.valueOf(i); // Convert the number to a string
-	                Thread.sleep(1000);
-	                actions.sendKeys(keys).perform();
-			 }
-			 break;
+			for (int i = 0; i <= 9; i++) {
+				String keys = String.valueOf(i); // Convert the number to a string
+				Thread.sleep(1000);
+				actions.sendKeys(keys).perform();
+			}
+			break;
 		case "KEYBOARD_F":
 			actions.sendKeys("F").perform();
 			break;
@@ -842,130 +842,130 @@ public class BasePge {
 		return select.getFirstSelectedOption().getText();
 
 	}
-	
+
 	/// <summary>
 	// Helper method to get clipboard content,  URL should be copied to the clipboard,
 	public static String getClipboardText() {
-        String clipboardText = "";
-        try {
-            Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-            clipboardText = (String) clipboard.getData(DataFlavor.stringFlavor);
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("Failed to retrieve clipboard content: " + e.getMessage());
-        }
-        return clipboardText;
-    }
-	
+		String clipboardText = "";
+		try {
+			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+			clipboardText = (String) clipboard.getData(DataFlavor.stringFlavor);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException("Failed to retrieve clipboard content: " + e.getMessage());
+		}
+		return clipboardText;
+	}
+
 	/// <summary>
 	/// Verify if a popup or element is disappeared
 	//   if the popup or element is shown then this will fail the test case
 	/// </summary>
-	
+
 	public void isDoesNotExist(By locator,String message) {
 		try {
-				WebDriverWait wait = new WebDriverWait(driver, 10);
-				wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
-			} catch (org.openqa.selenium.TimeoutException e) {
-				//if element is existing then conditionally failing the test case 
-				asrt.fail(message);
+			WebDriverWait wait = new WebDriverWait(driver, 10);
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+		} catch (org.openqa.selenium.TimeoutException e) {
+			//if element is existing then conditionally failing the test case 
+			asrt.fail(message);
 
-			}
-	 }
-	
+		}
+	}
+
 	/// <summary>
 	/// moving slider from 0 to mid point
 	/// </summary>
 	public void moveSlider(By locator,String text,String text1) {
-		
+
 		// Locate the slider element
-        WebElement slider = driver.findElement(locator);
+		WebElement slider = driver.findElement(locator);
 
-        // Get the min and max values of the slider
-        double min = Double.parseDouble(slider.getAttribute("min"));
-        double max = Double.parseDouble(slider.getAttribute("max"));
-       
-        // Calculate the midpoint value
-        double midpoint = (min + max) / 2;
+		// Get the min and max values of the slider
+		double min = Double.parseDouble(slider.getAttribute("min"));
+		double max = Double.parseDouble(slider.getAttribute("max"));
 
-        // Use JavaScript to set the slider value to the midpoint
-        String script = "arguments[0].value = arguments[1]; arguments[0].dispatchEvent(new Event('input'));";
-        ((org.openqa.selenium.JavascriptExecutor) driver).executeScript(script, slider, midpoint);
-        double actualValue = Double.parseDouble(slider.getAttribute(text)); 
-        Assert.assertNotEquals(actualValue, min,text1);
-}
+		// Calculate the midpoint value
+		double midpoint = (min + max) / 2;
+
+		// Use JavaScript to set the slider value to the midpoint
+		String script = "arguments[0].value = arguments[1]; arguments[0].dispatchEvent(new Event('input'));";
+		((org.openqa.selenium.JavascriptExecutor) driver).executeScript(script, slider, midpoint);
+		double actualValue = Double.parseDouble(slider.getAttribute(text)); 
+		Assert.assertNotEquals(actualValue, min,text1);
+	}
 	// <summary>
-				/// user selecting the color in CustomTag color pick inside playerpage
-				/// </summary>
-				public void selectCustomTagColor(int xOffset, int yOffset) {
-					try {
+	/// user selecting the color in CustomTag color pick inside playerpage
+	/// </summary>
+	public void selectCustomTagColor(int xOffset, int yOffset) {
+		try {
 
-						WebElement colorRectangle = driver.findElement(By.cssSelector(".black box")); // Update the selector if necessary
-						Actions actions = new Actions(driver);
-						actions.moveToElement(colorRectangle, xOffset, yOffset).click().perform();
-					} catch (Exception e) {
-						System.out.println("Error while selecting color: " + e.getMessage());
-					}
-				}
-				// <summary>
-				// Reusable method to adjust color using the pointerbox in Custom tag color selection inside playerpage
-				// </summary>
-				public void adjustBrightnessCustomTag(int sliderOffset) {
-					try {
-						WebElement brightnessSlider = driver.findElement(By.cssSelector(".pointer box"));
-						Actions actions = new Actions(driver);
-						actions.dragAndDropBy(brightnessSlider, sliderOffset, 0).perform();
-					} catch (Exception e) {
-						System.out.println("Error while adjusting brightness: " + e.getMessage());
-					}
-				}
-				
-				
-				
-				/// <summary>
-				/// Get all options from dropdown
-				/// </summary>
+			WebElement colorRectangle = driver.findElement(By.cssSelector(".black box")); // Update the selector if necessary
+			Actions actions = new Actions(driver);
+			actions.moveToElement(colorRectangle, xOffset, yOffset).click().perform();
+		} catch (Exception e) {
+			System.out.println("Error while selecting color: " + e.getMessage());
+		}
+	}
+	// <summary>
+	// Reusable method to adjust color using the pointerbox in Custom tag color selection inside playerpage
+	// </summary>
+	public void adjustBrightnessCustomTag(int sliderOffset) {
+		try {
+			WebElement brightnessSlider = driver.findElement(By.cssSelector(".pointer box"));
+			Actions actions = new Actions(driver);
+			actions.dragAndDropBy(brightnessSlider, sliderOffset, 0).perform();
+		} catch (Exception e) {
+			System.out.println("Error while adjusting brightness: " + e.getMessage());
+		}
+	}
 
-				public List<WebElement> getTheAllOptions(By locator) {    
-					WebDriverWait wait = getWait();
-					wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-					webElement = driver.findElement(locator);
-					highLighterMethod(driver, webElement); 
-					select = new Select(webElement);
-					return select.getOptions();
 
-				}
-				/// <summary>
-				/// To Get future days 
-				/// </summary>
-				public String getDateAfterDays(int numberOfDays) {
-			        LocalDateTime currentDate = LocalDateTime.now().plusDays(numberOfDays);
-			        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm a");
-			        return currentDate.format(formatter);
-			    }
-				//To get current date
-				public String getDate() {
-			        LocalDateTime currentDate = LocalDateTime.now();
-			        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy 'at' hh:mm:00 a",Locale.US);
-			        return currentDate.format(formatter);
-			        
-			        //return formattedDate.replaceAll("(?i)am|pm", match -> match.group().toUpperCase());
-			    }
-				//To clearText
-			    public void clearTextUsingKeys(WebElement element) {
-			    	element.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-			    	element.sendKeys(Keys.BACK_SPACE);
-			    	
-			    }
-			    /// <summary>
-				/// Adjusts the zoom level of the webpage using JavaScript.
-				/// </summary>
-				public void setZoom(WebDriver driver, int zoomPercentage) {
-					JavascriptExecutor js = (JavascriptExecutor) driver;
-					js.executeScript("document.body.style.zoom='" + zoomPercentage + "%'");
-					//driver.manage().window().setSize(new Dimension(1280, 720));
-				}
-				
+
+	/// <summary>
+	/// Get all options from dropdown
+	/// </summary>
+
+	public List<WebElement> getTheAllOptions(By locator) {    
+		WebDriverWait wait = getWait();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		webElement = driver.findElement(locator);
+		highLighterMethod(driver, webElement); 
+		select = new Select(webElement);
+		return select.getOptions();
+
+	}
+	/// <summary>
+	/// To Get future days 
+	/// </summary>
+	public String getDateAfterDays(int numberOfDays) {
+		LocalDateTime currentDate = LocalDateTime.now().plusDays(numberOfDays);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm a");
+		return currentDate.format(formatter);
+	}
+	//To get current date
+	public String getDate() {
+		LocalDateTime currentDate = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy 'at' hh:mm:00 a",Locale.US);
+		return currentDate.format(formatter);
+
+		//return formattedDate.replaceAll("(?i)am|pm", match -> match.group().toUpperCase());
+	}
+	//To clearText
+	public void clearTextUsingKeys(WebElement element) {
+		element.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		element.sendKeys(Keys.BACK_SPACE);
+
+	}
+	/// <summary>
+	/// Adjusts the zoom level of the webpage using JavaScript.
+	/// </summary>
+	public void setZoom(WebDriver driver, int zoomPercentage) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("document.body.style.zoom='" + zoomPercentage + "%'");
+		//driver.manage().window().setSize(new Dimension(1280, 720));
+	}
+
 	//<summary>
 	//Reusable Method for ScrollUp	        
 	//</summary>
@@ -978,7 +978,7 @@ public class BasePge {
 		highLighterMethod(driver, webElement); 
 		js.executeScript("window.scrollBy(0, -250);");
 	}
-	
+
 	//<summary>
 	//Reusable Method for Backspace	        
 	//</summary>
@@ -987,46 +987,58 @@ public class BasePge {
 		js= (JavascriptExecutor) driver;
 		WebDriverWait wait = getWait();
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
-	    WebElement element = driver.findElement(locator);
-	    element.click();  // Focus on the element
-	    Actions actions = new Actions(driver);
-	    
-	    // Send backspace key multiple times (based on the length of text in the field)
-	    for (int i = 0; i < element.getAttribute("value").length(); i++) 
-	    {
-	        actions.sendKeys(element, "\u0008").perform();  // Send backspace key
-	    }
+		WebElement element = driver.findElement(locator);
+		element.click();  // Focus on the element
+		Actions actions = new Actions(driver);
+
+		// Send backspace key multiple times (based on the length of text in the field)
+		for (int i = 0; i < element.getAttribute("value").length(); i++) 
+		{
+			actions.sendKeys(element, "\u0008").perform();  // Send backspace key
+		}
 	}
 	//<summary>
 	//Reusable Method for cleartext	        
 	//</summary>
-    public void clearAllText(By locator) {
+	public void clearAllText(By locator) {
 		js= (JavascriptExecutor) driver;
 		WebDriverWait wait = getWait();
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
-	    WebElement element = driver.findElement(locator);
+		WebElement element = driver.findElement(locator);
 
-	    element.clear();
-    }
+		element.clear();
+	}
 	//<summary>
 	//Reusable Method for Backspace	        
 	//</summary>
-    public void backspaces(By locator, int noofspaces) {
-        // Wait until the element is clickable
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(locator));
+	public void backspaces(By locator, int noofspaces) {
+		// Wait until the element is clickable
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.elementToBeClickable(locator));
 
-        WebElement element = driver.findElement(locator);
-        element.click();  // Focus on the input field
+		WebElement element = driver.findElement(locator);
+		element.click();  // Focus on the input field
 
-        // Create an instance of Actions class
-        Actions actions = new Actions(driver);
+		// Create an instance of Actions class
+		Actions actions = new Actions(driver);
 
-        // Send backspace key the specified number of times
-        for (int i = 0; i < noofspaces; i++) {
-            actions.sendKeys(Keys.BACK_SPACE).perform();  // Simulate backspace key
-        }
-    }
+		// Send backspace key the specified number of times
+		for (int i = 0; i < noofspaces; i++) {
+			actions.sendKeys(Keys.BACK_SPACE).perform();  // Simulate backspace key
+		}
+	}
+
+	//<Summary>
+	//<Is exists/contains in text>
+	//</Summary>
+	public boolean isExistsInText(List<String> elementTexts, String searchTerm) {
+		for (String text : elementTexts) {
+			if (text.contains(searchTerm)) {
+				return true;  // If any text contains the search term, return true
+			}
+		}
+		return false;  // Otherwise, return false
+	}
 }
 
 
