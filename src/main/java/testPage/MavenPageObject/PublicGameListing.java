@@ -117,33 +117,24 @@ public class PublicGameListing extends BasePge{
 			// Step1: User navigated to SnipBack Website after entering snipback url
 			// Expected:The user should be able to navigate to the  Snipback website after entering the URL
 			asrt.assertTrue(base.isExists(LoginPageObj.Ele_SnipBackHomePageLogo("light-logo")), "User is unable to navigate to SnipBack website after entering the URL");
-			
 			//Step2:Click on FILM Tab without login
 			//Expected:The user should be able to click on "FILM" tab without login to snipback
 			base.buttonClick(PublicGameObj.Btn_Home("Film","menu_link nav-link "));
 			asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");	
-			
 			//Step 3  :"Verify user able to see the public games as per the condition"
 			//Expected:"User should be able to see the public games as per the recent dates along with day after entering into FILM page" 
-			
 			ArrayList<LocalDate> extractedDates = new ArrayList<>();
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd yyyy", Locale.US);
-			
 			String todayDate = base.getFormattedDate(PublicGameObj.Ele_GameDate(2, "redText"));  
-
 			for (int i = 2; i <= 26; i++) {  
 			    By dateLocate = PublicGameObj.Ele_GameDate(i, "redText"); 
 			    String dateText = base.GetText(dateLocate).trim(); 
-
 			    dateText = dateText.substring(0, 1).toUpperCase() + dateText.substring(1).toLowerCase();
-			    
 			    LocalDate extractedDate = LocalDate.parse(dateText, formatter);
-			    
 			    if (!extractedDate.equals(todayDate)) {
 			        extractedDates.add(extractedDate);
 			    }
 			}
-
 			boolean isSorted = true;
 			for (int i = 2; i < extractedDates.size() - 1; i++) {
 			    if (extractedDates.get(i).isBefore(extractedDates.get(i + 1))) {
@@ -151,8 +142,6 @@ public class PublicGameListing extends BasePge{
 			        break;
 			    }
 			}
-
-			asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText("asd")) && base.isExists(PublicGameObj.Ele_Date("Wednesday,", " Apr 02 2025")),"User is unable to see the recent public game 'asd' with date 'Wednesday, Apr 02 2025' on the Films page");
-
+			asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText("afsa")) && base.isExists(PublicGameObj.Ele_Date("Thursday,", " Apr 03 2025")),"User is not able  to see the public game as per the recent dates along with day after entering into FILM page");
 		}				
 }
