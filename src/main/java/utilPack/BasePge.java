@@ -5,6 +5,7 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -78,6 +79,16 @@ public class BasePge {
 		data = webElement.getText(); 
 		return data;
 	}
+	
+	///<summary>
+	/////to get todays date
+	///</summary>
+	  public String getFormattedDate(By locator) {
+
+	        LocalDate currentDate = LocalDate.now();
+	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd yyyy", Locale.US);
+	        return currentDate.format(formatter);
+	    }
 
 	/// <summary>
 	/// To Switch Window Frame	        
