@@ -142,6 +142,6 @@ public class PublicGameListing extends BasePge{
 			        break;
 			    }
 			}
-			asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText("afsa")) && base.isExists(PublicGameObj.Ele_Date("Thursday,", " Apr 03 2025")),"User is not able  to see the public game as per the recent dates along with day after entering into FILM page");
-		}				
-}
+			asrt.assertTrue(base.isExists(PublicGameObj.Ele_GameName(1,"cardheading")) && base.isExists(PublicGameObj.Ele_GameName(1,"mainHead")),"User is not able  to see the public game as per the recent dates along with day after entering into FILM page");
+		}	
+	}
