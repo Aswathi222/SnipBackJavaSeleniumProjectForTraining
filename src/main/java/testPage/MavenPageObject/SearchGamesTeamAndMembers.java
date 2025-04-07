@@ -176,11 +176,11 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to search games in games listing page.");
 
 		//step 5:Click search bar and enter a special character
-		//Expected:User should click search bar
+		//Expected:User should click search bar and enter a special character
 		base.buttonClick(loginObj.Edt_LoginEmail("search"));
 		base.setData(loginObj.Edt_LoginEmail("search"), searchGamesTeamAndMembersTestData.TC04_SearchGamesTeamAndMembers_Special);	
 		String searchData=base.GetValue(loginObj.Edt_LoginEmail("search"));
-		asrt.assertEquals(searchData, searchGamesTeamAndMembersTestData.TC04_SearchGamesTeamAndMembers_Special,"User is unable to enter special character");
+		asrt.assertEquals(searchData, searchGamesTeamAndMembersTestData.TC04_SearchGamesTeamAndMembers_Special,"User is unable to click search bar and enter special character");
 
 		//step 6:Enter a special character and Click Enter
 		//Expected:User can see list of games with the given special character.
