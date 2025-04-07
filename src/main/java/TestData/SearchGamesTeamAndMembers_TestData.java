@@ -11,4 +11,6 @@ public class SearchGamesTeamAndMembers_TestData {
 	//TC04_SearchGamesTeamAndMembers
 	public static String TC04_SearchGamesTeamAndMembers_Special="@";
 
+	//TC05_SearchGamesTeamAndMembers
+	public static String TC05_SearchGamesTeamAndMembers="I'm not here";
 }
