@@ -50,7 +50,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 4 : Switch to any Team
 		//Expected : User should be able to Switch to any Team.
 		base.buttonClick(LoginPageObj.Edt_Alert1("475 Playmakers"));
-		asrt.assertTrue(base.isEnabledBy(LoginPageObj.Edt_Alert1("475 Playmakers")),"User is not able to Switch to any Team.");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("Team Page")),"User is not able to Switch to any Team.");
 
 		//Step 5 : Click three dots of that team
 		//Expected : User should be able to Click three dots of that team.
