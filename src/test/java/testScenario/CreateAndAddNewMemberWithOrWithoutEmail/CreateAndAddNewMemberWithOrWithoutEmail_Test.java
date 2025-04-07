@@ -12,4 +12,10 @@ public class CreateAndAddNewMemberWithOrWithoutEmail_Test extends BaseTest
 		testPage.MavenPageObject.CreateAndAddNewMemberWithOrWithoutEmail CreateandAddnewmemberwithorwithoutEmail = new CreateAndAddNewMemberWithOrWithoutEmail(getDriver());
 		CreateandAddnewmemberwithorwithoutEmail.WE01_CreateAndAddNewMemberWithOrWithoutEmail();			
 	} 
+	@Test()
+	public void WE02_CreateAndAddNewMemberWithOrWithoutEmailTest() throws Exception 
+	{	
+		testPage.MavenPageObject.CreateAndAddNewMemberWithOrWithoutEmail CreateandAddnewmemberwithorwithoutEmail = new CreateAndAddNewMemberWithOrWithoutEmail(getDriver());
+		CreateandAddnewmemberwithorwithoutEmail.WE02_CreateAndAddNewMemberWithOrWithoutEmail();			
+	}
 }
