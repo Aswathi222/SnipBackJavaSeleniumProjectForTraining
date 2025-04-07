@@ -25,5 +25,9 @@ public class CreateEditDeletePool_TestData {
 	public static String TC06_CreateEditDeletePool_poolUser="Neethu";
 	public static String TC06_CreateEditDeletePool_addUser2="netthubharthi@gmail.com";
 	public static String TC06_CreateEditDeletePool_poolUser2="Neethu Bharathi";
+	
+	// TC07_CreateEditDeletePool
+	public static String TC07_CreateEditDeletePool=BasePge.CreateRandomWithoutNumbers(6);
+	public static String TC07_CreateEditDeletePool_dropdwn="SemiPrivate";
 }
 
