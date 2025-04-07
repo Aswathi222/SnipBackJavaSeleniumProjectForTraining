@@ -53,6 +53,11 @@ public class SnipBackRegistration_TestData
 	public static String TC05_registrationvalidemail="neethumahendran@gmail.com";
 	public static String TC05_RegistrationValidUsername="ANGEL";
 
+	//TC06_Registration
+	public static String TC06_RegistrationValidName="TINTUMON";
+	public static String TC06_RegistrationValidEmail="neethumahendran@gmail.com";
+	public static String TC06_RegistrationPassword="Tigerscott@123";
+
 }
 
 

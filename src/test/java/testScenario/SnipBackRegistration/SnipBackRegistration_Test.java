@@ -37,5 +37,12 @@ public class SnipBackRegistration_Test extends BaseTest {
 		SnipBackRegistration snipbackregistration = new SnipBackRegistration(getDriver());	
 		snipbackregistration.TC05_Registration();			
 	}
+	@Test()
+	public void TC06_RegistrationTest() throws Exception 
+	{	
+		SnipBackRegistration snipbackregistration = new SnipBackRegistration(getDriver());	
+		snipbackregistration.TC06_Registration();			
+	}
+
 
 }
