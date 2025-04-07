@@ -60,7 +60,7 @@ public WebDriver driver;
 	@AfterMethod
 	public void closeDriver() {
 		if (driver!=null) {
-	//	   driver.quit();
+		   driver.quit();
 		}
 	}
 	public WebDriver getDriver() {

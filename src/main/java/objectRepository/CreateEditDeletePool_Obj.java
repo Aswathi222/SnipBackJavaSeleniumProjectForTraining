@@ -19,5 +19,3 @@ public class CreateEditDeletePool_Obj {
 	public By Ele_PoolType(String class1, String text){return By.xpath("//div[@class='"+class1+"']//label[text()='"+text+"']");}
 	public By Ele_PoolType2(String class1, String id) {return By.xpath("//div[@class='"+class1+"']//div[@id='"+id+"']");}
 }
-//div[@class='col-md-6 flex-column mt-3 pool-user d-none']//preceding::label[text()='Users ']
-//div[@class='col-md-6 flex-column mt-3 pool-user d-none']//div[@id='pool_userList']

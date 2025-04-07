@@ -3,6 +3,7 @@ package testPage.MavenPageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -63,29 +64,16 @@ public class CreateEditDeletePool extends BasePge {
 		String poolName=base.GetValue(loginObj.Edt_LoginEmail("pool_name"));
 		asrt.assertEquals(poolName, createEditDeletePoolTestdata.TC07_CreateEditDeletePool, "User is not able to enter the pool name");
 
-		//step 7:Select the Pool Type and Click Create
-		//Expected: User should able to select pool type as Semi private
+		//step 7:Select the Pool Type
+		//Expected: User should able to select pool type
 		base.selectorByVisibleText(createEditDeletePoolObj.Sel_PoolType("pool_type"),createEditDeletePoolTestdata.TC07_CreateEditDeletePool_dropdwn);
-		/*boolean isPoolTypeExists = false;
-		try {
-		    isPoolTypeExists = base.isExists(createEditDeletePoolObj.Ele_PoolType("col-md-6 flex-column mt-3 pool-user d-none", "Users "));
-		} catch (Exception e) {
-		    System.out.println("Exception while checking Pool Type Exists: " + e.getMessage());
-		}
-		
-		
-		boolean isAlertExists = base.isExists(loginObj.Edt_AlertText("Pool created successfully"));
+		String poolType=base.GetText(createEditDeletePoolObj.Ddl_PoolType("SemiPrivate"));
+		asrt.assertEquals(poolType, createEditDeletePoolTestdata.TC07_CreateEditDeletePool_dropdwn, "User is not able to select the pool type");
 
-		System.out.println("Pool Type Exists: " + isPoolTypeExists);
-		System.out.println("Alert Text Exists: " + isAlertExists);*/
-		//base.buttonClick(createEditDeletePoolObj.Btn_CreatePoolAlert("submit", "CREATE"));
-		asrt.assertTrue(base.isExists(createEditDeletePoolObj.Ele_PoolType("col-md-6 flex-column mt-3 pool-user d-none", "Users ")), "User is unable to select pool type as Private");
-
-		Thread.sleep(3000);
-		asrt.assertTrue(
-			    base.isExists(createEditDeletePoolObj.Ele_PoolType2("col-md-6 flex-column mt-3 pool-user d-none", "pool_userList")) 
-			   // && base.isExists(loginObj.Edt_AlertText("Pool created successfully")), 
-			    ,"User should not receive an alert message as 'The Pool type field is required'");
+		//step 8:Click Create
+		//Expected: This pool-created user only has the access to this pool.
+		base.buttonClick(createEditDeletePoolObj.Btn_CreatePoolAlert("submit", "CREATE"));
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("Pool created successfully")), "User will not receive an alert message as 'The Pool name field is required'");
 	}
 	//<Summary>
 	//Test case Title:To verify what happens when user select the Pool Type as Private.
