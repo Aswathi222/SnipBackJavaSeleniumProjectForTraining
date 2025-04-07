@@ -1050,6 +1050,14 @@ public class BasePge {
 		}
 		return false;  // Otherwise, return false
 	}
+	//<Summary>
+		//<For button click more than once>
+		//</Summary>
+		public void clickMultipleTimes(By locator, int clickCount) {
+		    for (int i = 0; i < clickCount; i++) {
+		    	buttonClick(locator);
+		    }
+		}
 }
 
 

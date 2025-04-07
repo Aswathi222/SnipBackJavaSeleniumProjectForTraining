@@ -423,6 +423,61 @@ public class SnipBackRegistration extends BasePge{
 		base.switchToWindowByIndex(driver, 1);
 		asrt.assertTrue(base.isExists(forgotpasswordobj.Ele_ResetPasswordHeading("Organization Terms of Service")),"User is unable to redirect to https://snipback.com/terms-of-use page.");
 	}
+	//<summary>
+	//Test Case Title :"1. Verify to submit the registration without entering the OTP..
+	//                  2. Verify submitting an expired OTP after the allowed time period
+	//                  3. Verify the "Resend OTP" button.
+	//                  4. Verify resending the OTP multiple times within a short period
+	//Automation ID :TC07_Registration
+	//</summary>
+
+	public void TC07_Registration() throws InterruptedException 
+	{
+		Registration_Obj   RegistrationObj = new Registration_Obj();		
+		LoginPage_Obj loginpageobj = new LoginPage_Obj();
+
+		//Step 1 :  Click on Login button
+		//Expected : User should click on login button
+		base.buttonClick(RegistrationObj.Btn_Login("nav-link btn btn-white sm", "Login"));
+		asrt.assertTrue(base.isExists(RegistrationObj.Btn_SignUp("signup-btn","Sign Up")),"User unable to click Login button in snipback home page");
+
+		//Step 2: Click on sign up button
+		//Expected : User should click on signup button
+		base.buttonClick(RegistrationObj.Btn_SignUp("signup-btn","Sign Up"));
+		asrt.assertTrue(base.isExists(loginpageobj.Btn_SingnIn("btn-signup")),"User is unable to click the sign up button in the signup page");
+
+		//Step 3 : Verify to submit the registration without entering the OTP.
+		//Expected : There should be a pop-up message "Please enter One-time Passcode received on your email"
+		base.setData(RegistrationObj.Ele_Name("form-inlines","first_name"),SnipBackRegistration_TestData.TC07_RegistrationValidName);
+		base.setData(loginpageobj.Edt_LoginEmail("user_email"),SnipBackRegistration_TestData.TC07_RegistrationValidEmail);
+		base.setData(loginpageobj.Edt_LoginEmail("user_name"),SnipBackRegistration_TestData.TC07_RegistrationValidName);
+		base.setData(loginpageobj.Edt_LoginEmail("user_pass"),SnipBackRegistration_TestData.TC07_RegistrationPassword);
+		base.pressKey(null, "KEYBOARD_ENTER");
+		base.setData(loginpageobj.Edt_LoginEmail("user_confirm_password"),SnipBackRegistration_TestData.TC07_RegistrationPassword);			
+		base.excuteJsClick(loginpageobj.Edt_LoginEmail("agreeterms"));		
+		base.buttonClick(loginpageobj.Btn_SingnIn("btn-signup"));
+		base.buttonClick(loginpageobj.Btn_SingnIn("otp-submit"));
+		asrt.assertTrue(base.isExists(RegistrationObj.Ele_Emailerror("signUp-err-otp")),"User is unable to view pop up message in OTP page as 'Please enter One-time Passcode received on your email'");
+
+		//Step 4 : Verify submitting an expired OTP after the allowed time period
+		//Expected : There should be a pop-up message "Invalid One-time Passcode"		
+		base.setData(loginpageobj.Edt_LoginEmail("signUp-otp"),SnipBackRegistration_TestData.TC07_RegistrationOTP);
+		base.buttonClick(loginpageobj.Btn_SingnIn("otp-submit"));
+		asrt.assertTrue(base.isExists(RegistrationObj.Ele_Emailerror("otp-result")),"User is unable to view pop up message in OTP page as 'Invalid One-time Passcode'");
+
+		//Step 5 : Verify the "Resend OTP" button.
+		//Expected : There should be a pop-up message "Verification code was resent successfully"	
+		base.buttonClick(RegistrationObj.Btn_ResendOTP("resend-otp-link"));
+		asrt.assertTrue(base.isExists(RegistrationObj.Ele_Emailerror("otp-result-success")),"User is unable to view pop up message in OTP page as 'Verification code was resent successfully'");
+
+		//Step 6: Verify resending the OTP multiple times within a short period
+		//Expected : 1. There should be a pop-up message "Invalid One-time Passcode".                                                       
+		base.clickMultipleTimes(RegistrationObj.Btn_ResendOTP("resend-otp-link"), 2);
+		base.setData(loginpageobj.Edt_LoginEmail("signUp-otp"),SnipBackRegistration_TestData.TC07_RegistrationOTP);
+		Thread.sleep(2000);
+		base.buttonClick(loginpageobj.Btn_SingnIn("otp-submit"));
+		asrt.assertTrue(base.isExists(RegistrationObj.Ele_Emailerror("otp-result")),"User is unable to view pop up message in OTP page as 'Invalid One-time Passcode'");		
+	}
 }
 
 

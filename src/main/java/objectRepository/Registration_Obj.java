@@ -7,6 +7,7 @@ public class Registration_Obj
 	//Btn
 	public By Btn_Login(String class1,String text1) {return By.xpath("//a[@class='"+class1+"' and text()='"+text1+"']");}
 	public By Btn_SignUp(String class1, String text1) {return By.xpath("//div[@class='"+class1+"']//a[text()='"+text1+"']");}
+	public By Btn_ResendOTP(String id1) {return By.xpath("//a[@id='"+id1+"']");}
 	
 	//Ele
 	public By Ele_Name(String class1, String id1) {return By.xpath("//div[@class='"+class1+"']//input[@id='"+id1+"']");}
