@@ -155,7 +155,6 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		Login login=new Login(driver);
 		CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
 		SearchGamesTeamAndMembers_TestData searchGamesTeamAndMembersTestData=new SearchGamesTeamAndMembers_TestData();
-		SnipBackLogin_Obj snipBackLoginObj=new SnipBackLogin_Obj();
 		SearchGameTeamAndMembers_Obj searchGameTeamAndMembersObj=new SearchGameTeamAndMembers_Obj();
 
 		//Step 1: Navigate to Snipback page
