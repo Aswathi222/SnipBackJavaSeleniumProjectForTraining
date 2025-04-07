@@ -23,6 +23,44 @@ public class CreateEditDeletePool extends BasePge {
 		super(driver);
 		base = new BasePge(driver);
 	}
+	//<Summary>
+	//Test case Title:To verify whether the user can able to Copy Pool URL.
+	//Automation ID: TC_08
+	//</Summary>
+	public void TC08_CreateEditDeletePool() throws InterruptedException{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login=new Login(driver);
+		CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
+
+		//Step 1: Navigate to Snipback page
+		//Expected : User should be able to view Snipback page
+		asrt.assertTrue(base.isExists(loginObj.Btn_Login("Login")),"User is unable to view SnipBack page" );
+
+		//Step 2: Click Login button
+		//Expected: user should be able to login to the SnipBack
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"))," User is unable to login to SnipBack");
+
+		//step 3:Go to Film page
+		//Expected: User should be able to click film
+		base.buttonClick(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		asrt.assertTrue(base.isExists(loginObj.Btn_SignInButton("POOLS")), "User is unable to click the Film");
+
+		//step 4: Under Games section, go to Pools page
+		//Expected: There should be an option to create pool
+		base.excuteJsClick(loginObj.Btn_SignInButton("POOLS"));
+		asrt.assertTrue(base.isExists(loginObj.Edt_Alert1("Create Pool")), "User is unable to view an option to create pool");
+
+		//step 5: Click three dots of any pool
+		//Expected:User should be able to click three dots any pool
+		base.excuteJsClick(createEditDeletePoolObj.Ele_Pooldots("TC08_CreatePool", "dropdown"));
+		asrt.assertTrue(base.isExists(createEditDeletePoolObj.Ele_Copydots("TC08_CreatePool", "Copy URL")), "User is unable to click three dots");
+
+		//step 6:Select Copy URL
+		//Expected:The user can able to Copy Pool URL.
+		base.buttonClick(createEditDeletePoolObj.Ele_Copydots("TC08_CreatePool", "Copy URL"));
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("Copied!..")), "User is unable to copy the Pool URL");
+	}
 
 	//<Summary>
 	//Test case Title:To verify what happens when user select the Pool Type as SemiPrivate.
