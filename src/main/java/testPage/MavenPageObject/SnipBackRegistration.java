@@ -349,6 +349,80 @@ public class SnipBackRegistration extends BasePge{
 		asrt.assertEquals(ActualPassword,snipbackregistrationtestdata.TC05_RegistrationConfirmPasswordCorrect,"User is unable to accept the valid password");	
 
 	}
+	//<summary>
+	//Test Case Title :"1. Verify that the terms and conditions have a checkbox for users to click.
+	//                  2. Verify the user should be able to register only when the terms and conditions checkbox is clicked.
+	//                  3. Verify if the page displays a confirmation message after ticking the checkbox and completing the registration.
+	//                  4. Verify that the terms and conditions are clearly displayed and visible on the termsof use page when we click on  Terms of Service.
+	//Automation ID :TC06_Registration
+	//</summary>
+
+	public void TC06_Registration() throws InterruptedException 
+	{
+		Registration_Obj   RegistrationObj = new Registration_Obj();		
+		LoginPage_Obj loginpageobj = new LoginPage_Obj();
+		ForgotPassword_Obj   forgotpasswordobj = new ForgotPassword_Obj();
+
+		//Step 1 :  Click on Login button
+		//Expected : User should click on login button
+		base.buttonClick(RegistrationObj.Btn_Login("nav-link btn btn-white sm", "Login"));
+		asrt.assertTrue(base.isExists(RegistrationObj.Btn_SignUp("signup-btn","Sign Up")),"User unable to click Login button in snipback home page");
+
+		//Step 2: Click on sign up button
+		//Expected : User should click on signup button
+		base.buttonClick(RegistrationObj.Btn_SignUp("signup-btn","Sign Up"));
+		asrt.assertTrue(base.isExists(loginpageobj.Btn_SingnIn("btn-signup")),"User is unable to click the sign up button in the signup page");
+
+		//Step 3:Verify that the terms and conditions have a checkbox for users to click.
+		//Expected :It should be accept to mentioned test datas and click signup button
+		base.setData(RegistrationObj.Ele_Name("form-inlines","first_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName);
+		base.setData(loginpageobj.Edt_LoginEmail("user_email"),SnipBackRegistration_TestData.TC06_RegistrationValidEmail);
+		base.setData(loginpageobj.Edt_LoginEmail("user_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName);
+		base.setData(loginpageobj.Edt_LoginEmail("user_pass"),SnipBackRegistration_TestData.TC06_RegistrationPassword);
+		base.setData(loginpageobj.Edt_LoginEmail("user_confirm_password"),SnipBackRegistration_TestData.TC06_RegistrationPassword);	
+		base.buttonClick(loginpageobj.Btn_SingnIn("btn-signup"));
+		asrt.assertTrue(base.isEnabledBy(loginpageobj.Edt_LoginEmail("agreeterms")), "User is unable to accept the valid datas and click signup button");
+
+		//Step 4 : Verify the user should be able to register only when the terms and conditions checkbox is clicked.
+		//Expected :There should be a pop-up message "Please accept the terms of service".
+		base.setData(RegistrationObj.Ele_Name("form-inlines","first_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName);
+		base.setData(loginpageobj.Edt_LoginEmail("user_email"),SnipBackRegistration_TestData.TC06_RegistrationValidEmail);
+		base.setData(loginpageobj.Edt_LoginEmail("user_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName);
+		base.setData(loginpageobj.Edt_LoginEmail("user_pass"),SnipBackRegistration_TestData.TC06_RegistrationPassword);
+		base.setData(loginpageobj.Edt_LoginEmail("user_confirm_password"),SnipBackRegistration_TestData.TC06_RegistrationPassword);			
+		base.buttonClick(loginpageobj.Edt_LoginEmail("agreeterms"));
+		base.scrollToElement(loginpageobj.Btn_SingnIn("btn-signup"));
+		base.excuteJsClick(loginpageobj.Btn_SingnIn("btn-signup"));
+		asrt.assertTrue(base.isExists(RegistrationObj.Ele_Emailerror("err_agreeterms")),"User is unable to find the popup message as 'Please accept the terms of service'");
+
+		//Step 5: Verify if the page displays a confirmation message after ticking the checkbox and completing the registration.	
+		//Expected : It should accept mentioned test data and redirect to enter one-time password Page.
+		base.setData(RegistrationObj.Ele_Name("form-inlines","first_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName);
+		base.setData(loginpageobj.Edt_LoginEmail("user_email"),SnipBackRegistration_TestData.TC06_RegistrationValidEmail);
+		base.setData(loginpageobj.Edt_LoginEmail("user_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName);
+		base.setData(loginpageobj.Edt_LoginEmail("user_pass"),SnipBackRegistration_TestData.TC06_RegistrationPassword);
+		base.pressKey(null, "KEYBOARD_ENTER");
+		base.setData(loginpageobj.Edt_LoginEmail("user_confirm_password"),SnipBackRegistration_TestData.TC06_RegistrationPassword);			
+		base.excuteJsClick(loginpageobj.Edt_LoginEmail("agreeterms"));		
+		base.buttonClick(loginpageobj.Btn_SingnIn("btn-signup"));
+		base.switchToWindowByIndex(driver, 0);	
+		Thread.sleep(2000);
+		asrt.assertTrue(base.isExists(loginpageobj.Btn_SingnIn("otp-submit")),"User is unable to accept the valid datas and redirect to enter one-time password page");
+
+		//Step 6 :Verify that the terms and conditions are clearly displayed and visible on the terms of use page when we click on  Terms of Service.
+		//Expected : It Should be redirect to https://snipback.com/terms-of-use page.
+		driver.navigate().back();
+		base.buttonClick(RegistrationObj.Btn_Login("nav-link btn btn-white sm", "Login"));
+		base.buttonClick(RegistrationObj.Btn_SignUp("signup-btn","Sign Up"));
+		base.setData(RegistrationObj.Ele_Name("form-inlines","first_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName);
+		base.setData(loginpageobj.Edt_LoginEmail("user_email"),SnipBackRegistration_TestData.TC06_RegistrationValidEmail);
+		base.setData(loginpageobj.Edt_LoginEmail("user_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName);
+		base.setData(loginpageobj.Edt_LoginEmail("user_pass"),SnipBackRegistration_TestData.TC06_RegistrationPassword);
+		base.setData(loginpageobj.Edt_LoginEmail("user_confirm_password"),SnipBackRegistration_TestData.TC06_RegistrationPassword);	
+		base.buttonClick(loginpageobj.Btn_Login("Terms of Service"));
+		base.switchToWindowByIndex(driver, 1);
+		asrt.assertTrue(base.isExists(forgotpasswordobj.Ele_ResetPasswordHeading("Organization Terms of Service")),"User is unable to redirect to https://snipback.com/terms-of-use page.");
+	}
 }
 
 
