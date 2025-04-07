@@ -4,13 +4,12 @@ import org.openqa.selenium.By;
 
 public class CreateAndAddNewMemberWithOrWithoutEmail_Obj {	
 	//Btn
-	public By Btn_Home(String text) {return By.xpath("//select[@class='"+text+"']");}
-	public By Btn_Team(String text1, String text2) {return By.xpath("//div[@id='"+text1+"']//span[text()='"+text2+"']");}
-	public By Btn_ThreeDots(String text1, String text2) {return By.xpath("//div[@id='"+text1+"']//a[@id='"+text2+"']");}
-	public By Btn_EditTeam(String text) {return By.xpath("//a[@data-name='"+text+"']");}
+	public By Btn_Home(String HomeClass) {return By.xpath("//select[@class='"+HomeClass+"']");}
+	public By Btn_Team(String Team_id, String Team_text) {return By.xpath("//div[@id='"+Team_id+"']//span[text()='"+Team_text+"']");}
+	public By Btn_ThreeDots(String ThreeDots_id1, String ThreeDots_id2) {return By.xpath("//div[@id='"+ThreeDots_id1+"']//a[@id='"+ThreeDots_id2+"']");}
+	public By Btn_EditTeam(String EdtTeam_dataname) {return By.xpath("//a[@data-name='"+EdtTeam_dataname+"']");}
 	//Ele	
-	public By Ele_list(String text1, String text2) {return By.xpath("//div[@id='"+text1+"']//div[@id='"+text2+"'] ");}
+	public By Ele_list(String Ele_list_id1, String Ele_list_id2) {return By.xpath("//div[@id='"+Ele_list_id1+"']//div[@id='"+Ele_list_id2+"']");}
 	//Edt
-	public By Edt_TeamName(String text) {return By.xpath("//input[@class='"+text+"']");}	
+	public By Edt_TeamName(String Edt_TeamNameClass) {return By.xpath("//input[@class='"+Edt_TeamNameClass+"']");}	
 }
-
