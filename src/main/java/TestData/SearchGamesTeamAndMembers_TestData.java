@@ -7,4 +7,7 @@ public class SearchGamesTeamAndMembers_TestData {
 	
 	//TC03_SearchGamesTeamAndMembers
 	public static String TC03_SearchGamesTeamAndMembers_Number="1";
+	
+	//TC04_SearchGamesTeamAndMembers
+	public static String TC04_SearchGamesTeamAndMembers_Special="@";
 }
