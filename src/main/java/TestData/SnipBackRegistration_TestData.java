@@ -25,7 +25,39 @@ public class SnipBackRegistration_TestData
 	public static String TC03_RegistrationValidName="TINTU";
 	public static String TC03_RegistrationPassword="Tigerscott@123";
 	public static String TC03_RegistrationTrimName="TINTU TOM";
-	
+
+	//TC04_Registration
+	public static String TC04_RegistrationPasswrdMin="Test";
+	public static String TC04_RegistrationUpperLower="Testones";
+	public static String TC04_RegistartionNumber="12345678";
+	public static String TC04_RegistrationSpecialNotAllowed="@#$%^&*()";
+	public static String TC04_RegistrationSpecialAllowed="Test@";
+	public static String TC04_RegistrationEnteredPassword="Test@1234";
+	public static String TC04_RegistrationConfirmPassword="Test@123";
+	public static String TC04_RegistrationEmptyPassword="";
+	public static String TC04_RegistrationValidPassword="Test@1234";
+	public static String TC04_RegistrationValidName="TINTU";
+	public static String TC04_registrationvalidemail="neethumahendran@gmail.com";
+	public static String TC04_RegistrationValidUsername="anglestar";
+
+	//TC05_Registration
+	public static String TC05_RegistrationConfirmPasswordMin="Test";
+	public static String TC05_RegistrationUpperLowerPassword="Testones";
+	public static String TC05_RegistrationConfirmPasswordNumber="12345678";
+	public static String TC05_RegistrationAllowedSpecial="Test@";
+	public static String TC05_RegistrationNotAllowedSpecial="@#$%^&*()";
+	public static String TC05_RegistrationConfirmPasswordCorrect="Test@1234";
+	public static String TC05_RegistrationEnteredPassword="Test@123";
+	public static String TC05_RegistrationBlankConfirmPassword="";
+	public static String TC05_RegistrationValidName="TINTUSAM";
+	public static String TC05_registrationvalidemail="neethumahendran@gmail.com";
+	public static String TC05_RegistrationValidUsername="ANGEL";
+
+	//TC06_Registration
+	public static String TC06_RegistrationValidName="TINTUMON";
+	public static String TC06_RegistrationValidEmail="neethumahendran@gmail.com";
+	public static String TC06_RegistrationPassword="Tigerscott@123";
+
 }
 
 
