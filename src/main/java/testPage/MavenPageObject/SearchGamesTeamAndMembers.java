@@ -107,7 +107,6 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		Login login=new Login(driver);
 		CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
 		SearchGamesTeamAndMembers_TestData searchGamesTeamAndMembersTestData=new SearchGamesTeamAndMembers_TestData();
-		SnipBackLogin_Obj snipBackLoginObj=new SnipBackLogin_Obj();
 		SearchGameTeamAndMembers_Obj searchGameTeamAndMembersObj=new SearchGameTeamAndMembers_Obj();
 
 		//Step 1: Navigate to Snipback page
@@ -145,5 +144,47 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		base.pressKey(loginObj.Edt_LoginEmail("search"),"KEYBOARD_ENTER" );
 		List<String> gameTexts = base.GetElementTexts(searchGameTeamAndMembersObj.Ele_GameList1("table table-striped film-list"));
 		asrt.assertTrue(base.isExistsInText(gameTexts, searchGamesTeamAndMembersTestData.TC03_SearchGamesTeamAndMembers_Number), "User is unable to view the list of games with the given number.");
+	}
+
+	//<Summary>
+	//Test case Title:To verify what happens when the user searches games by entering special characters as keyword in the search field.
+	//Automation ID: TC_04
+	//</Summary>
+	public void TC04_SearchGamesTeamAndMembers() throws InterruptedException{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login=new Login(driver);
+		CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
+		SearchGamesTeamAndMembers_TestData searchGamesTeamAndMembersTestData=new SearchGamesTeamAndMembers_TestData();
+
+		//Step 1: Navigate to Snipback page
+		//Expected : User should be able to view Snipback page
+		asrt.assertTrue(base.isExists(loginObj.Btn_Login("Login")),"User is unable to view SnipBack page" );
+
+		//Step 2: Click Login button
+		//Expected: user should be able to login to the SnipBack
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"))," User is unable to login to SnipBack");
+
+		//step 3:Go to Film page
+		//Expected: User should be able to click film
+		base.buttonClick(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		asrt.assertTrue(base.isExists(loginObj.Btn_SignInButton("POOLS")), "User is unable to click the Film");
+
+		//step 4: Select Games section
+		//Expected:There should be a option to search games in Game Listing page.
+		base.buttonClick(loginObj.Edt_Alert1("GAMES"));
+		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to search games in games listing page.");
+
+		//step 5:Click search bar and enter a special character
+		//Expected:User should click search bar and enter a special character
+		base.buttonClick(loginObj.Edt_LoginEmail("search"));
+		base.setData(loginObj.Edt_LoginEmail("search"), searchGamesTeamAndMembersTestData.TC04_SearchGamesTeamAndMembers_Special);	
+		String searchData=base.GetValue(loginObj.Edt_LoginEmail("search"));
+		asrt.assertEquals(searchData, searchGamesTeamAndMembersTestData.TC04_SearchGamesTeamAndMembers_Special,"User is unable to click search bar and enter special character");
+
+		//step 6:Enter a special character and Click Enter
+		//Expected:User can see list of games with the given special character.
+		base.pressKey(loginObj.Edt_LoginEmail("search"),"KEYBOARD_ENTER" );
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("No Data Found")), "User is unable to view the list of games with given special character.");
 	}
 }

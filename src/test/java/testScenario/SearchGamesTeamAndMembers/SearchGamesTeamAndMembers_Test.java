@@ -26,4 +26,10 @@ public class SearchGamesTeamAndMembers_Test extends BaseTest
 		SearchGamesTeamAndMembers searchGamesTeamAndMembersTest = new SearchGamesTeamAndMembers(getDriver());
 		searchGamesTeamAndMembersTest.TC03_SearchGamesTeamAndMembers();		
 	}	
+	@Test()
+	public void TC04_SearchGamesTeamAndMembers() throws Exception 
+	{	
+		SearchGamesTeamAndMembers searchGamesTeamAndMembersTest = new SearchGamesTeamAndMembers(getDriver());
+		searchGamesTeamAndMembersTest.TC04_SearchGamesTeamAndMembers();		
+	}
 }
