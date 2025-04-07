@@ -10,4 +10,5 @@ public class SearchGamesTeamAndMembers_TestData {
 	
 	//TC04_SearchGamesTeamAndMembers
 	public static String TC04_SearchGamesTeamAndMembers_Special="@";
+
 }
