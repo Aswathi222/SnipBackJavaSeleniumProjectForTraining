@@ -28,7 +28,6 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 	public void WE01_CreateAndAddNewMemberWithOrWithoutEmail() throws InterruptedException {	
 		Login login = new Login(driver);
 		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
-		CommonData CommonDataobj = new CommonData();
 		CreateAndAddNewMemberWithOrWithoutEmail_Obj CreateAndAddNewMemberWithOrWithoutEmailObj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
 		CreateAndAddNewMemberWithOrWithoutEmail_TestData CreateAndAddNewMemberTestDataobj = new CreateAndAddNewMemberWithOrWithoutEmail_TestData();
 
