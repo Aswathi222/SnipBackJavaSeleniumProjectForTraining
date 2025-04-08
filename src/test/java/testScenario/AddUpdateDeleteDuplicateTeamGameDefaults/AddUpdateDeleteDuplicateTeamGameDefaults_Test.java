@@ -18,4 +18,10 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults_Test extends BaseTest
 			AddUpdateDeleteDuplicateTeamGameDefaults addupdatedeleteduplicateteamgamedefaults = new AddUpdateDeleteDuplicateTeamGameDefaults(getDriver());	
 			addupdatedeleteduplicateteamgamedefaults.Team_02_AddUpdateDeleteDuplicateTeamGameDefaults();	
 		}
+		@Test()
+		public void Team_03_AddUpdateDeleteDuplicateTeamGameDefaultsTest() throws Exception 
+		{	
+			AddUpdateDeleteDuplicateTeamGameDefaults addupdatedeleteduplicateteamgamedefaults = new AddUpdateDeleteDuplicateTeamGameDefaults(getDriver());	
+			addupdatedeleteduplicateteamgamedefaults.Team_03_AddUpdateDeleteDuplicateTeamGameDefaults();	
+		}
 }
