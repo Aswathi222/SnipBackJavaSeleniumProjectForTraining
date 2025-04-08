@@ -43,8 +43,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE01_CreateandAddnewmemberOrganization);
-		String SelectedText = base.GetText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"));
-		asrt.assertEquals(SelectedText,base.GetText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations")),"User is not able to select any organization.");
+		asrt.assertTrue(base.isEnabledBy(LoginPageObj.Edt_LoginEmail("searchTeam")),"User is not able to select any organization");
 
 		//Step 4 : Switch to any Team
 		//Expected : User should be able to Switch to any Team.
@@ -91,13 +90,13 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE01_CreateandAddnewmemberOrganization);
-		String SelectedText = base.GetText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"));
-		asrt.assertEquals(SelectedText,base.GetText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations")),"User is not able to select any organization.");
-
+		asrt.assertTrue(base.isEnabledBy(LoginPageObj.Edt_LoginEmail("searchTeam")),"User is not able to select any organization");
+		
 		//Step 4 : Switch to any Team
 		//Expected : User should be able to Switch to any Team.
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE01_CreateandAddnewmemberTeam);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
+		Thread.sleep(3000);
 		base.buttonClick(LoginPageObj.Edt_Alert1("475 Playmakers"));
 		String TeamName = base.GetText(LoginPageObj.Edt_Alert1("475 Playmakers"));
 		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE01_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
