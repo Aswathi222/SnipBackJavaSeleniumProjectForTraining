@@ -7,21 +7,21 @@ import utilPack.BaseTest;
 public class CreateAndAddNewMemberWithOrWithoutEmail_Test extends BaseTest 
 {	
 	@Test()
-	public void WE01_CreateAndAddNewMemberWithOrWithoutEmailTest() throws Exception 
+	public void WE_01_CreateAndAddNewMemberWithOrWithoutEmailTest() throws Exception 
 	{	
 		CreateAndAddNewMemberWithOrWithoutEmail CreateandAddnewmemberwithorwithoutEmail = new CreateAndAddNewMemberWithOrWithoutEmail(getDriver());
-		CreateandAddnewmemberwithorwithoutEmail.WE01_CreateAndAddNewMemberWithOrWithoutEmail();			
+		CreateandAddnewmemberwithorwithoutEmail.WE_01_CreateAndAddNewMemberWithOrWithoutEmail();			
 	} 
 	@Test()
-	public void WE02_CreateAndAddNewMemberWithOrWithoutEmailTest() throws Exception 
+	public void WE_02_CreateAndAddNewMemberWithOrWithoutEmailTest() throws Exception 
 	{	
 		CreateAndAddNewMemberWithOrWithoutEmail CreateandAddnewmemberwithorwithoutEmail = new CreateAndAddNewMemberWithOrWithoutEmail(getDriver());
-		CreateandAddnewmemberwithorwithoutEmail.WE02_CreateAndAddNewMemberWithOrWithoutEmail();			
+		CreateandAddnewmemberwithorwithoutEmail.WE_02_CreateAndAddNewMemberWithOrWithoutEmail();			
 	}
 	@Test()
-	public void WE03_CreateAndAddNewMemberWithOrWithoutEmailTest() throws Exception 
+	public void WE_03_CreateAndAddNewMemberWithOrWithoutEmailTest() throws Exception 
 	{	
 		CreateAndAddNewMemberWithOrWithoutEmail CreateandAddnewmemberwithorwithoutEmail = new CreateAndAddNewMemberWithOrWithoutEmail(getDriver());
-		CreateandAddnewmemberwithorwithoutEmail.WE03_CreateAndAddNewMemberWithOrWithoutEmail();			
+		CreateandAddnewmemberwithorwithoutEmail.WE_03_CreateAndAddNewMemberWithOrWithoutEmail();			
 	}
 }
