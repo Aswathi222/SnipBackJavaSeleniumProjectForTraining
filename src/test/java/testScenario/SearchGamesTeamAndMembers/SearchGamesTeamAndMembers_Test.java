@@ -9,33 +9,33 @@ import utilPack.BaseTest;
 public class SearchGamesTeamAndMembers_Test extends BaseTest 
 {	
 	@Test()
-	public void TC01_SearchGamesTeamAndMembers() throws Exception 
+	public void SH01_SearchGamesTeamAndMembers() throws Exception 
 	{	
 		SearchGamesTeamAndMembers searchGamesTeamAndMembersTest = new SearchGamesTeamAndMembers(getDriver());
-		searchGamesTeamAndMembersTest.TC01_SearchGamesTeamAndMembers();		
+		searchGamesTeamAndMembersTest.SH01_SearchGamesTeamAndMembers();		
 	}	
 	@Test()
-	public void TC02_SearchGamesTeamAndMembers() throws Exception 
+	public void SH02_SearchGamesTeamAndMembers() throws Exception 
 	{	
 		SearchGamesTeamAndMembers searchGamesTeamAndMembersTest = new SearchGamesTeamAndMembers(getDriver());
-		searchGamesTeamAndMembersTest.TC02_SearchGamesTeamAndMembers();		
+		searchGamesTeamAndMembersTest.SH02_SearchGamesTeamAndMembers();		
 	}	
 	@Test()
-	public void TC03_SearchGamesTeamAndMembers() throws Exception 
+	public void SH03_SearchGamesTeamAndMembers() throws Exception 
 	{	
 		SearchGamesTeamAndMembers searchGamesTeamAndMembersTest = new SearchGamesTeamAndMembers(getDriver());
-		searchGamesTeamAndMembersTest.TC03_SearchGamesTeamAndMembers();		
+		searchGamesTeamAndMembersTest.SH03_SearchGamesTeamAndMembers();		
 	}	
 	@Test()
-	public void TC04_SearchGamesTeamAndMembers() throws Exception 
+	public void SH04_SearchGamesTeamAndMembers() throws Exception 
 	{	
 		SearchGamesTeamAndMembers searchGamesTeamAndMembersTest = new SearchGamesTeamAndMembers(getDriver());
-		searchGamesTeamAndMembersTest.TC04_SearchGamesTeamAndMembers();		
+		searchGamesTeamAndMembersTest.SH04_SearchGamesTeamAndMembers();		
 	}
 	@Test()
-	public void TC05_SearchGamesTeamAndMembers() throws Exception 
+	public void SH05_SearchGamesTeamAndMembers() throws Exception 
 	{	
 		SearchGamesTeamAndMembers searchGamesTeamAndMembersTest = new SearchGamesTeamAndMembers(getDriver());
-		searchGamesTeamAndMembersTest.TC05_SearchGamesTeamAndMembers();		
+		searchGamesTeamAndMembersTest.SH05_SearchGamesTeamAndMembers();		
 	}
 }

@@ -2,15 +2,15 @@ package TestData;
 
 public class SearchGamesTeamAndMembers_TestData {
 	
-	//TC02_SearchGamesTeamAndMembers
-	public static String TC02_SearchGamesTeamAndMembers="T";
+	//SH02_SearchGamesTeamAndMembers
+	public static String SH02_SearchGamesTeamAndMembers="T";
 	
-	//TC03_SearchGamesTeamAndMembers
-	public static String TC03_SearchGamesTeamAndMembers_Number="1";
+	//SH03_SearchGamesTeamAndMembers
+	public static String SH03_SearchGamesTeamAndMembers_Number="1";
 	
-	//TC04_SearchGamesTeamAndMembers
-	public static String TC04_SearchGamesTeamAndMembers_Special="@";
+	//SH04_SearchGamesTeamAndMembers
+	public static String SH04_SearchGamesTeamAndMembers_Special="@";
 
-	//TC05_SearchGamesTeamAndMembers
-	public static String TC05_SearchGamesTeamAndMembers="I'm not here";
+	//SH05_SearchGamesTeamAndMembers
+	public static String SH05_SearchGamesTeamAndMembers="I'm not here";
 }
