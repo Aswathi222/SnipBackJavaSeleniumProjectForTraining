@@ -51,7 +51,7 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
 		asrt.assertTrue(base.isExists(loginObj.Btn_SingnIn("nav-game-tab")),"User is unable to navigate to the Film page once login with credentials");
 	}
-	
+
 	// <summary>
 	// Test Case Title : Verify that Add team (+ Add team) option should be displayed in the organization if the user as Admin/Coach in the Game, Members & Followers tab in the Film page		
 	// Automation ID :Team_03
@@ -71,7 +71,8 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 
 		//Step 2 : Switch the organization if the User as Admin/Coach
 		//Expected : User is able to Switch the organization if the User as Admin/Coach
-		base.selectorByVisibleText(createandaddnewmemberobj.Btn_Home("form-select select-form film-organizations"),addupdatedeleteobj.Team03_SlectedValue );
+		base.selectorByVisibleText(createandaddnewmemberobj.Btn_Home("form-select select-form film-organizations"),addupdatedeleteobj.Team_03_SelectedValue );
+		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("searchTeam")),"User is unable to Switch the organization if the User as Admin/Coach");
 
 		//Step 3 : Verify the +Add team option
 		//Expected : Add team (+ Add team) option should be displayed in the organization if the user as Admin/Coach in the Games tab
@@ -80,13 +81,13 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		//Step 4: Verify the +Add team option
 		//Expected : Add team (+ Add team) option should be displayed in the organization if the user as Admin/Coach in the Members tab
 		base.buttonClick(loginObj.Btn_SingnIn("nav-members-tab"));
-		asrt.assertTrue(base.isExists(addpudatedeleteduplicateobj.Ele_Memberandfollower("LIST OF MEMBERS")));		
+		asrt.assertTrue(base.isExists(addpudatedeleteduplicateobj.Ele_Memberandfollower("LIST OF MEMBERS")),"User is unable to view the LIST OF MEMBERS heading in film page");		
 		asrt.assertTrue(base.isEnabledBy(loginObj.Edt_Alert1("Add Team")), "User is unable to view the Add team (+ Add team) in the organization if the user as Admin/Coach in the 'Members' tab");
 
 		//Step 5 : Verify the +Add team option
 		//Expected : Add team (+ Add team) option should be displayed in the organization if the user as Admin/Coach in the Followers  tab
 		base.buttonClick(loginObj.Btn_SingnIn("nav-followers-tab"));
-		asrt.assertTrue(base.isExists(addpudatedeleteduplicateobj.Ele_Memberandfollower("LIST OF FOLLOWERS")));		
+		asrt.assertTrue(base.isExists(addpudatedeleteduplicateobj.Ele_Memberandfollower("LIST OF FOLLOWERS")),"User is unable to view the LIST OF FOLLOWERS heading in film page");		
 		asrt.assertTrue(base.isEnabledBy(loginObj.Edt_Alert1("Add Team")), "User is unable to view the Add team (+ Add team) in the organization if the user as Admin/Coach in the 'Followers' tab");
 	}
 }
