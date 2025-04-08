@@ -5,6 +5,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail_TestData {
 	// WE01_CreateandAddnewmemberwithorwithoutEmail
 	public static String WE01_CreateandAddnewmemberOrganization="demo organization";
 	public static String WE01_CreateandAddnewmemberTeam="475 Playmakers";
+	// WE03_CreateandAddnewmemberwithorwithoutEmail
+	public static String WE03_CreateandAddnewmemberEmail="test123@gmail.com";
 }
 
 
