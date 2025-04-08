@@ -11,5 +11,6 @@ public class CreateAndAddNewMemberWithOrWithoutEmail_Obj {
 	//Ele	
 	public By Ele_list(String Ele_list_id1, String Ele_list_id2) {return By.xpath("//div[@id='"+Ele_list_id1+"']//div[@id='"+Ele_list_id2+"']");}
 	//Edt
-	public By Edt_TeamName(String Edt_TeamNameClass) {return By.xpath("//input[@class='"+Edt_TeamNameClass+"']");}	
+	public By Edt_TeamName(String Edt_TeamNameClass) {return By.xpath("//input[@class='"+Edt_TeamNameClass+"']");}
+	public By Edt_TextArea(String TextArea_id) {return By.xpath("//textarea[@id='"+TextArea_id+"']");}	
 }
