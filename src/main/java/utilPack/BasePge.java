@@ -883,6 +883,20 @@ public class BasePge {
 
 		}
 	}
+	
+	/// <summary>
+	/// Verify if a popup or element is disappeared
+	//   if the popup or element is shown then this will fail the test case
+	/// </summary>
+	public boolean isDoesNotExistBool(By locator) {
+	    try {
+	        WebDriverWait wait = new WebDriverWait(driver, 10);
+	        wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+	        return true; // Element is not visible (does not exist)
+	    } catch (org.openqa.selenium.TimeoutException e) {
+	        return false; // Element is still visible
+	    }
+	}
 
 	/// <summary>
 	/// moving slider from 0 to mid point

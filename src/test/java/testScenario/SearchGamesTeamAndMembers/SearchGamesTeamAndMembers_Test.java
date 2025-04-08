@@ -9,27 +9,34 @@ import utilPack.BaseTest;
 public class SearchGamesTeamAndMembers_Test extends BaseTest 
 {	
 	@Test()
-	public void TC01_SearchGamesTeamAndMembers() throws Exception 
+	public void SH_01_SearchGamesTeamAndMembersTest() throws Exception 
 	{	
 		SearchGamesTeamAndMembers searchGamesTeamAndMembersTest = new SearchGamesTeamAndMembers(getDriver());
-		searchGamesTeamAndMembersTest.TC01_SearchGamesTeamAndMembers();		
+		searchGamesTeamAndMembersTest.SH_01_SearchGamesTeamAndMembers();		
 	}	
 	@Test()
-	public void TC02_SearchGamesTeamAndMembers() throws Exception 
+	public void SH_02_SearchGamesTeamAndMembersTest() throws Exception 
 	{	
 		SearchGamesTeamAndMembers searchGamesTeamAndMembersTest = new SearchGamesTeamAndMembers(getDriver());
-		searchGamesTeamAndMembersTest.TC02_SearchGamesTeamAndMembers();		
+		searchGamesTeamAndMembersTest.SH_02_SearchGamesTeamAndMembers();		
 	}	
 	@Test()
-	public void TC03_SearchGamesTeamAndMembers() throws Exception 
+	public void SH_03_SearchGamesTeamAndMembersTest() throws Exception 
 	{	
 		SearchGamesTeamAndMembers searchGamesTeamAndMembersTest = new SearchGamesTeamAndMembers(getDriver());
-		searchGamesTeamAndMembersTest.TC03_SearchGamesTeamAndMembers();		
+		searchGamesTeamAndMembersTest.SH_03_SearchGamesTeamAndMembers();		
 	}	
 	@Test()
-	public void TC04_SearchGamesTeamAndMembers() throws Exception 
+	public void SH_04_SearchGamesTeamAndMembersTest() throws Exception 
 	{	
 		SearchGamesTeamAndMembers searchGamesTeamAndMembersTest = new SearchGamesTeamAndMembers(getDriver());
-		searchGamesTeamAndMembersTest.TC04_SearchGamesTeamAndMembers();		
+		searchGamesTeamAndMembersTest.SH_04_SearchGamesTeamAndMembers();		
 	}
+	@Test()
+	public void SH_05_SearchGamesTeamAndMembersTest() throws Exception 
+	{	
+		SearchGamesTeamAndMembers searchGamesTeamAndMembersTest = new SearchGamesTeamAndMembers(getDriver());
+		searchGamesTeamAndMembersTest.SH_05_SearchGamesTeamAndMembers();		
+	}
+	
 }
