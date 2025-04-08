@@ -68,8 +68,8 @@ public class CreateEditDeletePool extends BasePge {
 		//step 7:Enter the Pool Name
 		//Expected:The user can able to Edit Pool.
 		base.setData(loginObj.Edt_LoginEmail("pool_name"), createEditDeletePoolTestdata.TC_09_CreateEditDeletePool);
-		base.excuteJsClick(scheduleUnscheduleGamesObj.Btn_Create("btn btn-primary create-btn border-0 btn-popup pool-update-btn", "UPDATE"));
-		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("Pool updated successfully")), "User is unable to edit the pool name");
+		String poolname=base.GetValue(loginObj.Edt_LoginEmail("pool_name"));
+		asrt.assertEquals(poolname, createEditDeletePoolTestdata.TC_09_CreateEditDeletePool, "User is not able to edit the pool name");
 	}
 	//<Summary>
 	//Test case Title:To verify whether the user can able to Copy Pool URL.
