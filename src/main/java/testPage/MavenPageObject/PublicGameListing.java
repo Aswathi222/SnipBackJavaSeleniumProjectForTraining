@@ -161,4 +161,26 @@ public class PublicGameListing extends BasePge{
 			//Expected:An option  "See All" should be displayed at the right side of the film page,  if multiple games are available under single date
 			asrt.assertTrue(base.isExists(LoginPageObj.Btn_LoginButton("see-all")),"User is unable to see the 'See All' option on the right side of the film page when multiple games are available under a single date");
 		}
+		//<summary>
+		//Verify that left and right arrow should be displayed to move left and right side to see all the games, if multiple games are available under single date
+	    //Automation ID:GameListing_07
+		//</summary>
+		public void GameListing_07_PublicGameListing() throws InterruptedException {
+			LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+			PublicGameListing_Obj PublicGameObj=new PublicGameListing_Obj();
+			SnipBackLogin_Obj SnipObj=new SnipBackLogin_Obj ();
+			//Step1: User navigated to SnipBack Website after entering snipback url
+			// Expected:The user should be able to navigate to the  Snipback website after entering the URL
+			asrt.assertTrue(base.isExists(LoginPageObj.Ele_SnipBackHomePageLogo("light-logo")), "User is unable to navigate to SnipBack website after entering the URL");
+			//Step2:Click on FILM Tab without login
+			//Expected:The user should be able to click on "FILM" tab without login to snipback
+			base.buttonClick(PublicGameObj.Btn_Home("Film","menu_link nav-link "));
+			asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");	
+			//Step3:Verify left and right side arrow
+			//Expected:Left and right arrow should be displayed to move left and right side to see all the games, if multiple games are available under single date
+			base.excuteJsClick(SnipObj.Btn_Signin("Next"));
+			asrt.assertTrue(base.isExists(PublicGameObj.Ele_GameName(21,"cardheading")),"User is not able to view the next public game");
+			base.excuteJsClick(SnipObj.Btn_Signin("Previous"));
+			asrt.assertTrue(base.isExists(PublicGameObj.Ele_GameName(20,"cardheading")),"User is not able to view the previous public game.");		
+		}
 	}
