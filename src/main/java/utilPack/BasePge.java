@@ -1072,6 +1072,17 @@ public class BasePge {
 		    	buttonClick(locator);
 		    }
 		}
+		//Summary
+		//<Is exists/starts with >
+		//</Summary>
+		public boolean isExistsInStart(List<String> elementTexts, String searchTerm) {
+	        for (String text : elementTexts) {
+	            if (text.toLowerCase().startsWith(searchTerm.toLowerCase())) {
+	                return true;
+	            }
+	        }
+	        return false;
+	    }
 }
 
 
