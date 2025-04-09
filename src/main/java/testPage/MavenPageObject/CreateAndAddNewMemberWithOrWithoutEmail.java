@@ -3,11 +3,12 @@ package testPage.MavenPageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import TestData.CommonData;
 import TestData.CreateAndAddNewMemberWithOrWithoutEmail_TestData;
-import TestData.ForgotPassword_TestData;
 import objectRepository.CreateAndAddNewMemberWithOrWithoutEmail_Obj;
+import objectRepository.CreateEditDeletePool_Obj;
 import objectRepository.ForgotPassword_Obj;
 import objectRepository.LoginPage_Obj;
 import utilPack.BasePge;
@@ -42,7 +43,9 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberOrganization);
-		asrt.assertTrue(base.isEnabledBy(LoginPageObj.Edt_LoginEmail("searchTeam")),"User is not able to select any organization");
+		Select select = new Select(driver.findElement(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations")));
+		String selectOption = select.getFirstSelectedOption().getText();
+		asrt.assertEquals(selectOption, CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
 		//Expected : User should be able to Switch to any Team.
@@ -88,17 +91,19 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
-		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberOrganization);
-		asrt.assertTrue(base.isEnabledBy(LoginPageObj.Edt_LoginEmail("searchTeam")),"User is not able to select any organization");
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_02_CreateandAddnewmemberOrganization);
+		Select select = new Select(driver.findElement(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations")));
+		String selectOption = select.getFirstSelectedOption().getText();
+		asrt.assertEquals(selectOption, CreateAndAddNewMemberTestDataobj.WE_02_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
 		//Expected : User should be able to Switch to any Team.
-		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberTeam);
+		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_02_CreateandAddnewmemberTeam);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
 		Thread.sleep(3000);
 		base.buttonClick(LoginPageObj.Edt_Alert1("475 Playmakers"));
 		String TeamName = base.GetText(LoginPageObj.Edt_Alert1("475 Playmakers"));
-		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
+		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_02_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
 
 		//Step 5 : Click three dots of that team
 		//Expected : User should be able to Click three dots of that team.
@@ -138,16 +143,18 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
-		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberOrganization);
-		asrt.assertTrue(base.isEnabledBy(LoginPageObj.Edt_LoginEmail("searchTeam")),"User is not able to select any organization");
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_03_CreateandAddnewmemberOrganization);
+		Select select = new Select(driver.findElement(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations")));
+		String selectOption = select.getFirstSelectedOption().getText();
+		asrt.assertEquals(selectOption, CreateAndAddNewMemberTestDataobj.WE_03_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
 		//Expected : User should be able to Switch to any Team.
-		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberTeam);
+		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_03_CreateandAddnewmemberTeam);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
 		base.buttonClick(LoginPageObj.Edt_Alert1("475 Playmakers"));
 		String TeamName = base.GetText(LoginPageObj.Edt_Alert1("475 Playmakers"));
-		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
+		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_03_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
 
 		//Step 5 : Click three dots of that team
 		//Expected : User should be able to Click three dots of that team.
@@ -193,16 +200,18 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
-		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberOrganization);
-		asrt.assertTrue(base.isEnabledBy(LoginPageObj.Edt_LoginEmail("searchTeam")),"User is not able to select any organization");
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_04_CreateandAddnewmemberOrganization);
+		Select select = new Select(driver.findElement(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations")));
+		String selectOption = select.getFirstSelectedOption().getText();
+		asrt.assertEquals(selectOption, CreateAndAddNewMemberTestDataobj.WE_04_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
 		//Expected : User should be able to Switch to any Team.
-		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberTeam);
+		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_04_CreateandAddnewmemberTeam);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
 		base.buttonClick(LoginPageObj.Edt_Alert1("475 Playmakers"));
 		String TeamName = base.GetText(LoginPageObj.Edt_Alert1("475 Playmakers"));
-		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
+		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_04_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
 
 		//Step 5 : Click three dots of that team
 		//Expected : User should be able to Click three dots of that team.
@@ -247,16 +256,18 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
-		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberOrganization);
-		asrt.assertTrue(base.isEnabledBy(LoginPageObj.Edt_LoginEmail("searchTeam")),"User is not able to select any organization");
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_05_CreateandAddnewmemberOrganization);
+		Select select = new Select(driver.findElement(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations")));
+		String selectOption = select.getFirstSelectedOption().getText();
+		asrt.assertEquals(selectOption, CreateAndAddNewMemberTestDataobj.WE_05_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
 		//Expected : User should be able to Switch to any Team.
-		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberTeam);
+		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_05_CreateandAddnewmemberTeam);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
 		base.buttonClick(LoginPageObj.Edt_Alert1("475 Playmakers"));
 		String TeamName = base.GetText(LoginPageObj.Edt_Alert1("475 Playmakers"));
-		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
+		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_05_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
 
 		//Step 5 : Click three dots of that team
 		//Expected : User should be able to Click three dots of that team.
@@ -305,16 +316,18 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
-		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberOrganization);
-		asrt.assertTrue(base.isEnabledBy(LoginPageObj.Edt_LoginEmail("searchTeam")),"User is not able to select any organization");
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_06_CreateandAddnewmemberOrganization);
+		Select select = new Select(driver.findElement(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations")));
+		String selectOption = select.getFirstSelectedOption().getText();
+		asrt.assertEquals(selectOption, CreateAndAddNewMemberTestDataobj.WE_06_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
 		//Expected : User should be able to Switch to any Team.
-		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberTeam);
+		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_06_CreateandAddnewmemberTeam);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
 		base.buttonClick(LoginPageObj.Edt_Alert1("475 Playmakers"));
 		String TeamName = base.GetText(LoginPageObj.Edt_Alert1("475 Playmakers"));
-		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
+		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_06_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
 
 		//Step 5 : Click three dots of that team
 		//Expected : User should be able to Click three dots of that team.
@@ -334,9 +347,69 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 8 :   Enter a valid name
 		//Expected : The user should able to enter the Name without any alert message.
-		base.setData(LoginPageObj.Edt_LoginEmail("emailInputNew"),CreateAndAddNewMemberTestDataobj.WE_03_CreateandAddnewmemberEmail);
-		base.setData(LoginPageObj.Edt_LoginEmail("firstnameNew"), CreateAndAddNewMemberTestDataobj.WE_05_CreateandAddnewmemberFirstName);
+		base.setData(LoginPageObj.Edt_LoginEmail("emailInputNew"),CreateAndAddNewMemberTestDataobj.WE_06_CreateandAddnewmemberEmail);
+		base.setData(LoginPageObj.Edt_LoginEmail("firstnameNew"), CreateAndAddNewMemberTestDataobj.WE_06_CreateandAddnewmemberFirstName);
 		base.buttonClick(LoginPageObj.Btn_SingnIn("createUserBtn"));
 		asrt.assertTrue(base.isDoesNotExistBool(LoginPageObj.Edt_Alert1("The User Name must be at least 2 characters.")), "The user is not able to enter the Name without any alert message.");
+	}
+	//<summery>
+	//Test Case Title : To verify what happens when the user enters a invalid First Name in the ADD NEW USER pop up
+	//Automation ID : WE_07
+	//</summery>
+	public void WE_07_CreateAndAddNewMemberWithOrWithoutEmail() throws InterruptedException {	
+		Login login = new Login(driver);
+		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj CreateAndAddNewMemberWithOrWithoutEmailObj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_TestData CreateAndAddNewMemberTestDataobj = new CreateAndAddNewMemberWithOrWithoutEmail_TestData();
+		CreateEditDeletePool_Obj CreateEditDeletePoolObj = new CreateEditDeletePool_Obj();
+
+		//Step 1 : Navigate to Snipback Login page
+		//Expected : User should be able to navigate to Snipback Login page.
+		asrt.assertTrue(base.isExists(LoginPageObj.Btn_Login("Login")),"User is not able to view Snipback page");
+
+		//Step 2 : Login to Snipback
+		//Expected : User should be able to login.
+		base.buttonClick(CreateEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("GAMES")), "User is not able to login");
+
+		//Step 3 : Select any organization
+		//Expected : User should be able to select any organization.
+		Thread.sleep(5000);
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_07_CreateandAddnewmemberOrganization);
+		Select select = new Select(driver.findElement(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations")));
+		String selectOption = select.getFirstSelectedOption().getText();
+		asrt.assertEquals(selectOption, CreateAndAddNewMemberTestDataobj.WE_07_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
+
+		//Step 4 : Switch to any Team
+		//Expected : User should be able to Switch to any Team.
+		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_07_CreateandAddnewmemberTeam);
+		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
+		base.buttonClick(LoginPageObj.Edt_Alert1("475 Playmakers"));
+		String TeamName = base.GetText(LoginPageObj.Edt_Alert1("475 Playmakers"));
+		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_07_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
+
+		//Step 5 : Click three dots of that team
+		//Expected : User should be able to Click three dots of that team.
+		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_ThreeDots("my-team-content", "defaultDropdown-1"));
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_list("my-team-content", "teamDropdownMenu-1")), "User is not able to Click three dots of that team");
+		Thread.sleep(7000);
+
+		//Step 6 :  Select "Edit Team" option 
+		//Expected : User should be able to select "Edit Team" option.
+		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_EditTeam("475 Playmakers"));
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_TeamName("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
+
+		//Step 7 :   Click Create&Add New Member with Email
+		//Expected : The user should navigate to CREATE NEW USER pop up.
+		base.buttonClick(LoginPageObj.Edt_Alert1("Create & Add New Member With Email"));
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("emailInputNew")),"The user is not navigated to CREATE NEW USER pop up.");
+
+		//Step 8 :   Enter a invalid name
+		//Expected : The user should receive a alert message as "The User Name must be atleast 2 characters."
+		base.setData(LoginPageObj.Edt_LoginEmail("emailInputNew"),CreateAndAddNewMemberTestDataobj.WE_07_CreateandAddnewmemberEmail);
+		base.setData(LoginPageObj.Edt_LoginEmail("firstnameNew"), CreateAndAddNewMemberTestDataobj.WE_07_CreateandAddnewmemberInvalidFirstName);
+		base.buttonClick(LoginPageObj.Btn_SingnIn("createUserBtn"));
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("The User Name must be at least 2 characters.")), "The user is not receiving a alert message as \"The User Name must be atleast 2 characters.\"");
 	}
 }
