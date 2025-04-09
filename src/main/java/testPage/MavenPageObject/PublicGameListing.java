@@ -206,7 +206,6 @@ public class PublicGameListing extends BasePge{
 	{
 		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
 		PublicGameListing_Obj PublicGameObj=new PublicGameListing_Obj();
-		SnipBackLogin_Obj SnipObj=new SnipBackLogin_Obj ();
 		
 		//Step1: User navigated to SnipBack Website after entering snipback url
 		// Expected:The user should be able to navigate to the  Snipback website after entering the URL
