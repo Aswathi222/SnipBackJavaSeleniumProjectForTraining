@@ -32,5 +32,8 @@ public class CreateEditDeletePool_TestData {
 	
 	// TC_09_CreateEditDeletePool
 	public static String TC_09_CreateEditDeletePool="TC09_CreateEdit";
+	
+	//TC_10_CreateEditDeletePool
+	public static String TC_10_CreateEditDeletePool="Private";
 }
 
