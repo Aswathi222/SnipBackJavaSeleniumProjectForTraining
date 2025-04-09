@@ -25,7 +25,6 @@ public class CreateEditDeletePool extends BasePge {
 		super(driver);
 		base = new BasePge(driver);
 	}
-
 	//<Summary>
 	//Test case Title:To verify whether the user can able to edit Pool Type
 	//Automation ID: TC_10
@@ -41,11 +40,10 @@ public class CreateEditDeletePool extends BasePge {
 		asrt.assertTrue(base.isExists(loginObj.Btn_Login("Login")),"User is unable to view SnipBack page" );
 
 		///Step 2 : Login to Snipback
-		//Expected : User should be able to login.
-		base.buttonClick(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));		
+		//Expected : User should be able to login.		
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
 		asrt.assertTrue(base.isExists(loginObj.Edt_Alert1("GAMES")), "User is not able to login");
-		
+
 		//step 3:Go to Film page
 		//Expected: User should be able to click film
 		base.buttonClick(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
@@ -69,9 +67,7 @@ public class CreateEditDeletePool extends BasePge {
 
 		//step 7:Enter the Pool Type
 		//Expected:The user can't able to edit Pool Type.
-		base.selectorByVisibleText(createEditDeletePoolObj.Sel_PoolType("pool_type"),createEditDeletePoolTestdata.TC_10_CreateEditDeletePool);
-		String poolType=base.GetText(createEditDeletePoolObj.Ddl_PoolType("Private"));
-		asrt.assertEquals(poolType, createEditDeletePoolTestdata.TC_10_CreateEditDeletePool,"User is able to edit Pool Type");
+		asrt.assertFalse(base.isEnabledBy(createEditDeletePoolObj.Sel_PoolType("pool_type")),"User can edit the pool type");
 	}
 	//<Summary>
 	//Test case Title:To verify whether the user can able to Edit Pool.
