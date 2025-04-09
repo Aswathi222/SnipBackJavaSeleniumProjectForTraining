@@ -291,10 +291,11 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		base.excuteJsClick(loginObj.Edt_Alert1("MEMBERS"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to view the option to search teams in the GamesMembers Listing page");
 
-		//step 5:Enter the first letter of team name
-		//Expected:User should enter the first letter of team name
+		//step 5:Click search bar above the teams and enter the first letter of team name
+		//Expected: User should able to click search bar above teams and enter the first letter of team name
+		base.buttonClick(loginObj.Edt_LoginEmail("searchTeam"));
 		base.setData(loginObj.Edt_LoginEmail("searchTeam"),searchGamesTeamAndMembersTestData.SH_07_SearchGamesTeamAndMembers);
 		List<String> firstLetter=base.GetElementTexts(searchGameTeamAndMembersObj.Ele_GameFirst("my-team-content", "all-teams text-dark"));
-		asrt.assertTrue(base.isExistsInStart(firstLetter, searchGamesTeamAndMembersTestData.SH_07_SearchGamesTeamAndMembers),"User is unable to enter the first letter of team name");
+		asrt.assertTrue(base.isExistsInStart(firstLetter, searchGamesTeamAndMembersTestData.SH_07_SearchGamesTeamAndMembers),"User is unable to click and enter the first letter of team name in search bar above teams");
 	}
 }
