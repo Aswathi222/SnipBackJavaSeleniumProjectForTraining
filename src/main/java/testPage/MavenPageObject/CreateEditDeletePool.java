@@ -33,7 +33,6 @@ public class CreateEditDeletePool extends BasePge {
 		LoginPage_Obj loginObj=new LoginPage_Obj();
 		Login login=new Login(driver);
 		CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
-		CreateEditDeletePool_TestData createEditDeletePoolTestdata=new CreateEditDeletePool_TestData();
 
 		//Step 1: Navigate to Snipback page
 		//Expected : User should be able to view Snipback page
