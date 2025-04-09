@@ -142,5 +142,23 @@ public class PublicGameListing extends BasePge{
 			    }
 			}
 			asrt.assertTrue(base.isExists(PublicGameObj.Ele_GameName(1,"cardheading")) && base.isExists(PublicGameObj.Ele_GameName(1,"mainHead")),"User is not able  to see the public game as per the recent dates along with day after entering into FILM page");
-		}	
+		}
+		//<summary>
+		//Verify that an option  "See All" should be displayed at the right side of the film page,  if multiple games are available under single date
+	    //Automation ID:GameListing_06
+		//</summary>
+		public void GameListing_06_PublicGameListing() throws InterruptedException {
+			LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+			PublicGameListing_Obj PublicGameObj=new PublicGameListing_Obj();
+			// Step1: User navigated to SnipBack Website after entering snipback url
+			// Expected:The user should be able to navigate to the  Snipback website after entering the URL
+			asrt.assertTrue(base.isExists(LoginPageObj.Ele_SnipBackHomePageLogo("light-logo")), "User is unable to navigate to SnipBack website after entering the URL");
+			//Step2:Click on FILM Tab without login
+			//Expected:The user should be able to click on "FILM" tab without login to snipback
+			base.buttonClick(PublicGameObj.Btn_Home("Film","menu_link nav-link "));
+			asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");	
+			//Step3:Verify the option " See All"
+			//Expected:An option  "See All" should be displayed at the right side of the film page,  if multiple games are available under single date
+			asrt.assertTrue(base.isExists(LoginPageObj.Btn_LoginButton("see-all")),"User is unable to see the 'See All' option on the right side of the film page when multiple games are available under a single date");
+		}
 	}
