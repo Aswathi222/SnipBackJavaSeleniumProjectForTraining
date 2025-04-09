@@ -197,4 +197,31 @@ public class PublicGameListing extends BasePge{
 		base.excuteJsClick(SnipObj.Btn_Signin("Previous"));
 		asrt.assertTrue(base.isExists(PublicGameObj.Ele_GameName(20,"cardheading")),"User is not able to view the previous public game.");		
 	}
+	
+	//<summary>
+	//Verify that the game details (Game name, name of the Organization, Likes, single view/ multiple view, Stat (Only for games with stat) should be displayed under the games
+	//Automation ID:GameListing_08
+	//</summary>
+	public void GameListing_08_PublicGameListing() throws InterruptedException 
+	{
+		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+		PublicGameListing_Obj PublicGameObj=new PublicGameListing_Obj();
+		
+		//Step1: User navigated to SnipBack Website after entering snipback url
+		// Expected:The user should be able to navigate to the  Snipback website after entering the URL
+		asrt.assertTrue(base.isExists(LoginPageObj.Ele_SnipBackHomePageLogo("light-logo")), "User is unable to navigate to SnipBack website after entering the URL");
+		
+		//Step2:Click on FILM Tab without login
+		//Expected:The user should be able to click on "FILM" tab without login to snipback
+		base.buttonClick(PublicGameObj.Btn_Home("Film","menu_link nav-link "));
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");	
+		 
+	   //Step3:Verify the Game Details
+	   //Expected:Game details (Game name, name of the Organization, Likes, single view/ multiple view, Stat (Only for games with stat) should be displayed under the games
+		asrt.assertTrue(base.isExists(PublicGameObj.Ele_GameName(1,"cardheading")),"User is unable to see the game name"); 
+		asrt.assertTrue(base.isExists(PublicGameObj.Ele_GameDate(1,"cardSubHead")),"User is unable to see the organisation name"); 
+		asrt.assertTrue(base.isExists(PublicGameObj.Ele_GameName(1,"views-content")),"User is unable to see the likes count");
+		asrt.assertTrue(base.isExists(PublicGameObj.Ele_GameName(1,"multiview")),"User is unable to see the view type(single view or multiple view)");
+		asrt.assertTrue(base.isExists(PublicGameObj.Ele_GameName(1,"views-contents stats")),"User is unable to see the gamestat");
+	}
 }
