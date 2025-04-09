@@ -48,5 +48,11 @@ public class PublicGameListing_Test extends BaseTest
 		PublicGameListing publicGameListing=new PublicGameListing(getDriver());
 		publicGameListing.GameListing_07_PublicGameListing();	
 	}
+	@Test()
+	public void GameListing_08_PublicGameListingTest() throws Exception 
+	{		
+		PublicGameListing publicGameListing=new PublicGameListing(getDriver());
+		publicGameListing.GameListing_08_PublicGameListing();	
+	}
 }
 
