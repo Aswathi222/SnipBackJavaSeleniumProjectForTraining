@@ -307,7 +307,8 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		Login login=new Login(driver);
 		CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
 		SearchGamesTeamAndMembers_TestData searchGamesTeamAndMembersTestData=new SearchGamesTeamAndMembers_TestData();
-
+		SearchGameTeamAndMembers_Obj searchGameTeamAndMembersObj=new SearchGameTeamAndMembers_Obj();
+		
 		//Step 1: Navigate to Snipback page
 		//Expected : User should be able to view Snipback page
 		asrt.assertTrue(base.isExists(loginObj.Btn_Login("Login")),"User is unable to view SnipBack page" );
@@ -331,7 +332,7 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		//Expected: User should click search bar above the teams and can see list of teams with the given number.
 		base.buttonClick(loginObj.Edt_LoginEmail("searchTeam"));
 		base.setData(loginObj.Edt_LoginEmail("searchTeam"),searchGamesTeamAndMembersTestData.SH_08_SearchGamesTeamAndMembers);
-		String number=base.GetValue(loginObj.Edt_LoginEmail("searchTeam"));
-		asrt.assertEquals(number, searchGamesTeamAndMembersTestData.SH_08_SearchGamesTeamAndMembers,"User is unable to see the list of teams with the given number");
+		List<String> number=base.GetElementTexts(searchGameTeamAndMembersObj.Ele_GameFirst("my-team-content", "all-teams text-dark"));
+		asrt.assertTrue(base.isExistsInText(number, searchGamesTeamAndMembersTestData.SH_08_SearchGamesTeamAndMembers),"User is unable to see the list of teams with given number");
 	}
 }
