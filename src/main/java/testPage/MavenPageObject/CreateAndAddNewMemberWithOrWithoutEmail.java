@@ -45,7 +45,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberOrganization);
 		Select select = new Select(driver.findElement(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations")));
 		String selectOption = select.getFirstSelectedOption().getText();
-		asrt.assertEquals(selectOption, CreateAndAddNewMemberTestDataobj.WE_07_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
+		asrt.assertEquals(selectOption, CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
 		//Expected : User should be able to Switch to any Team.
@@ -94,7 +94,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_02_CreateandAddnewmemberOrganization);
 		Select select = new Select(driver.findElement(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations")));
 		String selectOption = select.getFirstSelectedOption().getText();
-		asrt.assertEquals(selectOption, CreateAndAddNewMemberTestDataobj.WE_07_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
+		asrt.assertEquals(selectOption, CreateAndAddNewMemberTestDataobj.WE_02_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
 		//Expected : User should be able to Switch to any Team.
@@ -146,7 +146,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_03_CreateandAddnewmemberOrganization);
 		Select select = new Select(driver.findElement(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations")));
 		String selectOption = select.getFirstSelectedOption().getText();
-		asrt.assertEquals(selectOption, CreateAndAddNewMemberTestDataobj.WE_07_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
+		asrt.assertEquals(selectOption, CreateAndAddNewMemberTestDataobj.WE_03_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
 		//Expected : User should be able to Switch to any Team.
@@ -203,7 +203,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_04_CreateandAddnewmemberOrganization);
 		Select select = new Select(driver.findElement(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations")));
 		String selectOption = select.getFirstSelectedOption().getText();
-		asrt.assertEquals(selectOption, CreateAndAddNewMemberTestDataobj.WE_07_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
+		asrt.assertEquals(selectOption, CreateAndAddNewMemberTestDataobj.WE_04_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
 		//Expected : User should be able to Switch to any Team.
@@ -259,7 +259,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_05_CreateandAddnewmemberOrganization);
 		Select select = new Select(driver.findElement(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations")));
 		String selectOption = select.getFirstSelectedOption().getText();
-		asrt.assertEquals(selectOption, CreateAndAddNewMemberTestDataobj.WE_07_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
+		asrt.assertEquals(selectOption, CreateAndAddNewMemberTestDataobj.WE_05_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
 		//Expected : User should be able to Switch to any Team.
@@ -319,7 +319,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_06_CreateandAddnewmemberOrganization);
 		Select select = new Select(driver.findElement(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations")));
 		String selectOption = select.getFirstSelectedOption().getText();
-		asrt.assertEquals(selectOption, CreateAndAddNewMemberTestDataobj.WE_07_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
+		asrt.assertEquals(selectOption, CreateAndAddNewMemberTestDataobj.WE_06_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
 		//Expected : User should be able to Switch to any Team.
