@@ -92,7 +92,7 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		base.buttonClick(loginObj.Btn_SingnIn("nav-followers-tab"));
 		asrt.assertTrue(base.isEnabledBy(loginObj.Edt_Alert1("Add Team")),"User is unable to view the Add team (+ Add team) option in the organization if the user as Admin/Coach in the 'Followers' tab");
 	}
-	
+
 	// <summary>
 	// Test Case Title : Verify that Add team (+ Add team) option should  be disabled in Home organization and in the Organization if the User as Player/Followers/Recruiter in the Film page
 	// Automation ID :Team_04
@@ -109,28 +109,26 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		//Expected : User should be able to login the film page with credentials
 		base.buttonClick(CreateEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
-		asrt.assertTrue(base.isExists(loginObj.Btn_SingnIn("nav-game-tab"))," User is unable to login the film page with credentials");
+		asrt.assertTrue(base.isExists(loginObj.Btn_SingnIn("nav-game-tab")),"User is unable to login the film page with credentials");
 
 		//Step 2 : Switch the organization as Home organization
 		//Expected : User is able to Switch the organization as Home organization
 		base.selectorByVisibleText(createandaddnewmemberobj.Btn_Home("form-select select-form film-organizations"),addupdatedeleteobj.Team_04_SelectedValue);
-		Select select = new Select(driver.findElement(createandaddnewmemberobj.Btn_Home("form-select select-form film-organizations")));
-		String selectOption = select.getFirstSelectedOption().getText();
-		asrt.assertEquals(selectOption,addupdatedeleteobj.Team_04_SelectedValue, "User is unable to Switch the organization as Home organization");
+		String DropdownValue=base.DropDownText(createandaddnewmemberobj.Btn_Home("form-select select-form film-organizations"));		
+		asrt.assertEquals(DropdownValue,addupdatedeleteobj.Team_04_SelectedValue,"User is unable to Switch the organization as Home organization");
 
 		//Step 3 : Verify the +Add team option
 		//Expected : Add team (+ Add team) option should  be disabled in Home organization in the Film page
-		asrt.assertFalse(driver.findElement(loginObj.Edt_Alert1("Add Team")).isDisplayed(), "Add team (+ Add team) option is not disabled in Home organization in the Film page");		 
+		asrt.assertTrue(base.isDoesNotExistBool(loginObj.Edt_Alert1("Add Team")),"Add team (+ Add team) option is not disabled in Home organization in the Film page");
 
 		//Step 4 : Switch the organization if the User as Player/Followers/Recruiter
 		//Expected : User is able to Switch the organization if the User as Player/Followers/Recruiter
 		base.selectorByVisibleText(createandaddnewmemberobj.Btn_Home("form-select select-form film-organizations"),addupdatedeleteobj.Team_04_SelectedFollower);
-		Select selectedValue = new Select(driver.findElement(createandaddnewmemberobj.Btn_Home("form-select select-form film-organizations")));
-		String selectList = select.getFirstSelectedOption().getText();
-		asrt.assertEquals(selectList,addupdatedeleteobj.Team_04_SelectedFollower, "User is unable to Switch the organization if the User as Player/Followers/Recruiter");
+		String selectedList=base.DropDownText(createandaddnewmemberobj.Btn_Home("form-select select-form film-organizations"));			
+		asrt.assertEquals(selectedList,addupdatedeleteobj.Team_04_SelectedFollower,"User is unable to Switch the organization if the User as Player/Followers/Recruiter");
 
 		//Step 5 : Verify the +Add team option
 		//Expected : Add team (+ Add team) option should  be disabled in the Organization if the User as Player/Followers/Recruiter in the Film page
-		asrt.assertFalse( driver.findElement(loginObj.Edt_Alert1("Add Team")).isDisplayed(), "Add team (+ Add team) option is not disabled in the Organization if the User as Player/Followers/Recruiter in the Film page");		 
+		asrt.assertTrue(base.isDoesNotExistBool(loginObj.Edt_Alert1("Add Team")),"Add team (+ Add team) option is not disabled in the organization if the User as Player/Followers/Recruiter in the Film page");
 	}
 }
