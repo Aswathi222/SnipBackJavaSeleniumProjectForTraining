@@ -76,11 +76,11 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		Select select = new Select(driver.findElement(createandaddnewmemberobj.Btn_Home("form-select select-form film-organizations")));
 		String selectOption = select.getFirstSelectedOption().getText();
 		asrt.assertEquals(selectOption, addupdatedeleteobj.Team_03_SelectedValue, "User is unable to Switch the organization if the User as Admin/Coach");
-		
+
 		//Step 3 : Verify the +Add team option
 		//Expected : Add team (+ Add team) option should be displayed in the organization if the user as Admin/Coach in the Games tab
 		Thread.sleep(10000);
-	    asrt.assertTrue(base.isEnabledBy(loginObj.Edt_Alert1("Add Team")),"User is unable to view the Add team (+ Add team) option in the organization if the user as Admin/Coach in the 'Games' tab");
+		asrt.assertTrue(base.isEnabledBy(loginObj.Edt_Alert1("Add Team")),"User is unable to view the Add team (+ Add team) option in the organization if the user as Admin/Coach in the 'Games' tab");
 
 		//Step 4: Verify the +Add team option
 		//Expected : Add team (+ Add team) option should be displayed in the organization if the user as Admin/Coach in the Members tab
@@ -90,6 +90,47 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		//Step 5 : Verify the +Add team option
 		//Expected : Add team (+ Add team) option should be displayed in the organization if the user as Admin/Coach in the Followers  tab
 		base.buttonClick(loginObj.Btn_SingnIn("nav-followers-tab"));
-        asrt.assertTrue(base.isEnabledBy(loginObj.Edt_Alert1("Add Team")),"User is unable to view the Add team (+ Add team) option in the organization if the user as Admin/Coach in the 'Followers' tab");
+		asrt.assertTrue(base.isEnabledBy(loginObj.Edt_Alert1("Add Team")),"User is unable to view the Add team (+ Add team) option in the organization if the user as Admin/Coach in the 'Followers' tab");
+	}
+	
+	// <summary>
+	// Test Case Title : Verify that Add team (+ Add team) option should  be disabled in Home organization and in the Organization if the User as Player/Followers/Recruiter in the Film page
+	// Automation ID :Team_04
+	// </summary>
+	public void Team_04_AddUpdateDeleteDuplicateTeamGameDefaults() throws InterruptedException 
+	{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login = new Login(driver);
+		AddUpdateDeleteDuplicateTeamGameDefaults_TestData  addupdatedeleteobj= new AddUpdateDeleteDuplicateTeamGameDefaults_TestData();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj createandaddnewmemberobj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		CreateEditDeletePool_Obj CreateEditDeletePoolObj = new CreateEditDeletePool_Obj();
+
+		//Step 1 : Verify that user is able to Login Snipback
+		//Expected : User should be able to login the film page with credentials
+		base.buttonClick(CreateEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(loginObj.Btn_SingnIn("nav-game-tab"))," User is unable to login the film page with credentials");
+
+		//Step 2 : Switch the organization as Home organization
+		//Expected : User is able to Switch the organization as Home organization
+		base.selectorByVisibleText(createandaddnewmemberobj.Btn_Home("form-select select-form film-organizations"),addupdatedeleteobj.Team_04_SelectedValue);
+		Select select = new Select(driver.findElement(createandaddnewmemberobj.Btn_Home("form-select select-form film-organizations")));
+		String selectOption = select.getFirstSelectedOption().getText();
+		asrt.assertEquals(selectOption,addupdatedeleteobj.Team_04_SelectedValue, "User is unable to Switch the organization as Home organization");
+
+		//Step 3 : Verify the +Add team option
+		//Expected : Add team (+ Add team) option should  be disabled in Home organization in the Film page
+		asrt.assertFalse(driver.findElement(loginObj.Edt_Alert1("Add Team")).isDisplayed(), "Add team (+ Add team) option is not disabled in Home organization in the Film page");		 
+
+		//Step 4 : Switch the organization if the User as Player/Followers/Recruiter
+		//Expected : User is able to Switch the organization if the User as Player/Followers/Recruiter
+		base.selectorByVisibleText(createandaddnewmemberobj.Btn_Home("form-select select-form film-organizations"),addupdatedeleteobj.Team_04_SelectedFollower);
+		Select selectedValue = new Select(driver.findElement(createandaddnewmemberobj.Btn_Home("form-select select-form film-organizations")));
+		String selectList = select.getFirstSelectedOption().getText();
+		asrt.assertEquals(selectList,addupdatedeleteobj.Team_04_SelectedFollower, "User is unable to Switch the organization if the User as Player/Followers/Recruiter");
+
+		//Step 5 : Verify the +Add team option
+		//Expected : Add team (+ Add team) option should  be disabled in the Organization if the User as Player/Followers/Recruiter in the Film page
+		asrt.assertFalse( driver.findElement(loginObj.Edt_Alert1("Add Team")).isDisplayed(), "Add team (+ Add team) option is not disabled in the Organization if the User as Player/Followers/Recruiter in the Film page");		 
 	}
 }
