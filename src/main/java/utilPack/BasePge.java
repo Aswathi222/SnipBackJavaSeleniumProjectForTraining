@@ -1083,6 +1083,15 @@ public class BasePge {
 	        }
 	        return false;
 	    }
+		//Summary
+		//<Is exists/starts with >
+		//</Summary>
+		public String DropDownText (By locator) {
+			Select select = new Select(driver.findElement(locator));
+			String selectedOption = select.getFirstSelectedOption().getText();
+			return selectedOption;
+		}
+		
 }
 
 
