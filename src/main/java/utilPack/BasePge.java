@@ -9,8 +9,10 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -187,6 +189,29 @@ public class BasePge {
 			}
 		}
 
+	}
+	/// <summary>
+	/// fillFormFields
+	/// </summary>
+	public void fillFormFields(Object... elementsAndValues) {
+	    if (elementsAndValues.length % 2 != 0) {
+	        throw new IllegalArgumentException("You must provide pairs of locator and value.");
+	    }
+	 
+	    for (int i = 0; i < elementsAndValues.length; i += 2) {
+	        By locator = (By) elementsAndValues[i];
+	        String value = (String) elementsAndValues[i + 1];
+	 
+	        try {
+	            WebElement element = driver.findElement(locator);
+	            element.clear();
+	            element.sendKeys(value);
+	            System.out.println("✅ Filled field: " + locator.toString() + " with value: " + value);
+	        } catch (Exception e) {
+	            System.err.println("❌ Failed to fill field: " + locator.toString() + ". Error: " + e.getMessage());
+	            throw e;
+	        }
+	    }
 	}
 
 	/// <summary>
