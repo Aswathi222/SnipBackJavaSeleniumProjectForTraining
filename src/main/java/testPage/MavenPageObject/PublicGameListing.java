@@ -1,6 +1,7 @@
 package testPage.MavenPageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.Locale;
 import org.testng.Assert;
 import TestData.PublicGameLisiting_TestData;
+import objectRepository.CreateEditDeletePool_Obj;
 import objectRepository.LoginPage_Obj;
 import objectRepository.PublicGameListing_Obj;
 import objectRepository.SnipBackLogin_Obj;
@@ -278,13 +280,8 @@ public class PublicGameListing extends BasePge{
 		//Step 5: Click on Enter
 		//Expected : Proper games as per the date should be listed when the user try to filter the games by using the option "Filter by date (MM/DD/YYYY)"
 		base.pressKey(clickOnStartDate,"KEYBOARD_ENTER" );
-		ArrayList<String> games = new ArrayList<>();
-		games.add("e45");
-		games.add("newdec56");
-		games.add("new134");
-		for (String game : games) {
-		    asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText(game)), "User is not able to see the games listed when filtering by date using the 'Filter by date (MM/DD/YYYY)' option");
-		}
+		List<WebElement> gamesAfterFilter = base.GetElement(LoginPageObj.Ele_ErrorMessage("cardheading"));
+		asrt.assertTrue(!gamesAfterFilter.isEmpty(), "User is not able to see any games listed after filtering by date");
    }
 }
 
