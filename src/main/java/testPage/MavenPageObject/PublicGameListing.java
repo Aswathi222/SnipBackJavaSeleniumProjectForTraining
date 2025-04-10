@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import org.testng.Assert;
+import TestData.PublicGameLisiting_TestData;
 import objectRepository.LoginPage_Obj;
 import objectRepository.PublicGameListing_Obj;
 import objectRepository.SnipBackLogin_Obj;
@@ -16,6 +17,7 @@ public class PublicGameListing extends BasePge{
 
 	BasePge base;
 	Assert asrt;
+	By clickOnStartDate; 
 	
 	public PublicGameListing(WebDriver driver) {
 		super(driver);
@@ -246,4 +248,43 @@ public class PublicGameListing extends BasePge{
 		//Expected:The option Filter by date for filter the games should be displayed
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("date_picker")),"User is unable to see the Filter by date option to filter the games");
    }
+	
+	// <summary>
+	// Test Case Title  : "Verify that the Proper games as per the date should be listed when the user try to filter the games by using the option "Filter by date (MM/DD/YYYY)""
+	// Automation ID    : Game Listing_10
+	// </summary>
+	public void GameListing_10_PublicGameListing() throws InterruptedException {
+		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+		PublicGameListing_Obj PublicGameObj=new PublicGameListing_Obj();
+		PublicGameLisiting_TestData testObj=new PublicGameLisiting_TestData();
+		
+		// Step1: User navigated to SnipBack Website after entering snipback url
+		// Expected:The user should be able to navigate to the  Snipback website after entering the URL
+		asrt.assertTrue(base.isExists(LoginPageObj.Ele_SnipBackHomePageLogo("light-logo")), "User is unable to navigate to SnipBack website after entering the URL");
+		
+		//Step2:Click on FILM Tab without login
+		//Expected:The user should be able to click on "FILM" tab without login to Snipback
+		base.buttonClick(PublicGameObj.Btn_Home("Film","menu_link nav-link "));
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");
+		
+		//Step3:Verify the Option "Filter by date" 
+		//Expected:The option Filter by date for filter the games should be displayed
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("date_picker")),"User is unable to see the Filter by date option to filter the games");
+		
+		//Step4:Enter the date as per the format "MM/DD/YYYY"
+		//Expected:"User should be able to enter the date as per the format MM/DD/YYY".
+		base.setData(LoginPageObj.Edt_LoginEmail("date_picker"), testObj.GameListing_10_PublicGameLDate);
+		
+		//Step 5: Click on Enter
+		//Expected : Proper games as per the date should be listed when the user try to filter the games by using the option "Filter by date (MM/DD/YYYY)"
+		base.pressKey(clickOnStartDate,"KEYBOARD_ENTER" );
+		ArrayList<String> games = new ArrayList<>();
+		games.add("e45");
+		games.add("newdec56");
+		games.add("new134");
+		for (String game : games) {
+		    asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText(game)), "User is not able to see the games listed when filtering by date using the 'Filter by date (MM/DD/YYYY)' option");
+		}
+   }
 }
+
