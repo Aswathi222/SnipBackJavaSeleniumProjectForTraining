@@ -206,9 +206,7 @@ public class BasePge {
 	            WebElement element = driver.findElement(locator);
 	            element.clear();
 	            element.sendKeys(value);
-	            System.out.println("✅ Filled field: " + locator.toString() + " with value: " + value);
-	        } catch (Exception e) {
-	            System.err.println("❌ Failed to fill field: " + locator.toString() + ". Error: " + e.getMessage());
+	        } catch (Exception e) {	            
 	            throw e;
 	        }
 	    }
