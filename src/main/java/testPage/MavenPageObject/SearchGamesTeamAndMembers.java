@@ -382,7 +382,7 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
 		SearchGamesTeamAndMembers_TestData searchGamesTeamAndMembersTestData=new SearchGamesTeamAndMembers_TestData();
 		SearchGameTeamAndMembers_Obj searchGameTeamAndMembersObj=new SearchGameTeamAndMembers_Obj();
-		
+
 		//Step 1: Navigate to Snipback page
 		//Expected : User should be able to view Snipback page
 		asrt.assertTrue(base.isExists(loginObj.Btn_Login("Login")),"User is unable to view SnipBack page" );
@@ -402,9 +402,13 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		base.buttonClick(loginObj.Edt_Alert1("MEMBERS"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to view the option to search teams in the GamesMembers Listing page");
 
-		//step 5:Click search bar above the teams and enter a team name  
-		//Expected: User should click search bar above the teams and will not list any teams if the user enters a team name which doesn't exists.
+		//step 5:Click search bar above the teams
+		//Expected: User should click search bar above the teams
 		base.buttonClick(loginObj.Edt_LoginEmail("searchTeam"));
+		asrt.assertTrue(base.isEnabledBy(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to click search bar above the teams");
+		
+		//step 6: Enter a team name  
+		//Expected:There will not list any teams if the user enters a team name which doesn't exists.
 		base.setData(loginObj.Edt_LoginEmail("searchTeam"),searchGamesTeamAndMembersTestData.SH_10_SearchGamesTeamAndMembers_Noteam);
 		List<String> noTeam=base.GetElementTexts(searchGameTeamAndMembersObj.Ele_GameSpecial("my-team-content"));
 		asrt.assertFalse(base.isExistsInText(noTeam, searchGamesTeamAndMembersTestData.SH_10_SearchGamesTeamAndMembers_Noteam),"User is able to see the list of team name");
