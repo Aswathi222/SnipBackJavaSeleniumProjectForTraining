@@ -1,5 +1,8 @@
 package testPage.MavenPageObject;
 
+
+import java.util.HashMap;
+import java.util.Map;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -514,11 +517,15 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 8 :    Fill the fields without selecting any role
 		//Expected : The user should automatically add as player in that team.
-		base.setData(LoginPageObj.Edt_LoginEmail("emailInputNew"),CreateAndAddNewMemberTestDataobj.WE_09_CreateandAddnewmemberEmail);
-		base.setData(LoginPageObj.Edt_LoginEmail("firstnameNew"), CreateAndAddNewMemberTestDataobj.WE_09_CreateandAddnewmemberFirstName);
-		base.setData(LoginPageObj.Edt_LoginEmail("lastnameNew"), CreateAndAddNewMemberTestDataobj.WE_09_CreateandAddnewmemberLastName);
-		base.setData(LoginPageObj.Edt_LoginEmail("newJerseyNumber"), CreateAndAddNewMemberTestDataobj.WE_09_CreateandAddnewmemberJerseyNumber);
-		base.setData(CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_TextArea("userCreateMessage"), CreateAndAddNewMemberTestDataobj.WE_09_CreateandAddnewmemberMessage);
+		Map<By, String> Elements = new HashMap<>();
+		Elements.put(LoginPageObj.Edt_LoginEmail("emailInputNew"), CreateAndAddNewMemberTestDataobj.WE_09_CreateandAddnewmemberEmail);
+		Elements.put(LoginPageObj.Edt_LoginEmail("firstnameNew"), CreateAndAddNewMemberTestDataobj.WE_09_CreateandAddnewmemberFirstName);
+		Elements.put(LoginPageObj.Edt_LoginEmail("lastnameNew"), CreateAndAddNewMemberTestDataobj.WE_09_CreateandAddnewmemberLastName);
+		Elements.put(LoginPageObj.Edt_LoginEmail("newJerseyNumber"), CreateAndAddNewMemberTestDataobj.WE_09_CreateandAddnewmemberJerseyNumber);
+		Elements.put(CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_TextArea("userCreateMessage"), CreateAndAddNewMemberTestDataobj.WE_09_CreateandAddnewmemberMessage);
+		for (Map.Entry<By, String> entry : Elements.entrySet()) {
+		    base.setData(entry.getKey(), entry.getValue());
+		}
 		asrt.assertTrue(base.isEnabledBy(LoginPageObj.Edt_LoginEmail("createPlayerRadioBtn")), "User role \"Player\" is not enabled");
 		base.buttonClick(LoginPageObj.Btn_SingnIn("createUserBtn"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText("User Added Successfully!")), "The user is not automatically added as player in that team.");		
