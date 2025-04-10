@@ -47,6 +47,12 @@ public class CreateAndAddNewMemberWithOrWithoutEmail_TestData {
 	public static String WE_09_CreateandAddnewmemberLastName="User";
 	public static String WE_09_CreateandAddnewmemberJerseyNumber="123";
 	public static String WE_09_CreateandAddnewmemberMessage="Hi New User! Welcome to the Team";
+	// WE10_CreateandAddnewmemberwithorwithoutEmail
+	public static String WE_10_CreateandAddnewmemberOrganization="demo organization";
+	public static String WE_10_CreateandAddnewmemberTeam="475 Playmakers";
+	public static String WE_10_CreateandAddnewmemberEmail="test136@gmail.com";
+	public static String WE_10_CreateandAddnewmemberFirstName="New";
+	public static String WE_10_CreateandAddnewmemberMessage="Hi New User! Welcome to the Team";
 }
 
 
