@@ -143,7 +143,7 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		AddUpdateDeleteDuplicateTeamGameDefaults_TestData  addupdatedeleteobj= new AddUpdateDeleteDuplicateTeamGameDefaults_TestData();
 		CreateAndAddNewMemberWithOrWithoutEmail_Obj createandaddnewmemberobj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
 		CreateEditDeletePool_Obj CreateEditDeletePoolObj = new CreateEditDeletePool_Obj();
-		
+
 		//Step 1 : Verify that user is able to Login Snipback
 		//Expected : User should be able to login the film page with credentials
 		base.buttonClick(CreateEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
@@ -158,7 +158,7 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 
 		//Step 3 : Verify that a Search bar should be displayed in the film page to search teams
 		//Expected : Search bar should be displayed in the film page to search teams
-		Thread.sleep(20000);
+		Thread.sleep(1000);
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("searchTeam")),"Search bar is not displayed in the film page to search teams");
 	}
 }
