@@ -144,7 +144,7 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		//step 7:Click Enter
 		//Expected:User can see list of games with the given number.
 		base.pressKey(loginObj.Edt_LoginEmail("search"),"KEYBOARD_ENTER" );
-		List<String> gameTexts = base.GetElementTexts(searchGameTeamAndMembersObj.Ele_GameList1("table table-striped film-list"));
+		List<String> gameTexts = base.GetElementTexts(searchGameTeamAndMembersObj.Ele_GameList("table table-striped film-list"));
 		asrt.assertTrue(base.isExistsInText(gameTexts, searchGamesTeamAndMembersTestData.SH_03_SearchGamesTeamAndMembers_Number), "User is unable to view the list of games with the given number.");
 	}
 
