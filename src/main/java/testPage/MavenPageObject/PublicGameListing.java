@@ -280,7 +280,29 @@ public class PublicGameListing extends BasePge{
 		//Expected : Proper games as per the date should be listed when the user try to filter the games by using the option "Filter by date (MM/DD/YYYY)"
 		base.pressKey(null,"KEYBOARD_ENTER" );
 		List<WebElement> gamesAfterFilter = base.GetElement(LoginPageObj.Ele_ErrorMessage("cardheading"));
-		asrt.assertTrue(!gamesAfterFilter.isEmpty(), "User is not able to see any games listed after filtering by date");	
-   }
+		asrt.assertTrue(!gamesAfterFilter.isEmpty(), "User is not able to see the proper games listed after filtering by date using the 'Filter by date (MM/DD/YYYY)' option");
+  }
+	//<summary>
+	// Test Case Title  : Verify that an option Team with drop down "ALL" should be displayed near to Filter by date option in the FILM page to list all the public games
+	// Automation ID    : Game Listing_11
+	// </summary>
+	public void GameListing_11_PublicGameListing() throws InterruptedException {
+		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+		PublicGameListing_Obj PublicGameObj=new PublicGameListing_Obj();
+		CreateEditDeletePool_Obj CDPoolObj=new CreateEditDeletePool_Obj();
+				
+		// Step1: User navigated to SnipBack Website after entering snipback url
+		// Expected:The user should be able to navigate to the  Snipback website after entering the URL
+		asrt.assertTrue(base.isExists(LoginPageObj.Ele_SnipBackHomePageLogo("light-logo")), "User is unable to navigate to SnipBack website after entering the URL");
+				
+		//Step2:Click on FILM Tab without login
+		//Expected:The user should be able to click on "FILM" tab without login to Snipback
+		base.buttonClick(PublicGameObj.Btn_Home("Film","menu_link nav-link "));
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");
+				
+		//Step3:Verify the Option "TEAM with Dropdown ALL"
+		//Expected:An option Team with drop down "ALL" should be displayed near to Filter by date option in the FILM page to list all the public games
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText("Team")) && base.isExists(CDPoolObj.Sel_PoolType("team_id")),"User is not able to view the Team Option or the 'All' dropdown near to Filter by date option in the FILM page to list all the public games");
+		}
 }
 
