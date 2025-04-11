@@ -3,6 +3,7 @@ package objectRepository;
 import org.openqa.selenium.By;
 
 public class CreateAndAddNewMemberWithOrWithoutEmail_Obj {	
+	
 	//Btn
 	public By Btn_Home(String HomeClass) {return By.xpath("//select[@class='"+HomeClass+"']");}
 	public By Btn_Team(String Team_id, String Team_text) {return By.xpath("//div[@id='"+Team_id+"']//span[text()='"+Team_text+"']");}
