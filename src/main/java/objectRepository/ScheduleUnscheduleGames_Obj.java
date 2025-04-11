@@ -12,6 +12,7 @@ public class ScheduleUnscheduleGames_Obj {
 	public By Btn_Create(String cls,String text) {return By.xpath("//button[@class='"+cls+"' and text()='"+text+"']");}
 	public By Btn_EventOK(String cls) {return By.xpath("//button[@class='"+cls+"']");}
 	
+	
 	//Ele
 	public By Ele_TeamNameFromList(String id1,String text1) {return By.xpath("//div[@id='"+id1+"']//span[text()='"+text1+"']");}
 	public By Ele_CreateGameFor(String text1) {return By.xpath("//h3[text()='"+text1+"']");}
