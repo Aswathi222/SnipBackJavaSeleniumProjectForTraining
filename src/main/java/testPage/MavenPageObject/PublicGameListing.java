@@ -19,7 +19,6 @@ public class PublicGameListing extends BasePge{
 
 	BasePge base;
 	Assert asrt;
-	By clickOnStartDate; 
 	
 	public PublicGameListing(WebDriver driver) {
 		super(driver);
@@ -279,9 +278,9 @@ public class PublicGameListing extends BasePge{
 		
 		//Step 5: Click on Enter
 		//Expected : Proper games as per the date should be listed when the user try to filter the games by using the option "Filter by date (MM/DD/YYYY)"
-		base.pressKey(clickOnStartDate,"KEYBOARD_ENTER" );
+		base.pressKey(null,"KEYBOARD_ENTER" );
 		List<WebElement> gamesAfterFilter = base.GetElement(LoginPageObj.Ele_ErrorMessage("cardheading"));
-		asrt.assertTrue(!gamesAfterFilter.isEmpty(), "User is not able to see any games listed after filtering by date");
+		asrt.assertTrue(!gamesAfterFilter.isEmpty(), "User is not able to see any games listed after filtering by date");	
    }
 }
 
