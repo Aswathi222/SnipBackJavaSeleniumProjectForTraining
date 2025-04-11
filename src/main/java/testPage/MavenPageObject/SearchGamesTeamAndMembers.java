@@ -372,4 +372,45 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		List<String> special=base.GetElementTexts(searchGameTeamAndMembersObj.Ele_GameSpecial("my-team-content"));
 		asrt.assertTrue(base.isExistsInText(special, searchGamesTeamAndMembersTestData.SH_09_SearchGamesTeamAndMembers_Special),"User is unable to see the list of teams with the given special character");
 	}
+	//<Summary>
+	//Test case Title:Verify what happens when user searches for a team which is not in the list.
+	//Automation ID: SH_10
+	//</Summary>
+	public void SH_10_SearchGamesTeamAndMembers() throws InterruptedException{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login=new Login(driver);
+		CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
+		SearchGamesTeamAndMembers_TestData searchGamesTeamAndMembersTestData=new SearchGamesTeamAndMembers_TestData();
+		SearchGameTeamAndMembers_Obj searchGameTeamAndMembersObj=new SearchGameTeamAndMembers_Obj();
+
+		//Step 1: Navigate to Snipback page
+		//Expected : User should be able to view Snipback page
+		asrt.assertTrue(base.isExists(loginObj.Btn_Login("Login")),"User is unable to view SnipBack page" );
+
+		//Step 2: Click Login button
+		//Expected: user should be able to login to the SnipBack
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"))," User is unable to login to SnipBack");
+
+		//step 3:Go to Film page
+		//Expected: User should be able to click film
+		base.buttonClick(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		asrt.assertTrue(base.isExists(loginObj.Btn_SignInButton("POOLS")), "User is unable to click the Film");
+
+		//step 4:Select the GamesMembers section
+		//Expected: There should be a option to search teams  in the GamesMembers Listing page.
+		base.buttonClick(loginObj.Edt_Alert1("MEMBERS"));
+		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to view the option to search teams in the GamesMembers Listing page");
+
+		//step 5:Click search bar above the teams
+		//Expected: User should click search bar above the teams
+		base.buttonClick(loginObj.Edt_LoginEmail("searchTeam"));
+		asrt.assertTrue(base.isEnabledBy(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to click search bar above the teams");
+		
+		//step 6: Enter a team name  
+		//Expected:There will not list any teams if the user enters a team name which doesn't exists.
+		base.setData(loginObj.Edt_LoginEmail("searchTeam"),searchGamesTeamAndMembersTestData.SH_10_SearchGamesTeamAndMembers_Noteam);
+		List<String> noTeam=base.GetElementTexts(searchGameTeamAndMembersObj.Ele_GameSpecial("my-team-content"));
+		asrt.assertFalse(base.isExistsInText(noTeam, searchGamesTeamAndMembersTestData.SH_10_SearchGamesTeamAndMembers_Noteam),"User is able to see the list of team name");
+	}
 }
