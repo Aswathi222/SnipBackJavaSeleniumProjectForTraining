@@ -13,9 +13,7 @@ import objectRepository.CreateAndAddNewMemberWithOrWithoutEmail_Obj;
 import objectRepository.CreateEditDeletePool_Obj;
 import objectRepository.ForgotPassword_Obj;
 import objectRepository.LoginPage_Obj;
-import objectRepository.ScheduleUnscheduleGames_Obj;
 import utilPack.BasePge;
-import utilPack.ElementActions;
 
 public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 	BasePge base;
@@ -34,8 +32,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
 		CreateAndAddNewMemberWithOrWithoutEmail_Obj CreateAndAddNewMemberWithOrWithoutEmailObj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
 		CreateAndAddNewMemberWithOrWithoutEmail_TestData CreateAndAddNewMemberTestDataobj = new CreateAndAddNewMemberWithOrWithoutEmail_TestData();
-		ElementActions Elements = new ElementActions(driver);
-		
+
 		//Step 1 : Navigate to Snipback Login page
 		//Expected : User should be able to navigate to Snipback Login page.
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_Login("Login")),"User is not able to view Snipback page");
@@ -47,8 +44,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
-		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberOrganization);
-		String Text = Elements.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberOrganization);
+		String Text = base.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
@@ -68,7 +65,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 6 :  Select "Edit Team" option 
 		//Expected : User should be able to select "Edit Team" option.
 		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_EditTeam("475 Playmakers"));
-		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_TeamName("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
 
 		//Step 7 :   Observe whether there is a option as Create & Add new member with Email
 		//Expected : There should be a option to add user with mail id.
@@ -83,7 +80,6 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
 		CreateAndAddNewMemberWithOrWithoutEmail_Obj CreateAndAddNewMemberWithOrWithoutEmailObj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
 		CreateAndAddNewMemberWithOrWithoutEmail_TestData CreateAndAddNewMemberTestDataobj = new CreateAndAddNewMemberWithOrWithoutEmail_TestData();
-		ElementActions Elements = new ElementActions(driver);
 
 		//Step 1 : Navigate to Snipback Login page
 		//Expected : User should be able to navigate to Snipback Login page.
@@ -96,8 +92,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
-		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_02_CreateandAddnewmemberOrganization);
-		String Text = Elements.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_02_CreateandAddnewmemberOrganization);
+		String Text = base.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_02_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
@@ -118,7 +114,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 6 :  Select "Edit Team" option 
 		//Expected : User should be able to select "Edit Team" option.
 		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_EditTeam("475 Playmakers"));
-		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_TeamName("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
 
 		//Step 7 :   Click Create&Add New Member with Email
 		//Expected : The user should navigate to CREATE NEW USER pop up.
@@ -135,7 +131,6 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		CreateAndAddNewMemberWithOrWithoutEmail_Obj CreateAndAddNewMemberWithOrWithoutEmailObj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
 		CreateAndAddNewMemberWithOrWithoutEmail_TestData CreateAndAddNewMemberTestDataobj = new CreateAndAddNewMemberWithOrWithoutEmail_TestData();
 		ForgotPassword_Obj ForgotPasswordObj = new ForgotPassword_Obj();
-		ElementActions Elements = new ElementActions(driver);
 
 		//Step 1 : Navigate to Snipback Login page
 		//Expected : User should be able to navigate to Snipback Login page.
@@ -148,8 +143,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
-		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_03_CreateandAddnewmemberOrganization);
-		String Text = Elements.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_03_CreateandAddnewmemberOrganization);
+		String Text = base.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_03_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
@@ -169,7 +164,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 6 :  Select "Edit Team" option 
 		//Expected : User should be able to select "Edit Team" option.
 		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_EditTeam("475 Playmakers"));
-		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_TeamName("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
 
 		//Step 7 :   Click Create&Add New Member with Email
 		//Expected : The user should navigate to CREATE NEW USER pop up.
@@ -192,7 +187,6 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		CreateAndAddNewMemberWithOrWithoutEmail_Obj CreateAndAddNewMemberWithOrWithoutEmailObj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
 		CreateAndAddNewMemberWithOrWithoutEmail_TestData CreateAndAddNewMemberTestDataobj = new CreateAndAddNewMemberWithOrWithoutEmail_TestData();
 		ForgotPassword_Obj ForgotPasswordObj = new ForgotPassword_Obj();
-		ElementActions Elements = new ElementActions(driver);
 
 		//Step 1 : Navigate to Snipback Login page
 		//Expected : User should be able to navigate to Snipback Login page.
@@ -205,8 +199,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
-		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_04_CreateandAddnewmemberOrganization);
-		String Text = Elements.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_04_CreateandAddnewmemberOrganization);
+		String Text = base.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_04_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
@@ -226,7 +220,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 6 :  Select "Edit Team" option 
 		//Expected : User should be able to select "Edit Team" option.
 		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_EditTeam("475 Playmakers"));
-		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_TeamName("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
 
 		//Step 7 :   Click Create&Add New Member with Email
 		//Expected : The user should navigate to CREATE NEW USER pop up.
@@ -248,7 +242,6 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
 		CreateAndAddNewMemberWithOrWithoutEmail_Obj CreateAndAddNewMemberWithOrWithoutEmailObj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
 		CreateAndAddNewMemberWithOrWithoutEmail_TestData CreateAndAddNewMemberTestDataobj = new CreateAndAddNewMemberWithOrWithoutEmail_TestData();
-		ElementActions Elements = new ElementActions(driver);
 
 		//Step 1 : Navigate to Snipback Login page
 		//Expected : User should be able to navigate to Snipback Login page.
@@ -261,8 +254,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
-		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_05_CreateandAddnewmemberOrganization);
-		String Text = Elements.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_05_CreateandAddnewmemberOrganization);
+		String Text = base.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_05_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
@@ -282,7 +275,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 6 :  Select "Edit Team" option 
 		//Expected : User should be able to select "Edit Team" option.
 		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_EditTeam("475 Playmakers"));
-		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_TeamName("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
 
 		//Step 7 :   Click Create&Add New Member with Email
 		//Expected : The user should navigate to CREATE NEW USER pop up.
@@ -308,7 +301,6 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
 		CreateAndAddNewMemberWithOrWithoutEmail_Obj CreateAndAddNewMemberWithOrWithoutEmailObj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
 		CreateAndAddNewMemberWithOrWithoutEmail_TestData CreateAndAddNewMemberTestDataobj = new CreateAndAddNewMemberWithOrWithoutEmail_TestData();
-		ElementActions Elements = new ElementActions(driver);
 
 		//Step 1 : Navigate to Snipback Login page
 		//Expected : User should be able to navigate to Snipback Login page.
@@ -321,8 +313,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
-		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_06_CreateandAddnewmemberOrganization);
-		String Text = Elements.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_06_CreateandAddnewmemberOrganization);
+		String Text = base.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_06_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
@@ -342,7 +334,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 6 :  Select "Edit Team" option 
 		//Expected : User should be able to select "Edit Team" option.
 		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_EditTeam("475 Playmakers"));
-		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_TeamName("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
 
 		//Step 7 :   Click Create&Add New Member with Email
 		//Expected : The user should navigate to CREATE NEW USER pop up.
@@ -366,8 +358,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		CreateAndAddNewMemberWithOrWithoutEmail_Obj CreateAndAddNewMemberWithOrWithoutEmailObj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
 		CreateAndAddNewMemberWithOrWithoutEmail_TestData CreateAndAddNewMemberTestDataobj = new CreateAndAddNewMemberWithOrWithoutEmail_TestData();
 		CreateEditDeletePool_Obj CreateEditDeletePoolObj = new CreateEditDeletePool_Obj();
-		ElementActions Elements = new ElementActions(driver);
-		
+
 		//Step 1 : Navigate to Snipback Login page
 		//Expected : User should be able to navigate to Snipback Login page.
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_Login("Login")),"User is not able to view Snipback page");
@@ -381,8 +372,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
 		Thread.sleep(5000);
-		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_07_CreateandAddnewmemberOrganization);
-		String Text = Elements.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_07_CreateandAddnewmemberOrganization);
+		String Text = base.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_07_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
@@ -402,7 +393,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 6 :  Select "Edit Team" option 
 		//Expected : User should be able to select "Edit Team" option.
 		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_EditTeam("475 Playmakers"));
-		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_TeamName("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
 
 		//Step 7 :   Click Create&Add New Member with Email
 		//Expected : The user should navigate to CREATE NEW USER pop up.
@@ -425,8 +416,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
 		CreateAndAddNewMemberWithOrWithoutEmail_Obj CreateAndAddNewMemberWithOrWithoutEmailObj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
 		CreateAndAddNewMemberWithOrWithoutEmail_TestData CreateAndAddNewMemberTestDataobj = new CreateAndAddNewMemberWithOrWithoutEmail_TestData();
-		ElementActions Elements = new ElementActions(driver);
-		
+
 		//Step 1 : Navigate to Snipback Login page
 		//Expected : User should be able to navigate to Snipback Login page.
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_Login("Login")),"User is not able to view Snipback page");
@@ -438,8 +428,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
-		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_08_CreateandAddnewmemberOrganization);
-		String Text = Elements.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_08_CreateandAddnewmemberOrganization);
+		String Text = base.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_08_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
@@ -459,7 +449,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 6 :  Select "Edit Team" option 
 		//Expected : User should be able to select "Edit Team" option.
 		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_EditTeam("475 Playmakers"));
-		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_TeamName("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
 
 		//Step 7 :   Click Create&Add New Member with Email
 		//Expected : The user should navigate to CREATE NEW USER pop up.
@@ -484,8 +474,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
 		CreateAndAddNewMemberWithOrWithoutEmail_Obj CreateAndAddNewMemberWithOrWithoutEmailObj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
 		CreateAndAddNewMemberWithOrWithoutEmail_TestData CreateAndAddNewMemberTestDataobj = new CreateAndAddNewMemberWithOrWithoutEmail_TestData();
-		ElementActions Elements = new ElementActions(driver);
-		
+
 		//Step 1 : Navigate to Snipback Login page
 		//Expected : User should be able to navigate to Snipback Login page.
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_Login("Login")),"User is not able to view Snipback page");
@@ -497,8 +486,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
-		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_09_CreateandAddnewmemberOrganization);
-		String Text = Elements.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_09_CreateandAddnewmemberOrganization);
+		String Text = base.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_09_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
@@ -518,7 +507,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 6 :  Select "Edit Team" option 
 		//Expected : User should be able to select "Edit Team" option.
 		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_EditTeam("475 Playmakers"));
-		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_TeamName("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
 
 		//Step 7 :   Click Create&Add New Member with Email
 		//Expected : The user should navigate to CREATE NEW USER pop up.
@@ -527,7 +516,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 8 :    Fill the fields without selecting any role
 		//Expected : The user should automatically add as player in that team.
-		Elements.fillFormFields(
+		base.fillFormFields(
 				LoginPageObj.Edt_LoginEmail("emailInputNew"), CreateAndAddNewMemberTestDataobj.WE_09_CreateandAddnewmemberEmail,
 				LoginPageObj.Edt_LoginEmail("firstnameNew"), CreateAndAddNewMemberTestDataobj.WE_09_CreateandAddnewmemberFirstName,
 				LoginPageObj.Edt_LoginEmail("lastnameNew"), CreateAndAddNewMemberTestDataobj.WE_09_CreateandAddnewmemberLastName,
@@ -546,8 +535,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
 		CreateAndAddNewMemberWithOrWithoutEmail_Obj CreateAndAddNewMemberWithOrWithoutEmailObj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
 		CreateAndAddNewMemberWithOrWithoutEmail_TestData CreateAndAddNewMemberTestDataobj = new CreateAndAddNewMemberWithOrWithoutEmail_TestData();
-		ElementActions Elements = new ElementActions(driver);
-		
+
 		//Step 1 : Navigate to Snipback Login page
 		//Expected : User should be able to navigate to Snipback Login page.
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_Login("Login")),"User is not able to view Snipback page");
@@ -559,8 +547,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
-		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_10_CreateandAddnewmemberOrganization);
-		String Text = Elements.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_10_CreateandAddnewmemberOrganization);
+		String Text = base.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_10_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
@@ -580,7 +568,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 6 :  Select "Edit Team" option 
 		//Expected : User should be able to select "Edit Team" option.
 		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_EditTeam("475 Playmakers"));
-		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_TeamName("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
 
 		//Step 7 :   Click Create&Add New Member with Email
 		//Expected : The user should navigate to CREATE NEW USER pop up.
@@ -589,7 +577,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 8 :    Fill the fields except Last Name and Jersey Number field
 		//Expected : The user can able to add new member without any alert message.
-		Elements.fillFormFields(
+		base.fillFormFields(
 				LoginPageObj.Edt_LoginEmail("emailInputNew"),CreateAndAddNewMemberTestDataobj.WE_10_CreateandAddnewmemberEmail,
 				LoginPageObj.Edt_LoginEmail("firstnameNew"), CreateAndAddNewMemberTestDataobj.WE_10_CreateandAddnewmemberFirstName,
 				CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_TextArea("userCreateMessage"), CreateAndAddNewMemberTestDataobj.WE_10_CreateandAddnewmemberMessage);
@@ -606,8 +594,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
 		CreateAndAddNewMemberWithOrWithoutEmail_Obj CreateAndAddNewMemberWithOrWithoutEmailObj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
 		CreateAndAddNewMemberWithOrWithoutEmail_TestData CreateAndAddNewMemberTestDataobj = new CreateAndAddNewMemberWithOrWithoutEmail_TestData();
-		ElementActions Elements = new ElementActions(driver);
-		
+
 		//Step 1 : Navigate to Snipback Login page
 		//Expected : User should be able to navigate to Snipback Login page.
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_Login("Login")),"User is not able to view Snipback page");
@@ -619,8 +606,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
-		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_11_CreateandAddnewmemberOrganization);
-		String Text = Elements.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_11_CreateandAddnewmemberOrganization);
+		String Text = base.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Home("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_11_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
@@ -640,7 +627,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 6 :  Select "Edit Team" option 
 		//Expected : User should be able to select "Edit Team" option.
 		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_EditTeam("475 Playmakers"));
-		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_TeamName("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
 
 		//Step 7 :   Click Create&Add New Member with Email
 		//Expected : The user should navigate to CREATE NEW USER pop up.
@@ -649,7 +636,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 8 :     Fill the fields except message field
 		//Expected : The user can be able to add new member in that team.
-		Elements.fillFormFields(
+		base.fillFormFields(
 				LoginPageObj.Edt_LoginEmail("emailInputNew"),CreateAndAddNewMemberTestDataobj.WE_11_CreateandAddnewmemberEmail,
 				LoginPageObj.Edt_LoginEmail("firstnameNew"), CreateAndAddNewMemberTestDataobj.WE_11_CreateandAddnewmemberFirstName,
 				LoginPageObj.Edt_LoginEmail("lastnameNew"), CreateAndAddNewMemberTestDataobj.WE_11_CreateandAddnewmemberLastName,
