@@ -63,7 +63,6 @@
 				<methods>
 					<include name="TC01_SH_LoginTest()" />
 					<include name="TC02_SH_LoginTest()"></include>
-
 				</methods>
 			</class>
 		</classes>
