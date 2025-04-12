@@ -1,31 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-<listeners>
+	<listeners>
 		<listener class-name="extentReporterPack.ExtentReportListner" />
 	</listeners>
-  <test thread-count="1" name="Test">
-     <parameter name="Browser" value="Chrome"/>
-    <classes>  
-<class name="testScenario.SocialMediaSignIn.SocialMediaSignIn_Test">
-		   <methods>
-               <include name="TC_01SocialMediaSignIn_Test"/> 
-               <include name="TC_02SocialMediaSignIn_Test"></include>      
-		   </methods> 
-       </class>
+	<test thread-count="1" name="Test">
+		<parameter name="Browser" value="Chrome" />
+		<classes>
+          <class
+				name="testScenario.SearchGamesTeamAndMembers.SearchGamesTeamAndMembers_Test">
+				<methods>
+					<include name="SH_01_SearchGamesTeamAndMembersTest()" />
+					<include name="SH_02_SearchGamesTeamAndMembersTest()"></include>
+					<include name="SH_03_SearchGamesTeamAndMembersTest()" />
+					<include name="SH_04_SearchGamesTeamAndMembersTest()" />
+					<include name="SH_05_SearchGamesTeamAndMembersTest()" />
+					<include name="SH_06_SearchGamesTeamAndMembersTest()" />
+					<include name="SH_07_SearchGamesTeamAndMembersTest()" />
+					<include name="SH_08_SearchGamesTeamAndMembersTest()" />
+					<include name="SH_09_SearchGamesTeamAndMembers()" />
+					<include name="SH_10_SearchGamesTeamAndMembers()" />
+					<include name="SH_11_SearchGamesTeamAndMembers()" />
+				</methods>
+			</class>
+				<class
+				name="testScenario.CreateEditDeletePool.CreateEditDeletePool_Test">
+				<methods>
+					<include name="TC_01_CreateEditDeletePoolTest()" />
+					<include name="TC_02_CreateEditDeletePoolTest()"></include>
+					<include name="TC_03_CreateEditDeletePoolTest()" />
+					<include name="TC_04_CreateEditDeletePoolTest()" />
+					<include name="TC_05_CreateEditDeletePoolTest()" />
+					<include name="TC_06_CreateEditDeletePoolTest()" />
+					<include name="TC_07_CreateEditDeletePoolTest()" />
+					<include name="TC_08_CreateEditDeletePoolTest()" />
+					<include name="TC_09_CreateEditDeletePoolTest()" />
+					<include name="TC_10_CreateEditDeletePoolTest()" />
+					<include name="TC_11_CreateEditDeletePoolTest()" />
 
-<class name="testScenario.ForgotPassword.ForgotPassword_Test">
-		   <methods>
-               <include name="FP_1_ForgotPasswordTest()"/>				
-      </methods> 
-       </class>
-      
-<class name="testScenario.SnipBackLogin.SnipBackLogin_Test">
-		  <methods>
-              <include name="TC01_SH_LoginTest()"/>
-       </methods> 
-       </class>
-      
-     </classes>
-  </test> <!-- Test -->
+				</methods>
+			</class>
+			<class
+				name="testScenario.SocialMediaSignIn.SocialMediaSignIn_Test">
+				<methods>
+					<include name="TC_01SocialMediaSignIn_Test()" />
+					<include name="TC_02SocialMediaSignIn_Test()"></include>
+				</methods>
+			</class>
+			<class
+				name="testScenario.SnipBackRegistration.SnipBackRegistration_Test">
+				<methods>
+					<include name="TC01_RegistrationTest()" />
+					<include name="TC02_RegistrationTest()"></include>
+					<include name="TC03_RegistrationTest()" />
+					<include name="TC04_RegistrationTest()" />
+					<include name="TC05_Registration()" />
+					<exclude name="TC06_RegistrationTest()" />
+					<include name="TC07_RegistrationTest()" />
+				</methods>
+			</class>
+			<class name="testScenario.SnipBackLogin.SnipBackLogin_Test">
+				<methods>
+					<include name="TC01_SH_LoginTest()" />
+					<include name="TC02_SH_LoginTest()"></include>
+
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
 </suite> <!-- Suite -->
