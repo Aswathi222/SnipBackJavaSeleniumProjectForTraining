@@ -19,12 +19,12 @@ import utilPack.ElementActions;
 public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 	BasePge base;
 	Assert asrt;
-	ElementActions action;
+	ElementActions element;
 
 	public CreateAndAddNewMemberWithOrWithoutEmail(WebDriver driver) {
 		super(driver);
 		base = new BasePge(driver);
-		action = new ElementActions(driver);
+		element = new ElementActions(driver);
 	}	
 	//<summery>
 	//Test Case Title : To verify whether there is a option to add user with email.
@@ -48,7 +48,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberOrganization);
-		String Text = action.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		String Text = element.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
@@ -97,7 +97,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_02_CreateandAddnewmemberOrganization);
-		String Text = action.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		String Text = element.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_02_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
@@ -148,7 +148,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_03_CreateandAddnewmemberOrganization);
-		String Text = action.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		String Text = element.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_03_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
@@ -206,7 +206,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Expected : User should be able to select any organization.
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_04_CreateandAddnewmemberOrganization);
 		Thread.sleep(3000);
-		String Text = action.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		String Text = element.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_04_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
@@ -262,7 +262,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Expected : User should be able to select any organization.
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_05_CreateandAddnewmemberOrganization);
 		Thread.sleep(3000);
-		String Text = action.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		String Text = element.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_05_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
@@ -321,7 +321,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_06_CreateandAddnewmemberOrganization);
-		String Text = action.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		String Text = element.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_06_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
@@ -379,7 +379,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Expected : User should be able to select any organization.
 		Thread.sleep(5000);
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_07_CreateandAddnewmemberOrganization);
-		String Text = action.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		String Text = element.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_07_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
@@ -435,7 +435,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_08_CreateandAddnewmemberOrganization);
-		String Text = action.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		String Text = element.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_08_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
@@ -493,7 +493,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_09_CreateandAddnewmemberOrganization);
-		String Text = action.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		String Text = element.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_09_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
@@ -523,7 +523,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 8 :    Fill the fields without selecting any role
 		//Expected : The user should automatically add as player in that team.
-		action.fillFormFields(
+		element.fillFormFields(
 				LoginPageObj.Edt_LoginEmail("emailInputNew"), CreateAndAddNewMemberTestDataobj.WE_09_CreateandAddnewmemberEmail,
 				LoginPageObj.Edt_LoginEmail("firstnameNew"), CreateAndAddNewMemberTestDataobj.WE_09_CreateandAddnewmemberFirstName,
 				LoginPageObj.Edt_LoginEmail("lastnameNew"), CreateAndAddNewMemberTestDataobj.WE_09_CreateandAddnewmemberLastName,
@@ -556,7 +556,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Expected : User should be able to select any organization.
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_10_CreateandAddnewmemberOrganization);
 		Thread.sleep(3000);
-		String Text = action.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		String Text = element.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_10_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
@@ -586,7 +586,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 8 :    Fill the fields except Last Name and Jersey Number field
 		//Expected : The user can able to add new member without any alert message.
-		action.fillFormFields(
+		element.fillFormFields(
 				LoginPageObj.Edt_LoginEmail("emailInputNew"),CreateAndAddNewMemberTestDataobj.WE_10_CreateandAddnewmemberEmail,
 				LoginPageObj.Edt_LoginEmail("firstnameNew"), CreateAndAddNewMemberTestDataobj.WE_10_CreateandAddnewmemberFirstName,
 				CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_TextArea("userCreateMessage"), CreateAndAddNewMemberTestDataobj.WE_10_CreateandAddnewmemberMessage);
@@ -616,7 +616,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_11_CreateandAddnewmemberOrganization);
-		String Text = action.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		String Text = element.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_11_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
@@ -645,7 +645,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 8 :     Fill the fields except message field
 		//Expected : The user can be able to add new member in that team.
-		action.fillFormFields(
+		element.fillFormFields(
 				LoginPageObj.Edt_LoginEmail("emailInputNew"),CreateAndAddNewMemberTestDataobj.WE_11_CreateandAddnewmemberEmail,
 				LoginPageObj.Edt_LoginEmail("firstnameNew"), CreateAndAddNewMemberTestDataobj.WE_11_CreateandAddnewmemberFirstName,
 				LoginPageObj.Edt_LoginEmail("lastnameNew"), CreateAndAddNewMemberTestDataobj.WE_11_CreateandAddnewmemberLastName,
@@ -676,7 +676,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_12_CreateandAddnewmemberOrganization);
-		String Text = action.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		String Text = element.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_12_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
 		//Step 4 : Switch to any Team
@@ -705,7 +705,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 8 :      Fill the fields to be required
 		//Expected : The user can be able to add new member in that team.
-		action.fillFormFields(
+		element.fillFormFields(
 				LoginPageObj.Edt_LoginEmail("emailInputNew"),CreateAndAddNewMemberTestDataobj.WE_12_CreateandAddnewmemberEmail,
 				LoginPageObj.Edt_LoginEmail("firstnameNew"),CreateAndAddNewMemberTestDataobj.WE_12_CreateandAddnewmemberFirstName);
 		base.buttonClick(LoginPageObj.Btn_SingnIn("createUserBtn"));
