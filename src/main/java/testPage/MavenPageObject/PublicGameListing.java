@@ -326,7 +326,7 @@ public class PublicGameListing extends BasePge{
 				
 		//Step3:Verify the Option " Sort By date" along with Up arrow and Down arrow
 		//Expected:An option " Sort By date"  should be displayed along with Up arrow and Down arrow in the FILM Page
-        asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText("Sort by Date")) && base.isExists(PublicGameObj.Btn_sort("myCheckbox1")) && base.isExists(PublicGameObj.Btn_sort("myCheckbox2")),"User is not able to view the 'Sort By Date' option along with the Up and Down arrows in the FILM page.");
+        asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText("Sort by Date")) && base.isExists(PublicGameObj.Img_sort("sort-img option-checked first")) && base.isExists(PublicGameObj.Img_sort("sort-img second")),"User is not able to view the 'Sort By Date' option along with the Up and Down arrows in the FILM page.");
 		}
 }
 
