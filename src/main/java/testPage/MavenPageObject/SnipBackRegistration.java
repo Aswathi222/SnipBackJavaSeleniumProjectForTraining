@@ -400,14 +400,18 @@ public class SnipBackRegistration extends BasePge{
 		base.setData(RegistrationObj.Ele_Name("form-inlines","first_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName);
 		base.setData(loginpageobj.Edt_LoginEmail("user_email"),SnipBackRegistration_TestData.TC06_RegistrationValidEmail);
 		base.setData(loginpageobj.Edt_LoginEmail("user_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName);
+		Thread.sleep(1000);
 		base.setData(loginpageobj.Edt_LoginEmail("user_pass"),SnipBackRegistration_TestData.TC06_RegistrationPassword);
 		base.pressKey(null, "KEYBOARD_ENTER");
 		base.setData(loginpageobj.Edt_LoginEmail("user_confirm_password"),SnipBackRegistration_TestData.TC06_RegistrationPassword);			
-		base.excuteJsClick(loginpageobj.Edt_LoginEmail("agreeterms"));		
-		base.buttonClick(loginpageobj.Btn_SingnIn("btn-signup"));
+		base.excuteJsClick(loginpageobj.Edt_LoginEmail("agreeterms"));	
+		Thread.sleep(5000);
+		base.excuteJsClick(loginpageobj.Btn_SingnIn("btn-signup"));
 		base.switchToWindowByIndex(driver, 0);	
 		Thread.sleep(2000);
-		asrt.assertTrue(base.isExists(loginpageobj.Btn_SingnIn("otp-submit")),"User is unable to accept the valid datas and redirect to enter one-time password page");
+		asrt.assertTrue(base.isExists(loginpageobj.Edt_LoginEmail("signUp-otp")),"User is unable to accept the valid datas and redirect to enter one-time password page");
+
+		//asrt.assertTrue(base.isExists(loginpageobj.Btn_SingnIn("otp-submit")),"User is unable to accept the valid datas and redirect to enter one-time password page");
 
 		//Step 6 :Verify that the terms and conditions are clearly displayed and visible on the terms of use page when we click on  Terms of Service.
 		//Expected : It Should be redirect to https://snipback.com/terms-of-use page.

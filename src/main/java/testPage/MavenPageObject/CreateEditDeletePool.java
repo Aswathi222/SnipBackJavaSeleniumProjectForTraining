@@ -169,7 +169,7 @@ public class CreateEditDeletePool extends BasePge {
 
 		//step 6:Select Edit
 		//Expected:User should be able to select the edit
-		base.buttonClick(createEditDeletePoolObj.Ele_Copydots("TC09_CreateEdit","Edit"));
+		base.excuteJsClick(createEditDeletePoolObj.Ele_Copydots("TC09_CreateEdit","Edit"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("pool_name")), "User is unable to select the edit");
 
 		//step 7:Enter the Pool Name
