@@ -184,11 +184,11 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		String searchData=base.GetValue(loginObj.Edt_LoginEmail("search"));
 		asrt.assertEquals(searchData, searchGamesTeamAndMembersTestData.SH_04_SearchGamesTeamAndMembers_Special,"User is unable to click search bar and enter special character");
 
-		/*//step 6:Enter a special character and Click Enter
+		//step 6:Enter a special character and Click Enter
 		//Expected:User can see list of games with the given special character.
 		base.pressKey(loginObj.Edt_LoginEmail("search"),"ENTER" );
 		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("No Data Found")), "User is unable to view the list of games with given special character.");
-	*/}
+	}
 	//<Summary>
 	//Test case Title:Verify what happens when user searches for a game which is not in the list.
 	//Automation ID: SH_05
