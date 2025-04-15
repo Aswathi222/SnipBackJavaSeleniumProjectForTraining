@@ -82,16 +82,6 @@ public class BasePge {
 		return data;
 	}
 	
-	///<summary>
-	/////to get todays date
-	///</summary>
-	  public String getFormattedDate(By locator) {
-
-	        LocalDate currentDate = LocalDate.now();
-	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd yyyy", Locale.US);
-	        return currentDate.format(formatter);
-	    }
-
 	/// <summary>
 	/// To Switch Window Frame	        
 	/// </summary>
@@ -189,27 +179,6 @@ public class BasePge {
 			}
 		}
 
-	}
-	/// <summary>
-	/// fillFormFields
-	/// </summary>
-	public void fillFormFields(Object... elementsAndValues) {
-	    if (elementsAndValues.length % 2 != 0) {
-	        throw new IllegalArgumentException("You must provide pairs of locator and value.");
-	    }
-	 
-	    for (int i = 0; i < elementsAndValues.length; i += 2) {
-	        By locator = (By) elementsAndValues[i];
-	        String value = (String) elementsAndValues[i + 1];
-	 
-	        try {
-	            WebElement element = driver.findElement(locator);
-	            element.clear();
-	            element.sendKeys(value);
-	        } catch (Exception e) {	            
-	            throw e;
-	        }
-	    }
 	}
 
 	/// <summary>
@@ -1106,15 +1075,6 @@ public class BasePge {
 	        }
 	        return false;
 	    }
-		//Summary
-		//<Is exists/starts with >
-		//</Summary>
-		public String DropDownText (By locator) {
-			Select select = new Select(driver.findElement(locator));
-			String selectedOption = select.getFirstSelectedOption().getText();
-			return selectedOption;
-		}
-		
 }
 
 

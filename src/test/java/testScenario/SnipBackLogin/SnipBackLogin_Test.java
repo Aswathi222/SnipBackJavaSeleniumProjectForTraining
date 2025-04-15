@@ -23,5 +23,12 @@ public class SnipBackLogin_Test extends BaseTest
 		SnipBackLogin SnipBacklogin = new SnipBackLogin(getDriver());
 		SnipBacklogin.SH_SnipBackLogin_TC02();		
 	}
+	
+	@Test()
+	public void TC03_SH_LoginTest() throws Exception 
+	{	
+		SnipBackLogin SnipBacklogin = new SnipBackLogin(getDriver());
+		SnipBacklogin.SH_SnipBackLogin_TC03();		
+	}
 
 }

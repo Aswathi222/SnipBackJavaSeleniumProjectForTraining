@@ -3,19 +3,18 @@ import org.openqa.selenium.By;
 
 public class CreateEditDeletePool_Obj {
 	//btn
-	public By Btn_Film(String class1,String text) { return By.xpath("//ul[@class='"+class1+"']//a[normalize-space(text())='"+text+"']"); }
-	public By Btn_CreatePoolAlert(String type,String text) {return By.xpath("//button[@type='"+type+"' and text()='"+text+"']");}
+	public By Btn_Film(String filmClass,String filmText) { return By.xpath("//ul[@class='"+filmClass+"']//a[normalize-space(text())='"+filmText+"']"); }
+	public By Btn_CreatePoolAlert(String poolAlert,String alertText) {return By.xpath("//button[@type='"+poolAlert+"' and text()='"+alertText+"']");}
 
 	//sel
-	public By Sel_PoolType(String id) {return By.xpath("//select[@id='"+id+"']");}
+	public By Sel_PoolType(String poolId) {return By.xpath("//select[@id='"+poolId+"']");}
 
 	//Ddl
-	public By Ddl_PoolType(String text) {return By.xpath("//option[text()='"+text+"']");}
+	public By Ddl_PoolType(String poolTypeText) {return By.xpath("//option[text()='"+poolTypeText+"']");}
 	
 	// Ele
-	public By Ele_PoolUser(String class1, String text1){return By.xpath("//span[@class='"+class1+"' and text()='"+text1+"']");}
-	public By Ele_Pooldots(String text, String value){return By.xpath("//a[text()='"+text+"']/../../..//button[@data-toggle='"+value+"'] ");}
-	public By Ele_Copydots(String text, String text2){return By.xpath("//a[text()='"+text+"']/../../..//td//div//li//a[text()='"+text2+"']");}
-	public By Ele_PoolType(String class1, String text){return By.xpath("//div[@class='"+class1+"']//label[text()='"+text+"']");}
-	public By Ele_PoolType2(String class1, String id) {return By.xpath("//div[@class='"+class1+"']//div[@id='"+id+"']");}
+	public By Ele_Pooldots(String dotText, String dotValue){return By.xpath("//a[text()='"+dotText+"']/../../..//button[@data-toggle='"+dotValue+"'] ");}
+	public By Ele_Copydots(String copyDotText, String copyDottextValue){return By.xpath("//a[text()='"+copyDotText+"']/../../..//td//div//li//a[text()='"+copyDottextValue+"']");}
+	public By Ele_PoolType(String poolTypeClass, String poolTypeText){return By.xpath("//div[@class='"+poolTypeClass+"']//label[text()='"+poolTypeText+"']");}
 }
+

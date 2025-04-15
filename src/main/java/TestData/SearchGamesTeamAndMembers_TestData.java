@@ -25,4 +25,7 @@ public class SearchGamesTeamAndMembers_TestData {
 	
 	//SH_10_SearchGamesTeamAndMembers
 	public static String SH_10_SearchGamesTeamAndMembers_Noteam="I'm not here";
+	
+	//SH_12_SearchGamesTeamAndMembers
+	public static String SH_12_SearchGamesTeamAndMembers="a";
 }
