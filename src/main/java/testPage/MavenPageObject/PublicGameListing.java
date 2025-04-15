@@ -328,5 +328,28 @@ public class PublicGameListing extends BasePge{
 		//Expected:An option " Sort By date"  should be displayed along with Up arrow and Down arrow in the FILM Page
         asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText("Sort by Date")) && base.isExists(PublicGameObj.Img_sort("sort-img option-checked first")) && base.isExists(PublicGameObj.Img_sort("sort-img second")),"User is not able to view the 'Sort By Date' option along with the Up and Down arrows in the FILM page.");
 		}
+	
+	//<summary>
+	// Test Case Title  : Verify that pagination should be displayed at the bottom of the FILM page while scrolling to view the games
+	// Automation ID    : Game Listing_13
+	// </summary>
+	public void GameListing_13_PublicGameListing() throws InterruptedException {
+		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+		PublicGameListing_Obj PublicGameObj=new PublicGameListing_Obj();
+		
+		// Step1: User navigated to SnipBack Website after entering snipback url
+		// Expected:The user should be able to navigate to the  Snipback website after entering the URL
+		asrt.assertTrue(base.isExists(LoginPageObj.Ele_SnipBackHomePageLogo("light-logo")), "User is unable to navigate to SnipBack website after entering the URL");
+				
+		//Step2:Click on FILM Tab without login
+		//Expected:The user should be able to click on "FILM" tab without login to Snipback
+		base.buttonClick(PublicGameObj.Btn_Home("Film","menu_link nav-link "));
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");
+				
+		//Step3:Scroll down the page
+		//Expected:Pagination should be displayed at the bottom of the FILM page while scrolling to view the games
+		base.scrollToElement(LoginPageObj.Ele_ErrorMessage("pagination"));
+		asrt.assertTrue(base.isExists(LoginPageObj.Ele_ErrorMessage("pagination")),"User is not able to see pagination at the bottom of the FILM page while scrolling to view the games");
+		}
 }
 
