@@ -144,7 +144,7 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		//step 7:Click Enter
 		//Expected:User can see list of games with the given number.
 		base.pressKey(loginObj.Edt_LoginEmail("search"),"KEYBOARD_ENTER" );
-		List<String> gameTexts = base.GetElementTexts(searchGameTeamAndMembersObj.Ele_GameList1("table table-striped film-list"));
+		List<String> gameTexts = base.GetElementTexts(searchGameTeamAndMembersObj.Ele_GameList("table table-striped film-list"));
 		asrt.assertTrue(base.isExistsInText(gameTexts, searchGamesTeamAndMembersTestData.SH_03_SearchGamesTeamAndMembers_Number), "User is unable to view the list of games with the given number.");
 	}
 
@@ -186,8 +186,7 @@ public class SearchGamesTeamAndMembers extends BasePge{
 
 		//step 6:Enter a special character and Click Enter
 		//Expected:User can see list of games with the given special character.
-		Thread.sleep(1000);
-		base.pressKey(loginObj.Edt_LoginEmail("search"),"KEYBOARD_ENTER" );
+		base.pressKey(loginObj.Edt_LoginEmail("search"),"ENTER" );
 		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("No Data Found")), "User is unable to view the list of games with given special character.");
 	}
 	//<Summary>
@@ -217,6 +216,7 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		//step 4: Select Games section
 		//Expected:There should be a option to search games in Game Listing page.
 		base.buttonClick(loginObj.Edt_Alert1("GAMES"));
+		Thread.sleep(3000);
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to search games in games listing page.");
 
 		//step 5:Click search bar and enter a game name
@@ -275,11 +275,10 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		//Expected : User should be able to view Snipback page
 		asrt.assertTrue(base.isExists(loginObj.Btn_Login("Login")),"User is unable to view SnipBack page" );
 
-		//Step 2 : Login to Snipback
-		//Expected : User should be able to login.
-		base.buttonClick(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));		
+		//Step 2: Click Login button
+		//Expected: user should be able to login to the SnipBack
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
-		asrt.assertTrue(base.isExists(loginObj.Edt_Alert1("GAMES")), "User is not able to login");
+		asrt.assertTrue(base.isExists(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"))," User is unable to login to SnipBack");
 
 		//step 3:Go to Film page
 		//Expected: User should be able to click film
@@ -406,11 +405,39 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		//Expected: User should click search bar above the teams
 		base.buttonClick(loginObj.Edt_LoginEmail("searchTeam"));
 		asrt.assertTrue(base.isEnabledBy(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to click search bar above the teams");
-		
+
 		//step 6: Enter a team name  
 		//Expected:There will not list any teams if the user enters a team name which doesn't exists.
 		base.setData(loginObj.Edt_LoginEmail("searchTeam"),searchGamesTeamAndMembersTestData.SH_10_SearchGamesTeamAndMembers_Noteam);
 		List<String> noTeam=base.GetElementTexts(searchGameTeamAndMembersObj.Ele_GameSpecial("my-team-content"));
 		asrt.assertFalse(base.isExistsInText(noTeam, searchGamesTeamAndMembersTestData.SH_10_SearchGamesTeamAndMembers_Noteam),"User is able to see the list of team name");
+	}
+	//<Summary>
+	//Test case Title:Verify whether there is a option to search members in Members Listing page.
+	//Automation ID: SH_11
+	//</Summary>
+	public void SH_11_SearchGamesTeamAndMembers() throws InterruptedException{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login=new Login(driver);
+		CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
+
+		//Step 1: Navigate to Snipback page
+		//Expected : User should be able to view Snipback page
+		asrt.assertTrue(base.isExists(loginObj.Btn_Login("Login")),"User is unable to view SnipBack page" );
+
+		//Step 2: Click Login button
+		//Expected: user should be able to login to the SnipBack
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"))," User is unable to login to SnipBack");
+
+		//step 3:Go to Film page
+		//Expected: User should be able to click film
+		base.buttonClick(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		asrt.assertTrue(base.isExists(loginObj.Btn_SignInButton("POOLS")), "User is unable to click the Film");
+
+		//step 4:Select Members section
+		//Expected:There should be a option to search members in Members Listing page.
+		base.buttonClick(loginObj.Edt_Alert1("MEMBERS"));
+		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("teamGroupMembers")),"User is unable to view the option to search members in Members listing page");
 	}
 }

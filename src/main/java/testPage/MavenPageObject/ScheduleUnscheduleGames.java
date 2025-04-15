@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import TestData.CommonData;
 import TestData.ScheduleUnschedule_TestData;
+import objectRepository.CreateAndAddNewMemberWithOrWithoutEmail_Obj;
 import objectRepository.LoginPage_Obj;
 import objectRepository.ScheduleUnscheduleGames_Obj;
 import objectRepository.SnipBackLogin_Obj;
@@ -83,7 +84,8 @@ public class ScheduleUnscheduleGames extends BasePge {
 		Login login = new Login(driver);
 		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
 		ScheduleUnscheduleGames_Obj ScheduleUnscheduleGamesObj = new ScheduleUnscheduleGames_Obj();
-
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj CreateAndAddNewMemberWithOrWithoutEmailObj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		
 		//Step 1 : Navigate to Snipback Login page
 		//Expected : User should be able to navigate to Snipback Login page.
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_Login("Login")),"User is not able to view Snipback page");
@@ -95,7 +97,7 @@ public class ScheduleUnscheduleGames extends BasePge {
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
-		base.selectorByVisibleText(ScheduleUnscheduleGamesObj.DdlOrg("form-select select-form film-organizations"), ScheduleUnschedule_TestData.SG_03_OrgName);
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), ScheduleUnschedule_TestData.SG_03_OrgName);
 		asrt.assertTrue(base.isEnabledBy(LoginPageObj.Edt_LoginEmail("searchTeam")),"User is not able to select any organization");
 
 		//Step 4 : click on search button and select a team
@@ -129,9 +131,9 @@ public class ScheduleUnscheduleGames extends BasePge {
 
 		//Step 9 : click on search button and select game under schedule
 		//Expected : User should be able to select the searched game under schedule
-		base.excuteJsClick(ScheduleUnscheduleGamesObj.Ele_SearchGame("form-control input-wrap game-search")); 
-		base.setData(ScheduleUnscheduleGamesObj.Ele_SearchGame("form-control input-wrap game-search"),ActualEvent);
-		base.pressKey(ScheduleUnscheduleGamesObj.Ele_SearchGame("form-control input-wrap game-search"),"KEYBOARD_ENTER" );
+		base.excuteJsClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control input-wrap game-search")); 
+		base.setData(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control input-wrap game-search"),ActualEvent);
+		base.pressKey(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control input-wrap game-search"),"KEYBOARD_ENTER" );
 		asrt.assertTrue(base.isExists(ScheduleUnscheduleGamesObj.Btn_ScheduleUnschedule("game-row","1","calendar-list scheduled","5")),
 				"User is not able to select the searched game under schedule");
 	}
@@ -143,7 +145,8 @@ public class ScheduleUnscheduleGames extends BasePge {
 		Login login = new Login(driver);
 		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
 		ScheduleUnscheduleGames_Obj ScheduleUnscheduleGamesObj = new ScheduleUnscheduleGames_Obj();
-
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj CreateAndAddNewMemberWithOrWithoutEmailObj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		
 		//Step 1 : Navigate to Snipback Login page
 		//Expected : User should be able to navigate to Snipback Login page.
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_Login("Login")),"User is not able to navigate to Snipback Login page");
@@ -155,7 +158,7 @@ public class ScheduleUnscheduleGames extends BasePge {
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
-		base.selectorByVisibleText(ScheduleUnscheduleGamesObj.DdlOrg("form-select select-form film-organizations"), ScheduleUnschedule_TestData.SG_04_OrgName);
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), ScheduleUnschedule_TestData.SG_04_OrgName);
 		asrt.assertTrue(base.isEnabledBy(LoginPageObj.Edt_LoginEmail("searchTeam")),"User is not able to select any organization");
 
 		//Step 4 : click on search button and select a team
@@ -190,13 +193,13 @@ public class ScheduleUnscheduleGames extends BasePge {
 		//Step 9:Click on GameSchedule section
 		//Expected:The user should be able to navigate to GameSchedule section
 		base.excuteJsClick(LoginPageObj.Btn_SignInButton("GAME SCHEDULE"));
-		asrt.assertTrue(base.isExists(ScheduleUnscheduleGamesObj.Ele_SearchGame("form-control input-wrap game-search")),"The user is not able to navigate to GameSchedule section");		    
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control input-wrap game-search")),"The user is not able to navigate to GameSchedule section");		    
 
 		//Step 10 : click on search button and select game under GameSchedule
 		//Expected : User should be able to select the searched game under GameSchedule
-		base.excuteJsClick(ScheduleUnscheduleGamesObj.Ele_SearchGame("form-control input-wrap game-search")); 
-		base.setData(ScheduleUnscheduleGamesObj.Ele_SearchGame("form-control input-wrap game-search"),ActualEvent);
-		base.pressKey(ScheduleUnscheduleGamesObj.Ele_SearchGame("form-control input-wrap game-search"),"KEYBOARD_ENTER" );
+		base.excuteJsClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control input-wrap game-search")); 
+		base.setData(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control input-wrap game-search"),ActualEvent);
+		base.pressKey(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control input-wrap game-search"),"KEYBOARD_ENTER" );
 		asrt.assertTrue(base.isExists(ScheduleUnscheduleGamesObj.Btn_ScheduleUnschedule("game-row","1","calendar-list scheduled","5")),
 				"User is not able to select the searched game under GameSchedule");
 	}
@@ -208,7 +211,8 @@ public class ScheduleUnscheduleGames extends BasePge {
 		Login login = new Login(driver);
 		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
 		ScheduleUnscheduleGames_Obj ScheduleUnscheduleGamesObj = new ScheduleUnscheduleGames_Obj();
-
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj CreateAndAddNewMemberWithOrWithoutEmailObj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		
 		//Step 1 : Navigate to Snipback Login page
 		//Expected : User should be able to navigate to Snipback Login page.
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_Login("Login")),"User is not able to navigate to Snipback Login page");
@@ -220,7 +224,7 @@ public class ScheduleUnscheduleGames extends BasePge {
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
-		base.selectorByVisibleText(ScheduleUnscheduleGamesObj.DdlOrg("form-select select-form film-organizations"), ScheduleUnschedule_TestData.SG_05_OrgName);
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), ScheduleUnschedule_TestData.SG_05_OrgName);
 		asrt.assertTrue(base.isEnabledBy(LoginPageObj.Edt_LoginEmail("searchTeam")),"User is not able to select any organization");
 
 		//Step 4 : click on search button and select a team
@@ -260,13 +264,13 @@ public class ScheduleUnscheduleGames extends BasePge {
 		//Step 10:Click on PracticeSchedule section
 		//Expected:The user should be able to navigate to PracticeSchedule section
 		base.excuteJsClick(LoginPageObj.Btn_SignInButton("PRACTICE SCHEDULE"));
-		asrt.assertTrue(base.isExists(ScheduleUnscheduleGamesObj.Ele_SearchGame("form-control input-wrap game-search")),"The user is not able to navigate to PracticeSchedule section");		    
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control input-wrap game-search")),"The user is not able to navigate to PracticeSchedule section");		    
 
 		//Step 11 : click on search button and select game under PracticeSchedule
 		//Expected : User should be able to select the searched game under PracticeSchedule
-		base.excuteJsClick(ScheduleUnscheduleGamesObj.Ele_SearchGame("form-control input-wrap game-search")); 
-		base.setData(ScheduleUnscheduleGamesObj.Ele_SearchGame("form-control input-wrap game-search"),ActualEvent);
-		base.pressKey(ScheduleUnscheduleGamesObj.Ele_SearchGame("form-control input-wrap game-search"),"KEYBOARD_ENTER" );
+		base.excuteJsClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control input-wrap game-search")); 
+		base.setData(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control input-wrap game-search"),ActualEvent);
+		base.pressKey(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control input-wrap game-search"),"KEYBOARD_ENTER" );
 		asrt.assertTrue(base.isExists(ScheduleUnscheduleGamesObj.Btn_ScheduleUnschedule("game-row","1","calendar-list scheduled","5")),
 				"User is not able to select the searched game under PracticeSchedule");
 	}
@@ -278,7 +282,8 @@ public class ScheduleUnscheduleGames extends BasePge {
 		Login login = new Login(driver);
 		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
 		ScheduleUnscheduleGames_Obj ScheduleUnscheduleGamesObj = new ScheduleUnscheduleGames_Obj();
-
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj CreateAndAddNewMemberWithOrWithoutEmailObj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		
 		//Step 1 : Navigate to Snipback Login page
 		//Expected : User should be able to navigate to Snipback Login page.
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_Login("Login")),"User is not able to navigate to Snipback Login page");
@@ -290,7 +295,7 @@ public class ScheduleUnscheduleGames extends BasePge {
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
-		base.selectorByVisibleText(ScheduleUnscheduleGamesObj.DdlOrg("form-select select-form film-organizations"), ScheduleUnschedule_TestData.SG_06_OrgName);
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), ScheduleUnschedule_TestData.SG_06_OrgName);
 		asrt.assertTrue(base.isEnabledBy(LoginPageObj.Edt_LoginEmail("searchTeam")),"User is not able to select any organization");
 
 		//Step 4 : click on search button and select a team
@@ -330,13 +335,13 @@ public class ScheduleUnscheduleGames extends BasePge {
 		//Step 10:Click on PracticeSchedule section
 		//Expected:The user should be able to navigate to PracticeSchedule section
 		base.excuteJsClick(LoginPageObj.Btn_SignInButton("PRACTICE SCHEDULE"));
-		asrt.assertTrue(base.isExists(ScheduleUnscheduleGamesObj.Ele_SearchGame("form-control input-wrap game-search")),"The user is not able to navigate to PracticeSchedule section");		    
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control input-wrap game-search")),"The user is not able to navigate to PracticeSchedule section");		    
 
 		//Step 11 : click on search button and select game under PracticeSchedule
 		//Expected : User should be able to select the searched game under PracticeSchedule
-		base.excuteJsClick(ScheduleUnscheduleGamesObj.Ele_SearchGame("form-control input-wrap game-search")); 
-		base.setData(ScheduleUnscheduleGamesObj.Ele_SearchGame("form-control input-wrap game-search"),ActualEvent);
-		base.pressKey(ScheduleUnscheduleGamesObj.Ele_SearchGame("form-control input-wrap game-search"),"KEYBOARD_ENTER" );
+		base.excuteJsClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control input-wrap game-search")); 
+		base.setData(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control input-wrap game-search"),ActualEvent);
+		base.pressKey(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control input-wrap game-search"),"KEYBOARD_ENTER" );
 		asrt.assertTrue(base.isEnabledBy(ScheduleUnscheduleGamesObj.Btn_ScheduleUnschedule("game-row","1","calendar-list scheduled","5")),
 				"User is not able to select the searched game under PracticeSchedule");
 
