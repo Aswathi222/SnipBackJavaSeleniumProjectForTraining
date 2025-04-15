@@ -36,11 +36,11 @@ public class ScheduleUnscheduleGames extends BasePge {
 		//Step 2 : Login to Snipback
 		//Expected : User should be able to login.
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("SCHEDULE")),"User not able to login");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("SCHEDULE")),"User not able to login");
 
 		//Step 3: Verify whether there is a section as Schedule in Film page
 		//Expected: There should be a section for scheduled games under Film page.
-		base.buttonClick(LoginPageObj.Edt_Alert1("SCHEDULE"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("SCHEDULE"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_SingnIn("combined-schedule-tab")),"There is no section for Schedule games under Film page.");
 	}
 
@@ -61,7 +61,7 @@ public class ScheduleUnscheduleGames extends BasePge {
 		//Step 2 : Login to Snipback
 		//Expected : User should be able to login.
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("SCHEDULE")),"User not able to login");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("SCHEDULE")),"User not able to login");
 
 		//Step 3: Verify whether there is schedule icon near the games under Events
 		//Expected: There should be a schedule icon near the games under Events..
@@ -93,7 +93,7 @@ public class ScheduleUnscheduleGames extends BasePge {
 		//Step 2 : Login to Snipback
 		//Expected : User should be able to login.
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("SCHEDULE")),"User is not able to login");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("SCHEDULE")),"User is not able to login");
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
@@ -105,11 +105,11 @@ public class ScheduleUnscheduleGames extends BasePge {
 		base.excuteJsClick(LoginPageObj.Edt_LoginEmail("searchTeam")); 
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), ScheduleUnschedule_TestData.SG_03_TeamName);
 		base.excuteJsClick(ScheduleUnscheduleGamesObj.Ele_TeamNameFromList("my-team-content",ScheduleUnschedule_TestData.SG_03_TeamName));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("Event")),"User is not able to select the searched Team");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("Event")),"User is not able to select the searched Team");
 
 		//Step 5 : click on +Event button
 		//Expected : User should be able to click on +Event button
-		base.excuteJsClick(LoginPageObj.Edt_Alert1("Event")); 
+		base.excuteJsClick(LoginPageObj.Edt_AlertMessage("Event")); 
 		asrt.assertTrue(base.isExists(ScheduleUnscheduleGamesObj.Ele_CreateGameFor("Create Game for ")),"User is not able to click on +Event button");
 
 		//Step 6: Enter the Event Name
@@ -126,7 +126,7 @@ public class ScheduleUnscheduleGames extends BasePge {
 
 		//Step 8:Click on schedule section
 		//Expected:The user should be able to navigate to schedule section
-		base.excuteJsClick(LoginPageObj.Edt_Alert1("SCHEDULE"));
+		base.excuteJsClick(LoginPageObj.Edt_AlertMessage("SCHEDULE"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_SignInButton("GAME SCHEDULE")),"The user is not able to navigate to schedule section");		    
 
 		//Step 9 : click on search button and select game under schedule
@@ -154,7 +154,7 @@ public class ScheduleUnscheduleGames extends BasePge {
 		//Step 2 : Login to Snipback
 		//Expected : User should be able to login.
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("SCHEDULE")),"User is not able to login");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("SCHEDULE")),"User is not able to login");
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
@@ -166,11 +166,11 @@ public class ScheduleUnscheduleGames extends BasePge {
 		base.excuteJsClick(LoginPageObj.Edt_LoginEmail("searchTeam")); 
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), ScheduleUnschedule_TestData.SG_04_TeamName);
 		base.excuteJsClick(ScheduleUnscheduleGamesObj.Ele_TeamNameFromList("my-team-content",ScheduleUnschedule_TestData.SG_04_TeamName));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("Event")),"User is not able to select the searched Team");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("Event")),"User is not able to select the searched Team");
 
 		//Step 5 : click on +Event button
 		//Expected : User should be able to click on +Event button
-		base.excuteJsClick(LoginPageObj.Edt_Alert1("Event")); 
+		base.excuteJsClick(LoginPageObj.Edt_AlertMessage("Event")); 
 		asrt.assertTrue(base.isExists(ScheduleUnscheduleGamesObj.Ele_CreateGameFor("Create Game for ")),"User is not able to click on +Event button");
 
 		//Step 6: Enter the Event Name
@@ -187,7 +187,7 @@ public class ScheduleUnscheduleGames extends BasePge {
 
 		//Step 8:Click on schedule section
 		//Expected:The user should be able to navigate to schedule section
-		base.excuteJsClick(LoginPageObj.Edt_Alert1("SCHEDULE"));
+		base.excuteJsClick(LoginPageObj.Edt_AlertMessage("SCHEDULE"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_SignInButton("GAME SCHEDULE")),"The user should not be able to navigate to schedule section");		    
 
 		//Step 9:Click on GameSchedule section
@@ -220,7 +220,7 @@ public class ScheduleUnscheduleGames extends BasePge {
 		//Step 2 : Login to Snipback
 		//Expected : User should be able to login.
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("SCHEDULE")),"User is not able to login");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("SCHEDULE")),"User is not able to login");
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
@@ -232,16 +232,16 @@ public class ScheduleUnscheduleGames extends BasePge {
 		base.excuteJsClick(LoginPageObj.Edt_LoginEmail("searchTeam")); 
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), ScheduleUnschedule_TestData.SG_05_TeamName);
 		base.excuteJsClick(ScheduleUnscheduleGamesObj.Ele_TeamNameFromList("my-team-content",ScheduleUnschedule_TestData.SG_05_TeamName));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("Event")),"User is not able to select the searched Team");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("Event")),"User is not able to select the searched Team");
 
 		//Step 5 : click on Practice section
 		//Expected : User should be able to click on practice section
 		base.excuteJsClick(LoginPageObj.Btn_SignInButton("PRACTICES")); 
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("Practice")),"User is not able to click on practice section");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("Practice")),"User is not able to click on practice section");
 
 		//Step 6 : click on +Practice button
 		//Expected : User should be able to click on +Practice button
-		base.excuteJsClick(LoginPageObj.Edt_Alert1("Practice")); 
+		base.excuteJsClick(LoginPageObj.Edt_AlertMessage("Practice")); 
 		asrt.assertTrue(base.isExists(ScheduleUnscheduleGamesObj.Ele_CreateGameFor("Create Game for ")),"User is not able to click on +Practice button");
 
 		//Step 7: Enter the Practice Name
@@ -258,7 +258,7 @@ public class ScheduleUnscheduleGames extends BasePge {
 
 		//Step 9:Click on schedule section
 		//Expected:The user should be able to navigate to schedule section
-		base.excuteJsClick(LoginPageObj.Edt_Alert1("SCHEDULE"));
+		base.excuteJsClick(LoginPageObj.Edt_AlertMessage("SCHEDULE"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_SignInButton("PRACTICE SCHEDULE")),"The user should not be able to navigate to schedule section");		    
 
 		//Step 10:Click on PracticeSchedule section
@@ -291,7 +291,7 @@ public class ScheduleUnscheduleGames extends BasePge {
 		//Step 2 : Login to Snipback
 		//Expected : User should be able to login.
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("SCHEDULE")),"User is not able to login");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("SCHEDULE")),"User is not able to login");
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
@@ -303,16 +303,16 @@ public class ScheduleUnscheduleGames extends BasePge {
 		base.excuteJsClick(LoginPageObj.Edt_LoginEmail("searchTeam")); 
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), ScheduleUnschedule_TestData.SG_06_TeamName);
 		base.excuteJsClick(ScheduleUnscheduleGamesObj.Ele_TeamNameFromList("my-team-content",ScheduleUnschedule_TestData.SG_06_TeamName));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("Event")),"User is not able to select the searched Team");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("Event")),"User is not able to select the searched Team");
 
 		//Step 5 : click on Practice section
 		//Expected : User should be able to click on practice section
 		base.excuteJsClick(LoginPageObj.Btn_SignInButton("PRACTICES")); 
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("Practice")),"User is not able to click on practice section");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("Practice")),"User is not able to click on practice section");
 
 		//Step 6 : click on +Practice button
 		//Expected : User should be able to click on +Practice button
-		base.excuteJsClick(LoginPageObj.Edt_Alert1("Practice")); 
+		base.excuteJsClick(LoginPageObj.Edt_AlertMessage("Practice")); 
 		asrt.assertTrue(base.isExists(ScheduleUnscheduleGamesObj.Ele_CreateGameFor("Create Game for ")),"User is not able to click on +Practice button");
 
 		//Step 7: Enter the Practice Name
@@ -329,7 +329,7 @@ public class ScheduleUnscheduleGames extends BasePge {
 
 		//Step 9:Click on schedule section
 		//Expected:The user should be able to navigate to schedule section
-		base.excuteJsClick(LoginPageObj.Edt_Alert1("SCHEDULE"));
+		base.excuteJsClick(LoginPageObj.Edt_AlertMessage("SCHEDULE"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_SignInButton("PRACTICE SCHEDULE")),"The user should not be able to navigate to schedule section");		    
 
 		//Step 10:Click on PracticeSchedule section
@@ -349,11 +349,11 @@ public class ScheduleUnscheduleGames extends BasePge {
 		//Expected : User should be able to click schedule icon
 		base.excuteJsClick(ScheduleUnscheduleGamesObj.Btn_ScheduleUnschedule("game-row","1","calendar-list scheduled","5")); 
 		base.excuteJsClick(ScheduleUnscheduleGamesObj.Btn_EventOK("swal-button swal-button--confirm"));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("GAMES")),"The user is not able to click schedule icon"); 
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("GAMES")),"The user is not able to click schedule icon"); 
 
 		//Step 13 : Check the game should be automatically unscheduled.
 		//Expected : The game should be automatically unscheduled.
-		base.excuteJsClick(LoginPageObj.Edt_Alert1("GAMES")); 
+		base.excuteJsClick(LoginPageObj.Edt_AlertMessage("GAMES")); 
 		base.excuteJsClick(LoginPageObj.Btn_SignInButton("PRACTICES")); 
 		asrt.assertTrue(base.isEnabledBy(ScheduleUnscheduleGamesObj.Btn_ScheduleUnschedule("game-row ","1","calendar-list schedule","practice_film")),
 				"The game automatically scheduled.");	

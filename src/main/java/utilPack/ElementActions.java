@@ -106,6 +106,42 @@ public class ElementActions {
 		}
 		return false;  // Otherwise, return false
 	}
+	/// <summary>
+	/// Fluent wait
+	/// </summary>
+	public WebDriverWait getWait() {   //explicit wait
+
+		WebDriverWait wait = new WebDriverWait(driver, 60);
+		wait.pollingEvery(250,TimeUnit.MILLISECONDS);                //WebDriverWait wait = new WebDriverWait(driver, 60);
+		wait.ignoring(NoSuchElementException.class);                 // wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		return wait;
+	}
+	/// <summary>
+	/// Method that highLights elements	        
+	/// </summary>
+	public void highLighterMethod(WebDriver driver, WebElement element){
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		String bgColor = element.getCssValue("backgroundColor");
+		js.executeScript("arguments[0].setAttribute('style', 'background: "+bgColor+"; border: 2px solid red;');", element);
+	}
+	//<summary>
+	//To click an element with given timeout         
+	public void buttonClick(By locator) {
+		WebDriverWait wait = getWait();
+		wait.until(ExpectedConditions.elementToBeClickable(locator));
+		webElement =driver.findElement(locator);
+		highLighterMethod(driver, webElement); 
+		webElement.click();
+	}
+	// </summary>
+	//<For button click more than once>
+	//</Summary>
+	public void clickMultipleTimes(By locator, int clickCount) {
+		for (int i = 0; i < clickCount; i++) {
+			buttonClick(locator);
+		}
+	}
+	//Summary
 }
 
 

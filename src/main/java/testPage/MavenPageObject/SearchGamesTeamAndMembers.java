@@ -54,7 +54,7 @@ public class SearchGamesTeamAndMembers extends BasePge{
 
 		//step 4: Select Games section
 		//Expected:There should be a option to search games in Game Listing page.
-		base.buttonClick(loginObj.Edt_Alert1("GAMES"));
+		base.buttonClick(loginObj.Edt_AlertMessage("GAMES"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to search games in games listing page.");
 	}
 	//<Summary>
@@ -84,7 +84,7 @@ public class SearchGamesTeamAndMembers extends BasePge{
 
 		//step 4: Select Games section
 		//Expected:There should be a option to search games in Game Listing page.
-		base.buttonClick(loginObj.Edt_Alert1("GAMES"));
+		base.buttonClick(loginObj.Edt_AlertMessage("GAMES"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to search games in games listing page.");
 
 		//step 5:Click search bar
@@ -130,7 +130,7 @@ public class SearchGamesTeamAndMembers extends BasePge{
 
 		//step 4: Select Games section
 		//Expected:There should be a option to search games in Game Listing page.
-		base.buttonClick(loginObj.Edt_Alert1("GAMES"));
+		base.buttonClick(loginObj.Edt_AlertMessage("GAMES"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to search games in games listing page.");
 
 		//step 5:Click search bar
@@ -177,7 +177,7 @@ public class SearchGamesTeamAndMembers extends BasePge{
 
 		//step 4: Select Games section
 		//Expected:There should be a option to search games in Game Listing page.
-		base.buttonClick(loginObj.Edt_Alert1("GAMES"));
+		base.buttonClick(loginObj.Edt_AlertMessage("GAMES"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to search games in games listing page.");
 
 		//step 5:Click search bar and enter a special character
@@ -218,7 +218,7 @@ public class SearchGamesTeamAndMembers extends BasePge{
 
 		//step 4: Select Games section
 		//Expected:There should be a option to search games in Game Listing page.
-		base.buttonClick(loginObj.Edt_Alert1("GAMES"));
+		base.buttonClick(loginObj.Edt_AlertMessage("GAMES"));
 		Thread.sleep(3000);
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to search games in games listing page.");
 
@@ -260,7 +260,7 @@ public class SearchGamesTeamAndMembers extends BasePge{
 
 		//step 4:Select the GamesMembers section
 		//Expected: There should be a option to search teams  in the GamesMembers Listing page.
-		base.buttonClick(loginObj.Edt_Alert1("MEMBERS"));
+		base.buttonClick(loginObj.Edt_AlertMessage("MEMBERS"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to view the option to search teams in the GamesMembers Listing page");
 	}
 	//<Summary>
@@ -290,7 +290,7 @@ public class SearchGamesTeamAndMembers extends BasePge{
 
 		//step 4:Select the GamesMembers section
 		//Expected: There should be a option to search teams  in the GamesMembers Listing page.
-		base.excuteJsClick(loginObj.Edt_Alert1("MEMBERS"));
+		base.excuteJsClick(loginObj.Edt_AlertMessage("MEMBERS"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to view the option to search teams in the GamesMembers Listing page");
 
 		//step 5:Click search bar above the teams and enter the first letter of team name
@@ -327,7 +327,7 @@ public class SearchGamesTeamAndMembers extends BasePge{
 
 		//step 4:Select the GamesMembers section
 		//Expected: There should be a option to search teams  in the GamesMembers Listing page.
-		base.buttonClick(loginObj.Edt_Alert1("MEMBERS"));
+		base.buttonClick(loginObj.Edt_AlertMessage("MEMBERS"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to view the option to search teams in the GamesMembers Listing page");
 
 		//step 5:Click search bar above the teams and enter a number 
@@ -364,7 +364,7 @@ public class SearchGamesTeamAndMembers extends BasePge{
 
 		//step 4:Select the GamesMembers section
 		//Expected: There should be a option to search teams  in the GamesMembers Listing page.
-		base.buttonClick(loginObj.Edt_Alert1("MEMBERS"));
+		base.buttonClick(loginObj.Edt_AlertMessage("MEMBERS"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to view the option to search teams in the GamesMembers Listing page");
 
 		//step 5:Click search bar above the teams and enter a special character
@@ -401,7 +401,7 @@ public class SearchGamesTeamAndMembers extends BasePge{
 
 		//step 4:Select the GamesMembers section
 		//Expected: There should be a option to search teams  in the GamesMembers Listing page.
-		base.buttonClick(loginObj.Edt_Alert1("MEMBERS"));
+		base.buttonClick(loginObj.Edt_AlertMessage("MEMBERS"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to view the option to search teams in the GamesMembers Listing page");
 
 		//step 5:Click search bar above the teams
@@ -440,7 +440,7 @@ public class SearchGamesTeamAndMembers extends BasePge{
 
 		//step 4:Select Members section
 		//Expected:There should be a option to search members in Members Listing page.
-		base.buttonClick(loginObj.Edt_Alert1("MEMBERS"));
+		base.buttonClick(loginObj.Edt_AlertMessage("MEMBERS"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("teamGroupMembers")),"User is unable to view the option to search members in Members listing page");
 	}
 	//<Summary>
@@ -469,7 +469,7 @@ public class SearchGamesTeamAndMembers extends BasePge{
 
 		//step 4:Select Members section
 		//Expected:There should be a option to search members in Members Listing page.
-		base.buttonClick(loginObj.Edt_Alert1("MEMBERS"));
+		base.buttonClick(loginObj.Edt_AlertMessage("MEMBERS"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("teamGroupMembers")),"User is unable to view the option to search members in Members listing page");
 
 		//step 5: Click search bar and enter the first letter of the member name
