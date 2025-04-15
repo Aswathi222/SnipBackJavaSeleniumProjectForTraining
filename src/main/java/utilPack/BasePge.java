@@ -1075,18 +1075,6 @@ public class BasePge {
 			actions.sendKeys(Keys.BACK_SPACE).perform();  // Simulate backspace key
 		}
 	}
-
-	//<Summary>
-	//<Is exists/contains in text>
-	//</Summary>
-	public boolean isExistsInText(List<String> elementTexts, String searchTerm) {
-		for (String text : elementTexts) {
-			if (text.contains(searchTerm)) {
-				return true;  // If any text contains the search term, return true
-			}
-		}
-		return false;  // Otherwise, return false
-	}
 	//<Summary>
 		//<For button click more than once>
 		//</Summary>
@@ -1098,23 +1086,11 @@ public class BasePge {
 		//Summary
 		//<Is exists/starts with >
 		//</Summary>
-		public boolean isExistsInStart(List<String> elementTexts, String searchTerm) {
-	        for (String text : elementTexts) {
-	            if (text.toLowerCase().startsWith(searchTerm.toLowerCase())) {
-	                return true;
-	            }
-	        }
-	        return false;
-	    }
-		//Summary
-		//<Is exists/starts with >
-		//</Summary>
 		public String DropDownText (By locator) {
 			Select select = new Select(driver.findElement(locator));
 			String selectedOption = select.getFirstSelectedOption().getText();
 			return selectedOption;
 		}
-		
 }
 
 
