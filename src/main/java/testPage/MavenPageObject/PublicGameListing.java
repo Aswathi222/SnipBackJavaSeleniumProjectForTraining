@@ -14,15 +14,18 @@ import objectRepository.LoginPage_Obj;
 import objectRepository.PublicGameListing_Obj;
 import objectRepository.SnipBackLogin_Obj;
 import utilPack.BasePge;
+import utilPack.ElementActions;
 
 public class PublicGameListing extends BasePge{
 
 	BasePge base;
 	Assert asrt;
+	ElementActions element;
 	
 	public PublicGameListing(WebDriver driver) {
 		super(driver);
 		base = new BasePge(driver);
+		element=new ElementActions(driver);
 	}
 	
 	// <summary>
@@ -134,7 +137,7 @@ public class PublicGameListing extends BasePge{
 		//Expected:"User should be able to see the public games as per the recent dates along with day after entering into FILM page" 
 		ArrayList<LocalDate> extractedDates = new ArrayList<>();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd yyyy", Locale.US);
-		String todayDate = base.getFormattedDate(PublicGameObj.Ele_GameDate(2, "redText"));  
+		String todayDate = element.getFormattedDate(PublicGameObj.Ele_GameDate(2, "redText"));  
 		for (int i = 2; i <= 26; i++) {  
 		    By dateLocate = PublicGameObj.Ele_GameDate(i, "redText"); 
 		    String dateText = base.GetText(dateLocate).trim(); 
@@ -303,6 +306,27 @@ public class PublicGameListing extends BasePge{
 		//Step3:Verify the Option "TEAM with Dropdown ALL"
 		//Expected:An option Team with drop down "ALL" should be displayed near to Filter by date option in the FILM page to list all the public games
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText("Team")) && base.isExists(CDPoolObj.Sel_PoolType("team_id")),"User is not able to view the Team Option or the 'All' dropdown near to Filter by date option in the FILM page to list all the public games");
+		}
+	//<summary>
+	// Test Case Title  : Verify that another option " Sort By date"  should be displayed along with Up arrow and Down arrow in the FILM Page
+	// Automation ID    : Game Listing_12
+	// </summary>
+	public void GameListing_12_PublicGameListing() throws InterruptedException {
+		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+		PublicGameListing_Obj PublicGameObj=new PublicGameListing_Obj();
+				
+		// Step1: User navigated to SnipBack Website after entering snipback url
+		// Expected:The user should be able to navigate to the  Snipback website after entering the URL
+		asrt.assertTrue(base.isExists(LoginPageObj.Ele_SnipBackHomePageLogo("light-logo")), "User is unable to navigate to SnipBack website after entering the URL");
+				
+		//Step2:Click on FILM Tab without login
+		//Expected:The user should be able to click on "FILM" tab without login to Snipback
+		base.buttonClick(PublicGameObj.Btn_Home("Film","menu_link nav-link "));
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");
+				
+		//Step3:Verify the Option " Sort By date" along with Up arrow and Down arrow
+		//Expected:An option " Sort By date"  should be displayed along with Up arrow and Down arrow in the FILM Page
+        asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText("Sort by Date")) && base.isExists(PublicGameObj.Btn_sort("myCheckbox1")) && base.isExists(PublicGameObj.Btn_sort("myCheckbox2")),"User is not able to view the 'Sort By Date' option along with the Up and Down arrows in the FILM page.");
 		}
 }
 

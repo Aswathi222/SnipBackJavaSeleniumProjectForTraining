@@ -82,16 +82,6 @@ public class BasePge {
 		return data;
 	}
 	
-	///<summary>
-	/////to get todays date
-	///</summary>
-	  public String getFormattedDate(By locator) {
-
-	        LocalDate currentDate = LocalDate.now();
-	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd yyyy", Locale.US);
-	        return currentDate.format(formatter);
-	    }
-
 	/// <summary>
 	/// To Switch Window Frame	        
 	/// </summary>
