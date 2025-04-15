@@ -190,27 +190,6 @@ public class BasePge {
 		}
 
 	}
-	/// <summary>
-	/// fillFormFields
-	/// </summary>
-	public void fillFormFields(Object... elementsAndValues) {
-	    if (elementsAndValues.length % 2 != 0) {
-	        throw new IllegalArgumentException("You must provide pairs of locator and value.");
-	    }
-	 
-	    for (int i = 0; i < elementsAndValues.length; i += 2) {
-	        By locator = (By) elementsAndValues[i];
-	        String value = (String) elementsAndValues[i + 1];
-	 
-	        try {
-	            WebElement element = driver.findElement(locator);
-	            element.clear();
-	            element.sendKeys(value);
-	        } catch (Exception e) {	            
-	            throw e;
-	        }
-	    }
-	}
 
 	/// <summary>
 	/// isExists Validation
@@ -1106,15 +1085,6 @@ public class BasePge {
 	        }
 	        return false;
 	    }
-		//Summary
-		//<Is exists/starts with >
-		//</Summary>
-		public String DropDownText (By locator) {
-			Select select = new Select(driver.findElement(locator));
-			String selectedOption = select.getFirstSelectedOption().getText();
-			return selectedOption;
-		}
-		
 }
 
 
