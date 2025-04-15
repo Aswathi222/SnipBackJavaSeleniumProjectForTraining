@@ -4,10 +4,67 @@
 	<listeners>
 		<listener class-name="extentReporterPack.ExtentReportListner" />
 	</listeners>
-	<test thread-count="1" name="Test">
-		<parameter name="Browser" value="Chrome" />
-		<classes>
-          <class
+  <test thread-count="1" name="Test">
+     <parameter name="Browser" value="Chrome"/>
+    <classes>  
+<class name="testScenario.ForgotPassword.ForgotPassword_Test">
+		   <methods>
+               <include name="FP01_ForgotPasswordTest()"/>
+               <include name="FP02_ForgotPasswordTest()"/>
+               <include name="FP03_ForgotPasswordTest()"/>
+               <include name="FP04_ForgotPasswordTest()"/>				
+      </methods> 
+       </class>
+<class name="testScenario.ScheduleUnscheduleGames.ScheduleUnscheduleGames_Test">
+		   <methods>
+               <include name="SG_01_ScheduleUnscheduleGamesTest()"/> 
+               <include name="SG_02_ScheduleUnscheduleGamesTest()"/>
+               <include name="SG_03_ScheduleUnscheduleGamesTest()"/>
+               <include name="SG_04_ScheduleUnscheduleGamesTest()"/> 
+               <include name="SG_05_ScheduleUnscheduleGamesTest()"/> 
+               <include name="SG_06_ScheduleUnscheduleGamesTest()"/>      
+		   </methods> 
+       </class>     
+<class name="testScenario.CreateAndAddNewMemberWithOrWithoutEmail.CreateAndAddNewMemberWithOrWithoutEmail_Test">
+		  <methods>
+              <include name="WE_01_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+              <include name="WE_02_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+              <include name="WE_03_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+              <include name="WE_04_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+              <include name="WE_05_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+              <include name="WE_06_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+              <include name="WE_07_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+              <include name="WE_08_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+              <include name="WE_09_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+              <include name="WE_10_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+              <include name="WE_11_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+       </methods>
+       </class>
+<class name="testScenario.AddUpdateDeleteDuplicateTeamGameDefaults.AddUpdateDeleteDuplicateTeamGameDefaults_Test">
+		   <methods>
+		     <include name="Team_01_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+		     <include name="Team_02_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+		     <include name="Team_03_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+		     <include name="Team_04_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+		     <include name="Team_05_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+       </methods>
+       </class>
+<class name="testScenario.PublicGameListing.PublicGameListing_Test">
+		   <methods>
+               <include name="GameListing_01_PublicGameListingTest()"/>
+               <include name="GameListing_02_PublicGameListingTest()"/>
+               <include name="GameListing_03_PublicGameListingTest()"/>
+               <include name="GameListing_04_PublicGameListingTest()"/>
+               <include name="GameListing_05_PublicGameListingTest()"/>
+               <include name="GameListing_06_PublicGameListingTest()"/>
+               <include name="GameListing_07_PublicGameListingTest()"/>
+               <include name="GameListing_08_PublicGameListingTest()"/>
+               <include name="GameListing_09_PublicGameListingTest()"/>
+               <include name="GameListing_10_PublicGameListingTest()"/>
+               <include name="GameListing_11_PublicGameListingTest()"/>
+		   </methods>
+      </class>          
+      <class
 				name="testScenario.SearchGamesTeamAndMembers.SearchGamesTeamAndMembers_Test">
 				<methods>
 					<include name="SH_01_SearchGamesTeamAndMembersTest()" />
