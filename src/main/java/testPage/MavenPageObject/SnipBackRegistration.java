@@ -18,10 +18,12 @@ public class SnipBackRegistration extends BasePge{
 
 	BasePge base;
 	Assert asrt;
+	ElementActions element;
 
 	public SnipBackRegistration(WebDriver driver) {
 		super(driver);
 		base = new BasePge(driver);
+		element=new ElementActions(driver);
 	}
 	// <summary>
 	// Test Case Title :    "1.Verify if the name field is mandatory or shows an error message when left blank.
@@ -364,7 +366,6 @@ public class SnipBackRegistration extends BasePge{
 		Registration_Obj   RegistrationObj = new Registration_Obj();		
 		LoginPage_Obj loginpageobj = new LoginPage_Obj();
 		ForgotPassword_Obj   forgotpasswordobj = new ForgotPassword_Obj();
-		ElementActions  obj1=new ElementActions(driver);
 
 		//Step 1 :  Click on Login button
 		//Expected : User should click on login button
@@ -378,17 +379,17 @@ public class SnipBackRegistration extends BasePge{
 
 		//Step 3:Verify that the terms and conditions have a checkbox for users to click.
 		//Expected :It should be accept to mentioned test datas and click signup button
-		obj1.fillFormFields(RegistrationObj.Ele_Name("form-inlines","first_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName,loginpageobj.Edt_LoginEmail("user_email"),SnipBackRegistration_TestData.TC06_RegistrationValidEmail,
-		loginpageobj.Edt_LoginEmail("user_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName,loginpageobj.Edt_LoginEmail("user_pass"),SnipBackRegistration_TestData.TC06_RegistrationPassword,
-		loginpageobj.Edt_LoginEmail("user_confirm_password"),SnipBackRegistration_TestData.TC06_RegistrationPassword);
+		element.fillFormFields(RegistrationObj.Ele_Name("form-inlines","first_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName,loginpageobj.Edt_LoginEmail("user_email"),SnipBackRegistration_TestData.TC06_RegistrationValidEmail,
+				loginpageobj.Edt_LoginEmail("user_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName,loginpageobj.Edt_LoginEmail("user_pass"),SnipBackRegistration_TestData.TC06_RegistrationPassword,
+				loginpageobj.Edt_LoginEmail("user_confirm_password"),SnipBackRegistration_TestData.TC06_RegistrationPassword);
 		base.buttonClick(loginpageobj.Btn_SingnIn("btn-signup"));
 		asrt.assertTrue(base.isEnabledBy(loginpageobj.Edt_LoginEmail("agreeterms")), "User is unable to accept the valid datas and click signup button");
 
 		//Step 4 : Verify the user should be able to register only when the terms and conditions checkbox is clicked.
 		//Expected :There should be a pop-up message "Please accept the terms of service".
-		obj1.fillFormFields(RegistrationObj.Ele_Name("form-inlines","first_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName,loginpageobj.Edt_LoginEmail("user_email"),SnipBackRegistration_TestData.TC06_RegistrationValidEmail,
-		loginpageobj.Edt_LoginEmail("user_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName,loginpageobj.Edt_LoginEmail("user_pass"),SnipBackRegistration_TestData.TC06_RegistrationPassword,
-		loginpageobj.Edt_LoginEmail("user_confirm_password"),SnipBackRegistration_TestData.TC06_RegistrationPassword);
+		element.fillFormFields(RegistrationObj.Ele_Name("form-inlines","first_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName,loginpageobj.Edt_LoginEmail("user_email"),SnipBackRegistration_TestData.TC06_RegistrationValidEmail,
+				loginpageobj.Edt_LoginEmail("user_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName,loginpageobj.Edt_LoginEmail("user_pass"),SnipBackRegistration_TestData.TC06_RegistrationPassword,
+				loginpageobj.Edt_LoginEmail("user_confirm_password"),SnipBackRegistration_TestData.TC06_RegistrationPassword);
 		base.buttonClick(loginpageobj.Edt_LoginEmail("agreeterms"));
 		base.scrollToElement(loginpageobj.Btn_SingnIn("btn-signup"));
 		base.excuteJsClick(loginpageobj.Btn_SingnIn("btn-signup"));
@@ -396,22 +397,22 @@ public class SnipBackRegistration extends BasePge{
 
 		//Step 5: Verify if the page displays a confirmation message after ticking the checkbox and completing the registration.	
 		//Expected : It should accept mentioned test data and redirect to enter one-time password Page.
-		obj1.fillFormFields(RegistrationObj.Ele_Name("form-inlines","first_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName,loginpageobj.Edt_LoginEmail("user_email"),SnipBackRegistration_TestData.TC06_RegistrationValidEmail,
-		loginpageobj.Edt_LoginEmail("user_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName,loginpageobj.Edt_LoginEmail("user_pass"),SnipBackRegistration_TestData.TC06_RegistrationPassword,
-        loginpageobj.Edt_LoginEmail("user_confirm_password"),SnipBackRegistration_TestData.TC06_RegistrationPassword);
+		element.fillFormFields(RegistrationObj.Ele_Name("form-inlines","first_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName,loginpageobj.Edt_LoginEmail("user_email"),SnipBackRegistration_TestData.TC06_RegistrationValidEmail,
+				loginpageobj.Edt_LoginEmail("user_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName,loginpageobj.Edt_LoginEmail("user_pass"),SnipBackRegistration_TestData.TC06_RegistrationPassword,
+				loginpageobj.Edt_LoginEmail("user_confirm_password"),SnipBackRegistration_TestData.TC06_RegistrationPassword);
 		base.excuteJsClick(loginpageobj.Edt_LoginEmail("agreeterms"));
 		base.excuteJsClick(loginpageobj.Btn_SingnIn("btn-signup"));
 		base.switchToWindowByIndex(driver, 0);	
 		asrt.assertTrue(base.isExists(loginpageobj.Btn_SingnIn("otp-submit")),"User is unable to accept the valid datas and redirect to enter one-time password page");
-		
+
 		//Step 6 :Verify that the terms and conditions are clearly displayed and visible on the terms of use page when we click on  Terms of Service.
 		//Expected : It Should be redirect to https://snipback.com/terms-of-use page.
 		driver.navigate().back();
 		base.buttonClick(RegistrationObj.Btn_Login("nav-link btn btn-white sm", "Login"));
 		base.buttonClick(RegistrationObj.Btn_SignUp("signup-btn","Sign Up"));
-		obj1.fillFormFields(RegistrationObj.Ele_Name("form-inlines","first_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName,loginpageobj.Edt_LoginEmail("user_email"),SnipBackRegistration_TestData.TC06_RegistrationValidEmail,
-		loginpageobj.Edt_LoginEmail("user_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName,loginpageobj.Edt_LoginEmail("user_pass"),SnipBackRegistration_TestData.TC06_RegistrationPassword,
-        loginpageobj.Edt_LoginEmail("user_confirm_password"),SnipBackRegistration_TestData.TC06_RegistrationPassword);
+		element.fillFormFields(RegistrationObj.Ele_Name("form-inlines","first_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName,loginpageobj.Edt_LoginEmail("user_email"),SnipBackRegistration_TestData.TC06_RegistrationValidEmail,
+				loginpageobj.Edt_LoginEmail("user_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName,loginpageobj.Edt_LoginEmail("user_pass"),SnipBackRegistration_TestData.TC06_RegistrationPassword,
+				loginpageobj.Edt_LoginEmail("user_confirm_password"),SnipBackRegistration_TestData.TC06_RegistrationPassword);
 		base.buttonClick(loginpageobj.Btn_Login("Terms of Service"));
 		base.switchToWindowByIndex(driver, 1);
 		asrt.assertTrue(base.isExists(forgotpasswordobj.Ele_ResetPasswordHeading("Organization Terms of Service")),"User is unable to redirect to https://snipback.com/terms-of-use page.");
@@ -429,7 +430,6 @@ public class SnipBackRegistration extends BasePge{
 		Registration_Obj   RegistrationObj = new Registration_Obj();		
 		LoginPage_Obj loginpageobj = new LoginPage_Obj();
 
-		
 		//Step 1 :  Click on Login button
 		//Expected : User should click on login button
 		base.buttonClick(RegistrationObj.Btn_Login("nav-link btn btn-white sm", "Login"));
