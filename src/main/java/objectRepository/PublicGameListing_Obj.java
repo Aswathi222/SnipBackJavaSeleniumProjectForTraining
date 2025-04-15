@@ -7,4 +7,5 @@ public class PublicGameListing_Obj {
 	public By Ele_Date(String text1,String text2) { return By.xpath("//div[text()='"+text1+"']//span[text()='"+text2+"'] "); }
 	public By Ele_GameDate(int index, String value) {return By.xpath("(//span[@class='" + value + "'])[" + index + "]");}
 	public By Ele_GameName(int index, String classvalue) {return By.xpath("(//div[@class='"+classvalue+"'])[" + index + "]");}
+	public By Img_sort(String classvalue) {return By.xpath("//img[@class='" + classvalue + "']");}
 }
