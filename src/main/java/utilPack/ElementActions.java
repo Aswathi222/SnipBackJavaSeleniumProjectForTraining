@@ -46,37 +46,102 @@ public class ElementActions {
 		this.driver=driver;	
 	}
 
-		//Summary
-		//<DropDownText >
-		//</Summary>
-		public String DropDownText (By locator) {
-			Select select = new Select(driver.findElement(locator));
-			String selectedOption = select.getFirstSelectedOption().getText();
-			return selectedOption;
-		}
-		/// <summary>
-		/// fillFormFields
-		/// </summary>
-		public void fillFormFields(Object... elementsAndValues) {
-		    if (elementsAndValues.length % 2 != 0) {
-		        throw new IllegalArgumentException("You must provide pairs of locator and value.");
-		    }
-		 
-		    for (int i = 0; i < elementsAndValues.length; i += 2) {
-		        By locator = (By) elementsAndValues[i];
-		        String value = (String) elementsAndValues[i + 1];
-		 
-		        try {
-		            WebElement element = driver.findElement(locator);
-		            element.clear();
-		            element.sendKeys(value);
-		        } catch (Exception e) {	            
-		            throw e;
-		        }
-		    }
+	//Summary
+	//<DropDownText >
+	//</Summary>
+	public String DropDownText (By locator) {
+		Select select = new Select(driver.findElement(locator));
+		String selectedOption = select.getFirstSelectedOption().getText();
+		return selectedOption;
+	}
+	/// <summary>
+	/// fillFormFields
+	/// </summary>
+	public void fillFormFields(Object... elementsAndValues) {
+		if (elementsAndValues.length % 2 != 0) {
+			throw new IllegalArgumentException("You must provide pairs of locator and value.");
 		}
 
-		
+		for (int i = 0; i < elementsAndValues.length; i += 2) {
+			By locator = (By) elementsAndValues[i];
+			String value = (String) elementsAndValues[i + 1];
+
+			try {
+				WebElement element = driver.findElement(locator);
+				element.clear();
+				element.sendKeys(value);
+			} catch (Exception e) {	            
+				throw e;
+			}
+		}
+	}
+	///<summary>
+	/////to get todays date
+	///</summary>
+	public String getFormattedDate(By locator) {
+		LocalDate currentDate = LocalDate.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd yyyy", Locale.US);
+		return currentDate.format(formatter);
+	}	
+	//Summary
+	//<Is exists/starts with >
+	//</Summary>
+	public boolean isExistsInStart(List<String> elementTexts, String searchTerm) {
+		for (String text : elementTexts) {
+			if (text.toLowerCase().startsWith(searchTerm.toLowerCase())) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	//<Summary>
+	//<Is exists/contains in text>
+	//</Summary>
+	public boolean isExistsInText(List<String> elementTexts, String searchTerm) {
+		for (String text : elementTexts) {
+			if (text.contains(searchTerm)) {
+				return true;  // If any text contains the search term, return true
+			}
+		}
+		return false;  // Otherwise, return false
+	}
+	/// <summary>
+	/// Fluent wait
+	/// </summary>
+	public WebDriverWait getWait() {   //explicit wait
+
+		WebDriverWait wait = new WebDriverWait(driver, 60);
+		wait.pollingEvery(250,TimeUnit.MILLISECONDS);                //WebDriverWait wait = new WebDriverWait(driver, 60);
+		wait.ignoring(NoSuchElementException.class);                 // wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		return wait;
+	}
+	/// <summary>
+	/// Method that highLights elements	        
+	/// </summary>
+	public void highLighterMethod(WebDriver driver, WebElement element){
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		String bgColor = element.getCssValue("backgroundColor");
+		js.executeScript("arguments[0].setAttribute('style', 'background: "+bgColor+"; border: 2px solid red;');", element);
+	}
+	//<summary>
+	//To click an element with given timeout         
+	public void buttonClick(By locator) {
+		WebDriverWait wait = getWait();
+		wait.until(ExpectedConditions.elementToBeClickable(locator));
+		webElement =driver.findElement(locator);
+		highLighterMethod(driver, webElement); 
+		webElement.click();
+	}
+	// </summary>
+	//<For button click more than once>
+	//</Summary>
+	public void clickMultipleTimes(By locator, int clickCount) {
+		for (int i = 0; i < clickCount; i++) {
+			buttonClick(locator);
+		}
+	}
+	//Summary
 }
 
 
