@@ -57,27 +57,34 @@ public class SearchGamesTeamAndMembers_Test extends BaseTest
 		searchGamesTeamAndMembersTest.SH_08_SearchGamesTeamAndMembers();		
 	}
 	@Test()
-	public void SH_09_SearchGamesTeamAndMembers() throws Exception 
+	public void SH_09_SearchGamesTeamAndMembersTest() throws Exception 
 	{	
 		SearchGamesTeamAndMembers searchGamesTeamAndMembersTest = new SearchGamesTeamAndMembers(getDriver());
 		searchGamesTeamAndMembersTest.SH_09_SearchGamesTeamAndMembers();		
 	}
 	@Test()
-	public void SH_10_SearchGamesTeamAndMembers() throws Exception 
+	public void SH_10_SearchGamesTeamAndMembersTest() throws Exception 
 	{	
 		SearchGamesTeamAndMembers searchGamesTeamAndMembersTest = new SearchGamesTeamAndMembers(getDriver());
 		searchGamesTeamAndMembersTest.SH_10_SearchGamesTeamAndMembers();		
 	}
 	@Test()
-	public void SH_11_SearchGamesTeamAndMembers() throws Exception 
+	public void SH_11_SearchGamesTeamAndMembersTest() throws Exception 
 	{	
 		SearchGamesTeamAndMembers searchGamesTeamAndMembersTest = new SearchGamesTeamAndMembers(getDriver());
 		searchGamesTeamAndMembersTest.SH_11_SearchGamesTeamAndMembers();		
 	}
 	@Test()
-	public void SH_12_SearchGamesTeamAndMembers() throws Exception 
+	public void SH_12_SearchGamesTeamAndMembersTest() throws Exception 
 	{	
 		SearchGamesTeamAndMembers searchGamesTeamAndMembersTest = new SearchGamesTeamAndMembers(getDriver());
 		searchGamesTeamAndMembersTest.SH_12_SearchGamesTeamAndMembers();		
 	}
+	@Test()
+	public void SH_13_SearchGamesTeamAndMembersTest() throws Exception 
+	{	
+		SearchGamesTeamAndMembers searchGamesTeamAndMembersTest = new SearchGamesTeamAndMembers(getDriver());
+		searchGamesTeamAndMembersTest.SH_13_SearchGamesTeamAndMembers();		
+	}
 }
+
