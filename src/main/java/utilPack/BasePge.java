@@ -81,7 +81,7 @@ public class BasePge {
 		data = webElement.getText(); 
 		return data;
 	}
-	
+
 	/// <summary>
 	/// To Switch Window Frame	        
 	/// </summary>
@@ -875,19 +875,19 @@ public class BasePge {
 
 		}
 	}
-	
+
 	/// <summary>
 	/// Verify if a popup or element is disappeared
 	//   if the popup or element is shown then this will fail the test case
 	/// </summary>
 	public boolean isDoesNotExistBool(By locator) {
-	    try {
-	        WebDriverWait wait = new WebDriverWait(driver, 10);
-	        wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
-	        return true; // Element is not visible (does not exist)
-	    } catch (org.openqa.selenium.TimeoutException e) {
-	        return false; // Element is still visible
-	    }
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, 10);
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+			return true; // Element is not visible (does not exist)
+		} catch (org.openqa.selenium.TimeoutException e) {
+			return false; // Element is still visible
+		}
 	}
 
 	/// <summary>
@@ -1057,24 +1057,17 @@ public class BasePge {
 		return false;  // Otherwise, return false
 	}
 	//<Summary>
-		//<For button click more than once>
-		//</Summary>
-		public void clickMultipleTimes(By locator, int clickCount) {
-		    for (int i = 0; i < clickCount; i++) {
-		    	buttonClick(locator);
-		    }
+
+	//<Is exists/starts with >
+	//</Summary>
+	public boolean isExistsInStart(List<String> elementTexts, String searchTerm) {
+		for (String text : elementTexts) {
+			if (text.toLowerCase().startsWith(searchTerm.toLowerCase())) {
+				return true;
+			}
 		}
-		//Summary
-		//<Is exists/starts with >
-		//</Summary>
-		public boolean isExistsInStart(List<String> elementTexts, String searchTerm) {
-	        for (String text : elementTexts) {
-	            if (text.toLowerCase().startsWith(searchTerm.toLowerCase())) {
-	                return true;
-	            }
-	        }
-	        return false;
-	    }
+		return false;
+	}
 }
 
 
