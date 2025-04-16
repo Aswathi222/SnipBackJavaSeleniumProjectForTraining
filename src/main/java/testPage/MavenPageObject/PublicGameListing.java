@@ -351,5 +351,41 @@ public class PublicGameListing extends BasePge{
 		base.scrollToElement(LoginPageObj.Ele_ErrorMessage("pagination"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Ele_ErrorMessage("pagination")),"User is not able to see pagination at the bottom of the FILM page while scrolling to view the games");
 		}
+
+	//<summary>
+	// Test Case Title  :Verify that the games should be listed as per the selected page in the FILM Page (eg: If we select the page 3, the game should be listed from Page 3)
+	// Automation ID    : Game Listing_14
+	// </summary>
+	public void GameListing_14_PublicGameListing() throws InterruptedException {
+		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+		PublicGameListing_Obj PublicGameObj=new PublicGameListing_Obj();
+		PublicGameLisiting_TestData testObj=new PublicGameLisiting_TestData();
+		
+		// Step1: User navigated to SnipBack Website after entering snipback url
+		// Expected:The user should be able to navigate to the  Snipback website after entering the URL
+		asrt.assertTrue(base.isExists(LoginPageObj.Ele_SnipBackHomePageLogo("light-logo")), "User is unable to navigate to SnipBack website after entering the URL");
+				
+		//Step2:Click on FILM Tab without login
+		//Expected:The user should be able to click on "FILM" tab without login to Snipback
+		base.buttonClick(PublicGameObj.Btn_Home("Film","menu_link nav-link "));
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");
+				
+		//Step3:Scroll down the page
+		//Expected:The user should be able to to scroll down the page to view the games
+		base.scrollToElement(LoginPageObj.Ele_ErrorMessage("pagination"));
+		
+		//Step4:Click on any page and verify the games
+		//Expected:The games should be listed as per the selected page in the FILM Page
+		base.excuteJsClick(LoginPageObj.Btn_Login("2"));
+		ArrayList<String> games = new ArrayList<>();
+		games.add(testObj.GameListing_14_PublicGameName1);
+		games.add(testObj.GameListing_14_PublicGameName2);
+		games.add(testObj.GameListing_14_PublicGameName3);
+		games.add(testObj.GameListing_14_PublicGameName4);
+		for (String game : games) {
+			asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText(game)),"User is not able to view the games listed as per the selected page in the FILM Page");
+		}
+		}	
 }
+
 
