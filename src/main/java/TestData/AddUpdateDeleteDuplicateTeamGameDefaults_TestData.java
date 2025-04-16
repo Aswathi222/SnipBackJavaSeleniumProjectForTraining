@@ -11,4 +11,7 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults_TestData
 
 	//Team_05_AddUpdateDeleteDuplicateTeamGameDefaults
 	public static String Team_05_SelectedValueAdmin="demo organization";
+
+	//Team_06_AddUpdateDeleteDuplicateTeamGameDefaults
+	public static String Team_06_SelectedValueAdmin="demo organization";	
 }

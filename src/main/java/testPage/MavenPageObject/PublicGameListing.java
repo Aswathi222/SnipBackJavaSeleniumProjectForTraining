@@ -90,7 +90,7 @@ public class PublicGameListing extends BasePge{
 		//Step2:Click on FILM Tab without login
 		//Expected:The user should be able to click on "FILM" tab without login to snipback
 		base.buttonClick(PublicGameObj.Btn_Menu("Film","menu_link nav-link "));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");	
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");	
 	}
 	
 	//<summary>
@@ -109,7 +109,7 @@ public class PublicGameListing extends BasePge{
 		//Step2:Click on FILM Tab without login
 		//Expected:The user should be able to click on "FILM" tab without login to snipback
 		base.buttonClick(PublicGameObj.Btn_Home("Film","menu_link nav-link "));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");	
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");	
 		
 		//Step3:Verify that the user should be able to see only the public games after entering into FILM page
 		//Expected :User should be able to see only the public games along with their dates including day (eg: Wednesday, Oct 23 2024) after entering into FILM page
@@ -132,7 +132,7 @@ public class PublicGameListing extends BasePge{
 		//Step2:Click on FILM Tab without login
 		//Expected:The user should be able to click on "FILM" tab without login to snipback
 		base.buttonClick(PublicGameObj.Btn_Home("Film","menu_link nav-link "));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");	
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");	
 		//Step 3  :"Verify user able to see the public games as per the condition"
 		//Expected:"User should be able to see the public games as per the recent dates along with day after entering into FILM page" 
 		ArrayList<LocalDate> extractedDates = new ArrayList<>();
@@ -171,7 +171,7 @@ public class PublicGameListing extends BasePge{
 		//Step2:Click on FILM Tab without login
 		//Expected:The user should be able to click on "FILM" tab without login to snipback
 		base.buttonClick(PublicGameObj.Btn_Home("Film","menu_link nav-link "));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");	
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");	
 		//Step3:Verify the option " See All"
 		//Expected:An option  "See All" should be displayed at the right side of the film page,  if multiple games are available under single date
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_LoginButton("see-all")),"User is unable to see the 'See All' option on the right side of the film page when multiple games are available under a single date");
@@ -194,7 +194,7 @@ public class PublicGameListing extends BasePge{
 		//Step2:Click on FILM Tab without login
 		//Expected:The user should be able to click on "FILM" tab without login to snipback
 		base.buttonClick(PublicGameObj.Btn_Home("Film","menu_link nav-link "));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");
 		
 		//Step3:Verify left and right side arrow
 		//Expected:Left and right arrow should be displayed to move left and right side to see all the games, if multiple games are available under single date
@@ -220,7 +220,7 @@ public class PublicGameListing extends BasePge{
 		//Step2:Click on FILM Tab without login
 		//Expected:The user should be able to click on "FILM" tab without login to snipback
 		base.buttonClick(PublicGameObj.Btn_Home("Film","menu_link nav-link "));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");	
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");	
 		 
 	   //Step3:Verify the Game Details
 	   //Expected:Game details (Game name, name of the Organization, Likes, single view/ multiple view, Stat (Only for games with stat) should be displayed under the games
@@ -246,7 +246,7 @@ public class PublicGameListing extends BasePge{
 		//Step2:Click on FILM Tab without login
 		//Expected:The user should be able to click on "FILM" tab without login to Snipback
 		base.buttonClick(PublicGameObj.Btn_Home("Film","menu_link nav-link "));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");
 		
 		//Step3:Verify the Option "Filter by date" 
 		//Expected:The option Filter by date for filter the games should be displayed
@@ -269,7 +269,7 @@ public class PublicGameListing extends BasePge{
 		//Step2:Click on FILM Tab without login
 		//Expected:The user should be able to click on "FILM" tab without login to Snipback
 		base.buttonClick(PublicGameObj.Btn_Home("Film","menu_link nav-link "));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");
 		
 		//Step3:Verify the Option "Filter by date" 
 		//Expected:The option Filter by date for filter the games should be displayed
@@ -301,7 +301,7 @@ public class PublicGameListing extends BasePge{
 		//Step2:Click on FILM Tab without login
 		//Expected:The user should be able to click on "FILM" tab without login to Snipback
 		base.buttonClick(PublicGameObj.Btn_Home("Film","menu_link nav-link "));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");
 				
 		//Step3:Verify the Option "TEAM with Dropdown ALL"
 		//Expected:An option Team with drop down "ALL" should be displayed near to Filter by date option in the FILM page to list all the public games
@@ -322,7 +322,7 @@ public class PublicGameListing extends BasePge{
 		//Step2:Click on FILM Tab without login
 		//Expected:The user should be able to click on "FILM" tab without login to Snipback
 		base.buttonClick(PublicGameObj.Btn_Home("Film","menu_link nav-link "));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");
 				
 		//Step3:Verify the Option " Sort By date" along with Up arrow and Down arrow
 		//Expected:An option " Sort By date"  should be displayed along with Up arrow and Down arrow in the FILM Page
@@ -344,7 +344,7 @@ public class PublicGameListing extends BasePge{
 		//Step2:Click on FILM Tab without login
 		//Expected:The user should be able to click on "FILM" tab without login to Snipback
 		base.buttonClick(PublicGameObj.Btn_Home("Film","menu_link nav-link "));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");
 				
 		//Step3:Scroll down the page
 		//Expected:Pagination should be displayed at the bottom of the FILM page while scrolling to view the games

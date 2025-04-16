@@ -466,7 +466,7 @@ public class SnipBackRegistration extends BasePge{
 
 		//Step 6: Verify resending the OTP multiple times within a short period
 		//Expected : 1. There should be a pop-up message "Invalid One-time Passcode".                                                       
-		base.clickMultipleTimes(RegistrationObj.Btn_ResendOTP("resend-otp-link"), 2);
+		element.clickMultipleTimes(RegistrationObj.Btn_ResendOTP("resend-otp-link"), 2);
 		base.setData(loginpageobj.Edt_LoginEmail("signUp-otp"),SnipBackRegistration_TestData.TC07_RegistrationOTP);
 		Thread.sleep(2000);
 		base.buttonClick(loginpageobj.Btn_SingnIn("otp-submit"));
