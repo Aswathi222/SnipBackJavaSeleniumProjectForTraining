@@ -43,7 +43,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 2 : Login to Snipback
 		//Expected : User should be able to login.
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("GAMES")), "User is not able to login");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("GAMES")), "User is not able to login");
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
@@ -56,8 +56,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberTeam);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
 		Thread.sleep(3000);
-		base.buttonClick(LoginPageObj.Edt_Alert1("475 Playmakers"));
-		String TeamName = base.GetText(LoginPageObj.Edt_Alert1("475 Playmakers"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		String TeamName = base.GetText(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
 		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_01_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
 
 		//Step 5 : Click three dots of that team
@@ -73,7 +73,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 7 :   Observe whether there is a option as Create & Add new member with Email
 		//Expected : There should be a option to add user with mail id.
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("Create & Add New Member With Email")), "There is no option to add user with mail id.");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("Create & Add New Member With Email")), "There is no option to add user with mail id.");
 	}
 	//<summery>
 	//Test Case Title : To verify whether the user navigates to ADD NEW USER pop up while clicking Create & Add New Member with Email. 
@@ -92,7 +92,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 2 : Login to Snipback
 		//Expected : User should be able to login.
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("GAMES")), "User is not able to login");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("GAMES")), "User is not able to login");
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
@@ -105,8 +105,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_02_CreateandAddnewmemberTeam);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
 		Thread.sleep(3000);
-		base.buttonClick(LoginPageObj.Edt_Alert1("475 Playmakers"));
-		String TeamName = base.GetText(LoginPageObj.Edt_Alert1("475 Playmakers"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		String TeamName = base.GetText(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
 		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_02_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
 
 		//Step 5 : Click three dots of that team
@@ -122,7 +122,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 7 :   Click Create&Add New Member with Email
 		//Expected : The user should navigate to CREATE NEW USER pop up.
-		base.buttonClick(LoginPageObj.Edt_Alert1("Create & Add New Member With Email"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("Create & Add New Member With Email"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("emailInputNew")),"The user is not navigated to CREATE NEW USER pop up.");
 	}
 	//<summery>
@@ -143,7 +143,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 2 : Login to Snipback
 		//Expected : User should be able to login.
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("GAMES")), "User is not able to login");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("GAMES")), "User is not able to login");
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
@@ -156,8 +156,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_03_CreateandAddnewmemberTeam);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
 		Thread.sleep(3000);
-		base.buttonClick(LoginPageObj.Edt_Alert1("475 Playmakers"));
-		String TeamName = base.GetText(LoginPageObj.Edt_Alert1("475 Playmakers"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		String TeamName = base.GetText(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
 		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_03_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
 
 		//Step 5 : Click three dots of that team
@@ -173,7 +173,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 7 :   Click Create&Add New Member with Email
 		//Expected : The user should navigate to CREATE NEW USER pop up.
-		base.buttonClick(LoginPageObj.Edt_Alert1("Create & Add New Member With Email"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("Create & Add New Member With Email"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("emailInputNew")),"The user is not navigated to CREATE NEW USER pop up.");
 
 		//Step 8 :   Enter a valid mail id
@@ -200,7 +200,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 2 : Login to Snipback
 		//Expected : User should be able to login.
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("GAMES")), "User is not able to login");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("GAMES")), "User is not able to login");
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
@@ -213,8 +213,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Expected : User should be able to Switch to any Team.
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_04_CreateandAddnewmemberTeam);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
-		base.buttonClick(LoginPageObj.Edt_Alert1("475 Playmakers"));
-		String TeamName = base.GetText(LoginPageObj.Edt_Alert1("475 Playmakers"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		String TeamName = base.GetText(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
 		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_04_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
 
 		//Step 5 : Click three dots of that team
@@ -230,7 +230,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 7 :   Click Create&Add New Member with Email
 		//Expected : The user should navigate to CREATE NEW USER pop up.
-		base.buttonClick(LoginPageObj.Edt_Alert1("Create & Add New Member With Email"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("Create & Add New Member With Email"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("emailInputNew")),"The user is not navigated to CREATE NEW USER pop up.");
 
 		//Step 8 :   Enter a invalid mail id
@@ -256,7 +256,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 2 : Login to Snipback
 		//Expected : User should be able to login.
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("GAMES")), "User is not able to login");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("GAMES")), "User is not able to login");
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
@@ -269,8 +269,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Expected : User should be able to Switch to any Team.
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_05_CreateandAddnewmemberTeam);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
-		base.buttonClick(LoginPageObj.Edt_Alert1("475 Playmakers"));
-		String TeamName = base.GetText(LoginPageObj.Edt_Alert1("475 Playmakers"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		String TeamName = base.GetText(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
 		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_05_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
 
 		//Step 5 : Click three dots of that team
@@ -286,7 +286,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 7 :   Click Create&Add New Member with Email
 		//Expected : The user should navigate to CREATE NEW USER pop up.
-		base.buttonClick(LoginPageObj.Edt_Alert1("Create & Add New Member With Email"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("Create & Add New Member With Email"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("emailInputNew")),"The user is not navigated to CREATE NEW USER pop up.");
 
 		//Step 8 :   Fill all the fields except Email id
@@ -297,7 +297,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		base.setData(LoginPageObj.Edt_LoginEmail("newJerseyNumber"), CreateAndAddNewMemberTestDataobj.WE_05_CreateandAddnewmemberJerseyNumber);
 		base.setData(CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_TextArea("userCreateMessage"), CreateAndAddNewMemberTestDataobj.WE_05_CreateandAddnewmemberMessage);
 		base.buttonClick(LoginPageObj.Btn_SingnIn("createUserBtn"));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("User Email is required")), "The user is not receiving an alert message as \"User Email is required\".");		
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("User Email is required")), "The user is not receiving an alert message as \"User Email is required\".");		
 	}
 	//<summery>
 	//Test Case Title : To verify what happens when the user enters a valid First Name in the ADD NEW USER pop up
@@ -316,7 +316,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 2 : Login to Snipback
 		//Expected : User should be able to login.
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("GAMES")), "User is not able to login");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("GAMES")), "User is not able to login");
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
@@ -328,8 +328,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Expected : User should be able to Switch to any Team.
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_06_CreateandAddnewmemberTeam);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
-		base.buttonClick(LoginPageObj.Edt_Alert1("475 Playmakers"));
-		String TeamName = base.GetText(LoginPageObj.Edt_Alert1("475 Playmakers"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		String TeamName = base.GetText(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
 		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_06_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
 
 		//Step 5 : Click three dots of that team
@@ -345,7 +345,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 7 :   Click Create&Add New Member with Email
 		//Expected : The user should navigate to CREATE NEW USER pop up.
-		base.buttonClick(LoginPageObj.Edt_Alert1("Create & Add New Member With Email"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("Create & Add New Member With Email"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("emailInputNew")),"The user is not navigated to CREATE NEW USER pop up.");
 
 		//Step 8 :   Enter a valid name
@@ -353,7 +353,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		base.setData(LoginPageObj.Edt_LoginEmail("emailInputNew"),CreateAndAddNewMemberTestDataobj.WE_06_CreateandAddnewmemberEmail);
 		base.setData(LoginPageObj.Edt_LoginEmail("firstnameNew"), CreateAndAddNewMemberTestDataobj.WE_06_CreateandAddnewmemberFirstName);
 		base.buttonClick(LoginPageObj.Btn_SingnIn("createUserBtn"));
-		asrt.assertTrue(base.isDoesNotExistBool(LoginPageObj.Edt_Alert1("The User Name must be at least 2 characters.")), "The user is not able to enter the Name without any alert message.");
+		asrt.assertTrue(base.isDoesNotExistBool(LoginPageObj.Edt_AlertMessage("The User Name must be at least 2 characters.")), "The user is not able to enter the Name without any alert message.");
 	}
 	//<summery>
 	//Test Case Title : To verify what happens when the user enters a invalid First Name in the ADD NEW USER pop up
@@ -373,7 +373,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 2 : Login to Snipback
 		//Expected : User should be able to login.
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("GAMES")), "User is not able to login");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("GAMES")), "User is not able to login");
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
@@ -386,8 +386,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Expected : User should be able to Switch to any Team.
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_07_CreateandAddnewmemberTeam);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
-		base.buttonClick(LoginPageObj.Edt_Alert1("475 Playmakers"));
-		String TeamName = base.GetText(LoginPageObj.Edt_Alert1("475 Playmakers"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		String TeamName = base.GetText(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
 		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_07_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
 
 		//Step 5 : Click three dots of that team
@@ -403,7 +403,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 7 :   Click Create&Add New Member with Email
 		//Expected : The user should navigate to CREATE NEW USER pop up.
-		base.buttonClick(LoginPageObj.Edt_Alert1("Create & Add New Member With Email"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("Create & Add New Member With Email"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("emailInputNew")),"The user is not navigated to CREATE NEW USER pop up.");
 
 		//Step 8 :   Enter a invalid name
@@ -411,7 +411,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		base.setData(LoginPageObj.Edt_LoginEmail("emailInputNew"),CreateAndAddNewMemberTestDataobj.WE_07_CreateandAddnewmemberEmail);
 		base.setData(LoginPageObj.Edt_LoginEmail("firstnameNew"), CreateAndAddNewMemberTestDataobj.WE_07_CreateandAddnewmemberInvalidFirstName);
 		base.buttonClick(LoginPageObj.Btn_SingnIn("createUserBtn"));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("The User Name must be at least 2 characters.")), "The user is not receiving a alert message as \"The User Name must be atleast 2 characters.\"");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("The User Name must be at least 2 characters.")), "The user is not receiving a alert message as \"The User Name must be atleast 2 characters.\"");
 	}
 	//<summery>
 	//Test Case Title : To verify what happens when the user keeps the First Name field empty in the ADD NEW USER pop up
@@ -430,7 +430,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 2 : Login to Snipback
 		//Expected : User should be able to login.
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("GAMES")), "User is not able to login");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("GAMES")), "User is not able to login");
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
@@ -442,8 +442,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Expected : User should be able to Switch to any Team.
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_08_CreateandAddnewmemberTeam);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
-		base.buttonClick(LoginPageObj.Edt_Alert1("475 Playmakers"));
-		String TeamName = base.GetText(LoginPageObj.Edt_Alert1("475 Playmakers"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		String TeamName = base.GetText(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
 		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_08_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
 
 		//Step 5 : Click three dots of that team
@@ -459,7 +459,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 7 :   Click Create&Add New Member with Email
 		//Expected : The user should navigate to CREATE NEW USER pop up.
-		base.buttonClick(LoginPageObj.Edt_Alert1("Create & Add New Member With Email"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("Create & Add New Member With Email"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("emailInputNew")),"The user is not navigated to CREATE NEW USER pop up.");
 
 		//Step 8 :    Fill the fields except Name 
@@ -469,7 +469,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		base.setData(LoginPageObj.Edt_LoginEmail("newJerseyNumber"), CreateAndAddNewMemberTestDataobj.WE_08_CreateandAddnewmemberJerseyNumber);
 		base.setData(CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_TextArea("userCreateMessage"), CreateAndAddNewMemberTestDataobj.WE_08_CreateandAddnewmemberMessage);
 		base.buttonClick(LoginPageObj.Btn_SingnIn("createUserBtn"));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("First name is required")), "The user is not receiving a alert message as \"First Name is required.\"");		
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("First name is required")), "The user is not receiving a alert message as \"First Name is required.\"");		
 	}
 	//<summery>
 	//Test Case Title : To verify what happens when try to add user without selecting any role
@@ -488,7 +488,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 2 : Login to Snipback
 		//Expected : User should be able to login.
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("GAMES")), "User is not able to login");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("GAMES")), "User is not able to login");
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
@@ -501,8 +501,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_09_CreateandAddnewmemberTeam);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
 		Thread.sleep(3000);
-		base.buttonClick(LoginPageObj.Edt_Alert1("475 Playmakers"));
-		String TeamName = base.GetText(LoginPageObj.Edt_Alert1("475 Playmakers"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		String TeamName = base.GetText(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
 		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_09_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
 
 		//Step 5 : Click three dots of that team
@@ -518,7 +518,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 7 :   Click Create&Add New Member with Email
 		//Expected : The user should navigate to CREATE NEW USER pop up.
-		base.buttonClick(LoginPageObj.Edt_Alert1("Create & Add New Member With Email"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("Create & Add New Member With Email"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("emailInputNew")),"The user is not navigated to CREATE NEW USER pop up.");
 
 		//Step 8 :    Fill the fields without selecting any role
@@ -550,7 +550,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 2 : Login to Snipback
 		//Expected : User should be able to login.
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("GAMES")), "User is not able to login");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("GAMES")), "User is not able to login");
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
@@ -564,8 +564,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_10_CreateandAddnewmemberTeam);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
 		Thread.sleep(3000);
-		base.buttonClick(LoginPageObj.Edt_Alert1("475 Playmakers"));
-		String TeamName = base.GetText(LoginPageObj.Edt_Alert1("475 Playmakers"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		String TeamName = base.GetText(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
 		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_10_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
 
 		//Step 5 : Click three dots of that team
@@ -581,7 +581,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 7 :   Click Create&Add New Member with Email
 		//Expected : The user should navigate to CREATE NEW USER pop up.
-		base.buttonClick(LoginPageObj.Edt_Alert1("Create & Add New Member With Email"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("Create & Add New Member With Email"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("emailInputNew")),"The user is not navigated to CREATE NEW USER pop up.");
 
 		//Step 8 :    Fill the fields except Last Name and Jersey Number field
@@ -611,7 +611,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 2 : Login to Snipback
 		//Expected : User should be able to login.
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("GAMES")), "User is not able to login");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("GAMES")), "User is not able to login");
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
@@ -623,8 +623,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Expected : User should be able to Switch to any Team.
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_11_CreateandAddnewmemberTeam);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
-		base.buttonClick(LoginPageObj.Edt_Alert1("475 Playmakers"));
-		String TeamName = base.GetText(LoginPageObj.Edt_Alert1("475 Playmakers"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		String TeamName = base.GetText(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
 		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_11_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
 
 		//Step 5 : Click three dots of that team
@@ -640,7 +640,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 7 :   Click Create&Add New Member with Email
 		//Expected : The user should navigate to CREATE NEW USER pop up.
-		base.buttonClick(LoginPageObj.Edt_Alert1("Create & Add New Member With Email"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("Create & Add New Member With Email"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("emailInputNew")),"The user is not navigated to CREATE NEW USER pop up.");
 
 		//Step 8 :     Fill the fields except message field
@@ -671,7 +671,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 2 : Login to Snipback
 		//Expected : User should be able to login.
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("GAMES")), "User is not able to login");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("GAMES")), "User is not able to login");
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
@@ -683,8 +683,8 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Expected : User should be able to Switch to any Team.
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_12_CreateandAddnewmemberTeam);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
-		base.buttonClick(LoginPageObj.Edt_Alert1("475 Playmakers"));
-		String TeamName = base.GetText(LoginPageObj.Edt_Alert1("475 Playmakers"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		String TeamName = base.GetText(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
 		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_12_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
 
 		//Step 5 : Click three dots of that team
@@ -700,7 +700,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 7 :   Click Create&Add New Member with Email
 		//Expected : The user should navigate to CREATE NEW USER pop up.
-		base.buttonClick(LoginPageObj.Edt_Alert1("Create & Add New Member With Email"));
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("Create & Add New Member With Email"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("emailInputNew")),"The user is not navigated to CREATE NEW USER pop up.");
 
 		//Step 8 :      Fill the fields to be required

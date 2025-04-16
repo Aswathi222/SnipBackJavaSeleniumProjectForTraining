@@ -15,7 +15,7 @@ public class LoginPage_Obj {
 	//Edt
 	public By Edt_LoginCredentialFields(String id) { return By.xpath("//*[@id='"+id+"']"); }
 	public By Edt_LoginEmail(String email) { return By.xpath("//input[@id='"+email+"']"); }
-	public By Edt_Alert1(String text) { return By.xpath("//span[text()='"+text+"']"); }
+	public By Edt_AlertMessage(String text) { return By.xpath("//span[text()='"+text+"']"); }
 	public By Edt_AlertText(String text) { return By.xpath("//div[text()='"+text+"']"); }
 
 	//Ele

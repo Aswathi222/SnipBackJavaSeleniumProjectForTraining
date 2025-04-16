@@ -96,7 +96,7 @@ public class ForgotPassword extends BasePge {
 		//Step 4 : Click submit button after entering a valid registered email id
 		//Expected : A success message is displayed ("A one-time passcode has been sent to your registered email address. Please check your inbox."), and the user receives the email.
 		base.buttonClick(LoginPageObj.Btn_SingnIn("forgot-submit"));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("Reset password link sucessfully sent to your Email")),"A success message is not displayed (\"A one-time passcode has been sent to your registered email address. Please check your inbox.\"), and the user do not receives the email.");		
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("Reset password link sucessfully sent to your Email")),"A success message is not displayed (\"A one-time passcode has been sent to your registered email address. Please check your inbox.\"), and the user do not receives the email.");		
 	}
 	//<summery>
 	//Test Case Title : Verify that entering an unregistered email displays an appropriate error message.
@@ -127,6 +127,6 @@ public class ForgotPassword extends BasePge {
 		//Step 4 : Click submit button after entering an unregistered email id
 		//Expected : The system should display an error message like "User not found" and should not send a reset link.
 		base.buttonClick(LoginPageObj.Btn_SingnIn("forgot-submit"));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("User not found")),"The system is not displaying an error message like 'User not found'");		
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("User not found")),"The system is not displaying an error message like 'User not found'");		
 	}
 }

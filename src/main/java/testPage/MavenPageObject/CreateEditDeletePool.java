@@ -53,11 +53,11 @@ public class CreateEditDeletePool extends BasePge {
 		//step 4: Under Games section, go to Pools page
 		//Expected: There should be an option to create pool
 		base.excuteJsClick(loginObj.Btn_SignInButton("POOLS"));
-		asrt.assertTrue(base.isExists(loginObj.Edt_Alert1("Create Pool")), "User is unable to view an option to create pool");
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertMessage("Create Pool")), "User is unable to view an option to create pool");
 
 		//step 5: Click "+Create Pool" button
 		//Expected: User should able to click '+ Create Pool'
-		base.buttonClick(loginObj.Edt_Alert1("Create Pool"));
+		base.buttonClick(loginObj.Edt_AlertMessage("Create Pool"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("pool_name")), "User is unable to click '+Create Pool' button");
 
 		//step 6: Enter the Pool Name
@@ -105,7 +105,7 @@ public class CreateEditDeletePool extends BasePge {
 		///Step 2 : Login to Snipback
 		//Expected : User should be able to login.		
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
-		asrt.assertTrue(base.isExists(loginObj.Edt_Alert1("GAMES")), "User is not able to login");
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertMessage("GAMES")), "User is not able to login");
 
 		//step 3:Go to Film page
 		//Expected: User should be able to click film
@@ -116,7 +116,7 @@ public class CreateEditDeletePool extends BasePge {
 		//step 4: Under Games section, go to Pools page
 		//Expected: There should be an option to create pool
 		base.excuteJsClick(loginObj.Btn_SignInButton("POOLS"));
-		asrt.assertTrue(base.isExists(loginObj.Edt_Alert1("Create Pool")), "User is unable to view an option to create pool");
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertMessage("Create Pool")), "User is unable to view an option to create pool");
 
 		//step 5: Click three dots of any pool
 		//Expected:User should be able to click three dots any pool
@@ -160,7 +160,7 @@ public class CreateEditDeletePool extends BasePge {
 		//step 4: Under Games section, go to Pools page
 		//Expected: There should be an option to create pool
 		base.excuteJsClick(loginObj.Btn_SignInButton("POOLS"));
-		asrt.assertTrue(base.isExists(loginObj.Edt_Alert1("Create Pool")), "User is unable to view an option to create pool");
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertMessage("Create Pool")), "User is unable to view an option to create pool");
 
 		//step 5: Click three dots of any pool
 		//Expected:User should be able to click three dots any pool
@@ -204,7 +204,7 @@ public class CreateEditDeletePool extends BasePge {
 		//step 4: Under Games section, go to Pools page
 		//Expected: There should be an option to create pool
 		base.excuteJsClick(loginObj.Btn_SignInButton("POOLS"));
-		asrt.assertTrue(base.isExists(loginObj.Edt_Alert1("Create Pool")), "User is unable to view an option to create pool");
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertMessage("Create Pool")), "User is unable to view an option to create pool");
 
 		//step 5: Click three dots of any pool
 		//Expected:User should be able to click three dots any pool
@@ -244,11 +244,11 @@ public class CreateEditDeletePool extends BasePge {
 		//step 4: Under Games section, go to Pools page
 		//Expected: There should be an option to create pool
 		base.excuteJsClick(loginObj.Btn_SignInButton("POOLS"));
-		asrt.assertTrue(base.isExists(loginObj.Edt_Alert1("Create Pool")), "User is unable to view an option to create pool");
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertMessage("Create Pool")), "User is unable to view an option to create pool");
 
 		//step 5: Click "+Create Pool" button
 		//Expected: User should able to click '+ Create Pool'
-		base.buttonClick(loginObj.Edt_Alert1("Create Pool"));
+		base.buttonClick(loginObj.Edt_AlertMessage("Create Pool"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("pool_name")), "User is unable to click '+Create Pool' button");
 
 		//step 6: Enter the Pool Name
@@ -296,11 +296,11 @@ public class CreateEditDeletePool extends BasePge {
 		//step 4: Under Games section, go to Pools page
 		//Expected: There should be an option to create pool
 		base.excuteJsClick(loginObj.Btn_SignInButton("POOLS"));
-		asrt.assertTrue(base.isExists(loginObj.Edt_Alert1("Create Pool")), "User is unable to view an option to create pool");
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertMessage("Create Pool")), "User is unable to view an option to create pool");
 
 		//step 5: Click "+Create Pool" button
 		//Expected: User should able to click '+ Create Pool'
-		base.buttonClick(loginObj.Edt_Alert1("Create Pool"));
+		base.buttonClick(loginObj.Edt_AlertMessage("Create Pool"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("pool_name")), "User is unable to click '+Create Pool' button");
 
 		//step 6: Enter the Pool Name
@@ -350,11 +350,11 @@ public class CreateEditDeletePool extends BasePge {
 		//step 4: Under Games section, go to Pools page
 		//Expected: There should be an option to create pool
 		base.excuteJsClick(loginObj.Btn_SignInButton("POOLS"));
-		asrt.assertTrue(base.isExists(loginObj.Edt_Alert1("Create Pool")), "User is unable to view an option to create pool");
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertMessage("Create Pool")), "User is unable to view an option to create pool");
 
 		//step 5: Click "+Create Pool" button
 		//Expected: User should able to click '+ Create Pool'
-		base.buttonClick(loginObj.Edt_Alert1("Create Pool"));
+		base.buttonClick(loginObj.Edt_AlertMessage("Create Pool"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("pool_name")), "User is unable to click '+Create Pool' button");
 
 		//step 6: Enter the Pool Name
@@ -395,11 +395,11 @@ public class CreateEditDeletePool extends BasePge {
 		//step 4: Under Games section, go to Pools page
 		//Expected: There should be an option to create pool
 		base.excuteJsClick(loginObj.Btn_SignInButton("POOLS"));
-		asrt.assertTrue(base.isExists(loginObj.Edt_Alert1("Create Pool")), "User is unable to view an option to create pool");
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertMessage("Create Pool")), "User is unable to view an option to create pool");
 
 		//step 5: Click "+Create Pool" button
 		//Expected: User should able to click '+ Create Pool'
-		base.buttonClick(loginObj.Edt_Alert1("Create Pool"));
+		base.buttonClick(loginObj.Edt_AlertMessage("Create Pool"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("pool_name")), "User is unable to click '+Create Pool' button");
 
 		//step 6:Select the Pool Type
@@ -440,11 +440,11 @@ public class CreateEditDeletePool extends BasePge {
 		//step 4: Under Games section, go to Pools page
 		//Expected: There should be an option to create pool
 		base.excuteJsClick(loginObj.Btn_SignInButton("POOLS"));
-		asrt.assertTrue(base.isExists(loginObj.Edt_Alert1("Create Pool")), "User is unable to view an option to create pool");
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertMessage("Create Pool")), "User is unable to view an option to create pool");
 
 		//step 5: Click "+Create Pool" button
 		//Expected: User should able to click '+ Create Pool'
-		base.buttonClick(loginObj.Edt_Alert1("Create Pool"));
+		base.buttonClick(loginObj.Edt_AlertMessage("Create Pool"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("pool_name")), "User is unable to click '+Create Pool' button");
 
 		//step 6: Enter invalid Pool Name
@@ -492,11 +492,11 @@ public class CreateEditDeletePool extends BasePge {
 		//step 4: Under Games section, go to Pools page
 		//Expected: There should be an option to create pool
 		base.excuteJsClick(loginObj.Btn_SignInButton("POOLS"));
-		asrt.assertTrue(base.isExists(loginObj.Edt_Alert1("Create Pool")), "User is unable to view an option to create pool");
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertMessage("Create Pool")), "User is unable to view an option to create pool");
 
 		//step 5: Click "+Create Pool" button
 		//Expected: User should able to click '+ Create Pool'
-		base.buttonClick(loginObj.Edt_Alert1("Create Pool"));
+		base.buttonClick(loginObj.Edt_AlertMessage("Create Pool"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("pool_name")), "User is unable to click '+Create Pool' button");
 
 		//step 6: Enter the Pool Name
@@ -543,6 +543,6 @@ public class CreateEditDeletePool extends BasePge {
 		//step 4: Under Games section, go to Pools page
 		//Expected: There should be an option to create pool
 		base.buttonClick(loginObj.Btn_SignInButton("POOLS"));
-		asrt.assertTrue(base.isExists(loginObj.Edt_Alert1("Create Pool")), "User is unable to view an option to create pool");
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertMessage("Create Pool")), "User is unable to view an option to create pool");
 	}
 }
