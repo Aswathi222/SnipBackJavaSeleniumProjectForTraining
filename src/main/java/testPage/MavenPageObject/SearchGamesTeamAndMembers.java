@@ -518,5 +518,43 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		Thread.sleep(4000);
 		asrt.assertTrue(element.isExistsInText(number, searchGamesTeamAndMembersTestData.SH_13_SearchGamesTeamAndMembers_Number),"User is unable to click search bar and unable to see the list of members with given number in their mail id");
 	}
+	//<Summary>
+	//Test case Title:Verify what happens when the user searches members by entering special characters as keyword in the search field.
+	//Automation ID: SH_14
+	//</Summary>
+	public void SH_14_SearchGamesTeamAndMembers() throws InterruptedException{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login=new Login(driver);
+		CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
+		SearchGamesTeamAndMembers_TestData searchGamesTeamAndMembersTestData=new SearchGamesTeamAndMembers_TestData();
+		SearchGameTeamAndMembers_Obj searchGameTeamAndMembersObj=new SearchGameTeamAndMembers_Obj();
+
+		//Step 1: Navigate to Snipback page
+		//Expected : User should be able to view Snipback page
+		asrt.assertTrue(base.isExists(loginObj.Btn_Login("Login")),"User is unable to view SnipBack page" );
+
+		//Step 2: Click Login button
+		//Expected: user should be able to login to the SnipBack
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"))," User is unable to login to SnipBack");
+
+		//step 3:Go to Film page
+		//Expected: User should be able to click film
+		base.buttonClick(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		asrt.assertTrue(base.isExists(loginObj.Btn_SignInButton("POOLS")), "User is unable to click the Film");
+
+		//step 4:Select Members section
+		//Expected:There should be a option to search members in Members Listing page.
+		base.buttonClick(loginObj.Edt_AlertMessage("MEMBERS"));
+		Thread.sleep(3000);
+		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("teamGroupMembers")),"User is unable to view the option to search members in Members listing page");
+
+		//step 5:Click search bar and enter a special character 
+		//Expected:User should click search bar and enter a special character 
+		base.buttonClick(loginObj.Edt_LoginEmail("teamGroupMembers"));
+		base.setData(loginObj.Edt_LoginEmail("teamGroupMembers"), searchGamesTeamAndMembersTestData.SH_14_SearchGamesTeamAndMembers_Special);
+		List<String> special=base.GetElementTexts(searchGameTeamAndMembersObj.Ele_MemberListNew("row p-2","display: block;", "teamEmail"));
+		asrt.assertTrue(element.isExistsInText(special, searchGamesTeamAndMembersTestData.SH_14_SearchGamesTeamAndMembers_Special),"User is unable to click search bar and unable to see the list of members with given special character");
+	}
 }
 
