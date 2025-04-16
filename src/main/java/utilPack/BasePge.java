@@ -1044,30 +1044,6 @@ public class BasePge {
 			actions.sendKeys(Keys.BACK_SPACE).perform();  // Simulate backspace key
 		}
 	}
-
-	//<Summary>
-	//<Is exists/contains in text>
-	//</Summary>
-	public boolean isExistsInText(List<String> elementTexts, String searchTerm) {
-		for (String text : elementTexts) {
-			if (text.contains(searchTerm)) {
-				return true;  // If any text contains the search term, return true
-			}
-		}
-		return false;  // Otherwise, return false
-	}
-	//<Summary>
-
-	//<Is exists/starts with >
-	//</Summary>
-	public boolean isExistsInStart(List<String> elementTexts, String searchTerm) {
-		for (String text : elementTexts) {
-			if (text.toLowerCase().startsWith(searchTerm.toLowerCase())) {
-				return true;
-			}
-		}
-		return false;
-	}
 }
 
 
