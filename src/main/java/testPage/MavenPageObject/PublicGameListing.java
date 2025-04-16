@@ -359,6 +359,7 @@ public class PublicGameListing extends BasePge{
 	public void GameListing_14_PublicGameListing() throws InterruptedException {
 		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
 		PublicGameListing_Obj PublicGameObj=new PublicGameListing_Obj();
+		PublicGameLisiting_TestData testObj=new PublicGameLisiting_TestData();
 		
 		// Step1: User navigated to SnipBack Website after entering snipback url
 		// Expected:The user should be able to navigate to the  Snipback website after entering the URL
@@ -377,13 +378,14 @@ public class PublicGameListing extends BasePge{
 		//Expected:The games should be listed as per the selected page in the FILM Page
 		base.excuteJsClick(LoginPageObj.Btn_Login("2"));
 		ArrayList<String> games = new ArrayList<>();
-		games.add("Mystics 2026 Select vs Prodigy CA 2026");
-		games.add("Legends U Black vs Seberger 17u");
-		games.add("Dayton Vipers vs Kieper 15u");
-		games.add("2025 Mystics Ruh P24 VS New Heights NY");
+		games.add(testObj.GameListing_14_PublicGameName1);
+		games.add(testObj.GameListing_14_PublicGameName2);
+		games.add(testObj.GameListing_14_PublicGameName3);
+		games.add(testObj.GameListing_14_PublicGameName4);
 		for (String game : games) {
 			asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText(game)),"User is not able to view the games listed as per the selected page in the FILM Page");
 		}
-		}
+		}	
 }
+
 
