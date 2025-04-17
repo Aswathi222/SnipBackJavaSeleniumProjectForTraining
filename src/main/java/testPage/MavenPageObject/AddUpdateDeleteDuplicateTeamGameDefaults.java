@@ -272,9 +272,20 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		//Step 11 : Verify that List of Current team members`fields should be displayed when click on +Add team from Games/Members/Followers page
 		//Expected :Use is able to view  List of Current team members`fields when click on +Add team from Games/Members/Followers page
 		base.setData(createandaddnewmemberobj.Ele_SearchGame("form-control form-control-wrap"),addupdatedeleteobj.Team_07_TeamName);
-		base.buttonClick(loginObj.Btn_SingnIn("createTeamBtn"));
+		base.buttonClick(loginObj.Btn_SingnIn("createTeamBtn"));		
 		base.buttonClick(loginObj.Btn_SingnIn("modalMessageCloseBtn"));
-		base.selectCheckBox(addupdatedeletegamedefaultobj.Ele_CheckboxSelect(addupdatedeleteobj.Team_07_Username,"checkmark"));
+		String SelectedUser = base.GetText(loginObj.Ele_ErrorMessage("flex-column justify-content-between members-listing-details ms-3 text-start"));
+		String[] splitSelectedUser = SelectedUser.split("[\\s\\n]+");
+		String correctSelectedUser = "";
+		for (String splittedValue : splitSelectedUser) 
+		{
+			if (splittedValue.contains("@")) 
+			{
+				correctSelectedUser = splittedValue.trim(); 			        
+				break;
+			}
+		}
+		base.selectCheckBox(addupdatedeletegamedefaultobj.Ele_CheckboxSelect(correctSelectedUser,"checkmark"));
 		base.buttonClick(forgetobj.Ele_Error("members-menu-icon-wrap members-menu-icon-dark"));
 		List<String> CurrentTeams=base.GetElementTexts(loginObj.Ele_ErrorMessage("d-flex flex-column listing-details text-start"));
 		asrt.assertNotNull(CurrentTeams,"User is unable to view  List of Current team members`fields when click on +Add team from Games/Members/Followers page" );
