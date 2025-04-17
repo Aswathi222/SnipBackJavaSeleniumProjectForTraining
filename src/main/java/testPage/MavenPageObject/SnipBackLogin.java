@@ -84,7 +84,7 @@ public class SnipBackLogin extends BasePge{
 		//Step 3.Click on the sign in button 
 		//Expected:User Shouldn't able to login the page and should receive a error message
 		base.buttonClick(SnipBackLoginObj.Btn_Signin("SIGN IN"));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("Password is required")), "user not receive the error message in the Login page");
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("Password is required")), "user not receive the error message in the Login page");
 
 	}
 
@@ -113,7 +113,7 @@ public class SnipBackLogin extends BasePge{
 		//Step 3: Click on the sign in button 
 		//Expected: User Shouldn't able to login the page and should receive a error message(Please enter your email address)
 		base.buttonClick(SnipBackLoginObj.Btn_Signin("SIGN IN"));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_Alert1("Please enter your email address")),"User able to login the page and not  receive a error message(Please enter your email address)" );
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("Please enter your email address")),"User able to login the page and not  receive a error message(Please enter your email address)" );
 	    base.buttonClick(SnipBackLoginObj.Btn_Signin("SIGN IN"));
 	    asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("Password is required")), "user not receive the error message in the Login page");
 
