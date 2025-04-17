@@ -828,4 +828,67 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("add-user-form-control form-select add_user_field_elements"), CreateAndAddNewMemberTestDataobj.WE_14_CreateandAddnewmemberRole);
 		asrt.assertTrue(base.isDoesNotExistBool(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_Error("Please Enter a proper email ID.")), "The user is not able to enter the valid mail id.");		
 	}
+	//<summery>
+	//Test Case Title : To verify what happens when the user enters an invalid email id
+	//Automation ID : WE_15
+	//</summery>
+	public void WE_15_CreateAndAddNewMemberWithOrWithoutEmail() throws InterruptedException {	
+		Login login = new Login(driver);
+		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj CreateAndAddNewMemberWithOrWithoutEmailObj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_TestData CreateAndAddNewMemberTestDataobj = new CreateAndAddNewMemberWithOrWithoutEmail_TestData();
+
+		//Step 1 : Navigate to Snipback Login page
+		//Expected : User should be able to navigate to Snipback Login page.
+		asrt.assertTrue(base.isExists(LoginPageObj.Btn_Login("Login")),"User is not able to view Snipback page");
+
+		//Step 2 : Login to Snipback
+		//Expected : User should be able to login.
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("GAMES")), "User is not able to login");
+
+		//Step 3 : Select any organization
+		//Expected : User should be able to select any organization.
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_15_CreateandAddnewmemberOrganization);
+		String Text = element.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_15_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
+
+		//Step 4 : Switch to any Team
+		//Expected : User should be able to Switch to any Team.
+		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_15_CreateandAddnewmemberTeam);
+		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		String TeamName = base.GetText(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_15_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
+
+		//Step 5 : Click three dots of that team
+		//Expected : User should be able to Click three dots of that team.
+		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_ThreeDots("my-team-content", "defaultDropdown-1"));
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_list("my-team-content", "teamDropdownMenu-1")), "User is not able to Click three dots of that team");
+		Thread.sleep(7000);
+
+		//Step 6 :  Select "Edit Team" option 
+		//Expected : User should be able to select "Edit Team" option.
+		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_EditTeam("475 Playmakers"));
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
+
+		//Step 7 :   Click Create&Add New Member with Email
+		//Expected : The user should navigate to CREATE NEW USER pop up.
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("Create & Add New Member With Email"));
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("emailInputNew")),"The user is not navigated to CREATE NEW USER pop up.");
+
+		//Step 8 : Switch to Add Multiple User
+		//Expected : User can be able to switch from Add Single User to Add Multiple User.
+		base.buttonClick(LoginPageObj.Btn_SingnIn("user_tab_multiple"));
+		asrt.assertTrue(base.isExists(LoginPageObj.Ele_ErrorMessage("add-user-card-title")), "User is not able to switch from Add Single User to Add Multiple User.");
+
+		//Step 9 : Enter a invalid email id
+		//Expected : User will receive an alert message as "Please Enter a proper email ID."
+		element.fillFormFields(
+				CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_Email("user_field_elements ui-autocomplete-input"), CreateAndAddNewMemberTestDataobj.WE_15_CreateandAddnewmemberInvalidEmail,
+				CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_Email("full_name add_user_field_elements"), CreateAndAddNewMemberTestDataobj.WE_15_CreateandAddnewmemberFullName,
+				CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("add-user-form-control add_user_field_elements"),CreateAndAddNewMemberTestDataobj.WE_15_CreateandAddnewmemberJerseyNumber);
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("add-user-form-control form-select add_user_field_elements"), CreateAndAddNewMemberTestDataobj.WE_15_CreateandAddnewmemberRole);
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_Error("Please Enter a proper email ID.")), "User is not receiving an alert message as \"Please Enter a proper email ID.\"");		
+	}
 }
