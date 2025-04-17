@@ -1,12 +1,16 @@
 package testPage.MavenPageObject;
+import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import TestData.AddUpdateDeleteDuplicateTeamGameDefaults_TestData;
 import TestData.CommonData;
+import objectRepository.AddUpdateDeleteDuplicateTeamGameDefaults_Obj;
 import objectRepository.CreateAndAddNewMemberWithOrWithoutEmail_Obj;
 import objectRepository.CreateEditDeletePool_Obj;
+import objectRepository.ForgotPassword_Obj;
 import objectRepository.LoginPage_Obj;
+import objectRepository.ScheduleUnscheduleGames_Obj;
 import utilPack.BasePge;
 import utilPack.ElementActions;
 
@@ -194,5 +198,96 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		//Expected : User (Admin/Coach) should able to click on Add team (+ Add team) option in the Film page
 		base.buttonClick(loginObj.Edt_AlertMessage("Add Team"));
 		asrt.assertTrue(base.isExists(createandaddnewmemberobj.Ele_SearchGame("form-control form-control-wrap")),"User is unable to click on Add team (+ Add team) option in the film page");
+	}
+
+	// <summary>
+	// Test Case Title : Verify that following fields should be displayed when click on +Add team from Games/Members/Followers page
+	//                   1. Enter Team Name
+	//                   2.Search bar with Search Icon 
+	//                   3.List of Users to add to teams
+	//                   4.Default team type with categories drop down
+	//                   5.Game Defaults
+	//                   6.A text "Current team members"
+	//                   7.Search bar with Search Icon to search current team members`
+	//                   8.List of Current team members
+	// Automation ID :Team_07
+	// </summary>
+	public void Team_07_AddUpdateDeleteDuplicateTeamGameDefaults() throws InterruptedException 
+	{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login = new Login(driver);
+		CreateEditDeletePool_Obj CreateEditDeletePoolObj = new CreateEditDeletePool_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj createandaddnewmemberobj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		AddUpdateDeleteDuplicateTeamGameDefaults_TestData  addupdatedeleteobj= new AddUpdateDeleteDuplicateTeamGameDefaults_TestData();
+		ScheduleUnscheduleGames_Obj  scheduleunschedulegameobj=new ScheduleUnscheduleGames_Obj();
+		AddUpdateDeleteDuplicateTeamGameDefaults_Obj addupdatedeletegamedefaultobj= new AddUpdateDeleteDuplicateTeamGameDefaults_Obj();
+		ForgotPassword_Obj  forgetobj=new ForgotPassword_Obj();
+
+		//Step 1 : Verify that user is able to Login Snipback
+		//Expected : User should be able to login the film page with credentials
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(loginObj.Btn_SingnIn("nav-game-tab"))," User is unable to login the film page with credentials");
+
+		//Step 2 : Switch the organization if the User as Admin/Coach
+		//Expected : User is able to Switch the organization if the User as Admin/Coach
+		base.buttonClick(CreateEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		base.selectorByVisibleText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"),addupdatedeleteobj.Team_07_SelectedValueAdmin);
+		String selectOrg=element.DropDownText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"));			
+		asrt.assertEquals(selectOrg,addupdatedeleteobj.Team_07_SelectedValueAdmin,"User is unable to Switch the organization if the User as Admin/Coach");
+
+		//Step 3 : .Click on +Add team option
+		//Expected : User (Admin/Coach) should able to click on Add team (+ Add team) option in the Film page
+		base.buttonClick(loginObj.Edt_AlertMessage("Add Team"));
+		asrt.assertTrue(base.isExists(createandaddnewmemberobj.Ele_SearchGame("form-control form-control-wrap")),"User is unable to click on Add team (+ Add team) option in the film page");
+
+		//Step 4 : Verify that Enter Team Name fields should be displayed when click on +Add team from Games/Members/Followers page
+		//Expected : User should be able to view Enter Team Name field when click on +Add team from Games/Members/Followers page
+		asrt.assertTrue(base.isExists(createandaddnewmemberobj.Ele_SearchGame("form-control form-control-wrap")), "User is unable to view Enter Team Name field when click on +Add team from Games/Members/Followers page");
+
+		//Step 5 : Verify that Search bar with Search Icon fields should be displayed when click on +Add team from Games/Members/Followers page
+		//Expected : User is able to view Search bar with Search Icon fields should be displayed when click on +Add team from Games/Members/Followers page
+		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("orgUsersSearch"))," User is unable to view Search bar with Search Icon fields when click on +Add team from Games/Members/Followers page");
+
+		//Step 6 : Verify that List of Users to add to teams should be displayed when click on +Add team from Games/Members/Followers page
+		//Expected : User is able to view List of Users to add to teams when click on +Add team from Games/Members/Followers page
+		List<String> UserNames=base.GetElementTexts(loginObj.Ele_ErrorMessage("flex-column justify-content-between members-listing-details ms-3 text-start"));
+		asrt.assertNotNull(UserNames,"User is unable to view List of Users to add to teams when click on +Add team from Games/Members/Followers page" );
+
+		//Step 7 : Verify that Default team type with categories drop down fields should be displayed when click on +Add team from Games/Members/Followers page
+		//Expected : User is able to view Default team type fields  with categories drop down
+		asrt.assertTrue(base.isExists(CreateEditDeletePoolObj.Ele_PoolType("d-flex align-items-center","Default Team Type ")) &&  base.isExists(CreateEditDeletePoolObj.Sel_PoolType("category"))," User is unable to view Default team type fields with categories drop down");
+
+		//Step 8 : Verify that Game Defaults fields should be displayed when click on +Add team from Games/Members/Followers page
+		//Expected User is able to view Game Defaults fields when click on +Add team from Games/Members/Followers page
+		asrt.assertTrue(base.isExists(scheduleunschedulegameobj.Btn_EventOK("default-btn me-2 default-btn-alert")),"User is unable to view Game Defaults fields when click on +Add team from Games/Members/Followers page");
+
+		//Step 9 : Verify that A text "Current team members" fields should be displayed when click on +Add team from Games/Members/Followers page
+		//Expected : User is able to view A text "Current team members" fields when click on +Add team from Games/Members/Followers page
+		asrt.assertTrue(base.isExists(addupdatedeletegamedefaultobj.Ele_CurrentTeamMembers("CURRENT TEAM MEMBERS"))," User is unable to view A text Current team members fields when click on +Add team from Games/Members/Followers page");
+
+		//Step 10 :  Verify that Search bar with Search Icon to search current team members`fields should be displayed when click on +Add team from Games/Members/Followers page
+		//Expected :User is able to view Search bar with Search Icon to search current team members`fields when click on +Add team from Games/Members/Followers page
+		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("teamUser")), "User is unable to view Search bar with Search Icon to search current team members`fields when click on +Add team from Games/Members/Followers page");
+
+		//Step 11 : Verify that List of Current team members`fields should be displayed when click on +Add team from Games/Members/Followers page
+		//Expected :Use is able to view  List of Current team members`fields when click on +Add team from Games/Members/Followers page
+		base.setData(createandaddnewmemberobj.Ele_SearchGame("form-control form-control-wrap"),addupdatedeleteobj.Team_07_TeamName);
+		base.buttonClick(loginObj.Btn_SingnIn("createTeamBtn"));		
+		base.buttonClick(loginObj.Btn_SingnIn("modalMessageCloseBtn"));
+		String SelectedUser = base.GetText(loginObj.Ele_ErrorMessage("flex-column justify-content-between members-listing-details ms-3 text-start"));
+		String[] splitSelectedUser = SelectedUser.split("[\\s\\n]+");
+		String correctSelectedUser = "";
+		for (String splittedValue : splitSelectedUser) 
+		{
+			if (splittedValue.contains("@")) 
+			{
+				correctSelectedUser = splittedValue.trim(); 			        
+				break;
+			}
+		}
+		base.selectCheckBox(addupdatedeletegamedefaultobj.Ele_CheckboxSelect(correctSelectedUser,"checkmark"));
+		base.buttonClick(forgetobj.Ele_Error("members-menu-icon-wrap members-menu-icon-dark"));
+		List<String> CurrentTeams=base.GetElementTexts(loginObj.Ele_ErrorMessage("d-flex flex-column listing-details text-start"));
+		asrt.assertNotNull(CurrentTeams,"User is unable to view  List of Current team members`fields when click on +Add team from Games/Members/Followers page" );
 	}
 }
