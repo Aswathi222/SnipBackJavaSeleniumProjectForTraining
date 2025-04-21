@@ -472,13 +472,16 @@ public class PublicGameListing extends BasePge{
 		base.buttonClick(PublicGameObj.Btn_Home("Film","menu_link nav-link "));
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");
 		
-		//Step3:Search any games in the search tab and click on search icon
-		//Expected:User should be able to fetch the proper results while searching any games in the search tab and click on search icon
+		//Step3:Search any games in the search tab 
+		//Expected:User should be able search any games in the search tab
 		base.setData(LoginPageObj.Edt_LoginEmail("search"),testObj.GameListing_18_PublicGameName);
 		String ActualGameName=base.GetValue(LoginPageObj.Edt_LoginEmail("search"));
 		asrt.assertEquals(ActualGameName,testObj.GameListing_18_PublicGameName,"User is not able to search any games in the search tab");
+		
+		//Step4:Click on Search Icon
+		//Expected:User should be able to fetch the proper results while searching any games in the search tab and click on search icon
 		base.buttonClick(PublicGameObj.Img_sort("search-img"));
-		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText(testObj.GameListing_18_PublicGameName)),"User is not able to view the searched game on the Film module after searching the game in the search tab");	
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText(testObj.GameListing_18_PublicGameName)),"User is not able to view the searched game on the Film module after searching the game in the search tab and clicking on search icon");	
 	}
 }
 
