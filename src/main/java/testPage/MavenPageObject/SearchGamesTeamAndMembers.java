@@ -2,9 +2,12 @@ package testPage.MavenPageObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import TestData.CommonData;
@@ -84,7 +87,7 @@ public class SearchGamesTeamAndMembers extends BasePge{
 
 		//step 4: Select Games section
 		//Expected:There should be a option to search games in Game Listing page.
-		base.buttonClick(loginObj.Edt_AlertMessage("GAMES"));
+		base.excuteJsClick(loginObj.Edt_AlertMessage("GAMES"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to search games in games listing page.");
 
 		//step 5:Click search bar
@@ -189,7 +192,9 @@ public class SearchGamesTeamAndMembers extends BasePge{
 
 		//step 6:Enter a special character and Click Enter
 		//Expected:User can see list of games with the given special character.
-		base.pressKey(loginObj.Edt_LoginEmail("search"),"ENTER" );
+		Thread.sleep(5000);
+		base.pressKey(loginObj.Edt_LoginEmail("search"),"KEYBOARD_ENTER" );
+		Thread.sleep(5000);
 		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("No Data Found")), "User is unable to view the list of games with given special character.");
 	}
 	//<Summary>
@@ -555,6 +560,47 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		base.setData(loginObj.Edt_LoginEmail("teamGroupMembers"), searchGamesTeamAndMembersTestData.SH_14_SearchGamesTeamAndMembers_Special);
 		List<String> special=base.GetElementTexts(searchGameTeamAndMembersObj.Ele_MemberListNew("row p-2","display: block;", "teamEmail"));
 		asrt.assertTrue(element.isExistsInText(special, searchGamesTeamAndMembersTestData.SH_14_SearchGamesTeamAndMembers_Special),"User is unable to click search bar and unable to see the list of members with given special character");
+	}
+	//<Summary>
+	//Test case Title:Verify what happens when user searches for a member who is not in the list.
+	//Automation ID: SH_15
+	//</Summary>
+	public void SH_15_SearchGamesTeamAndMembers() throws InterruptedException{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login=new Login(driver);
+		CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
+		SearchGamesTeamAndMembers_TestData searchGamesTeamAndMembersTestData=new SearchGamesTeamAndMembers_TestData();
+		SearchGameTeamAndMembers_Obj searchGameTeamAndMembersObj=new SearchGameTeamAndMembers_Obj();
+
+		//Step 1: Navigate to Snipback page
+		//Expected : User should be able to view Snipback page
+		asrt.assertTrue(base.isExists(loginObj.Btn_Login("Login")),"User is unable to view SnipBack page" );
+
+		//Step 2: Click Login button
+		//Expected: user should be able to login to the SnipBack
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"))," User is unable to login to SnipBack");
+
+		//step 3:Go to Film page
+		//Expected: User should be able to click film
+		base.buttonClick(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		asrt.assertTrue(base.isExists(loginObj.Btn_SignInButton("POOLS")), "User is unable to click the Film");
+
+		//step 4:Select Members section
+		//Expected:There should be a option to search members in Members Listing page.
+		base.buttonClick(loginObj.Edt_AlertMessage("MEMBERS"));
+		Thread.sleep(1000);
+		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("teamGroupMembers")),"User is unable to view the option to search members in Members listing page");
+
+		//step 5:Click search bar
+		//Expected:User should able to click search bar 
+		base.buttonClick(loginObj.Edt_LoginEmail("teamGroupMembers"));
+		asrt.assertTrue(base.isEnabledBy(loginObj.Edt_LoginEmail("teamGroupMembers")), "User is unable to click search bar");
+
+		//step 6:Enter a Member Name
+		//Expected:There will not list any members if the user enters a member name who doesn't exists.
+		base.setData(loginObj.Edt_LoginEmail("teamGroupMembers"), searchGamesTeamAndMembersTestData.SH_15_SearchGamesTeamAndMembers);
+		asrt.assertTrue(base.isDoesNotExistBool(searchGameTeamAndMembersObj.Ele_NoMemberListData("row p-2","display: block;")),"User is able to see the list of members" );
 	}
 }
 

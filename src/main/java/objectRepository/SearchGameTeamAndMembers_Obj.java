@@ -9,4 +9,5 @@ public class SearchGameTeamAndMembers_Obj {
 		public By Ele_MemberListNew(String memberListClass,String memberStyle,String memberId){return By.xpath("//div[@class='"+memberListClass+"']//div[@style='"+memberStyle+"']//p[@id='"+memberId+"']");}
 		public By Ele_GameFirst(String gameId,String gameClass){return By.xpath("//div[@id='"+gameId+"']//span[@class='"+gameClass+"']");}
 		public By Ele_GameSpecial(String gameId){return By.xpath("//div[@id='"+gameId+"']");}
+		public By Ele_NoMemberListData(String memberListClass,String memberStyle){return By.xpath("//div[@class='"+memberListClass+"']//div[@style='"+memberStyle+"']");}
 }
