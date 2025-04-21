@@ -475,6 +475,8 @@ public class PublicGameListing extends BasePge{
 		//Step3:Search any games in the search tab and click on search icon
 		//Expected:User should be able to fetch the proper results while searching any games in the search tab and click on search icon
 		base.setData(LoginPageObj.Edt_LoginEmail("search"),testObj.GameListing_18_PublicGameName);
+		String ActualGameName=base.GetValue(LoginPageObj.Edt_LoginEmail("search"));
+		asrt.assertEquals(ActualGameName,testObj.GameListing_18_PublicGameName,"User is not able to search any games in the search tab");
 		base.buttonClick(PublicGameObj.Img_sort("search-img"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText(testObj.GameListing_18_PublicGameName)),"User is not able to view the searched game on the Film module after searching the game in the search tab");	
 	}
