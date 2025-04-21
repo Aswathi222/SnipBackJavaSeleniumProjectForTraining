@@ -369,4 +369,41 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		String teamNameValue = base.GetValue(scheduleunschedulegameobj.Ele_SearchGame("form-control form-control-wrap"));
 		asrt.assertEquals(teamNameValue, "", "Team Name is not cleared once user clicks on X option");
 	}
+
+	// <summary>
+	// Test Case Title :Verify that the message " The Team name is required for this Operation" should be displayed if we left Team Name field blank
+	// Automation ID :Team_10
+	// </summary>
+	public void Team_10_AddUpdateDeleteDuplicateTeamGameDefaults() throws InterruptedException 
+	{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login = new Login(driver);
+		CreateEditDeletePool_Obj CreateEditDeletePoolObj = new CreateEditDeletePool_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj createandaddnewmemberobj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		AddUpdateDeleteDuplicateTeamGameDefaults_TestData  addupdatedeleteobj= new AddUpdateDeleteDuplicateTeamGameDefaults_TestData();
+		ScheduleUnscheduleGames_Obj  scheduleunschedulegameobj=new ScheduleUnscheduleGames_Obj();
+
+		//Step 1 : Verify that user is able to Login Snipback
+		//Expected : User should be able to login the film page with credentials
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(loginObj.Btn_SingnIn("nav-game-tab"))," User is unable to login the film page with credentials");
+
+		//Step 2 : Switch the organization if the User as Admin/Coach
+		//Expected : User is able to Switch the organization if the User as Admin/Coach
+		base.buttonClick(CreateEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		base.selectorByVisibleText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"),addupdatedeleteobj.Team_10_SelectedValueAdmin);
+		String selectOrg=element.DropDownText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"));			
+		asrt.assertEquals(selectOrg,addupdatedeleteobj.Team_10_SelectedValueAdmin,"User is unable to Switch the organization if the User as Admin/Coach");
+
+		//Step 3 : .Click on +Add team option
+		//Expected : User (Admin/Coach) should able to click on Add team (+ Add team) option in the Film page
+		base.buttonClick(loginObj.Edt_AlertMessage("Add Team"));
+		asrt.assertTrue(base.isExists(createandaddnewmemberobj.Ele_SearchGame("form-control form-control-wrap")),"User is unable to click on Add team (+ Add team) option in the film page");
+
+		//Step  4:Verify that the message " The Team name is required for this Operation" should be displayed if we left Team Name field blank
+		//Expected :The message " The Team name is required for this Operation" should be displayed if we left Team Name field blank	
+		base.setData(createandaddnewmemberobj.Ele_SearchGame("form-control form-control-wrap"),addupdatedeleteobj.Team_10_TeamNameBlank);
+		base.excuteJsClick(loginObj.Edt_AlertMessage("ADD"));
+		asrt.assertTrue(base.isExists(scheduleunschedulegameobj.Btn_EventOK("btn popclose ms-auto d-table")),"User is unable to view the message 'The Team name is required for this Operation' if Team Name field is left blank");
+	}
 }
