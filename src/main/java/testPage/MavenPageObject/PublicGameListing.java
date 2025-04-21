@@ -474,10 +474,9 @@ public class PublicGameListing extends BasePge{
 		
 		//Step3:Search any games in the search tab and click on search icon
 		//Expected:User should be able to fetch the proper results while searching any games in the search tab and click on search icon
-		base.setData(LoginPageObj.Edt_LoginEmail("search"),testObj.GameListing_14_PublicGameName1);
+		base.setData(LoginPageObj.Edt_LoginEmail("search"),testObj.GameListing_18_PublicGameName);
 		base.buttonClick(PublicGameObj.Img_sort("search-img"));
-		asrt.assertTrue(base.isExists(LoginPageObj.Ele_ErrorMessage("cardheading")),"User is not be able to fetch the proper results while searching any games in the search tab and click on search icon");
-			
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText(testObj.GameListing_18_PublicGameName)),"User is not able to view the searched game on the Film module after searching the game in the search tab");	
 	}
 }
 
