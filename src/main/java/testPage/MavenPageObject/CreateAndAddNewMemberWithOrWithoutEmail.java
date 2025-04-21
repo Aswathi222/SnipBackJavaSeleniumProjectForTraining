@@ -1014,7 +1014,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 				CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_Email("full_name add_user_field_elements"), CreateAndAddNewMemberTestDataobj.WE_17_CreateandAddnewmemberFullName,
 				CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("add-user-form-control add_user_field_elements"),CreateAndAddNewMemberTestDataobj.WE_17_CreateandAddnewmemberJerseyNumber);
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("add-user-form-control form-select add_user_field_elements"), CreateAndAddNewMemberTestDataobj.WE_17_CreateandAddnewmemberRole);
-		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_Close("card_2", "add-user-card-options card-remove-btn"));
+		base.buttonClick(LoginPageObj.Btn_Logout("card_2", "add-user-card-options card-remove-btn"));
 		base.buttonClick(LoginPageObj.Btn_SingnIn("saveMutipleUsers"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText("Users Added Successfully!")), "User is not able to add new user.");		
 	}

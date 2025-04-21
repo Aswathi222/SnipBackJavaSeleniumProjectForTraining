@@ -10,7 +10,7 @@ public class LoginPage_Obj {
 	public By Btn_Captcha(String check) {return By.xpath("//span[@role='"+check+"']");}
 	public By Btn_SingnIn(String id) {return By.xpath("//button[@id='"+id+"']");}
 	public By Btn_SigninClick(String onclick) { return By.xpath("//button[@onclick='"+onclick+"']"); }
-	public By Btn_Logout() { return By.xpath("//div[@id='navbarSupportedContent']//button[@class='btn dropdown-toggle']");}
+	public By Btn_Logout(String close_id, String btn_class) { return By.xpath("//div[@id='"+close_id+"']//button[@class='"+btn_class+"']");}
 
 	//Edt
 	public By Edt_LoginCredentialFields(String id) { return By.xpath("//*[@id='"+id+"']"); }
