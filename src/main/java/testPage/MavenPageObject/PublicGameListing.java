@@ -454,6 +454,35 @@ public class PublicGameListing extends BasePge{
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("search")) && base.isExists(PublicGameObj.Img_sort("search-img")),"User is not able to see the Search Option with search icon in the FILM Page");
 		
 	}
+	//<summary>
+	// Test Case Title  :Verify that the user should be able to fetch the proper results while searching any games in the search tab and click on search icon
+	// Automation ID    : Game Listing_18
+	// </summary>
+	public void GameListing_18_PublicGameListing() throws InterruptedException {
+		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+		PublicGameListing_Obj PublicGameObj=new PublicGameListing_Obj();
+		PublicGameLisiting_TestData testObj=new PublicGameLisiting_TestData();
+		
+		// Step1: User navigated to SnipBack Website after entering snipback url
+		// Expected:The user should be able to navigate to the  Snipback website after entering the URL
+		asrt.assertTrue(base.isExists(LoginPageObj.Ele_SnipBackHomePageLogo("light-logo")), "User is unable to navigate to SnipBack website after entering the URL");
+				
+		//Step2:Click on FILM Tab without login
+		//Expected:The user should be able to click on "FILM" tab without login to Snipback
+		base.buttonClick(PublicGameObj.Btn_Home("Film","menu_link nav-link "));
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage(" Amplifies")),"User is unable to click on Films tab without login to SnipBack");
+		
+		//Step3:Search any games in the search tab 
+		//Expected:User should be able search any games in the search tab
+		base.setData(LoginPageObj.Edt_LoginEmail("search"),testObj.GameListing_18_PublicGameName);
+		String ActualGameName=base.GetValue(LoginPageObj.Edt_LoginEmail("search"));
+		asrt.assertEquals(ActualGameName,testObj.GameListing_18_PublicGameName,"User is not able to search any games in the search tab");
+		
+		//Step4:Click on Search Icon
+		//Expected:User should be able to fetch the proper results while searching any games in the search tab and click on search icon
+		base.buttonClick(PublicGameObj.Img_sort("search-img"));
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText(testObj.GameListing_18_PublicGameName)),"User is not able to view the searched game on the Film module after searching the game in the search tab and clicking on search icon");	
+	}
 }
 
 

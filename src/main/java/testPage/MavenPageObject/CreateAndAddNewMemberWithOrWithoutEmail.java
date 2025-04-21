@@ -953,4 +953,130 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("add-user-form-control form-select add_user_field_elements"), CreateAndAddNewMemberTestDataobj.WE_16_CreateandAddnewmemberRole);
 		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_Error("Please Enter a proper email ID.")), "User is not receiving an alert message as \"Please Enter a proper email ID.\"");		
 	}
+	//<summery>
+	//Test Case Title : To verify whether the user can be able to enter a valid Full Name
+	//Automation ID : WE_17
+	//</summery>
+	public void WE_17_CreateAndAddNewMemberWithOrWithoutEmail() throws InterruptedException {	
+		Login login = new Login(driver);
+		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj CreateAndAddNewMemberWithOrWithoutEmailObj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_TestData CreateAndAddNewMemberTestDataobj = new CreateAndAddNewMemberWithOrWithoutEmail_TestData();
+
+		//Step 1 : Navigate to Snipback Login page
+		//Expected : User should be able to navigate to Snipback Login page.
+		asrt.assertTrue(base.isExists(LoginPageObj.Btn_Login("Login")),"User is not able to view Snipback page");
+
+		//Step 2 : Login to Snipback
+		//Expected : User should be able to login.
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("GAMES")), "User is not able to login");
+
+		//Step 3 : Select any organization
+		//Expected : User should be able to select any organization.
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_17_CreateandAddnewmemberOrganization);
+		String Text = element.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_17_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
+
+		//Step 4 : Switch to any Team
+		//Expected : User should be able to Switch to any Team.
+		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_17_CreateandAddnewmemberTeam);
+		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		String TeamName = base.GetText(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_17_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
+
+		//Step 5 : Click three dots of that team
+		//Expected : User should be able to Click three dots of that team.
+		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_ThreeDots("my-team-content", "defaultDropdown-1"));
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_list("my-team-content", "teamDropdownMenu-1")), "User is not able to Click three dots of that team");
+		Thread.sleep(7000);
+
+		//Step 6 :  Select "Edit Team" option 
+		//Expected : User should be able to select "Edit Team" option.
+		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_EditTeam("475 Playmakers"));
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
+
+		//Step 7 :   Click Create&Add New Member with Email
+		//Expected : The user should navigate to CREATE NEW USER pop up.
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("Create & Add New Member With Email"));
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("emailInputNew")),"The user is not navigated to CREATE NEW USER pop up.");
+
+		//Step 8 : Switch to Add Multiple User
+		//Expected : User can be able to switch from Add Single User to Add Multiple User.
+		base.buttonClick(LoginPageObj.Btn_SingnIn("user_tab_multiple"));
+		asrt.assertTrue(base.isExists(LoginPageObj.Ele_ErrorMessage("add-user-card-title")), "User is not able to switch from Add Single User to Add Multiple User.");
+
+		//Step 9 : Enter a valid Full Name
+		//Expected : User can able to add new user.
+		element.fillFormFields(
+				CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_Email("user_field_elements ui-autocomplete-input"), CreateAndAddNewMemberTestDataobj.WE_17_CreateandAddnewmemberEmail,
+				CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_Email("full_name add_user_field_elements"), CreateAndAddNewMemberTestDataobj.WE_17_CreateandAddnewmemberFullName,
+				CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("add-user-form-control add_user_field_elements"),CreateAndAddNewMemberTestDataobj.WE_17_CreateandAddnewmemberJerseyNumber);
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("add-user-form-control form-select add_user_field_elements"), CreateAndAddNewMemberTestDataobj.WE_17_CreateandAddnewmemberRole);
+		base.buttonClick(LoginPageObj.Btn_Logout("card_2", "add-user-card-options card-remove-btn"));
+		base.buttonClick(LoginPageObj.Btn_SingnIn("saveMutipleUsers"));
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText("Users Added Successfully!")), "User is not able to add new user.");		
+	}
+	//<summery>
+	//Test Case Title : To verify whether the user can be able to enter a invalid Full Name
+	//Automation ID : WE_18
+	//</summery>
+	public void WE_18_CreateAndAddNewMemberWithOrWithoutEmail() throws InterruptedException {	
+		Login login = new Login(driver);
+		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj CreateAndAddNewMemberWithOrWithoutEmailObj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_TestData CreateAndAddNewMemberTestDataobj = new CreateAndAddNewMemberWithOrWithoutEmail_TestData();
+
+		//Step 1 : Navigate to Snipback Login page
+		//Expected : User should be able to navigate to Snipback Login page.
+		asrt.assertTrue(base.isExists(LoginPageObj.Btn_Login("Login")),"User is not able to view Snipback page");
+
+		//Step 2 : Login to Snipback
+		//Expected : User should be able to login.
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("GAMES")), "User is not able to login");
+
+		//Step 3 : Select any organization
+		//Expected : User should be able to select any organization.
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_18_CreateandAddnewmemberOrganization);
+		String Text = element.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_18_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
+
+		//Step 4 : Switch to any Team
+		//Expected : User should be able to Switch to any Team.
+		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_18_CreateandAddnewmemberTeam);
+		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		String TeamName = base.GetText(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_18_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
+
+		//Step 5 : Click three dots of that team
+		//Expected : User should be able to Click three dots of that team.
+		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_ThreeDots("my-team-content", "defaultDropdown-1"));
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_list("my-team-content", "teamDropdownMenu-1")), "User is not able to Click three dots of that team");
+		Thread.sleep(7000);
+
+		//Step 6 :  Select "Edit Team" option 
+		//Expected : User should be able to select "Edit Team" option.
+		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_EditTeam("475 Playmakers"));
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
+
+		//Step 7 :   Click Create&Add New Member with Email
+		//Expected : The user should navigate to CREATE NEW USER pop up.
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("Create & Add New Member With Email"));
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("emailInputNew")),"The user is not navigated to CREATE NEW USER pop up.");
+
+		//Step 8 : Switch to Add Multiple User
+		//Expected : User can be able to switch from Add Single User to Add Multiple User.
+		base.buttonClick(LoginPageObj.Btn_SingnIn("user_tab_multiple"));
+		asrt.assertTrue(base.isExists(LoginPageObj.Ele_ErrorMessage("add-user-card-title")), "User is not able to switch from Add Single User to Add Multiple User.");
+
+		//Step 9 : Enter a invalid Full Name
+		//Expected : User should receive alert message as "User's name should be of minimum 3 characters"
+		element.fillFormFields(
+				CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_Email("user_field_elements ui-autocomplete-input"), CreateAndAddNewMemberTestDataobj.WE_18_CreateandAddnewmemberEmail,
+				CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_Email("full_name add_user_field_elements"), CreateAndAddNewMemberTestDataobj.WE_18_CreateandAddnewmemberInvalidFullName);
+		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_Error("User's name should be of minimum 3 characters.")), "User is not receiving alert message as \"User's name should be of minimum 3 characters\"");		
+	}
 }

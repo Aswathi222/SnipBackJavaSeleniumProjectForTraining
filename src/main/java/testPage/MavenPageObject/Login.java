@@ -41,7 +41,7 @@ public class Login extends BasePge {
 	        
 	        LoginPage_Obj loginPageObj = new LoginPage_Obj();
 	        driver.navigate().refresh();
-	        base.buttonClick(loginPageObj.Btn_Logout());
+	        base.buttonClick(loginPageObj.Btn_Logout("navbarSupportedContent","btn dropdown-toggle"));
 	        WebElement logoutOption = driver.findElement(logoutOptionLocator);
 	        base.scrollToElement(logoutOptionLocatorForScrollDown);
 	        logoutOption.click();      
