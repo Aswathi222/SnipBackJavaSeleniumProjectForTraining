@@ -600,7 +600,7 @@ public class SearchGamesTeamAndMembers extends BasePge{
 		//step 6:Enter a Member Name
 		//Expected:There will not list any members if the user enters a member name who doesn't exists.
 		base.setData(loginObj.Edt_LoginEmail("teamGroupMembers"), searchGamesTeamAndMembersTestData.SH_15_SearchGamesTeamAndMembers);
-		asrt.assertTrue(base.isExists(loginObj.Ele_ErrorMessage("col-sm-12 players_totallist")), "User is able to see the list of members");
+		asrt.assertTrue(base.isDoesNotExistBool(searchGameTeamAndMembersObj.Ele_NoMemberList("col-sm-12 players_totallist", "teamDetailsDiv")), "User is able to see the list of members");
 	}
 }
 
