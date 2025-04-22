@@ -131,4 +131,67 @@ public class DuplicateTeam extends BasePge {
 		base.buttonClick(DuplicateTeamObj.Btn_DuplicateTeam(DuplicateTeamTestData.DT_02_TeamName,"dropdown-menu","dropdown-item duplicate-team"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_LoginButton("confirm-duplicate-team")),"User is unable to navigate to the duplicate team create option");
 	}
+	
+	// <summary>
+	// Test Case Title : "Verify whether the user is able to create duplicate team name as same as the original team name "
+	// Automation ID : DT_03
+	// </summary>
+	public void DT_03_DuplicateTeam() throws InterruptedException 
+	{
+		DuplicateTeam_Obj DuplicateTeamObj = new DuplicateTeam_Obj();
+		DuplicateTeam_TestData DuplicateTeamTestData = new DuplicateTeam_TestData();
+		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+		Login login=new Login(driver);
+		CreateEditDeletePool_Obj createEditDeletePoolObj = new CreateEditDeletePool_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj CreateAddMemberObj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+
+		//Step 1 : Navigate to Snipback page
+		//Expected : User should be able to view Snipback page
+		asrt.assertTrue(base.isExists(LoginPageObj.Btn_Login("Login")),"User is unable to view SnipBack page" );
+
+		//Step 2 : Click on the Login button
+		//Expected : User should be able to login to the SnipBack with the credentials
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"))," User is unable to login to SnipBack");
+
+		//Step 3 : Go to Film page
+		//Expected : User should be able to navigate to film page
+		base.buttonClick(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("GAMES")), "User is unable to navigate to the Film page");
+
+		//Step 4 : Select any organization
+		//Expected : User should be able to select any organization.
+		base.selectorByVisibleText(CreateAddMemberObj.DdlOrg("form-select select-form film-organizations"), DuplicateTeamTestData.DT_03_OrgName);
+		String Orgname = element.DropDownText(CreateAddMemberObj.DdlOrg("form-select select-form film-organizations"));
+		asrt.assertEquals(Orgname, DuplicateTeamTestData.DT_03_OrgName, "User is unable to select any organization");
+		
+		//Step 5 : click on search button and select a team
+		//Expected : User should be able to select the searched Team
+		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), DuplicateTeamTestData.DT_03_TeamName);
+		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
+		Thread.sleep(2000);
+		base.buttonClick(CreateAddMemberObj.Btn_Team("my-team-content",DuplicateTeamTestData.DT_03_TeamName));
+		String TeamName = base.GetValue(LoginPageObj.Edt_LoginEmail("searchTeam"));
+		asrt.assertEquals(TeamName, DuplicateTeamTestData.DT_03_TeamName,"User is not able to search and select the Team.");
+
+		//Step 6 : Click on three dots of any team
+		//Expected : User should be able to click on the three dots of any team.
+		base.buttonClick(DuplicateTeamObj.Btn_ThreeDotsTeam(DuplicateTeamTestData.DT_03_TeamName, "dropdown-wrapper teams-menu"));
+		asrt.assertTrue(base.isExists(DuplicateTeamObj.Btn_ThreeDotsTeam(DuplicateTeamTestData.DT_03_TeamName,"dropdown-menu")), "User is unable to view the list of options under the three dots in the Games Page");
+
+		//Step 7 : Click the Duplicate Team option
+		//Expected : User should be able to navigate to the duplicate team create option
+		base.buttonClick(DuplicateTeamObj.Btn_DuplicateTeam(DuplicateTeamTestData.DT_03_TeamName,"dropdown-menu","dropdown-item duplicate-team"));
+		asrt.assertTrue(base.isExists(LoginPageObj.Btn_LoginButton("confirm-duplicate-team")),"User is unable to navigate to the duplicate team create option");
+		
+		//Step 8 : Enter the same name as in the Team name
+		//Expected : The user should get an error message that the (Team Name Already Exists)
+		base.setData(LoginPageObj.Edt_LoginEmail("team_name"), DuplicateTeamTestData.DT_03_TeamName);
+		base.pressKey(LoginPageObj.Edt_LoginEmail("team_name"), "ENTER");
+		String DupTeamName = base.GetValue(LoginPageObj.Edt_LoginEmail("team_name"));
+		asrt.assertEquals(DupTeamName, DuplicateTeamTestData.DT_03_TeamName,"User is unable to enter the same name as the Team name");		
+		base.buttonClick(LoginPageObj.Btn_LoginButton("confirm-duplicate-team"));
+		String ActualValidMsg = GetText(LoginPageObj.Ele_ErrorMessage("swal-text"));
+		asrt.assertEquals(ActualValidMsg, DuplicateTeamTestData.DT_03_ValidMessage,"User is not getting the error message as 'Team Name already exists'");
+	}
 }
