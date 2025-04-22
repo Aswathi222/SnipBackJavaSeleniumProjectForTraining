@@ -181,7 +181,7 @@ public class DuplicateTeam extends BasePge {
 
 		//Step 7 : Click the Duplicate Team option
 		//Expected : User should be able to navigate to the duplicate team create option
-		base.buttonClick(DuplicateTeamObj.Btn_DuplicateTeam(DuplicateTeamTestData.DT_02_TeamName,"dropdown-menu","dropdown-item duplicate-team"));
+		base.buttonClick(DuplicateTeamObj.Btn_DuplicateTeam(DuplicateTeamTestData.DT_03_TeamName,"dropdown-menu","dropdown-item duplicate-team"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_LoginButton("confirm-duplicate-team")),"User is unable to navigate to the duplicate team create option");
 		
 		//Step 8 : Enter the same name as in the Team name
