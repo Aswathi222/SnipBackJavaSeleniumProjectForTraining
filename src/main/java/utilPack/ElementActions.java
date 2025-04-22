@@ -141,7 +141,16 @@ public class ElementActions {
 			buttonClick(locator);
 		}
 	}
-	//Summary
+	// <summary>
+	// To check if an element is disabled
+	// </summary>
+	public boolean isDisabledBy(By locator) {
+		WebDriverWait wait = getWait();
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+		webElement = driver.findElement(locator);
+		highLighterMethod(driver, webElement);
+		return !webElement.isEnabled();
+	}
 }
 
 
