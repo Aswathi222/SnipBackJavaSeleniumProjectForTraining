@@ -1,7 +1,9 @@
 package testPage.MavenPageObject;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import TestData.AddUpdateRemoveFollower_TestData;
 import TestData.CommonData;
+import objectRepository.CreateAndAddNewMemberWithOrWithoutEmail_Obj;
 import objectRepository.LoginPage_Obj;
 import utilPack.BasePge;
 import utilPack.ElementActions;
@@ -45,5 +47,34 @@ public class AddUpdateRemoveFollower extends BasePge{
 		//Expected:User should able to navigate to the Film page once login with credentials
 		login.loginToApplication(CommonData.UserName,CommonData.PassWord);
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_SingnIn("nav-game-tab")),"User is unable to navigate to the Film page once login with credentials");	
+	}
+	// <summary>
+	// Test Case Title : "Verify that Followers tab should be displayed in the organization if the user as Admin/Coach in the Film page"
+	// Automation ID : Follower_03
+	// </summary>
+	public void Follower_03_AddUpdateRemoveFollower() throws InterruptedException 
+	{
+		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+		Login login = new Login(driver);
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj cad_obj=new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		AddUpdateRemoveFollower_TestData test_obj=new AddUpdateRemoveFollower_TestData();
+		// Step1: Enter the URL
+		// Expected:The user should be able to navigate to the  Snipback website after entering the URL
+		asrt.assertTrue(base.isExists(LoginPageObj.Ele_SnipBackHomePageLogo("light-logo")), "User is unable to navigate to SnipBack website after entering the URL");
+		
+		//Step2:Login Snipback
+		//Expected:User should able to navigate to the Film page once login with credentials
+		login.loginToApplication(CommonData.UserName,CommonData.PassWord);
+		asrt.assertTrue(base.isExists(LoginPageObj.Btn_SingnIn("nav-game-tab")),"User is unable to navigate to the Film page once login with credentials");	
+		
+		//Step3:Switch the organization if the User as Admin/Coach
+		//Expected:User should be able to switch the organization if they are an Admin or Coach
+		base.selectorByVisibleText(cad_obj.DdlOrg("form-select select-form film-organizations"),test_obj.Follower_03_SelectedValue);
+		String Org_name=element.DropDownText(cad_obj.DdlOrg("form-select select-form film-organizations"));
+		asrt.assertEquals(Org_name,test_obj.Follower_03_SelectedValue,"User is not able to switch the organisation if they are an Admin or Coach");
+		
+		//Step4:Verify the Followers tab
+		//Expected:Followers tab should be displayed in the organization if the user as Admin/Coach in the Film page
+		asrt.assertTrue(base.isExists(LoginPageObj.Btn_SingnIn("nav-followers-tab")),"User is not able to view the followers tab if the user as Admin/Coach in the Film page");
 	}	
 }
