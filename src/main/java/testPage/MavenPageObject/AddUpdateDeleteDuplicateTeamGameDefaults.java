@@ -419,7 +419,6 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		CreateAndAddNewMemberWithOrWithoutEmail_Obj createandaddnewmemberobj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
 		AddUpdateDeleteDuplicateTeamGameDefaults_TestData  addupdatedeleteobj= new AddUpdateDeleteDuplicateTeamGameDefaults_TestData();
 		ScheduleUnscheduleGames_Obj  scheduleunschedulegameobj=new ScheduleUnscheduleGames_Obj();
-		CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
 
 		//Step 1 : Verify that user is able to Login Snipback
 		//Expected : User should be able to login the film page with credentials
@@ -438,20 +437,20 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		base.buttonClick(loginObj.Edt_AlertMessage("Add Team"));
 		asrt.assertTrue(base.isExists(createandaddnewmemberobj.Ele_SearchGame("form-control form-control-wrap")),"User is unable to click on Add team (+ Add team) option in the film page");
 
-		//Step 4 : .Enter team name
+		//Step 4 : Enter team name
 		//Expected : User is able to enter team name
 		base.setData(createandaddnewmemberobj.Ele_SearchGame("form-control form-control-wrap"),addupdatedeleteobj.Team_11_TeamName);
 		asrt.assertTrue(base.isExists(scheduleunschedulegameobj.Btn_EventOK("btn btn-success teamname-ok-btn")),"User is unable to enter team name");
 
-		//Step 5 :Verify the Default Team Type dropdown
-		//Expected : User should be able to click on the Default Team Type dropdown and left the Default team type dropdown
-		base.selectorByVisibleText(createEditDeletePoolObj.Sel_PoolType("category"),addupdatedeleteobj.Team_11_SelectedDropdown);
+		//Step 5 : Verify the Default Team Type dropdown
+		//Expected : User should be able to left the Default team type field
+		base.selectorByVisibleText(CreateEditDeletePoolObj.Sel_PoolType("category"),addupdatedeleteobj.Team_11_SelectedDropdown);
 		String selectedDropdown=element.DropDownText(createandaddnewmemberobj.DdlOrg("form-select"));	
-		asrt.assertEquals(selectedDropdown , ""," User is unable to click on the Default Team Type field and left the Default team type field");
+		asrt.assertEquals(selectedDropdown , ""," User is unable to left the Default team type field");
 
-		//Step 6:Verify that "Please select the Game category" message with OK should be displayed when we enter the Team Name & left the Default team type field 
+		//Step 6: Verify that "Please select the Game category" message with OK should be displayed when we enter the Team Name & left the Default team type field 
 		//Expected : "Please select the Game category" message with OK should be displayed when we enter the Team Name & left the Default team type field
 		base.excuteJsClick(scheduleunschedulegameobj.Btn_EventOK("btn btn-success teamname-ok-btn"));
-		asrt.assertTrue(base.isExists(scheduleunschedulegameobj.Btn_EventOK("swal-button swal-button--confirm")),"User is unable to view the 'Please select the Game category' message with OK when entering the Team Name & left the Default team type field");
+		asrt.assertTrue(base.isExists(scheduleunschedulegameobj.Btn_EventOK("swal-button swal-button--confirm")) && base.isExists(loginObj.Ele_ErrorMessage("swal-text")),"User is unable to view the 'Please select the Game category' message with OK when entering the Team Name & left the Default team type field");		
 	}	
 }
