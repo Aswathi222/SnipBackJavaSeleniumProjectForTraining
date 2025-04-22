@@ -34,4 +34,7 @@ public class SearchGamesTeamAndMembers_TestData {
 	
 	//SH_14_SearchGamesTeamAndMembers
 	public static String SH_14_SearchGamesTeamAndMembers_Special="@";
+	
+	//SH_15_SearchGamesTeamAndMembers
+	public static String SH_15_SearchGamesTeamAndMembers="I'm not here";
 }

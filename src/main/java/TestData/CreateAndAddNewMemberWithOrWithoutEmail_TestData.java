@@ -119,6 +119,13 @@ public class CreateAndAddNewMemberWithOrWithoutEmail_TestData {
 	public static String WE_18_CreateandAddnewmemberTeam="475 Playmakers";
 	public static String WE_18_CreateandAddnewmemberEmail="test13@gmail.com";
 	public static String WE_18_CreateandAddnewmemberInvalidFullName="Ne";
+
+	// WE19_CreateandAddnewmemberwithorwithoutEmail
+	public static String WE_19_CreateandAddnewmemberOrganization="demo organization";
+	public static String WE_19_CreateandAddnewmemberTeam="475 Playmakers";
+	public static String WE_19_CreateandAddnewmemberEmail="test13@gmail.com";
+	public static String WE_19_CreateandAddnewmemberRole="Player";
+	public static String WE_19_CreateandAddnewmemberJerseyNumber="123";
 }
 
 
