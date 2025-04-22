@@ -505,4 +505,46 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		base.excuteJsClick(scheduleunschedulegameobj.Btn_EventOK("swal-button swal-button--confirm"));
 		asrt.assertTrue(base.isDoesNotExistBool(loginObj.Ele_ErrorMessage("swal-text")), "'Please select the Game category' message is not closed when user click on OK button");
 	}
+
+	// <summary>
+	// Test Case Title :Verify that the Team Name created successfully message with Close button should be  once enter the Team Name, select default team type & click on Tick option
+	// Automation ID :Team_13
+	// </summary>
+	public void Team_13_AddUpdateDeleteDuplicateTeamGameDefaults() throws InterruptedException 
+	{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login = new Login(driver);
+		CreateEditDeletePool_Obj CreateEditDeletePoolObj = new CreateEditDeletePool_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj createandaddnewmemberobj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		AddUpdateDeleteDuplicateTeamGameDefaults_TestData  addupdatedeleteobj= new AddUpdateDeleteDuplicateTeamGameDefaults_TestData();
+		ScheduleUnscheduleGames_Obj  scheduleunschedulegameobj=new ScheduleUnscheduleGames_Obj();
+		AddUpdateDeleteDuplicateTeamGameDefaults_Obj addUpdateObject=new AddUpdateDeleteDuplicateTeamGameDefaults_Obj();
+
+		//Step 1 : Verify that user is able to Login Snipback
+		//Expected : User should be able to login the film page with credentials
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(loginObj.Btn_SingnIn("nav-game-tab"))," User is unable to login the film page with credentials");
+
+		//Step 2 : Switch the organization if the User as Admin/Coach
+		//Expected : User is able to Switch the organization if the User as Admin/Coach
+		base.buttonClick(CreateEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		base.selectorByVisibleText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"),addupdatedeleteobj.Team_13_SelectedValueAdmin);
+		String selectOrg=element.DropDownText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"));			
+		asrt.assertEquals(selectOrg,addupdatedeleteobj.Team_13_SelectedValueAdmin,"User is unable to Switch the organization if the User as Admin/Coach");
+
+		//Step 3 : .Click on +Add team option
+		//Expected : User (Admin/Coach) should able to click on Add team (+ Add team) option in the Film page
+		base.buttonClick(loginObj.Edt_AlertMessage("Add Team"));
+		asrt.assertTrue(base.isExists(createandaddnewmemberobj.Ele_SearchGame("form-control form-control-wrap")),"User is unable to click on Add team (+ Add team) option in the film page");
+
+		//Step 4 : .Enter team name
+		//Expected : User is able to enter team name
+		base.setData(createandaddnewmemberobj.Ele_SearchGame("form-control form-control-wrap"),addupdatedeleteobj.Team_13_TeamName);
+		asrt.assertTrue(base.isExists(scheduleunschedulegameobj.Btn_EventOK("btn btn-success teamname-ok-btn")),"User is unable to enter team name");
+
+		//Step 5:Verify that the Team Name created successfully message with Close button should be  once enter the Team Name, select default team type & click on Tick option
+		//Expected :Team Name created successfully message with Close button should be viewed once entered the Team Name & click on Tick option and also select default team type	
+		base.excuteJsClick(scheduleunschedulegameobj.Btn_EventOK("btn btn-success teamname-ok-btn"));
+		asrt.assertTrue(base.isExists(addUpdateObject.Ele_Message("New Team Created Successfully")) && base.isExists(addUpdateObject.Btn_CloseClick("modal-body","modalMessageCloseBtn")), " 'Team Name created successfully' message with Close button is not viewed once entered the Team Name & click on Tick option and also select default team type");
+	}
 }

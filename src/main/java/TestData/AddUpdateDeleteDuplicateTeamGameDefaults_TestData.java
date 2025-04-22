@@ -41,4 +41,8 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults_TestData
 	public static String Team_12_SelectedValueAdmin="demo organization";
 	public static String Team_12_TeamName="Team";
 	public static String Team_12_SelectedDropdown="-select-";
+
+	//Team_13_AddUpdateDeleteDuplicateTeamGameDefaults
+	public static String Team_13_SelectedValueAdmin="demo organization";
+	public static String Team_13_TeamName="DefaultTeam";
 }
