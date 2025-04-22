@@ -15,6 +15,11 @@ public class AddorEditInfo_Test extends BaseTest
 		AddorEditInfo AddorEditInfoTest=new AddorEditInfo(getDriver());
 		AddorEditInfoTest.AI_01_AddEditInfo();
 	}	
-
+	@Test()
+	public void AI_02_AddorEditInfoTest() throws Exception 
+	{	
+		AddorEditInfo AddorEditInfoTest=new AddorEditInfo(getDriver());
+		AddorEditInfoTest.AI_02_AddEditInfo();
+	}
 }
 
