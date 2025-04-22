@@ -406,4 +406,51 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		base.excuteJsClick(loginObj.Edt_AlertMessage("ADD"));
 		asrt.assertTrue(base.isExists(scheduleunschedulegameobj.Btn_EventOK("btn popclose ms-auto d-table")),"User is unable to view the message 'The Team name is required for this Operation' if Team Name field is left blank");
 	}
+
+	// <summary>
+	// Test Case Title :Verify that "Please select the Game category" message with OK should be displayed when we enter the Team Name & left the Default team type field
+	// Automation ID :Team_11
+	// </summary>
+	public void Team_11_AddUpdateDeleteDuplicateTeamGameDefaults() throws InterruptedException 
+	{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login = new Login(driver);
+		CreateEditDeletePool_Obj CreateEditDeletePoolObj = new CreateEditDeletePool_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj createandaddnewmemberobj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		AddUpdateDeleteDuplicateTeamGameDefaults_TestData  addupdatedeleteobj= new AddUpdateDeleteDuplicateTeamGameDefaults_TestData();
+		ScheduleUnscheduleGames_Obj  scheduleunschedulegameobj=new ScheduleUnscheduleGames_Obj();
+
+		//Step 1 : Verify that user is able to Login Snipback
+		//Expected : User should be able to login the film page with credentials
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(loginObj.Btn_SingnIn("nav-game-tab"))," User is unable to login the film page with credentials");
+
+		//Step 2 : Switch the organization if the User as Admin/Coach
+		//Expected : User is able to Switch the organization if the User as Admin/Coach
+		base.buttonClick(CreateEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		base.selectorByVisibleText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"),addupdatedeleteobj.Team_11_SelectedValueAdmin);
+		String selectOrg=element.DropDownText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"));			
+		asrt.assertEquals(selectOrg,addupdatedeleteobj.Team_11_SelectedValueAdmin,"User is unable to Switch the organization if the User as Admin/Coach");
+
+		//Step 3 : .Click on +Add team option
+		//Expected : User (Admin/Coach) should able to click on Add team (+ Add team) option in the Film page
+		base.buttonClick(loginObj.Edt_AlertMessage("Add Team"));
+		asrt.assertTrue(base.isExists(createandaddnewmemberobj.Ele_SearchGame("form-control form-control-wrap")),"User is unable to click on Add team (+ Add team) option in the film page");
+
+		//Step 4 : Enter team name
+		//Expected : User is able to enter team name
+		base.setData(createandaddnewmemberobj.Ele_SearchGame("form-control form-control-wrap"),addupdatedeleteobj.Team_11_TeamName);
+		asrt.assertTrue(base.isExists(scheduleunschedulegameobj.Btn_EventOK("btn btn-success teamname-ok-btn")),"User is unable to enter team name");
+
+		//Step 5 : Verify the Default Team Type dropdown
+		//Expected : User should be able to left the Default team type field
+		base.selectorByVisibleText(CreateEditDeletePoolObj.Sel_PoolType("category"),addupdatedeleteobj.Team_11_SelectedDropdown);
+		String selectedDropdown=element.DropDownText(createandaddnewmemberobj.DdlOrg("form-select"));	
+		asrt.assertEquals(selectedDropdown , ""," User is unable to left the Default team type field");
+
+		//Step 6: Verify that "Please select the Game category" message with OK should be displayed when we enter the Team Name & left the Default team type field 
+		//Expected : "Please select the Game category" message with OK should be displayed when we enter the Team Name & left the Default team type field
+		base.excuteJsClick(scheduleunschedulegameobj.Btn_EventOK("btn btn-success teamname-ok-btn"));
+		asrt.assertTrue(base.isExists(scheduleunschedulegameobj.Btn_EventOK("swal-button swal-button--confirm")) && base.isExists(loginObj.Ele_ErrorMessage("swal-text")),"User is unable to view the 'Please select the Game category' message with OK when entering the Team Name & left the Default team type field");		
+	}	
 }
