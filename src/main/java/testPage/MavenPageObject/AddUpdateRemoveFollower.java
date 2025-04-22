@@ -99,11 +99,12 @@ public class AddUpdateRemoveFollower extends BasePge{
 		//Step3:Switch the organization if the User as Player/Follower 
 		//Expected:User should be able to switch the organization if they are Player/Follower 
 		base.selectorByVisibleText(cad_obj.DdlOrg("form-select select-form film-organizations"),test_obj.Follower_04_SelectedValue);
+		Thread.sleep(1000);
 		String Org_name=element.DropDownText(cad_obj.DdlOrg("form-select select-form film-organizations"));
 		asrt.assertEquals(Org_name,test_obj.Follower_04_SelectedValue,"User is not able to switch the organisation if they are Player/Follower");
 		
 		//Step4:Verify the Followers tab should  be disabled in Home organization and in the Organization if the User as Player/Follower in the Film page
 		//Expected:Followers tab should  be disabled in Home organization and in the Organization if the User as Player/Follower in the Film page
-		asrt.assertTrue(base.isExists(LoginPageObj.Btn_SingnIn("nav-followers-tab")),"Followers tab is not disabled in Home organization and in the Organization if the user as Player/Follower in the Film page");
+		asrt.assertTrue(element.isDisabledBy(LoginPageObj.Btn_SingnIn("nav-followers-tab")),"Followers tab is not disabled in Home organization and in the Organization if the user as Player/Follower in the Film page");
 	}	
 }
