@@ -126,4 +126,10 @@ public class CreateAndAddNewMemberWithOrWithoutEmail_Test extends BaseTest
 		CreateAndAddNewMemberWithOrWithoutEmail CreateandAddnewmemberwithorwithoutEmail = new CreateAndAddNewMemberWithOrWithoutEmail(getDriver());
 		CreateandAddnewmemberwithorwithoutEmail.WE_20_CreateAndAddNewMemberWithOrWithoutEmail();			
 	}
+	@Test()
+	public void WE_21_CreateAndAddNewMemberWithOrWithoutEmailTest() throws Exception 
+	{	
+		CreateAndAddNewMemberWithOrWithoutEmail CreateandAddnewmemberwithorwithoutEmail = new CreateAndAddNewMemberWithOrWithoutEmail(getDriver());
+		CreateandAddnewmemberwithorwithoutEmail.WE_21_CreateAndAddNewMemberWithOrWithoutEmail();			
+	}
 }
