@@ -506,6 +506,7 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		asrt.assertTrue(base.isDoesNotExistBool(loginObj.Ele_ErrorMessage("swal-text")), "'Please select the Game category' message is not closed when user click on OK button");
 	}
 
+
 	// <summary>
 	// Test Case Title :Verify that the Team Name created successfully message with Close button should be  once enter the Team Name, select default team type & click on Tick option
 	// Automation ID :Team_13
@@ -542,9 +543,15 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		base.setData(createandaddnewmemberobj.Ele_SearchGame("form-control form-control-wrap"),addupdatedeleteobj.Team_13_TeamName);
 		asrt.assertTrue(base.isExists(scheduleunschedulegameobj.Btn_EventOK("btn btn-success teamname-ok-btn")),"User is unable to enter team name");
 
-		//Step 5:Verify that the Team Name created successfully message with Close button should be  once enter the Team Name, select default team type & click on Tick option
+		//Step 5 :Select default team type
+		//Expected : User is able to Select default team type		
+		base.selectorByVisibleText(CreateEditDeletePoolObj.Sel_PoolType("category"),addupdatedeleteobj.Team_13_SelectedDropdown);
+		String selectedDropdown=element.DropDownText(CreateEditDeletePoolObj.Sel_PoolType("category"));	
+		asrt.assertEquals(selectedDropdown ,addupdatedeleteobj.Team_13_SelectedDropdown," User is unable to Select default team type");
+
+		//Step 6 :Click on Tick option
 		//Expected :Team Name created successfully message with Close button should be viewed once entered the Team Name & click on Tick option and also select default team type	
 		base.excuteJsClick(scheduleunschedulegameobj.Btn_EventOK("btn btn-success teamname-ok-btn"));
-		asrt.assertTrue(base.isExists(addUpdateObject.Ele_Message("New Team Created Successfully")) && base.isExists(addUpdateObject.Btn_CloseClick("modal-body","modalMessageCloseBtn")), " 'Team Name created successfully' message with Close button is not viewed once entered the Team Name & click on Tick option and also select default team type");
+		asrt.assertTrue(base.isExists(addUpdateObject.Ele_Message("New Team Created Successfully")) && base.isExists(addUpdateObject.Btn_CloseClick("modal-body","modalMessageCloseBtn")) && base.isExists(addUpdateObject.Ele_SelectedDropdown("category",addupdatedeleteobj.Team_13_SelectedDropdown)),"User is not able to view the 'Team Name created successfully' message with the Close button after entering the team name and selecting the default team type and clicking tick option");
 	}
 }
