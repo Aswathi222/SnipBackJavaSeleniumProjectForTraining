@@ -20,4 +20,18 @@ public class DuplicateTeam_Test extends BaseTest
 		DuplicateTeam duplicateteam = new DuplicateTeam(getDriver());
 		duplicateteam.DT_02_DuplicateTeam();			
 	}
+	
+	@Test()
+	public void DT_03_DuplicateTeamTest() throws Exception 
+	{	
+		DuplicateTeam duplicateteam = new DuplicateTeam(getDriver());
+		duplicateteam.DT_03_DuplicateTeam();			
+	}
+	
+	@Test()
+	public void DT_04_DuplicateTeamTest() throws Exception 
+	{	
+		DuplicateTeam duplicateteam = new DuplicateTeam(getDriver());
+		duplicateteam.DT_04_DuplicateTeam();			
+	}
 }
