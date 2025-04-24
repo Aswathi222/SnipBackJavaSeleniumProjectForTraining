@@ -151,6 +151,10 @@ public class CreateAndAddNewMemberWithOrWithoutEmail_TestData {
 	// WE23_CreateandAddnewmemberwithorwithoutEmail
 	public static String WE_23_CreateandAddnewmemberOrganization="demo organization";
 	public static String WE_23_CreateandAddnewmemberTeam="475 Playmakers";
+
+	// WE24_CreateandAddnewmemberwithorwithoutEmail
+	public static String WE_24_CreateandAddnewmemberOrganization="demo organization";
+	public static String WE_24_CreateandAddnewmemberTeam="475 Playmakers";
 }
 
 

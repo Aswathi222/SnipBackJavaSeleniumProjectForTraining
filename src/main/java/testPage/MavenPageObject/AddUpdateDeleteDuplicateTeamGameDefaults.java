@@ -554,4 +554,52 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		base.excuteJsClick(scheduleunschedulegameobj.Btn_EventOK("btn btn-success teamname-ok-btn"));
 		asrt.assertTrue(base.isExists(addUpdateObject.Ele_Message("New Team Created Successfully")) && base.isExists(addUpdateObject.Btn_CloseClick("modal-body","modalMessageCloseBtn")) && base.isExists(addUpdateObject.Ele_SelectedDropdown("category",addupdatedeleteobj.Team_13_SelectedDropdown)),"User is not able to view the 'Team Name created successfully' message with the Close button after entering the team name and selecting the default team type and clicking tick option");
 	}
+
+	// <summary>
+	// Test Case Title :Verify that "Team Name Already exists" message should displayed if we try to create same team name for different teams
+	// Automation ID :Team_15
+	// </summary>
+	public void Team_15_AddUpdateDeleteDuplicateTeamGameDefaults() throws InterruptedException 
+	{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login = new Login(driver);
+		CreateEditDeletePool_Obj CreateEditDeletePoolObj = new CreateEditDeletePool_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj createandaddnewmemberobj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		AddUpdateDeleteDuplicateTeamGameDefaults_TestData  addupdatedeleteobj= new AddUpdateDeleteDuplicateTeamGameDefaults_TestData();
+		ScheduleUnscheduleGames_Obj  scheduleunschedulegameobj=new ScheduleUnscheduleGames_Obj();
+		AddUpdateDeleteDuplicateTeamGameDefaults_Obj addUpdateObject=new AddUpdateDeleteDuplicateTeamGameDefaults_Obj();
+
+		//Step 1 : Verify that user is able to Login Snipback
+		//Expected : User should be able to login the film page with credentials
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(loginObj.Btn_SingnIn("nav-game-tab"))," User is unable to login the film page with credentials");
+
+		//Step 2 : Switch the organization if the User as Admin/Coach
+		//Expected : User is able to Switch the organization if the User as Admin/Coach
+		base.buttonClick(CreateEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		base.selectorByVisibleText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"),addupdatedeleteobj.Team_15_SelectedValueAdmin);
+		String selectOrg=element.DropDownText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"));			
+		asrt.assertEquals(selectOrg,addupdatedeleteobj.Team_15_SelectedValueAdmin,"User is unable to Switch the organization if the User as Admin/Coach");
+
+		//Step 3 : .Click on +Add team option
+		//Expected : User (Admin/Coach) should able to click on Add team (+ Add team) option in the Film page
+		base.buttonClick(loginObj.Edt_AlertMessage("Add Team"));
+		asrt.assertTrue(base.isExists(createandaddnewmemberobj.Ele_SearchGame("form-control form-control-wrap")),"User is unable to click on Add team (+ Add team) option in the film page");
+
+		//Step 4 : Enter team name
+		//Expected : User is able to enter team same name
+		base.setData(createandaddnewmemberobj.Ele_SearchGame("form-control form-control-wrap"),addupdatedeleteobj.Team_15_TeamName);
+		asrt.assertTrue(base.isExists(scheduleunschedulegameobj.Btn_EventOK("btn btn-success teamname-ok-btn")),"User is unable to enter same team name");
+
+		//Step 5 : Select the Game category
+		//Expected : User should be able to Select the Game category
+		base.selectorByVisibleText(CreateEditDeletePoolObj.Sel_PoolType("category"),addupdatedeleteobj.Team_15_SelectedDropdown);
+		String selectedDropdown=element.DropDownText(CreateEditDeletePoolObj.Sel_PoolType("category"));	
+		asrt.assertEquals(selectedDropdown ,addupdatedeleteobj.Team_15_SelectedDropdown," User is unable to to Select the Game category");
+
+		//Step 6 : Verify the message
+		//Expected : "Team Name Already exists" message should displayed if we try to create same team name for different teams
+		base.excuteJsClick(scheduleunschedulegameobj.Btn_EventOK("btn btn-success teamname-ok-btn"));
+		asrt.assertTrue(base.isExists(addUpdateObject.Ele_Message("Team name already exists.")), "'Team Name Already exists' message is not displayed when user enter same team name for different teams");		
+	}
 }
