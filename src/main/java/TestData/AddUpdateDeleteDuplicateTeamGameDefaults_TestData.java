@@ -56,4 +56,7 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults_TestData
 	public static String Team_16_SelectedValueAdmin="new-organization - Test-child";
 	public static String Team_16_TeamName="Tennis Team";
 	public static String Team_16_SelectedDropdown="Tennis";
+
+	//Team_17_AddUpdateDeleteDuplicateTeamGameDefaults
+	public static String Team_17_SelectedValueAdmin="new-organization - Test-child";
 }
