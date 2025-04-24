@@ -59,4 +59,15 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults_TestData
 
 	//Team_17_AddUpdateDeleteDuplicateTeamGameDefaults
 	public static String Team_17_SelectedValueAdmin="new-organization - Test-child";
+
+	//Team_18_AddUpdateDeleteDuplicateTeamGameDefaults
+	public static String Team_18_SelectedValueAdmin="new-organization - Test-child";
+	public static String Team_18_Dropdownselectedvalue1="Other category";
+	public static String Team_18_Dropdownselectedvalue2="Weight Lifting";
+	public static String Team_18_Dropdownselectedvalue3="Basketball";
+	public static String Team_18_Dropdownselectedvalue4="Baseball";
+	public static String Team_18_Dropdownselectedvalue5="Volleyball";
+	public static String Team_18_Dropdownselectedvalue6="Tennis";
+	public static String Team_18_Dropdownselectedvalue7="Football";
+	public static String Team_18_Dropdownselectedvalue8="Soccer";
 }
