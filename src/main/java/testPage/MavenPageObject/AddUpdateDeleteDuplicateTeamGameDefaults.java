@@ -655,4 +655,54 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		base.excuteJsClick(addUpdateObject.Btn_Close("modal","show","modalMessageCloseBtn","Close"));
 		asrt.assertTrue(base.isDoesNotExistBool(addUpdateObject.Ele_Message("Team name already exists.")),"'Team Name Already exists' message is not Closed when user click on Close button");
 	}
+
+	// <summary>
+	// Test Case Title :Verify that following options should be displayed when click on +Add team from Games/Members/Followers page
+	//                  1.ADD
+	//                  2.REMOVE
+	//                  3.Create & Add New member with Email
+	//                  4.Create & Add New member without Email
+	// Automation ID :Team_17
+	// </summary>
+	public void Team_17_AddUpdateDeleteDuplicateTeamGameDefaults() throws InterruptedException 
+	{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login = new Login(driver);
+		CreateEditDeletePool_Obj CreateEditDeletePoolObj = new CreateEditDeletePool_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj createandaddnewmemberobj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		AddUpdateDeleteDuplicateTeamGameDefaults_TestData  addupdatedeleteobj= new AddUpdateDeleteDuplicateTeamGameDefaults_TestData();
+
+		//Step 1 : Verify that user is able to Login Snipback
+		//Expected : User should be able to login the film page with credentials
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(loginObj.Btn_SingnIn("nav-game-tab"))," User is unable to login the film page with credentials");
+
+		//Step 2 : Switch the organization if the User as Admin/Coach
+		//Expected : User is able to Switch the organization if the User as Admin/Coach
+		base.buttonClick(CreateEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		base.selectorByVisibleText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"),addupdatedeleteobj.Team_17_SelectedValueAdmin);
+		String selectOrg=element.DropDownText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"));			
+		asrt.assertEquals(selectOrg,addupdatedeleteobj.Team_17_SelectedValueAdmin,"User is unable to Switch the organization if the User as Admin/Coach");
+
+		//Step 3 : .Click on +Add team option
+		//Expected : User (Admin/Coach) should able to click on Add team (+ Add team) option in the Film page
+		base.buttonClick(loginObj.Edt_AlertMessage("Add Team"));
+		asrt.assertTrue(base.isExists(createandaddnewmemberobj.Ele_SearchGame("form-control form-control-wrap")),"User is unable to click on Add team (+ Add team) option in the film page");
+
+		//Step 4 : Verify that ADD option is displayed when click on +Add team from Games/Members/Followers page
+		//Expected : User is able to view ADD option when click on +Add team from Games/Members/Followers page
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertMessage("ADD")),"User is unable to view ADD option when clicking +Add team from Games/Members/Followers page");
+
+		//Step 5 : Verify that REMOVE option is displayed when click on +Add team from Games/Members/Followers page
+		//Expected : User is able to view REMOVE option when click on +Add team from Games/Members/Followers page
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertMessage("REMOVE")),"User is unable to view REMOVE option when clicking +Add team from Games/Members/Followers page");
+
+		//Step 6 :Verify that Create & Add New member with Email option is displayed when click on +Add team from Games/Members/Followers page
+		//Expected : User is able to view Create & Add New member with Email option when click on +Add team from Games/Members/Followers page
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertMessage("Create & Add New Member With Email")),"User is unable to view Create & Add New Member With Email option when clicking +Add team from Games/Members/Followers page"); 
+
+		//Step 7 : Verify that Create & Add New member without Email option is displayed when click on +Add team from Games/Members/Followers page
+		//Expected : User is able to view Create & Add New member without Email option when click on +Add team from Games/Members/Followers page
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertMessage("Create & Add New Member Without Email")),"User is unable to view Create & Add New Member Without Email option when clicking +Add team from Games/Members/Followers page");
+	}
 }
