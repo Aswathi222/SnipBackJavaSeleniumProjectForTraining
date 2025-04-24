@@ -70,4 +70,7 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults_TestData
 	public static String Team_18_Dropdownselectedvalue6="Tennis";
 	public static String Team_18_Dropdownselectedvalue7="Football";
 	public static String Team_18_Dropdownselectedvalue8="Soccer";
+
+	//Team_20_AddUpdateDeleteDuplicateTeamGameDefaults
+	public static String Team_20_SelectedValueAdmin="new-organization - Test-child";
 }
