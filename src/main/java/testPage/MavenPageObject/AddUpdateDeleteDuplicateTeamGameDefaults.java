@@ -1,6 +1,9 @@
 package testPage.MavenPageObject;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import TestData.AddUpdateDeleteDuplicateTeamGameDefaults_TestData;
@@ -704,5 +707,71 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		//Step 7 : Verify that Create & Add New member without Email option is displayed when click on +Add team from Games/Members/Followers page
 		//Expected : User is able to view Create & Add New member without Email option when click on +Add team from Games/Members/Followers page
 		asrt.assertTrue(base.isExists(loginObj.Edt_AlertMessage("Create & Add New Member Without Email")),"User is unable to view Create & Add New Member Without Email option when clicking +Add team from Games/Members/Followers page");
+	}
+
+	// <summary>
+	// Test Case Title :Verify that the following game cateogory should be displayed in Default team type dropdown;
+	//              1.Baseball
+	//              2.Basketball
+	//              3.Football
+	//              4.Tennis
+	//              5.Volleyball
+	//              6.Weight Lifting
+	//              7.Soccer
+	//              8.Other
+	// Automation ID :Team_18
+	// </summary>
+	public void Team_18_AddUpdateDeleteDuplicateTeamGameDefaults() throws InterruptedException 
+	{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login = new Login(driver);
+		CreateEditDeletePool_Obj CreateEditDeletePoolObj = new CreateEditDeletePool_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj createandaddnewmemberobj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		AddUpdateDeleteDuplicateTeamGameDefaults_TestData  addupdatedeleteobj= new AddUpdateDeleteDuplicateTeamGameDefaults_TestData();
+
+		//Step 1 : Verify that user is able to Login Snipback
+		//Expected : User should be able to login the film page with credentials
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(loginObj.Btn_SingnIn("nav-game-tab"))," User is unable to login the film page with credentials");
+
+		//Step 2 : Switch the organization if the User as Admin/Coach
+		//Expected : User is able to Switch the organization if the User as Admin/Coach
+		base.buttonClick(CreateEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		base.selectorByVisibleText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"),addupdatedeleteobj.Team_18_SelectedValueAdmin);
+		String selectOrg=element.DropDownText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"));			
+		asrt.assertEquals(selectOrg,addupdatedeleteobj.Team_18_SelectedValueAdmin,"User is unable to Switch the organization if the User as Admin/Coach");
+
+		//Step 3 : .Click on +Add team option
+		//Expected : User (Admin/Coach) should able to click on Add team (+ Add team) option in the Film page
+		base.buttonClick(loginObj.Edt_AlertMessage("Add Team"));
+		asrt.assertTrue(base.isExists(createandaddnewmemberobj.Ele_SearchGame("form-control form-control-wrap")),"User is unable to click on Add team (+ Add team) option in the film page");
+
+		//Step 4 : Click on Default team type dropdown
+		//Expected :Verify that the following game cateogory should be displayed in Default team type dropdown;
+		//          1.Baseball
+		//          2.Basketball
+		//          3.Football
+		//          4.Tennis
+		//          5.Volleyball
+		//          6.Weight Lifting
+		//          7.Soccer
+		//          8.Other
+		List<WebElement> DropdownOptions = base.getTheAllOptions(CreateEditDeletePoolObj.Sel_PoolType("category"));
+		List<String> expectedOptions = Arrays.asList(addupdatedeleteobj.Team_18_Dropdownselectedvalue1,addupdatedeleteobj.Team_18_Dropdownselectedvalue2,addupdatedeleteobj.Team_18_Dropdownselectedvalue3,
+				addupdatedeleteobj.Team_18_Dropdownselectedvalue4,addupdatedeleteobj.Team_18_Dropdownselectedvalue5,addupdatedeleteobj.Team_18_Dropdownselectedvalue6,
+				addupdatedeleteobj.Team_18_Dropdownselectedvalue7,addupdatedeleteobj.Team_18_Dropdownselectedvalue8);
+		List<String> availableOptions = new ArrayList<>();
+		for (WebElement option : DropdownOptions) 
+		{
+			String optionText = option.getText().trim();
+			if (!optionText.equalsIgnoreCase("-select-") && !optionText.isEmpty())
+			{
+				availableOptions.add(optionText);
+			}
+		}
+		for (String expected : expectedOptions)
+		{
+			asrt.assertTrue(availableOptions.contains(expected),"User is unable to view game cateogory '"+expected+"' in Default team type dropdown ");
+		}
 	}
 }
