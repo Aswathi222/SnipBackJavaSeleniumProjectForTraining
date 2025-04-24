@@ -13,4 +13,5 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults_Obj
 
 	//Btn
 	public By Btn_CloseClick(String Classvalue,String Closebuttonid) {return By.xpath("//div[@class='"+Classvalue+"']//button[@id='"+Closebuttonid+"']");}
+	public By Btn_Close(String Classvalue1, String Classvalue2, String closebuttonid,String text) {return By.xpath("//div[contains(@class,'"+Classvalue1+"') and contains(@class,'"+Classvalue2+"')]//button[@id='"+closebuttonid+"' and text()='"+text+"']");}
 }
