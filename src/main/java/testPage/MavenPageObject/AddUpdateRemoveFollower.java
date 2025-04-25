@@ -103,7 +103,7 @@ public class AddUpdateRemoveFollower extends BasePge{
 		//Step3:Switch the organization if the User as Player/Follower 
 		//Expected:User should be able to switch the organization if they are Player/Follower 
 		base.selectorByVisibleText(cad_obj.DdlOrg("form-select select-form film-organizations"),test_obj.Follower_04_SelectedValue);
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		String Org_name=element.DropDownText(cad_obj.DdlOrg("form-select select-form film-organizations"));
 		asrt.assertEquals(Org_name,test_obj.Follower_04_SelectedValue,"User is not able to switch the organisation if they are Player/Follower");
 		
@@ -134,7 +134,7 @@ public class AddUpdateRemoveFollower extends BasePge{
 		//Step3:Switch the organization if the User as Admin/Coach
 		//Expected:User should be able to switch the organization if they are an Admin or Coach
 		base.selectorByVisibleText(cad_obj.DdlOrg("form-select select-form film-organizations"),test_obj.Follower_05_SelectedValue);
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		String Org_name=element.DropDownText(cad_obj.DdlOrg("form-select select-form film-organizations"));
 		asrt.assertEquals(Org_name,test_obj.Follower_05_SelectedValue,"User is not able to switch the organisation if they are an Admin or Coach");
 				
@@ -166,7 +166,7 @@ public class AddUpdateRemoveFollower extends BasePge{
 		//Step3:Switch the organization if the User as Admin/Coach
 		//Expected:User should be able to switch the organization if they are an Admin or Coach
 		base.selectorByVisibleText(cad_obj.DdlOrg("form-select select-form film-organizations"),test_obj.Follower_05_SelectedValue);
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		String Org_name=element.DropDownText(cad_obj.DdlOrg("form-select select-form film-organizations"));
 		asrt.assertEquals(Org_name,test_obj.Follower_05_SelectedValue,"User is not able to switch the organisation if they are an Admin or Coach");
 				
@@ -183,7 +183,7 @@ public class AddUpdateRemoveFollower extends BasePge{
 		//Expected:Proper Results should be displayed based on the search
 		base.setData(LoginPageObj.Edt_LoginEmail("teamGroupMembers"),test_obj.Follower_06_SelectedValue);
 		base.pressKey(null,"KEYBOARD_ENTER" );
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		String follow_searchName=base.GetValue(LoginPageObj.Edt_LoginEmail("teamGroupMembers"));
 		asrt.assertEquals(follow_searchName,test_obj.Follower_06_SelectedValue,"User is not able to see the proper results based on the search");
 	}
@@ -211,7 +211,7 @@ public class AddUpdateRemoveFollower extends BasePge{
 		//Step3:Switch the organization if the User as Admin/Coach
 		//Expected:User should be able to switch the organization if they are an Admin or Coach
 		base.selectorByVisibleText(cad_obj.DdlOrg("form-select select-form film-organizations"),test_obj.Follower_07_SelectedValue);
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		String Org_name=element.DropDownText(cad_obj.DdlOrg("form-select select-form film-organizations"));
 		asrt.assertEquals(Org_name,test_obj.Follower_07_SelectedValue,"User is not able to switch the organisation if they are an Admin or Coach");
 				
