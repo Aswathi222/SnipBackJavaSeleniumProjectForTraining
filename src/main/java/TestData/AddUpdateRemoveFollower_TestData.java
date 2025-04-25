@@ -6,4 +6,13 @@ public class AddUpdateRemoveFollower_TestData {
 	
 	//Follower_04_AddUpdateRemoveFollower
 	public static String Follower_04_SelectedValue="Zadd 02 - test";
+	
+	//Follower_05_AddUpdateRemoveFollower
+	public static String Follower_05_SelectedValue="backsnipai";
+	
+	//Follower_06_AddUpdateRemoveFollower
+	public static String Follower_06_SelectedValue="checkuser";
+	
+	//Follower_07_AddUpdateRemoveFollower
+	public static String Follower_07_SelectedValue="backsnipai";
 }
