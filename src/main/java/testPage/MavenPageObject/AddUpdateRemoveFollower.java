@@ -210,10 +210,10 @@ public class AddUpdateRemoveFollower extends BasePge{
 		
 		//Step3:Switch the organization if the User as Admin/Coach
 		//Expected:User should be able to switch the organization if they are an Admin or Coach
-		base.selectorByVisibleText(cad_obj.DdlOrg("form-select select-form film-organizations"),test_obj.Follower_05_SelectedValue);
+		base.selectorByVisibleText(cad_obj.DdlOrg("form-select select-form film-organizations"),test_obj.Follower_07_SelectedValue);
 		Thread.sleep(1000);
 		String Org_name=element.DropDownText(cad_obj.DdlOrg("form-select select-form film-organizations"));
-		asrt.assertEquals(Org_name,test_obj.Follower_05_SelectedValue,"User is not able to switch the organisation if they are an Admin or Coach");
+		asrt.assertEquals(Org_name,test_obj.Follower_07_SelectedValue,"User is not able to switch the organisation if they are an Admin or Coach");
 				
 		//Step4:Click on Followers tab
 		//Expected:The user (Admin/Coach) should able to click on Followers tab in the Film page
