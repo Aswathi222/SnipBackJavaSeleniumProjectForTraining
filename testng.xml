@@ -7,24 +7,48 @@
   <test thread-count="1" name="Test">
      <parameter name="Browser" value="Chrome"/>
     <classes>  
-<class name="testScenario.ForgotPassword.ForgotPassword_Test">
+<class name="testScenario.DuplicateTeam.DuplicateTeam_Test">
+	<methods>
+		<include name="DT_01_DuplicateTeamTest()" />
+		<include name="DT_02_DuplicateTeamTest()" />
+		<include name="DT_03_DuplicateTeamTest()" />
+		<include name="DT_04_DuplicateTeamTest()" />			
+	</methods>
+</class>    
+<class name="testScenario.PublicGameListing.PublicGameListing_Test">
 		   <methods>
-               <include name="FP01_ForgotPasswordTest()"/>
-               <include name="FP02_ForgotPasswordTest()"/>
-               <include name="FP03_ForgotPasswordTest()"/>
-               <include name="FP04_ForgotPasswordTest()"/>				
-      </methods> 
-       </class>
-<class name="testScenario.ScheduleUnscheduleGames.ScheduleUnscheduleGames_Test">
+                <include name="GameListing_01_PublicGameListingTest()"/>
+               <include name="GameListing_02_PublicGameListingTest()"/>
+               <include name="GameListing_03_PublicGameListingTest()"/>
+               <include name="GameListing_04_PublicGameListingTest()"/>
+               <include name="GameListing_05_PublicGameListingTest()"/>
+               <include name="GameListing_06_PublicGameListingTest()"/>
+               <include name="GameListing_07_PublicGameListingTest()"/>
+               <include name="GameListing_08_PublicGameListingTest()"/>
+               <include name="GameListing_09_PublicGameListingTest()"/>
+               <include name="GameListing_10_PublicGameListingTest()"/>
+               <include name="GameListing_11_PublicGameListingTest()"/>
+               <include name="GameListing_12_PublicGameListingTest()"/>
+			   <include name="GameListing_13_PublicGameListingTest()"/>
+			   <include name="GameListing_14_PublicGameListingTest()"/>
+			   <include name="GameListing_15_PublicGameListingTest()"/>
+			   <include name="GameListing_16_PublicGameListingTest()"/>
+			   <include name="GameListing_17_PublicGameListingTest()"/>
+			   <include name="GameListing_18_PublicGameListingTest()"/>
+		   </methods>
+      </class>
+
+<class name="testScenario.AddUpdateRemoveFollower.AddUpdateRemoveFollower_Test">
 		   <methods>
-               <include name="SG_01_ScheduleUnscheduleGamesTest()"/> 
-               <include name="SG_02_ScheduleUnscheduleGamesTest()"/>
-               <include name="SG_03_ScheduleUnscheduleGamesTest()"/>
-               <include name="SG_04_ScheduleUnscheduleGamesTest()"/> 
-               <include name="SG_05_ScheduleUnscheduleGamesTest()"/> 
-               <include name="SG_06_ScheduleUnscheduleGamesTest()"/>      
-		   </methods> 
-       </class>     
+               <include name="Follower_01_AddUpdateRemoveFollowerTest()"/>
+               <include name="Follower_02_AddUpdateRemoveFollowerTest()"/>
+               <include name="Follower_03_AddUpdateRemoveFollowerTest()"/>
+               <include name="Follower_04_AddUpdateRemoveFollowerTest()"/>
+               <include name="Follower_05_AddUpdateRemoveFollowerTest()"/>
+               <include name="Follower_06_AddUpdateRemoveFollowerTest()"/>
+               <include name="Follower_07_AddUpdateRemoveFollowerTest()"/>
+		   </methods>
+      </class>  
 <class name="testScenario.CreateAndAddNewMemberWithOrWithoutEmail.CreateAndAddNewMemberWithOrWithoutEmail_Test">
 		  <methods>
               <include name="WE_01_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
@@ -38,8 +62,50 @@
               <include name="WE_09_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
               <include name="WE_10_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
               <include name="WE_11_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+              <include name="WE_12_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+              <include name="WE_13_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+              <include name="WE_14_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+              <include name="WE_15_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+              <include name="WE_16_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+              <include name="WE_17_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+              <include name="WE_18_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+              <include name="WE_19_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+              <include name="WE_20_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+              <include name="WE_21_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+              <include name="WE_22_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+              <include name="WE_23_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
+              <include name="WE_24_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
        </methods>
        </class>
+<class name="testScenario.ForgotPassword.ForgotPassword_Test">
+		   <methods>
+               <include name="FP01_ForgotPasswordTest()"/>
+               <include name="FP02_ForgotPasswordTest()"/>
+               <include name="FP03_ForgotPasswordTest()"/>
+               <include name="FP04_ForgotPasswordTest()"/>				
+      </methods>
+       </class> 
+<class name="testScenario.ScheduleUnscheduleGames.ScheduleUnscheduleGames_Test">
+		   <methods>
+               <include name="SG_01_ScheduleUnscheduleGamesTest()"/>
+               <include name="SG_02_ScheduleUnscheduleGamesTest()"/>
+               <include name="SG_03_ScheduleUnscheduleGamesTest()"/>
+               <include name="SG_04_ScheduleUnscheduleGamesTest()"/>
+               <include name="SG_05_ScheduleUnscheduleGamesTest()"/>
+               <include name="SG_06_ScheduleUnscheduleGamesTest()"/>      
+		   </methods>
+       </class>
+<class name="testScenario.SnipBackRegistration.SnipBackRegistration_Test">
+			<methods>
+				<include name="TC01_RegistrationTest()" />
+				<include name="TC02_RegistrationTest()"></include>
+				<include name="TC03_RegistrationTest()" />
+				<include name="TC04_RegistrationTest()" />
+				<include name="TC05_Registration()" />
+				<include name="TC07_RegistrationTest()" />
+				<include name="TC06_RegistrationTest()" />
+				</methods>
+			</class>
 <class name="testScenario.AddUpdateDeleteDuplicateTeamGameDefaults.AddUpdateDeleteDuplicateTeamGameDefaults_Test">
 		   <methods>
 		     <include name="Team_01_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
@@ -47,27 +113,25 @@
 		     <include name="Team_03_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
 		     <include name="Team_04_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
 		     <include name="Team_05_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+		     <include name="Team_06_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+		     <include name="Team_07_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+		     <include name="Team_08_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+		     <include name="Team_09_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+		     <include name="Team_10_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+		     <include name="Team_11_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+		     <include name="Team_12_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+		     <include name="Team_13_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+		     <include name="Team_15_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+		     <include name="Team_16_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+		     <include name="Team_17_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+		     <include name="Team_18_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+		     <include name="Team_20_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+		     <include name="Team_21_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
        </methods>
        </class>
-<class name="testScenario.PublicGameListing.PublicGameListing_Test">
-		   <methods>
-               <include name="GameListing_01_PublicGameListingTest()"/>
-               <include name="GameListing_02_PublicGameListingTest()"/>
-               <include name="GameListing_03_PublicGameListingTest()"/>
-               <include name="GameListing_04_PublicGameListingTest()"/>
-               <include name="GameListing_05_PublicGameListingTest()"/>
-               <include name="GameListing_06_PublicGameListingTest()"/>
-               <include name="GameListing_07_PublicGameListingTest()"/>
-               <include name="GameListing_08_PublicGameListingTest()"/>
-               <include name="GameListing_09_PublicGameListingTest()"/>
-               <include name="GameListing_10_PublicGameListingTest()"/>
-               <include name="GameListing_11_PublicGameListingTest()"/>
-		   </methods>
-      </class>          
-      <class
-				name="testScenario.SearchGamesTeamAndMembers.SearchGamesTeamAndMembers_Test">
+<class name="testScenario.SearchGamesTeamAndMembers.SearchGamesTeamAndMembers_Test">
 				<methods>
-					<include name="SH_01_SearchGamesTeamAndMembersTest()" />
+				     <include name="SH_01_SearchGamesTeamAndMembersTest()" />
 					<include name="SH_02_SearchGamesTeamAndMembersTest()"></include>
 					<include name="SH_03_SearchGamesTeamAndMembersTest()" />
 					<include name="SH_04_SearchGamesTeamAndMembersTest()" />
@@ -78,10 +142,13 @@
 					<include name="SH_09_SearchGamesTeamAndMembers()" />
 					<include name="SH_10_SearchGamesTeamAndMembers()" />
 					<include name="SH_11_SearchGamesTeamAndMembers()" />
+					<include name="SH_12_SearchGamesTeamAndMembersTest()" />
+                    <include name="SH_13_SearchGamesTeamAndMembersTest()" />
+                    <include name="SH_14_SearchGamesTeamAndMembersTest()" />
+                    <include name="SH_15_SearchGamesTeamAndMembersTest()" />
 				</methods>
 			</class>
-				<class
-				name="testScenario.CreateEditDeletePool.CreateEditDeletePool_Test">
+<class name="testScenario.CreateEditDeletePool.CreateEditDeletePool_Test">
 				<methods>
 					<include name="TC_01_CreateEditDeletePoolTest()" />
 					<include name="TC_02_CreateEditDeletePoolTest()"></include>
@@ -94,34 +161,31 @@
 					<include name="TC_09_CreateEditDeletePoolTest()" />
 					<include name="TC_10_CreateEditDeletePoolTest()" />
 					<include name="TC_11_CreateEditDeletePoolTest()" />
-
 				</methods>
 			</class>
-			<class
-				name="testScenario.SocialMediaSignIn.SocialMediaSignIn_Test">
+<class name="testScenario.SocialMediaSignIn.SocialMediaSignIn_Test">
 				<methods>
 					<include name="TC_01SocialMediaSignIn_Test()" />
 					<include name="TC_02SocialMediaSignIn_Test()"></include>
 				</methods>
 			</class>
-			<class
-				name="testScenario.SnipBackRegistration.SnipBackRegistration_Test">
-				<methods>
-					<include name="TC01_RegistrationTest()" />
-					<include name="TC02_RegistrationTest()"></include>
-					<include name="TC03_RegistrationTest()" />
-					<include name="TC04_RegistrationTest()" />
-					<include name="TC05_Registration()" />
-					<exclude name="TC06_RegistrationTest()" />
-					<include name="TC07_RegistrationTest()" />
-				</methods>
-			</class>
-			<class name="testScenario.SnipBackLogin.SnipBackLogin_Test">
+<class name="testScenario.SnipBackLogin.SnipBackLogin_Test">
 				<methods>
 					<include name="TC01_SH_LoginTest()" />
 					<include name="TC02_SH_LoginTest()"></include>
 				</methods>
 			</class>
+<class name="testScenario.AddorEditInfo.AddorEditInfo_Test">
+                <methods>
+                    <include name="AI_01_AddorEditInfoTest()"/>
+                    <include name="AI_02_AddorEditInfoTest()"/>
+                    <include name="AI_03_AddorEditInfoTest()"/>
+                    <include name="AI_04_AddorEditInfoTest()"/>
+                    <include name="AI_05_AddorEditInfoTest()"/>
+                    <include name="AI_06_AddorEditInfoTest()"/>
+                    <include name="AI_07_AddorEditInfoTest()"/>
+                </methods>
+             </class>     
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

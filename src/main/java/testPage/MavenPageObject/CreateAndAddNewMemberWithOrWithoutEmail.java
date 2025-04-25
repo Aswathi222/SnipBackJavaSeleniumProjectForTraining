@@ -683,7 +683,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Expected : User should be able to Switch to any Team.
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_12_CreateandAddnewmemberTeam);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
-		base.buttonClick(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		base.excuteJsClick(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
 		String TeamName = base.GetText(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
 		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_12_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
 
@@ -696,6 +696,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 6 :  Select "Edit Team" option 
 		//Expected : User should be able to select "Edit Team" option.
 		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_EditTeam("475 Playmakers"));
+		Thread.sleep(5000);
 		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
 
 		//Step 7 :   Click Create&Add New Member with Email
@@ -740,7 +741,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Expected : User should be able to Switch to any Team.
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_13_CreateandAddnewmemberTeam);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
-		base.buttonClick(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		base.excuteJsClick(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
 		String TeamName = base.GetText(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
 		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_13_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
 
@@ -794,7 +795,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Expected : User should be able to Switch to any Team.
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), CreateAndAddNewMemberTestDataobj.WE_14_CreateandAddnewmemberTeam);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
-		base.buttonClick(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		base.excuteJsClick(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
 		String TeamName = base.GetText(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
 		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_14_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
 
@@ -807,6 +808,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 6 :  Select "Edit Team" option 
 		//Expected : User should be able to select "Edit Team" option.
 		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_EditTeam("475 Playmakers"));
+		Thread.sleep(5000);
 		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
 
 		//Step 7 :   Click Create&Add New Member with Email
@@ -1014,6 +1016,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 				CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_Email("full_name add_user_field_elements"), CreateAndAddNewMemberTestDataobj.WE_17_CreateandAddnewmemberFullName,
 				CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("add-user-form-control add_user_field_elements"),CreateAndAddNewMemberTestDataobj.WE_17_CreateandAddnewmemberJerseyNumber);
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("add-user-form-control form-select add_user_field_elements"), CreateAndAddNewMemberTestDataobj.WE_17_CreateandAddnewmemberRole);
+		Thread.sleep(5000);
 		base.buttonClick(LoginPageObj.Btn_Logout("card_2", "add-user-card-options card-remove-btn"));
 		base.buttonClick(LoginPageObj.Btn_SingnIn("saveMutipleUsers"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText("Users Added Successfully!")), "User is not able to add new user.");		
@@ -1139,6 +1142,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 				CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_Email("user_field_elements ui-autocomplete-input"), CreateAndAddNewMemberTestDataobj.WE_19_CreateandAddnewmemberEmail,
 				CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("add-user-form-control add_user_field_elements"),CreateAndAddNewMemberTestDataobj.WE_19_CreateandAddnewmemberJerseyNumber);
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("add-user-form-control form-select add_user_field_elements"), CreateAndAddNewMemberTestDataobj.WE_19_CreateandAddnewmemberRole);
+		Thread.sleep(5000);
 		base.clearAllText(CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_Email("full_name add_user_field_elements"));
 		base.pressKey(CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_Email("full_name add_user_field_elements"), "ENTER");	
 		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_Error("Please Enter the User's name. ")), "User is not receiving alert message as \"Please Enter the User's name.\"");		
@@ -1165,6 +1169,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_20_CreateandAddnewmemberOrganization);
+		Thread.sleep(5000);
 		String Text = element.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_20_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
@@ -1231,7 +1236,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_21_CreateandAddnewmemberOrganization);
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		String Text = element.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_21_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
@@ -1270,6 +1275,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 				CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_Email("user_field_elements ui-autocomplete-input"), CreateAndAddNewMemberTestDataobj.WE_21_CreateandAddnewmemberEmail,
 				CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_Email("full_name add_user_field_elements"), CreateAndAddNewMemberTestDataobj.WE_21_CreateandAddnewmemberFullName);
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("add-user-form-control form-select add_user_field_elements"), CreateAndAddNewMemberTestDataobj.WE_21_CreateandAddnewmemberRole);
+		Thread.sleep(5000);
 		base.buttonClick(LoginPageObj.Btn_Logout("card_2", "add-user-card-options card-remove-btn"));
 		base.buttonClick(LoginPageObj.Btn_SingnIn("saveMutipleUsers"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText("Users Added Successfully!")), "The user is not able to add new member without any alert message.");	
@@ -1290,12 +1296,14 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 2 : Login to Snipback
 		//Expected : User should be able to login.
+		Thread.sleep(5000);
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("GAMES")), "User is not able to login");
 
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_22_CreateandAddnewmemberOrganization);
+		Thread.sleep(5000);
 		String Text = element.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_22_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
@@ -1310,6 +1318,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 5 : Click three dots of that team
 		//Expected : User should be able to Click three dots of that team.
 		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_ThreeDots("my-team-content", "defaultDropdown-1"));
+		Thread.sleep(5000);
 		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_list("my-team-content", "teamDropdownMenu-1")), "User is not able to Click three dots of that team");
 		Thread.sleep(7000);
 
@@ -1334,7 +1343,9 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 				CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_Email("user_field_elements ui-autocomplete-input"), CreateAndAddNewMemberTestDataobj.WE_22_CreateandAddnewmemberEmail,
 				CreateAndAddNewMemberWithOrWithoutEmailObj.Edt_Email("full_name add_user_field_elements"), CreateAndAddNewMemberTestDataobj.WE_22_CreateandAddnewmemberFullName);
 		base.buttonClick(LoginPageObj.Btn_Logout("card_2", "add-user-card-options card-remove-btn"));
+		Thread.sleep(3000);
 		base.buttonClick(LoginPageObj.Btn_SingnIn("saveMutipleUsers"));
+		Thread.sleep(3000);
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText("Users Added Successfully!")), "The user is not able to add new member .");	
 	}
 	//<summery>
@@ -1359,6 +1370,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 3 : Select any organization
 		//Expected : User should be able to select any organization.
 		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), CreateAndAddNewMemberTestDataobj.WE_23_CreateandAddnewmemberOrganization);
+		Thread.sleep(5000);
 		String Text = element.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
 		asrt.assertEquals(Text, CreateAndAddNewMemberTestDataobj.WE_23_CreateandAddnewmemberOrganization, "User is not able to select any organization.");
 
@@ -1429,6 +1441,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 6 :  Select "Edit Team" option 
 		//Expected : User should be able to select "Edit Team" option.
 		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_EditTeam("475 Playmakers"));
+		Thread.sleep(5000);
 		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
 
 		//Step 7 :   Click Create&Add New Member without Email
