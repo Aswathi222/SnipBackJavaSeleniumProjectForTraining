@@ -1,5 +1,7 @@
 package TestData;
 
+import utilPack.BasePge;
+
 public class AddUpdateDeleteDuplicateTeamGameDefaults_TestData 
 {
 	//Team_03_AddUpdateDeleteDuplicateTeamGameDefaults
@@ -73,4 +75,9 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults_TestData
 
 	//Team_20_AddUpdateDeleteDuplicateTeamGameDefaults
 	public static String Team_20_SelectedValueAdmin="new-organization - Test-child";
+
+	//Team_21_AddUpdateDeleteDuplicateTeamGameDefaults
+	public static String Team_21_SelectedValueAdmin="new-organization - Test-child";
+	public static String Team_21_TeamName="Team"+ BasePge.CreateRandomWithoutNumbers(3);
+	public static String Team_21_SelectedDropdown="Tennis";
 }
