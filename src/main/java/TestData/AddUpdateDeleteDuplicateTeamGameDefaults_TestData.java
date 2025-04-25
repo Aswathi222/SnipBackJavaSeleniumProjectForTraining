@@ -1,5 +1,7 @@
 package TestData;
 
+import utilPack.BasePge;
+
 public class AddUpdateDeleteDuplicateTeamGameDefaults_TestData 
 {
 	//Team_03_AddUpdateDeleteDuplicateTeamGameDefaults
@@ -51,4 +53,31 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults_TestData
 	public static String Team_15_SelectedValueAdmin="demo organization";
 	public static String Team_15_TeamName="Tennis Team";
 	public static String Team_15_SelectedDropdown="Baseball";
+
+	//Team_16_AddUpdateDeleteDuplicateTeamGameDefaults
+	public static String Team_16_SelectedValueAdmin="new-organization - Test-child";
+	public static String Team_16_TeamName="Tennis Team";
+	public static String Team_16_SelectedDropdown="Tennis";
+
+	//Team_17_AddUpdateDeleteDuplicateTeamGameDefaults
+	public static String Team_17_SelectedValueAdmin="new-organization - Test-child";
+
+	//Team_18_AddUpdateDeleteDuplicateTeamGameDefaults
+	public static String Team_18_SelectedValueAdmin="new-organization - Test-child";
+	public static String Team_18_Dropdownselectedvalue1="Other category";
+	public static String Team_18_Dropdownselectedvalue2="Weight Lifting";
+	public static String Team_18_Dropdownselectedvalue3="Basketball";
+	public static String Team_18_Dropdownselectedvalue4="Baseball";
+	public static String Team_18_Dropdownselectedvalue5="Volleyball";
+	public static String Team_18_Dropdownselectedvalue6="Tennis";
+	public static String Team_18_Dropdownselectedvalue7="Football";
+	public static String Team_18_Dropdownselectedvalue8="Soccer";
+
+	//Team_20_AddUpdateDeleteDuplicateTeamGameDefaults
+	public static String Team_20_SelectedValueAdmin="new-organization - Test-child";
+
+	//Team_21_AddUpdateDeleteDuplicateTeamGameDefaults
+	public static String Team_21_SelectedValueAdmin="new-organization - Test-child";
+	public static String Team_21_TeamName="Team"+ BasePge.CreateRandomWithoutNumbers(3);
+	public static String Team_21_SelectedDropdown="Tennis";
 }
