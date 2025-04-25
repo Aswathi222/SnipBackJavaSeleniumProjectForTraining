@@ -774,4 +774,39 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 			asrt.assertTrue(availableOptions.contains(expected),"User is unable to view game cateogory '"+expected+"' in Default team type dropdown ");
 		}
 	}
+
+	// <summary>
+	// Test Case Title :Verify that Save button should be displayed to Save the team after we created with required details 
+	// Automation ID :Team_20
+	// </summary>
+	public void Team_20_AddUpdateDeleteDuplicateTeamGameDefaults() throws InterruptedException 
+	{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login = new Login(driver);
+		CreateEditDeletePool_Obj CreateEditDeletePoolObj = new CreateEditDeletePool_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj createandaddnewmemberobj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		AddUpdateDeleteDuplicateTeamGameDefaults_TestData  addupdatedeleteobj= new AddUpdateDeleteDuplicateTeamGameDefaults_TestData();
+		ScheduleUnscheduleGames_Obj  scheduleunschedulegameobj=new ScheduleUnscheduleGames_Obj();
+
+		//Step 1 : Verify that user is able to Login Snipback
+		//Expected : User should be able to login the film page with credentials
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(loginObj.Btn_SingnIn("nav-game-tab"))," User is unable to login the film page with credentials");
+
+		//Step 2 : Switch the organization if the User as Admin/Coach
+		//Expected : User is able to Switch the organization if the User as Admin/Coach
+		base.buttonClick(CreateEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		base.selectorByVisibleText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"),addupdatedeleteobj.Team_20_SelectedValueAdmin);
+		String selectOrg=element.DropDownText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"));			
+		asrt.assertEquals(selectOrg,addupdatedeleteobj.Team_20_SelectedValueAdmin,"User is unable to Switch the organization if the User as Admin/Coach");
+
+		//Step 3 : .Click on +Add team option
+		//Expected : User (Admin/Coach) should able to click on Add team (+ Add team) option in the Film page
+		base.buttonClick(loginObj.Edt_AlertMessage("Add Team"));
+		asrt.assertTrue(base.isExists(createandaddnewmemberobj.Ele_SearchGame("form-control form-control-wrap")),"User is unable to click on Add team (+ Add team) option in the film page");
+
+		//Step 4 : Verify Save option
+		//Expected : Save icon should be displayed to Save the team after we created with required details
+		asrt.assertTrue(base.isExists(scheduleunschedulegameobj.Btn_EventOK("bg-red cursor-pointer update-team")),"Save icon is not displayed to Save the team when user created the required details");
+	}
 }
