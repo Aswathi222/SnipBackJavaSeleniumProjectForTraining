@@ -10,6 +10,7 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults_Obj
 	public By Ele_CheckboxSelect(String DataSizeValue1,String Classvalue1) {return By.xpath("//li[contains(normalize-space(.),'"+DataSizeValue1 +"')]//span[@class='"+Classvalue1+"']");}
 	public By Ele_Message(String text) {return By.xpath("//p[text()='"+text+"']");}
 	public By Ele_SelectedDropdown(String Dropdownid,String text) {return By.xpath("//select[@id='"+Dropdownid+"']//option[text()='"+text+"']");}
+	public By Ele_Successmessage(String text,String id) {return By.xpath("//p[text()='"+text+"' and @id='"+id+"']");}
 
 	//Btn
 	public By Btn_CloseClick(String Classvalue,String Closebuttonid) {return By.xpath("//div[@class='"+Classvalue+"']//button[@id='"+Closebuttonid+"']");}

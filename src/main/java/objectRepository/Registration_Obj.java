@@ -18,5 +18,6 @@ public class Registration_Obj
 	public By Ele_BlankValue(String class1,String id1) {return By.xpath("//div[@class='"+class1+"']//span[@id='"+id1+"']");}
 	public By Ele_Numberror(String class1,String id1) {return By.xpath("//span[@class='"+class1+"' and @id='"+id1+"']");}
 	public By Ele_ErrorMessage(String id1,String text1) {return By.xpath("//span[@id='"+id1+"']//li[text()='"+text1+"']");}
+	public By Ele_Agreeterms(String id,String Class1) {return By.xpath("//input[@id='"+id+"' and @class='"+Class1+"']");}
 }
 
