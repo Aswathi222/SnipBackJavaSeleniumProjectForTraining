@@ -41,4 +41,10 @@ public class AddUpdateRemoveFollower_Test extends BaseTest
 		AddUpdateRemoveFollower addupdateremovefollower=new AddUpdateRemoveFollower(getDriver());
 		addupdateremovefollower.Follower_06_AddUpdateRemoveFollower();	
 	}
+	@Test()
+	public void Follower_07_AddUpdateRemoveFollowerTest() throws Exception 
+	{		
+		AddUpdateRemoveFollower addupdateremovefollower=new AddUpdateRemoveFollower(getDriver());
+		addupdateremovefollower.Follower_07_AddUpdateRemoveFollower();	
+	}
 }
