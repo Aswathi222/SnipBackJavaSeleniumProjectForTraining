@@ -406,4 +406,59 @@ public class AddorEditInfo extends BasePge{
 		base.buttonClick(scheduleUnscheduleGamesObj.Btn_Create("btn btn-primary save-btn", "SAVE"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_AlertMessage("Please add point for away team")), "User is not getting an alert message as 'Please add point for away team.'");		
 	}
+	//<Summary>
+	//Test case Title:Verify what happen when user left both fields empty.
+	//Automation ID: AI_08
+	//</Summary>
+	public void AI_08_AddEditInfo() throws InterruptedException{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login=new Login(driver);
+		CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
+		AddorEditInfo_Obj addorEditInfoObj=new AddorEditInfo_Obj();
+		AddorEditInfo_TestData addorEditInfoTestData=new AddorEditInfo_TestData();
+		SnipBackLogin_Obj snipBackLoginObj=new SnipBackLogin_Obj();
+		ScheduleUnscheduleGames_Obj scheduleUnscheduleGamesObj=new ScheduleUnscheduleGames_Obj();
+
+		//Step 1: Navigate to Snipback page
+		//Expected : User should be able to view Snipback page
+		asrt.assertTrue(base.isExists(loginObj.Btn_Login("Login")),"User is unable to view SnipBack page" );
+
+		//Step 2: Click Login button
+		//Expected: user should be able to login to the SnipBack
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"))," User is unable to login to SnipBack");
+
+		//step 3:Go to Film page
+		//Expected: User should be able to click film
+		base.buttonClick(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		asrt.assertTrue(base.isExists(loginObj.Btn_SignInButton("POOLS")), "User is unable to click the Film");
+
+		//step 4:Click Games
+		//Expected:User should be able to click Games
+		base.buttonClick(loginObj.Edt_AlertMessage("GAMES"));
+		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to click Games");
+
+		//step 5:Click search bar and enter a game
+		//Expected:User should click search bar and enter a game
+		base.setData(loginObj.Edt_LoginEmail("search"),addorEditInfoTestData.AI_08_AddorEditInfo);
+		base.pressKey(loginObj.Edt_LoginEmail("search"), "ENTER");
+		Thread.sleep(3000);
+		asrt.assertTrue(base.isExists(snipBackLoginObj.Btn_Login("AI_08_AddInfo")), "User is unable to click search bar and enter a game");
+
+		//step 6:Click three dots of a Completed Game
+		//Expected:User should click three dots of completed games
+		Thread.sleep(3000);
+		base.buttonClick(addorEditInfoObj.Ele_ThreeDots("AI_08_AddInfo", "btn-group dropleft right-menu-wrap"));
+		asrt.assertTrue(base.isExists(addorEditInfoObj.Ele_ThreeDotsText("AI_08_AddInfo", "Add Info")), "User is unable to see an option as Add Info in completed games");
+
+		//step 7: Select Add Info
+		//Expected:The user should navigate to Score entering pop up for  My Team(Home) and Opponent Team(Away).
+		base.buttonClick(addorEditInfoObj.Ele_ThreeDotsText("AI_08_AddInfo", "Add Info"));
+		asrt.assertTrue((base.isExists(addorEditInfoObj.Ele_AddInfoText("HOME")) && (base.isExists(addorEditInfoObj.Ele_AddInfoText("AWAY")))), "User is unable to navigate to score entering pop up for My team(Home) & Opponent Team(Away)");
+
+		//step 8:Click Save
+		//Expected:The user will receive alert message as "Please add point for home team."
+		base.buttonClick(scheduleUnscheduleGamesObj.Btn_Create("btn btn-primary save-btn", "SAVE"));
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertMessage("Please add point for home team")), "User is not getting an alert message as 'Please add point for home team.'");		
+	}
 }
