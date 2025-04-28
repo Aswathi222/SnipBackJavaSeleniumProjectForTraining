@@ -151,6 +151,20 @@ public class ElementActions {
 		highLighterMethod(driver, webElement);
 		return !webElement.isEnabled();
 	}
+	/// <summary>
+	/// To create a random integer with the specified number of digits
+	/// </summary>
+	public static String CreateRandomIntString(int n) {
+		if (n <= 0) {
+			throw new IllegalArgumentException("Number of digits must be greater than 0");
+		}
+
+		int min = (int) Math.pow(10, n - 1);
+		int max = (int) Math.pow(10, n) - 1;
+
+		int randomNumber = min + (int)(Math.random() * ((max - min) + 1));
+		return String.valueOf(randomNumber);
+	}
 }
 
 

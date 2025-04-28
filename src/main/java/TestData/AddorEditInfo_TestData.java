@@ -1,5 +1,7 @@
 package TestData;
 
+import utilPack.ElementActions;
+
 public class AddorEditInfo_TestData {
 
 	//AI_01_AddorEditInfo
@@ -34,4 +36,9 @@ public class AddorEditInfo_TestData {
 	public static String AI_09_AddorEditInfo="AI_09_AddInfo";
 	public static String AI_09_AddInfoHome="246810";
 	public static String AI_09_AddInfoAway="357911";
+	
+	//AI_10_AddorEditInfo
+	public static String AI_10_AddorEditInfo="AI_10_AddInfo";
+	public static String AI_10_AddInfoHome=ElementActions.CreateRandomIntString(2);
+	public static String AI_10_AddInfoAway=ElementActions.CreateRandomIntString(1);
 }
