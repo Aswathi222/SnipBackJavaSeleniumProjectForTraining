@@ -555,7 +555,7 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		//Step 6 :Click on Tick option
 		//Expected :Team Name created successfully message with Close button should be viewed once entered the Team Name & click on Tick option and also select default team type	
 		base.excuteJsClick(scheduleunschedulegameobj.Btn_EventOK("btn btn-success teamname-ok-btn"));
-		asrt.assertTrue(base.isExists(addUpdateObject.Ele_Message("New Team Created Successfully")) && base.isExists(addUpdateObject.Btn_CloseClick("modal-body","modalMessageCloseBtn")) && base.isExists(addUpdateObject.Ele_SelectedDropdown("category",addupdatedeleteobj.Team_13_SelectedDropdown)),"User is not able to view the 'Team Name created successfully' message with the Close button after entering the team name and selecting the default team type and clicking tick option");
+		asrt.assertTrue(base.isExists(addUpdateObject.Ele_Successmessage("New Team Created Successfully","successTag")) && base.isExists(addUpdateObject.Btn_CloseClick("modal-body","modalMessageCloseBtn")) && base.isExists(addUpdateObject.Ele_SelectedDropdown("category",addupdatedeleteobj.Team_13_SelectedDropdown)),"User is not able to view the 'Team Name created successfully' message with the Close button after entering the team name and selecting the default team type and clicking tick option");
 	}
 
 	// <summary>

@@ -46,7 +46,7 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults_TestData
 
 	//Team_13_AddUpdateDeleteDuplicateTeamGameDefaults
 	public static String Team_13_SelectedValueAdmin="new-organization - Test-child";
-	public static String Team_13_TeamName="Tennis Team";
+	public static String Team_13_TeamName="Tennis Team"+ BasePge.CreateRandomWithoutNumbers(3);
 	public static String Team_13_SelectedDropdown="Tennis";
 
 	//Team_15_AddUpdateDeleteDuplicateTeamGameDefaults

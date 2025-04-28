@@ -63,13 +63,14 @@ public class DuplicateTeam extends BasePge {
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), DuplicateTeamTestData.DT_01_TeamName);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
 		Thread.sleep(2000);
-		base.buttonClick(CreateAddMemberObj.Btn_Team("my-team-content",DuplicateTeamTestData.DT_01_TeamName));
+		base.excuteJsClick(CreateAddMemberObj.Btn_Team("my-team-content",DuplicateTeamTestData.DT_01_TeamName));
 		String TeamName = base.GetValue(LoginPageObj.Edt_LoginEmail("searchTeam"));
 		asrt.assertEquals(TeamName, DuplicateTeamTestData.DT_01_TeamName,"User is not able to search and select the Team.");
 
 		//Step 6 : Click on three dots of any team
 		//Expected : User should be able to click on the three dots of any team.
-		base.buttonClick(DuplicateTeamObj.Btn_ThreeDotsTeam(DuplicateTeamTestData.DT_01_TeamName, "dropdown-wrapper teams-menu"));
+		base.excuteJsClick(DuplicateTeamObj.Btn_ThreeDotsTeam(DuplicateTeamTestData.DT_01_TeamName, "dropdown-wrapper teams-menu"));
+		Thread.sleep(2000);
 		asrt.assertTrue(base.isExists(DuplicateTeamObj.Btn_ThreeDotsTeam(DuplicateTeamTestData.DT_01_TeamName,"dropdown-menu")), "User is unable to view the list of options under the three dots in the Games Page");
 		Thread.sleep(2000);
 
@@ -116,19 +117,21 @@ public class DuplicateTeam extends BasePge {
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), DuplicateTeamTestData.DT_02_TeamName);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
 		Thread.sleep(2000);
-		base.buttonClick(CreateAddMemberObj.Btn_Team("my-team-content",DuplicateTeamTestData.DT_02_TeamName));
+		base.excuteJsClick(CreateAddMemberObj.Btn_Team("my-team-content",DuplicateTeamTestData.DT_02_TeamName));
 		String TeamName = base.GetValue(LoginPageObj.Edt_LoginEmail("searchTeam"));
 		asrt.assertEquals(TeamName, DuplicateTeamTestData.DT_02_TeamName,"User is not able to search and select the Team.");
 
 		//Step 6 : Click on three dots of any team
 		//Expected : User should be able to click on the three dots of any team.
-		base.buttonClick(DuplicateTeamObj.Btn_ThreeDotsTeam(DuplicateTeamTestData.DT_02_TeamName, "dropdown-wrapper teams-menu"));
+		base.excuteJsClick(DuplicateTeamObj.Btn_ThreeDotsTeam(DuplicateTeamTestData.DT_02_TeamName, "dropdown-wrapper teams-menu"));
+		Thread.sleep(2000);
 		asrt.assertTrue(base.isExists(DuplicateTeamObj.Btn_ThreeDotsTeam(DuplicateTeamTestData.DT_02_TeamName,"dropdown-menu")), "User is unable to view the list of options under the three dots in the Games Page");
 		Thread.sleep(2000);
 
 		//Step 7 : Click the Duplicate Team option
 		//Expected : User should be able to navigate to the duplicate team create option
-		base.buttonClick(DuplicateTeamObj.Btn_DuplicateTeam(DuplicateTeamTestData.DT_02_TeamName,"dropdown-menu","dropdown-item duplicate-team"));
+		base.excuteJsClick(DuplicateTeamObj.Btn_DuplicateTeam(DuplicateTeamTestData.DT_02_TeamName,"dropdown-menu","dropdown-item duplicate-team"));
+		Thread.sleep(2000);
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_LoginButton("confirm-duplicate-team")),"User is unable to navigate to the duplicate team create option");
 	}
 	
@@ -170,18 +173,20 @@ public class DuplicateTeam extends BasePge {
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), DuplicateTeamTestData.DT_03_TeamName);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
 		Thread.sleep(2000);
-		base.buttonClick(CreateAddMemberObj.Btn_Team("my-team-content",DuplicateTeamTestData.DT_03_TeamName));
+		base.excuteJsClick(CreateAddMemberObj.Btn_Team("my-team-content",DuplicateTeamTestData.DT_03_TeamName));
 		String TeamName = base.GetValue(LoginPageObj.Edt_LoginEmail("searchTeam"));
 		asrt.assertEquals(TeamName, DuplicateTeamTestData.DT_03_TeamName,"User is not able to search and select the Team.");
 
 		//Step 6 : Click on three dots of any team
 		//Expected : User should be able to click on the three dots of any team.
-		base.buttonClick(DuplicateTeamObj.Btn_ThreeDotsTeam(DuplicateTeamTestData.DT_03_TeamName, "dropdown-wrapper teams-menu"));
+		base.excuteJsClick(DuplicateTeamObj.Btn_ThreeDotsTeam(DuplicateTeamTestData.DT_03_TeamName, "dropdown-wrapper teams-menu"));
+		Thread.sleep(2000);
 		asrt.assertTrue(base.isExists(DuplicateTeamObj.Btn_ThreeDotsTeam(DuplicateTeamTestData.DT_03_TeamName,"dropdown-menu")), "User is unable to view the list of options under the three dots in the Games Page");
 
 		//Step 7 : Click the Duplicate Team option
 		//Expected : User should be able to navigate to the duplicate team create option
-		base.buttonClick(DuplicateTeamObj.Btn_DuplicateTeam(DuplicateTeamTestData.DT_03_TeamName,"dropdown-menu","dropdown-item duplicate-team"));
+		base.excuteJsClick(DuplicateTeamObj.Btn_DuplicateTeam(DuplicateTeamTestData.DT_03_TeamName,"dropdown-menu","dropdown-item duplicate-team"));
+		Thread.sleep(2000);
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_LoginButton("confirm-duplicate-team")),"User is unable to navigate to the duplicate team create option");
 		
 		//Step 8 : Enter the same name as in the Team name
@@ -190,7 +195,7 @@ public class DuplicateTeam extends BasePge {
 		base.pressKey(LoginPageObj.Edt_LoginEmail("team_name"), "ENTER");
 		String DupTeamName = base.GetValue(LoginPageObj.Edt_LoginEmail("team_name"));
 		asrt.assertEquals(DupTeamName, DuplicateTeamTestData.DT_03_TeamName,"User is unable to enter the same name as the Team name");		
-		base.buttonClick(LoginPageObj.Btn_LoginButton("confirm-duplicate-team"));
+		base.excuteJsClick(LoginPageObj.Btn_LoginButton("confirm-duplicate-team"));
 		String ActualValidMsg = GetText(LoginPageObj.Ele_ErrorMessage("swal-text"));
 		asrt.assertEquals(ActualValidMsg, DuplicateTeamTestData.DT_03_ValidMessage,"User is not getting the error message as 'Team Name already exists'");
 	}
@@ -233,18 +238,20 @@ public class DuplicateTeam extends BasePge {
 		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), DuplicateTeamTestData.DT_04_TeamName);
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
 		Thread.sleep(2000);
-		base.buttonClick(CreateAddMemberObj.Btn_Team("my-team-content",DuplicateTeamTestData.DT_04_TeamName));
+		base.excuteJsClick(CreateAddMemberObj.Btn_Team("my-team-content",DuplicateTeamTestData.DT_04_TeamName));
 		String TeamName = base.GetValue(LoginPageObj.Edt_LoginEmail("searchTeam"));
 		asrt.assertEquals(TeamName, DuplicateTeamTestData.DT_04_TeamName,"User is not able to search and select the Team.");
 
 		//Step 6 : Click on three dots of any team
 		//Expected : User should be able to click on the three dots of any team.
-		base.buttonClick(DuplicateTeamObj.Btn_ThreeDotsTeam(DuplicateTeamTestData.DT_04_TeamName, "dropdown-wrapper teams-menu"));
+		base.excuteJsClick(DuplicateTeamObj.Btn_ThreeDotsTeam(DuplicateTeamTestData.DT_04_TeamName, "dropdown-wrapper teams-menu"));
+		Thread.sleep(2000);
 		asrt.assertTrue(base.isExists(DuplicateTeamObj.Btn_ThreeDotsTeam(DuplicateTeamTestData.DT_04_TeamName,"dropdown-menu")), "User is unable to view the list of options under the three dots in the Games Page");
 
 		//Step 7 : Click the Duplicate Team option
 		//Expected : User should be able to navigate to the duplicate team create option
-		base.buttonClick(DuplicateTeamObj.Btn_DuplicateTeam(DuplicateTeamTestData.DT_04_TeamName,"dropdown-menu","dropdown-item duplicate-team"));
+		base.excuteJsClick(DuplicateTeamObj.Btn_DuplicateTeam(DuplicateTeamTestData.DT_04_TeamName,"dropdown-menu","dropdown-item duplicate-team"));
+		Thread.sleep(2000);
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_LoginButton("confirm-duplicate-team")),"User is unable to navigate to the duplicate team create option");
 		
 		//Step 8 : Enter any Team Name
@@ -253,7 +260,7 @@ public class DuplicateTeam extends BasePge {
 		base.pressKey(LoginPageObj.Edt_LoginEmail("team_name"), "ENTER");
 		String DupTeamName = base.GetValue(LoginPageObj.Edt_LoginEmail("team_name"));
 		asrt.assertEquals(DupTeamName, DuplicateTeamTestData.DT_04_DupTeamName,"User is unable to enter the any name as the Team name");		
-		base.buttonClick(LoginPageObj.Btn_LoginButton("confirm-duplicate-team"));
+		base.excuteJsClick(LoginPageObj.Btn_LoginButton("confirm-duplicate-team"));
 		String ActualValidMsg = GetText(LoginPageObj.Ele_ErrorMessage("swal-text"));
 		asrt.assertEquals(ActualValidMsg, DuplicateTeamTestData.DT_04_ValidMessage,"User is unable to Create a Duplicate Team");
 	}

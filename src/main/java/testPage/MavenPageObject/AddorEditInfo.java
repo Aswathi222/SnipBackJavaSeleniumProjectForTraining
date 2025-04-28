@@ -63,6 +63,7 @@ public class AddorEditInfo extends BasePge{
 		//step 4:Click Games
 		//Expected:User should be able to click Games
 		base.buttonClick(loginObj.Edt_AlertMessage("GAMES"));
+		Thread.sleep(1000);
 		asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to click Games");
 
 		//step 5:Click search bar and enter a game
@@ -74,6 +75,7 @@ public class AddorEditInfo extends BasePge{
 
 		//step 6:Click three dots of any game
 		//Expected:There should be a option as Add Info in Games Listing page.
+		Thread.sleep(1000);
 		base.buttonClick(addorEditInfoObj.Ele_ThreeDots("AI_01_AddInfo", "btn-group dropleft right-menu-wrap"));
 		asrt.assertTrue(base.isExists(addorEditInfoObj.Ele_ThreeDotsText("AI_01_AddInfo", "Add Info")), "User is unable to see a option as Add Info in Game listng page");
 	}
@@ -117,6 +119,7 @@ public class AddorEditInfo extends BasePge{
 
 		//step 6:Click three dots of a Completed Game
 		//Expected:Add Info option should be available for Completed Games.
+		Thread.sleep(1000);
 		base.buttonClick(addorEditInfoObj.Ele_ThreeDots("AI_02_AddInfo", "btn-group dropleft right-menu-wrap"));
 		asrt.assertTrue(base.isExists(addorEditInfoObj.Ele_ThreeDotsText("AI_02_AddInfo", "Add Info")), "User is unable to see an option as Add Info in completed games");
 	}
@@ -138,6 +141,7 @@ public class AddorEditInfo extends BasePge{
 
 		//Step 2: Click Login button
 		//Expected: user should be able to login to the SnipBack
+		Thread.sleep(1000);
 		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
 		asrt.assertTrue(base.isExists(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"))," User is unable to login to SnipBack");
 
@@ -364,6 +368,7 @@ public class AddorEditInfo extends BasePge{
 
 		//step 3:Go to Film page
 		//Expected: User should be able to click film
+		Thread.sleep(1000);
 		base.buttonClick(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
 		asrt.assertTrue(base.isExists(loginObj.Btn_SignInButton("POOLS")), "User is unable to click the Film");
 

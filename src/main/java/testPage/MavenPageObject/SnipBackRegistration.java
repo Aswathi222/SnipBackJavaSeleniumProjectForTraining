@@ -400,7 +400,7 @@ public class SnipBackRegistration extends BasePge{
 		element.fillFormFields(RegistrationObj.Ele_Name("form-inlines","first_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName,loginpageobj.Edt_LoginEmail("user_email"),SnipBackRegistration_TestData.TC06_RegistrationValidEmail,
 				loginpageobj.Edt_LoginEmail("user_name"),SnipBackRegistration_TestData.TC06_RegistrationValidName,loginpageobj.Edt_LoginEmail("user_pass"),SnipBackRegistration_TestData.TC06_RegistrationPassword,
 				loginpageobj.Edt_LoginEmail("user_confirm_password"),SnipBackRegistration_TestData.TC06_RegistrationPassword);
-		base.excuteJsClick(loginpageobj.Edt_LoginEmail("agreeterms"));
+		base.excuteJsClick(RegistrationObj.Ele_Agreeterms("agreeterms","agree-checkbox"));
 		base.excuteJsClick(loginpageobj.Btn_SingnIn("btn-signup"));
 		base.switchToWindowByIndex(driver, 0);	
 		asrt.assertTrue(base.isExists(loginpageobj.Btn_SingnIn("otp-submit")),"User is unable to accept the valid datas and redirect to enter one-time password page");
