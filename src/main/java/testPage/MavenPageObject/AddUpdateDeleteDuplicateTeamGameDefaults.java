@@ -900,7 +900,6 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 
 		//step 4 : Verify that Close button (X) should be displayed to Close the Page for Add team
 		//Expected : Close button (X) should be displayed to Close the Page for Add team
-		base.excuteJsClick(scheduleunschedulegameobj.Btn_EventOK("popup-btn-close menu-dark"));
-		asrt.assertTrue(base.isDoesNotExistBool(scheduleunschedulegameobj.Btn_EventOK("popup-btn-close menu-dark")),"User is unable to view Close button (X)  to Close the Page for Add team");
+		asrt.assertTrue(base.isExists(scheduleunschedulegameobj.Btn_EventOK("popup-btn-close menu-dark")),"User is unable to view Close button (X)  to Close the Page for Add team");
 	}
 }
