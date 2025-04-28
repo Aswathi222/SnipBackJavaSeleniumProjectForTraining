@@ -321,10 +321,6 @@ public class AddUpdateRemoveFollower extends BasePge{
 		assertions.add(new Object[] {LoginPageObj.Edt_LoginEmail("emailInput"), "User is not able to see Text field for entering the Email ID after clicking +Followers option"});
 		assertions.add(new Object[] {follower_obj.Btn_TickIcon("checkMail();", "bi bi-check2"), "User is not able to see tick mark against the field for entering the email ID after clicking +Followers option"});
 		assertions.add(new Object[] {follower_obj.Btn_CrossIcon("btn btn-danger", "bi bi-x"), "User is not able to see X mark against the field for entering the email ID after clicking +Followers option"});
-		for (Object[] assertion : assertions) {
-		    By element = (By) assertion[0];  
-		    String errorMessage = (String) assertion[1];  
-		    asrt.assertTrue(base.isExists(element), errorMessage); 
-		}	
+		element.verifyElementsExist(base, assertions);	
 	}
 }

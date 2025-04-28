@@ -151,6 +151,16 @@ public class ElementActions {
 		highLighterMethod(driver, webElement);
 		return !webElement.isEnabled();
 	}
+	/// <summary>
+	/// To assert that all elements exist with corresponding error messages
+	/// </summary>
+	public void verifyElementsExist(BasePge base,List<Object[]> assertions) {
+	    for (Object[] assertion : assertions) {
+	        By locator = (By) assertion[0];         
+	        String errorMessage = (String) assertion[1]; 
+	        asrt.assertTrue(base.isExists(locator), errorMessage); 
+	    }
+	}
 }
 
 
