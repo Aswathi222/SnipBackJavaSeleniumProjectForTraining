@@ -8,6 +8,7 @@ import TestData.CommonData;
 import objectRepository.AddUpdateRemoveFollower_Obj;
 import objectRepository.CreateAndAddNewMemberWithOrWithoutEmail_Obj;
 import objectRepository.LoginPage_Obj;
+import objectRepository.Registration_Obj;
 import objectRepository.ScheduleUnscheduleGames_Obj;
 import utilPack.BasePge;
 import utilPack.ElementActions;
@@ -224,5 +225,43 @@ public class AddUpdateRemoveFollower extends BasePge{
 		//Expected:The user (Admin/Coach) should able to view the list of Followers after clicking the Follower tab in the Film page
 		List<WebElement> user_list=base.GetElement(Follower_Obj.Ele_Follower("teamRole"));
 		asrt.assertTrue(!user_list.isEmpty(),"User (Admin/Coach) is not  able to view the list of Followers after clicking the Follower tab in the Film page");
+	}
+	// <summary>
+	// Test Case Title : "Verify that an option for add followers (+Followers ) should be displayed in the Followers tab under Film page"
+	// Automation ID : Follower_08
+	// </summary>
+	public void Follower_08_AddUpdateRemoveFollower() throws InterruptedException 
+	{
+		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+		Login login = new Login(driver);
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj cad_obj=new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		AddUpdateRemoveFollower_TestData test_obj=new AddUpdateRemoveFollower_TestData();
+		ScheduleUnscheduleGames_Obj Sch_Obj =new ScheduleUnscheduleGames_Obj();
+		Registration_Obj register_obj=new Registration_Obj();
+		
+		// Step1: Enter the URL
+		// Expected:The user should be able to navigate to the  Snipback website after entering the URL
+		asrt.assertTrue(base.isExists(LoginPageObj.Ele_SnipBackHomePageLogo("light-logo")), "User is unable to navigate to SnipBack website after entering the URL");
+		
+		//Step2:Login Snipback
+		//Expected:User should able to navigate to the Film page once login with credentials
+		login.loginToApplication(CommonData.UserName,CommonData.PassWord);
+		asrt.assertTrue(base.isExists(LoginPageObj.Btn_SingnIn("nav-game-tab")),"User is unable to navigate to the Film page once login with credentials");	
+		
+		//Step3:Switch the organization if the User as Admin/Coach
+		//Expected:User should be able to switch the organization if they are an Admin or Coach
+		base.selectorByVisibleText(cad_obj.DdlOrg("form-select select-form film-organizations"),test_obj.Follower_07_SelectedValue);
+		Thread.sleep(5000);
+		String Org_name=element.DropDownText(cad_obj.DdlOrg("form-select select-form film-organizations"));
+		asrt.assertEquals(Org_name,test_obj.Follower_07_SelectedValue,"User is not able to switch the organisation if they are an Admin or Coach");
+				
+		//Step4:Click on Followers tab
+		//Expected:The user (Admin/Coach) should able to click on Followers tab in the Film page
+		base.buttonClick(LoginPageObj.Btn_SingnIn("nav-followers-tab"));
+		asrt.assertTrue(base.isExists(Sch_Obj.Ele_CreateGameFor("LIST OF FOLLOWERS / MANAGERS")),"The user (Admin/Coach) is unable to click on Followers tab in the Film page");
+		
+		//Step5:Verify that an option for add followers (+Followers ) should be displayed in the Followers tab under Film page
+		//Expected:An option for add followers (+Followers ) should be displayed in the Followers tab under Film page
+		asrt.assertTrue(base.isExists(register_obj.Btn_ResendOTP("addFollowerBtn")),"User is not able to see an option for add followers (+Followers ) in the Followers tab under Film page");	
 	}
 }
