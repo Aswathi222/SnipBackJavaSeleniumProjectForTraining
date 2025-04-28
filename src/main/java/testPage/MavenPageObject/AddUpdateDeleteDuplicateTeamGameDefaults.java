@@ -14,6 +14,7 @@ import objectRepository.CreateEditDeletePool_Obj;
 import objectRepository.ForgotPassword_Obj;
 import objectRepository.LoginPage_Obj;
 import objectRepository.ScheduleUnscheduleGames_Obj;
+import objectRepository.SearchGameTeamAndMembers_Obj;
 import utilPack.BasePge;
 import utilPack.ElementActions;
 
@@ -901,5 +902,40 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		//step 4 : Verify that Close button (X) should be displayed to Close the Page for Add team
 		//Expected : Close button (X) should be displayed to Close the Page for Add team
 		asrt.assertTrue(base.isExists(scheduleunschedulegameobj.Btn_EventOK("popup-btn-close menu-dark")),"User is unable to view Close button (X)  to Close the Page for Add team");
+	}
+
+	// <summary>
+	// Test Case Title :Verify that three dots should be displayed against each team in the Game/Members/Followers Page
+	// Automation ID :Team_23
+	// </summary>
+	public void Team_23_AddUpdateDeleteDuplicateTeamGameDefaults() throws InterruptedException 
+	{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login = new Login(driver);
+		CreateEditDeletePool_Obj CreateEditDeletePoolObj = new CreateEditDeletePool_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj createandaddnewmemberobj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		AddUpdateDeleteDuplicateTeamGameDefaults_TestData  addupdatedeleteobj= new AddUpdateDeleteDuplicateTeamGameDefaults_TestData();
+		SearchGameTeamAndMembers_Obj SearchGameObjects=new SearchGameTeamAndMembers_Obj();
+
+		//Step 1 : Verify that user is able to Login Snipback
+		//Expected : User should be able to login the film page with credentials
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(loginObj.Btn_SingnIn("nav-game-tab"))," User is unable to login the film page with credentials");
+
+		//Step 2 : Switch the organization if the User as Admin/Coach
+		//Expected : User is able to Switch the organization if the User as Admin/Coach
+		base.buttonClick(CreateEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		base.selectorByVisibleText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"),addupdatedeleteobj.Team_23_SelectedValueAdmin);
+		String selectOrg=element.DropDownText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"));			
+		asrt.assertEquals(selectOrg,addupdatedeleteobj.Team_23_SelectedValueAdmin,"User is unable to Switch the organization if the User as Admin/Coach");
+
+		//Step 3 : Verify the three dots against the team
+		//Expected : Three dots should be displayed against each team in the Game/Members/Followers Page 
+		List<String> teamList = base.GetElementTexts(SearchGameObjects.Ele_GameSpecial("my-team-content"));
+		for (String team : teamList) 
+		{
+			WebElement threeDotsButton = driver.findElement(loginObj.Btn_LoginButton("all-teams-menu cursor-pointer"));
+		    asrt.assertTrue(threeDotsButton.isDisplayed(), "User is unable to view Three dots against team '" + team + "' in the Game/Members/Followers Page");
+		}
 	}
 }
