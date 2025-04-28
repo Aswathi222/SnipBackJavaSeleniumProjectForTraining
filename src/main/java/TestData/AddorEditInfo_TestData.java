@@ -29,4 +29,9 @@ public class AddorEditInfo_TestData {
 	
 	//AI_08_AddorEditInfo
 	public static String AI_08_AddorEditInfo="AI_08_AddInfo";
+	
+	//AI_09_AddorEditInfo
+	public static String AI_09_AddorEditInfo="AI_09_AddInfo";
+	public static String AI_09_AddInfoHome="246810";
+	public static String AI_09_AddInfoAway="357911";
 }
