@@ -86,4 +86,14 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults_TestData
 
 	//Team_23_AddUpdateDeleteDuplicateTeamGameDefaults
 	public static String Team_23_SelectedValueAdmin="demo organization";
+
+	//Team_24_AddUpdateDeleteDuplicateTeamGameDefaults
+	public static String Team_24_SelectedValueAdmin="C4-Org1 - 4262 CHILD 1";
+	public static String Team_24_Listvalue1="Edit Team";
+	public static String Team_24_Listvalue2="Team Invite Links";
+	public static String Team_24_Listvalue3="Duplicate Team";
+	public static String Team_24_Listvalue4="Archive Team";
+	public static String Team_24_Listvalue5="Delete Team";
+	public static String Team_24_Listvalue6="Chat with Team";
+	public static String Team_24_Listvalue7="Dismiss";
 }
