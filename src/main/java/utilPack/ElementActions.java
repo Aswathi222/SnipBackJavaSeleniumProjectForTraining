@@ -165,6 +165,16 @@ public class ElementActions {
 		int randomNumber = min + (int)(Math.random() * ((max - min) + 1));
 		return String.valueOf(randomNumber);
 	}
+	/// <summary>
+	/// To assert that all elements exist with corresponding error messages
+	/// </summary>
+	public void verifyElementsExist(BasePge base,List<Object[]> assertions) {
+	    for (Object[] assertion : assertions) {
+	        By locator = (By) assertion[0];         
+	        String errorMessage = (String) assertion[1]; 
+	        asrt.assertTrue(base.isExists(locator), errorMessage); 
+	    }
+	}
 }
 
 
