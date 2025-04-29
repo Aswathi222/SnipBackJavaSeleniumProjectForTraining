@@ -321,4 +321,51 @@ public class AddUpdateRemoveFollower extends BasePge{
 		assertions.add(new Object[] {follower_obj.Btn_CrossIcon("btn btn-danger", "bi bi-x"), "User is not able to see X mark against the field for entering the email ID after clicking +Followers option"});
 		element.verifyElementsExist(base, assertions);	
 	}
+	// <summary>
+	// Test Case Title : "Verify that add followers option should be displayed in Individuals teams as well"
+	// Automation ID : Follower_10
+	// </summary>
+	public void Follower_10_AddUpdateRemoveFollower() throws InterruptedException 
+	{
+		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+		Login login = new Login(driver);
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj cad_obj=new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		AddUpdateRemoveFollower_TestData test_obj=new AddUpdateRemoveFollower_TestData();
+		ScheduleUnscheduleGames_Obj Sch_Obj =new ScheduleUnscheduleGames_Obj();
+		Registration_Obj register_obj=new Registration_Obj();
+				
+		// Step1: Enter the URL
+		// Expected:The user should be able to navigate to the  Snipback website after entering the URL
+		asrt.assertTrue(base.isExists(LoginPageObj.Ele_SnipBackHomePageLogo("light-logo")), "User is unable to navigate to SnipBack website after entering the URL");
+				
+		//Step2:Login Snipback
+		//Expected:User should able to navigate to the Film page once login with credentials
+		login.loginToApplication(CommonData.UserName,CommonData.PassWord);
+		asrt.assertTrue(base.isExists(LoginPageObj.Btn_SingnIn("nav-game-tab")),"User is unable to navigate to the Film page once login with credentials");	
+				
+		//Step3:Switch the organization if the User as Admin/Coach
+		//Expected:User should be able to switch the organization if they are an Admin or Coach
+		base.selectorByVisibleText(cad_obj.DdlOrg("form-select select-form film-organizations"),test_obj.Follower_10_SelectedValue1);
+		Thread.sleep(5000);
+		String Org_name=element.DropDownText(cad_obj.DdlOrg("form-select select-form film-organizations"));
+		asrt.assertEquals(Org_name,test_obj.Follower_10_SelectedValue1,"User is not able to switch the organisation if they are an Admin or Coach");
+				
+		//Step4:Select any team
+		//Expected:User should be able to select any team after switching organisation
+		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"),test_obj.Follower_10_SelectedValue);
+		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"),"KEYBOARD_ENTER" );
+		Thread.sleep(2000);
+		base.excuteJsClick(LoginPageObj.Edt_AlertMessage(test_obj.Follower_10_SelectedValue));
+		String TeamName=base.GetValue(LoginPageObj.Edt_LoginEmail("searchTeam"));
+		asrt.assertEquals(TeamName,test_obj.Follower_10_SelectedValue,"User is not able to select any team after switching organisation");
+				
+		//Step5:Click on Followers tab
+		//Expected:The user (Admin/Coach) should able to click on Followers tab in the Film page
+		base.buttonClick(LoginPageObj.Btn_SingnIn("nav-followers-tab"));
+		asrt.assertTrue(base.isExists(Sch_Obj.Ele_CreateGameFor("LIST OF FOLLOWERS / MANAGERS")),"The user (Admin/Coach) is unable to click on Followers tab in the Film page");
+				
+		//Step6:Verify that add followers option should be displayed in Individuals teams as well
+		//Expected:Add followers option should be displayed in Individuals teams as well
+		asrt.assertTrue(base.isExists(register_obj.Btn_ResendOTP("addFollowerBtn")),"User is not able to see an option for add followers (+Followers ) for individual teams as well ");	
+	}	
 }
