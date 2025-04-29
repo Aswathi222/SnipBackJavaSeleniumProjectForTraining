@@ -47,7 +47,6 @@ public class ArchiveorUnarchiveTeam extends BasePge{
 		//Expected : User should able to navigate to the snipback website after entering the URL
 		asrt.assertTrue(base.isExists(loginObj.Btn_Login("Login")),"User is unable to view SnipBack website after entering the URL" );
 	}
-
 	//<Summary>
 	//Test case Title:Verify that user should able to navigate to the Film page once login with credentials
 	//Automation ID:Archive_02
