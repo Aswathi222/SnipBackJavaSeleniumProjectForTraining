@@ -41,4 +41,9 @@ public class AddorEditInfo_TestData {
 	public static String AI_10_AddorEditInfo="AI_10_AddInfo";
 	public static String AI_10_AddInfoHome=ElementActions.CreateRandomIntString(2);
 	public static String AI_10_AddInfoAway=ElementActions.CreateRandomIntString(1);
+	
+	//AI_12_AddorEditInfo
+	public static String AI_12_AddorEditInfo="AI_12_AddInfo";
+	public static String AI_12_AddInfoHome=ElementActions.CreateRandomIntString(2);
+	public static String AI_12_AddInfoAway=ElementActions.CreateRandomIntString(1);
 }
