@@ -6,4 +6,8 @@ public class AddUpdateRemoveFollower_Obj {
 	public By Ele_CreateNewUser(String classname, String textname) {return By.xpath("//div[@class='" + classname + "']//h6[text()='" + textname + "']");}
 	public By Btn_CrossIcon(String buttonClass, String iconClass) {return By.xpath("//button[@class='" + buttonClass + "']//i[@class='" + iconClass + "']");}
 	public By Btn_TickIcon(String onclickValue, String iconClass) {return By.xpath("//button[@onclick='" + onclickValue + "']//i[@class='" + iconClass + "']");}
+    public By Ele_SelectText(String className, String textValue) {return By.xpath("//div[@class='" + className + "']//div[text()='" + textValue + "']");}
+	public By Ele_TextArea(String parentClass, String textAreaClass) {return By.xpath("//div[@class='" + parentClass + "']//textarea[@class='" + textAreaClass + "']");}
+	public By Btn_AddPlayer(String parentClass, String buttonText) {return By.xpath("//div[@class='" + parentClass + "']//button[text()='" + buttonText + "']");}
+
 }
