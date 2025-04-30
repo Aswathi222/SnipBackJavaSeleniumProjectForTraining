@@ -239,5 +239,58 @@ public class ArchiveorUnarchiveTeam extends BasePge{
 		base.buttonClick(snipBackLoginObj.Btn_Login("Archive Team"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("Are you sure want to archive this team?")), "User is unable to receive The message \"Are you sure want to archive this team?\" should be displayed when click on Archive team from the three dots against the respective team");
 	}
+	//<Summary>
+	//Test case Title:Verify that the message "Are you sure want to archive this team?" should be closed when click on No from the popup message
+	//Automation ID:Archive_07
+	//</Summary>
+	public void Archive_07_ArchiveorUnarchiveTeam() throws InterruptedException{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login=new Login(driver);
+		CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj createAndAddNewMemberWithOrWithoutEmailObj=new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		ArchiveorUnarchiveTeam_TestData archiveorUnarchiveTeamTestData=new ArchiveorUnarchiveTeam_TestData();
+		ArchiveorUnarchiveTeam_Obj archiveorUnarchiveTeamObj=new ArchiveorUnarchiveTeam_Obj();
+		SnipBackLogin_Obj snipBackLoginObj=new SnipBackLogin_Obj();
+
+		//Step 1:Enter the URL
+		//Expected : User should able to navigate to the snipback website after entering the URL
+		asrt.assertTrue(base.isExists(loginObj.Btn_Login("Login")),"User is unable to view SnipBack website after entering the URL" );
+
+		//Step 2:Login to SnipBack
+		//Expected:User should able to navigate to the Film page once login with credentials 
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"))," User is unable to navigate to the Film page once login with credentials");
+
+		//Step 3:Switch the organization if the User as Admin/Coach
+		//Expected:User should able to switch the organisation if the user as Admin/Coach
+		base.selectorByVisibleText(createAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"),archiveorUnarchiveTeamTestData.Archive_07_ArchiveorUnarchiveTeam );
+		Thread.sleep(3000);
+		String organisation=element.DropDownText(createAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		asrt.assertEquals(organisation,archiveorUnarchiveTeamTestData.Archive_07_ArchiveorUnarchiveTeam ,"User unable to switch the organisation if the user as Admin/Coach");
+
+		//Step 4:Click search bar and enter a team
+		//Expected:User should click search bar and enter a team
+		base.setData(loginObj.Edt_LoginEmail("searchTeam"), archiveorUnarchiveTeamTestData.Archive_07_ArchiveorUnarchiveTeam_Search);
+		base.pressKey(loginObj.Edt_LoginEmail("searchTeam"),"KEYBOARD_ENTER");
+		Thread.sleep(4000);
+		String teamValue=base.GetValue(loginObj.Edt_LoginEmail("searchTeam"));
+		asrt.assertEquals(teamValue, archiveorUnarchiveTeamTestData.Archive_07_ArchiveorUnarchiveTeam_Search,"User is unable to click search bar and enter a team");
+
+		//Step 5:Click on Three dots
+		//Expected: User is able to click on three dots of the team
+		Thread.sleep(3000);
+		base.buttonClick(createAndAddNewMemberWithOrWithoutEmailObj.Btn_ThreeDots("my-team-content", "defaultDropdown-2"));
+		asrt.assertTrue(base.isExists(archiveorUnarchiveTeamObj.Ele_ArchiveOptionText("teamDropdownMenu-2","Archive Team")), "User is unable to click three dots of the team");
+
+		//Step 6:Click on Archive team
+		//Expected:User is able to click on Archive team
+		base.buttonClick(archiveorUnarchiveTeamObj.Ele_ArchiveOptionText("teamDropdownMenu-2","Archive Team"));
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("Are you sure want to archive this team?")), "User is unable to click on Archive team");
+
+		//Step 7:Click on No
+		//Expected:"Are you sure want to archive this team?" should be closed when click on No from the popup message
+		base.buttonClick(snipBackLoginObj.Btn_Signin("No"));
+		asrt.assertTrue(base.isDoesNotExistBool(snipBackLoginObj.Btn_Signin("No")), "'Are you sure want to archive this team?' is not closed when click on No from the popup message");
+	}
 }
 
