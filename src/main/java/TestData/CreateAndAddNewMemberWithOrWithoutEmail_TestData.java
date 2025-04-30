@@ -197,6 +197,13 @@ public class CreateAndAddNewMemberWithOrWithoutEmail_TestData {
 	public static String WE_31_CreateandAddnewmemberOrganization="demo organization";
 	public static String WE_31_CreateandAddnewmemberTeam="475 Playmakers";
 	public static String WE_31_CreateandAddnewmemberRole="Player";
+
+	// WE32_CreateandAddnewmemberwithorwithoutEmail
+	public static String WE_32_CreateandAddnewmemberOrganization="demo organization";
+	public static String WE_32_CreateandAddnewmemberTeam="475 Playmakers";
+	public static String WE_32_CreateandAddnewmemberEmail=BasePge.CreateRandom(5)+"@gmail.com";
+	public static String WE_32_CreateandAddnewmemberFullName=BasePge.CreateRandomWithoutNumbers(5);
+	public static String WE_32_CreateandAddnewmemberJerseyNumber="123";
 }
 
 
