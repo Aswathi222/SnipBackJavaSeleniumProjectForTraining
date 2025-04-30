@@ -33,7 +33,6 @@ public class TeamInviteLink extends BasePge {
 	//Automation ID : Invitelink_01
 	//</summery>
 	public void Invitelink_01_TeamInviteLink() throws InterruptedException {	
-		Login login = new Login(driver);
 		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
 
 		//Step 1 : Enter the URL
