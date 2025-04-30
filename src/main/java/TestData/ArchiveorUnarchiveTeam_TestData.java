@@ -10,4 +10,8 @@ public class ArchiveorUnarchiveTeam_TestData {
 	//Archive_04_ArchiveorUnarchiveTeam
 	public static String Archive_04_ArchiveorUnarchiveTeamHome="Home";
 	public static String Archive_04_ArchiveorUnarchiveTeam="Android Tab - test";
+
+	//Archive_06_ArchiveorUnarchiveTeam
+	public static String Archive_06_ArchiveorUnarchiveTeam="demo organization";
+	public static String Archive_06_ArchiveorUnarchiveTeam_Search="ABC TEAM";
 }

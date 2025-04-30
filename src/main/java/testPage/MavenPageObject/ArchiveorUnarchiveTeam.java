@@ -194,5 +194,50 @@ public class ArchiveorUnarchiveTeam extends BasePge{
 		//Expected:Archive option should  be disabled in Home organization
 		asrt.assertTrue(base.isDoesNotExistBool(archiveorUnarchiveTeamObj.Ele_ArchiveTeam("my-team-content", "content-between align-items-center list-wrap all-teams-dark team")), "Archive Team option is displayed for team in Film page");
 	}
+	//<Summary>
+	//Test case Title:Verify that the message "Are you sure want to archive this team?" with Yes or No should be displayed when click on Archive team from the three dots against the respective team
+	//Automation ID:Archive_06
+	//</Summary>
+	public void Archive_06_ArchiveorUnarchiveTeam() throws InterruptedException{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login=new Login(driver);
+		CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj createAndAddNewMemberWithOrWithoutEmailObj=new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		ArchiveorUnarchiveTeam_TestData archiveorUnarchiveTeamTestData=new ArchiveorUnarchiveTeam_TestData();
+		ArchiveorUnarchiveTeam_Obj archiveorUnarchiveTeamObj=new ArchiveorUnarchiveTeam_Obj();
+		SnipBackLogin_Obj snipBackLoginObj=new SnipBackLogin_Obj();
+
+		//Step 1:Enter the URL
+		//Expected : User should able to navigate to the snipback website after entering the URL
+		asrt.assertTrue(base.isExists(loginObj.Btn_Login("Login")),"User is unable to view SnipBack website after entering the URL" );
+
+		//Step 2:Login to SnipBack
+		//Expected:User should able to navigate to the Film page once login with credentials 
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"))," User is unable to navigate to the Film page once login with credentials");
+
+		//Step 3:Switch the organization if the User as Admin/Coach
+		//Expected:User should able to switch the organisation if the user as Admin/Coach
+		base.selectorByVisibleText(createAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"),archiveorUnarchiveTeamTestData.Archive_06_ArchiveorUnarchiveTeam );
+		Thread.sleep(3000);
+		String organisation=element.DropDownText(createAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		asrt.assertEquals(organisation,archiveorUnarchiveTeamTestData.Archive_06_ArchiveorUnarchiveTeam ,"User unable to switch the organisation if the user as Admin/Coach");
+
+		//Step 3:Click search bar and enter a team
+		//Expected:User should click search bar and enter a team
+		base.setData(loginObj.Edt_LoginEmail("searchTeam"), archiveorUnarchiveTeamTestData.Archive_06_ArchiveorUnarchiveTeam_Search);
+		String teamValue=base.GetValue(loginObj.Edt_LoginEmail("searchTeam"));
+		asrt.assertEquals(teamValue, archiveorUnarchiveTeamTestData.Archive_06_ArchiveorUnarchiveTeam_Search,"User is unable to click search bar and enter a team");
+
+		//Step 4:Click on Three dots
+		//Expected: User is able to click on three dots of the team
+		base.buttonClick(createAndAddNewMemberWithOrWithoutEmailObj.Btn_ThreeDots("my-team-content", "defaultDropdown-1"));
+		asrt.assertTrue(base.isExists(snipBackLoginObj.Btn_Login("Archive Team")), "User is unable to click three dots of the team");
+
+		//Step 5:Click on Archive team
+		//Expected:The message "Are you sure want to archive this team?" should be displayed when click on Archive team from the three dots against the respective team
+		base.buttonClick(snipBackLoginObj.Btn_Login("Archive Team"));
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("Are you sure want to archive this team?")), "User is unable to receive The message \"Are you sure want to archive this team?\" should be displayed when click on Archive team from the three dots against the respective team");
+	}
 }
 
