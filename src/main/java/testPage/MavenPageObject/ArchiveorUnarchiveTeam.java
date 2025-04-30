@@ -140,5 +140,59 @@ public class ArchiveorUnarchiveTeam extends BasePge{
 			Thread.sleep(2000);
 		}
 	}
+	//<Summary>
+	//Test case Title:Verify that Archive option should  be disabled in Home organization and in the Organization if the User as Player/Followers/Recruiter in the Film page
+	//Automation ID:Archive_04
+	//</Summary>
+	public void Archive_04_ArchiveorUnarchiveTeam() throws InterruptedException{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login=new Login(driver);
+		CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj createAndAddNewMemberWithOrWithoutEmailObj=new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		ArchiveorUnarchiveTeam_TestData archiveorUnarchiveTeamTestData=new ArchiveorUnarchiveTeam_TestData();
+		ArchiveorUnarchiveTeam_Obj archiveorUnarchiveTeamObj=new ArchiveorUnarchiveTeam_Obj();
+		SnipBackLogin_Obj snipBackLoginObj=new SnipBackLogin_Obj();
+
+		//Step 1:Enter the URL
+		//Expected : User should able to navigate to the snipback website after entering the URL
+		asrt.assertTrue(base.isExists(loginObj.Btn_Login("Login")),"User is unable to view SnipBack website after entering the URL" );
+
+		//Step 2:Login to SnipBack
+		//Expected:User should able to navigate to the Film page once login with credentials 
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"))," User is unable to navigate to the Film page once login with credentials");
+
+		//Step 3:Switch the organization if the User as Player/Followers/Recruiter
+		//Expected:User should able to switch the organisation if the user as Player/Followers/Recruiter in the Film page
+		base.selectorByVisibleText(createAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"),archiveorUnarchiveTeamTestData.Archive_04_ArchiveorUnarchiveTeam );
+		Thread.sleep(3000);
+		String organisation=element.DropDownText(createAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		asrt.assertEquals(organisation, archiveorUnarchiveTeamTestData.Archive_04_ArchiveorUnarchiveTeam,"User unable to switch the organisation if the user as Admin/Coach");
+
+		//Step 4:Verify the Archive team option is disabled in the Organization if the User as Player/Followers/Recruiter in the Film page
+		//Expected:Archive option should be disabled in the Organization if the User as Player/Followers/Recruiter in the Film page
+		Thread.sleep(3000);
+		base.buttonClick(loginObj.Edt_AlertMessage("GAMES"));
+		List<WebElement> teamsDisArchive = driver.findElements(archiveorUnarchiveTeamObj.Ele_ArchiveTeam("my-team-content", "content-between align-items-center list-wrap all-teams-dark team"));
+		for (int i = 0; i < teamsDisArchive.size(); i++) {
+			Thread.sleep(1000);
+			WebElement currentTeam = teamsDisArchive.get(i);
+			WebElement threeDotsButton = currentTeam.findElement(archiveorUnarchiveTeamObj.Ele_ArchiveTeamDots("my-team-content", "all-teams-menu cursor-pointer"));
+			threeDotsButton.click();
+			asrt.assertTrue(base.isDoesNotExistBool(snipBackLoginObj.Btn_Login("Archive Team")), "Archive Team option is displayed in the Organization if the User as Player/Followers/Recruiter in the Film page");
+			threeDotsButton.click();
+			Thread.sleep(2000);
+		}
+		//Step 5:Switch the organization to Home
+		//Expected:User should able to switch the organisation to Home
+		base.selectorByVisibleText(createAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"),archiveorUnarchiveTeamTestData.Archive_04_ArchiveorUnarchiveTeamHome );
+		Thread.sleep(3000);
+		String organisationhome=element.DropDownText(createAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		asrt.assertEquals(organisationhome, archiveorUnarchiveTeamTestData.Archive_04_ArchiveorUnarchiveTeamHome,"User unable to switch the organisation to Home");
+
+		//Step 6:Verify the Archive team option is disabled 
+		//Expected:Archive option should  be disabled in Home organization
+		asrt.assertTrue(base.isDoesNotExistBool(archiveorUnarchiveTeamObj.Ele_ArchiveTeam("my-team-content", "content-between align-items-center list-wrap all-teams-dark team")), "Archive Team option is displayed for team in Film page");
+	}
 }
 
