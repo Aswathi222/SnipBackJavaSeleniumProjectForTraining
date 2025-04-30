@@ -223,18 +223,18 @@ public class ArchiveorUnarchiveTeam extends BasePge{
 		String organisation=element.DropDownText(createAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
 		asrt.assertEquals(organisation,archiveorUnarchiveTeamTestData.Archive_06_ArchiveorUnarchiveTeam ,"User unable to switch the organisation if the user as Admin/Coach");
 
-		//Step 3:Click search bar and enter a team
+		//Step 4:Click search bar and enter a team
 		//Expected:User should click search bar and enter a team
 		base.setData(loginObj.Edt_LoginEmail("searchTeam"), archiveorUnarchiveTeamTestData.Archive_06_ArchiveorUnarchiveTeam_Search);
 		String teamValue=base.GetValue(loginObj.Edt_LoginEmail("searchTeam"));
 		asrt.assertEquals(teamValue, archiveorUnarchiveTeamTestData.Archive_06_ArchiveorUnarchiveTeam_Search,"User is unable to click search bar and enter a team");
 
-		//Step 4:Click on Three dots
+		//Step 5:Click on Three dots
 		//Expected: User is able to click on three dots of the team
 		base.buttonClick(createAndAddNewMemberWithOrWithoutEmailObj.Btn_ThreeDots("my-team-content", "defaultDropdown-1"));
 		asrt.assertTrue(base.isExists(snipBackLoginObj.Btn_Login("Archive Team")), "User is unable to click three dots of the team");
 
-		//Step 5:Click on Archive team
+		//Step 6:Click on Archive team
 		//Expected:The message "Are you sure want to archive this team?" should be displayed when click on Archive team from the three dots against the respective team
 		base.buttonClick(snipBackLoginObj.Btn_Login("Archive Team"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("Are you sure want to archive this team?")), "User is unable to receive The message \"Are you sure want to archive this team?\" should be displayed when click on Archive team from the three dots against the respective team");
