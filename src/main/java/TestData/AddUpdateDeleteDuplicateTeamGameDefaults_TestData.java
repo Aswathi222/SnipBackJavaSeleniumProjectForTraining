@@ -100,4 +100,8 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults_TestData
 	//Team_25_AddUpdateDeleteDuplicateTeamGameDefaults
 	public static String Team_25_SelectedValueAdmin="C4-Org1 - 4262 CHILD 1";
 	public static String Team_25_TeamName="Team 1";
+
+	//Team_26_AddUpdateDeleteDuplicateTeamGameDefaults
+	public static String Team_26_SelectedValueAdmin="C4-Org1 - 4262 CHILD 1";
+	public static String Team_26_TeamName="Team 1";
 }
