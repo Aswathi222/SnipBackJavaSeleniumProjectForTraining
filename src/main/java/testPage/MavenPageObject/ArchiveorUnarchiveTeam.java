@@ -47,5 +47,22 @@ public class ArchiveorUnarchiveTeam extends BasePge{
 		//Expected : User should able to navigate to the snipback website after entering the URL
 		asrt.assertTrue(base.isExists(loginObj.Btn_Login("Login")),"User is unable to view SnipBack website after entering the URL" );
 	}
+	//<Summary>
+	//Test case Title:Verify that user should able to navigate to the Film page once login with credentials
+	//Automation ID:Archive_02
+	//</Summary>
+	public void Archive_02_ArchiveorUnarchiveTeam() throws InterruptedException{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login=new Login(driver);	
+
+		//Step 1:Enter the URL
+		//Expected : User should able to navigate to the snipback website after entering the URL
+		asrt.assertTrue(base.isExists(loginObj.Btn_Login("Login")),"User is unable to view SnipBack website after entering the URL" );
+
+		//Step 2:Login to SnipBack
+		//Expected:User should able to navigate to the Film page once login with credentials 
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertMessage("GAMES"))," User is unable to navigate to the Film page once login with credentials");
+	}
 }
 
