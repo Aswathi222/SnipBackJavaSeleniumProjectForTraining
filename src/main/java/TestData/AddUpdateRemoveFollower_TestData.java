@@ -24,4 +24,9 @@ public class AddUpdateRemoveFollower_TestData {
 	public static String Follower_11_SelectedValue="mango01@gmail.com";
 	public static String Follower_11_SelectedValue1="demo organization";
 	
+	//Follower_12_AddUpdateRemoveFollower
+	public static String Follower_12_SelectedValue="ralf01@gmail.com";
+	public static String Follower_12_SelectedValue1="No data found";
+	public static String Follower_12_SelectedValue2="demo organization";
+	
 }
