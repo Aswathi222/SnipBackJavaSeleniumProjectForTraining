@@ -96,4 +96,8 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults_TestData
 	public static String Team_24_Listvalue5="Delete Team";
 	public static String Team_24_Listvalue6="Chat with Team";
 	public static String Team_24_Listvalue7="Dismiss";
+
+	//Team_25_AddUpdateDeleteDuplicateTeamGameDefaults
+	public static String Team_25_SelectedValueAdmin="C4-Org1 - 4262 CHILD 1";
+	public static String Team_25_TeamName="Team 1";
 }

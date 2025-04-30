@@ -13,6 +13,7 @@ import objectRepository.CreateAndAddNewMemberWithOrWithoutEmail_Obj;
 import objectRepository.CreateEditDeletePool_Obj;
 import objectRepository.ForgotPassword_Obj;
 import objectRepository.LoginPage_Obj;
+import objectRepository.Registration_Obj;
 import objectRepository.ScheduleUnscheduleGames_Obj;
 import objectRepository.SearchGameTeamAndMembers_Obj;
 import utilPack.BasePge;
@@ -1011,5 +1012,47 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 				System.out.println("Error at index " + i + ": " + e.getMessage());
 			}
 		}
+	}
+
+	// <summary>
+	// Test Case Title :Verify that details of the Team should be displayed when click on Edit option from the three dots against the team
+	// Automation ID :Team_25
+	// </summary>
+	public void Team_25_AddUpdateDeleteDuplicateTeamGameDefaults() throws InterruptedException 
+	{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login = new Login(driver);
+		CreateEditDeletePool_Obj CreateEditDeletePoolObj = new CreateEditDeletePool_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj createandaddnewmemberobj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		AddUpdateDeleteDuplicateTeamGameDefaults_TestData  addupdatedeleteobj= new AddUpdateDeleteDuplicateTeamGameDefaults_TestData();
+		Registration_Obj regObj=new Registration_Obj ();
+
+		//Step 1 : Verify that user is able to Login Snipback
+		//Expected : User should be able to login the film page with credentials
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(loginObj.Btn_SingnIn("nav-game-tab"))," User is unable to login the film page with credentials");
+
+		//Step 2 : Switch the organization if the User as Admin/Coach
+		//Expected : User is able to Switch the organization if the User as Admin/Coach
+		base.buttonClick(CreateEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		base.selectorByVisibleText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"),addupdatedeleteobj.Team_25_SelectedValueAdmin);
+		String selectOrg=element.DropDownText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"));			
+		asrt.assertEquals(selectOrg,addupdatedeleteobj.Team_25_SelectedValueAdmin,"User is unable to Switch the organization if the User as Admin/Coach");
+
+		//Step 3 : Verify the option
+		//Expected : User is able to  view edit team option when Click on three dots the team
+		base.setData(loginObj.Edt_LoginEmail("searchTeam"),addupdatedeleteobj.Team_25_TeamName);
+		Thread.sleep(1000);
+		base.pressKey(loginObj.Edt_LoginEmail("searchTeam"), "ENTER");
+		base.buttonClick(regObj.Btn_ResendOTP("defaultDropdown-1"));	
+		asrt.assertTrue(base.isExists(regObj.Btn_Login("dropdown-item","Edit Team")), "User is unable to view edit option when Clicking three dots of the team");
+
+		//Step 4 :  Click on Edit team option
+		//Expected :Details of the Team should be displayed when click on Edit option from the three dots against the team
+		Thread.sleep(1000);
+		base.excuteJsClick(regObj.Btn_Login("dropdown-item","Edit Team"));
+		base.switchToWindowByIndex(driver, 0);
+		String teamName=base.GetValue(createandaddnewmemberobj.Ele_SearchGame("form-control form-control-wrap"));
+		asrt.assertEquals(teamName, addupdatedeleteobj.Team_25_TeamName, "Details of the Team is not displayed when user click Edit option from the three dots against the team");
 	}
 }
