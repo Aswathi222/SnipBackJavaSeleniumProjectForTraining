@@ -1055,4 +1055,46 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		String teamName=base.GetValue(createandaddnewmemberobj.Ele_SearchGame("form-control form-control-wrap"));
 		asrt.assertEquals(teamName, addupdatedeleteobj.Team_25_TeamName, "Details of the Team is not displayed when user click Edit option from the three dots against the team");
 	}
+
+	// <summary>
+	// Test Case Title :Verify that a pencil icon should be displayed to edit the name of the Team after clicking the Edit option
+	// Automation ID :Team_26
+	// </summary>
+	public void Team_26_AddUpdateDeleteDuplicateTeamGameDefaults() throws InterruptedException 
+	{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login = new Login(driver);
+		CreateEditDeletePool_Obj CreateEditDeletePoolObj = new CreateEditDeletePool_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj createandaddnewmemberobj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		AddUpdateDeleteDuplicateTeamGameDefaults_TestData  addupdatedeleteobj= new AddUpdateDeleteDuplicateTeamGameDefaults_TestData();
+		Registration_Obj regObj=new Registration_Obj ();
+		SearchGameTeamAndMembers_Obj searchGameobject=new SearchGameTeamAndMembers_Obj();
+
+		//Step 1 : Verify that user is able to Login Snipback
+		//Expected : User should be able to login the film page with credentials
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(loginObj.Btn_SingnIn("nav-game-tab"))," User is unable to login the film page with credentials");
+
+		//Step 2 : Switch the organization if the User as Admin/Coach
+		//Expected : User is able to Switch the organization if the User as Admin/Coach
+		base.buttonClick(CreateEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		base.selectorByVisibleText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"),addupdatedeleteobj.Team_26_SelectedValueAdmin);
+		String selectOrg=element.DropDownText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"));			
+		asrt.assertEquals(selectOrg,addupdatedeleteobj.Team_26_SelectedValueAdmin,"User is unable to Switch the organization if the User as Admin/Coach");
+
+		//Step 3 : Verify the options 
+		//Expected : User is able to  view edit option when Click on three dots of the team
+		base.setData(loginObj.Edt_LoginEmail("searchTeam"),addupdatedeleteobj.Team_26_TeamName);
+		Thread.sleep(1000);
+		base.pressKey(loginObj.Edt_LoginEmail("searchTeam"), "ENTER");
+		base.buttonClick(regObj.Btn_ResendOTP("defaultDropdown-1"));	
+		asrt.assertTrue(base.isExists(regObj.Btn_Login("dropdown-item","Edit Team")), "User is unable to view edit option when Clicking three dots of the team");
+
+		//Step 4 : Click on Edit option
+		//Expected :A pencil icon should be displayed to edit the name of the Team after clicking the Edit option
+		Thread.sleep(1000);
+		base.excuteJsClick(regObj.Btn_Login("dropdown-item","Edit Team"));
+		base.switchToWindowByIndex(driver, 0);
+		asrt.assertTrue(base.isExists(searchGameobject.Ele_GameSpecial("teamDiv")), "A pencil icon is not displayed to edit the name of the Team when user click the Edit option");
+	}
 }
