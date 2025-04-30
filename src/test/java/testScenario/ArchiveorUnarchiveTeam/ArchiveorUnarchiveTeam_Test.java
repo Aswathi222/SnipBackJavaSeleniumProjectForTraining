@@ -39,5 +39,11 @@ public class ArchiveorUnarchiveTeam_Test extends BaseTest
 		ArchiveorUnarchiveTeam ArchiveorUnarchiveTeam=new ArchiveorUnarchiveTeam(getDriver());
 		ArchiveorUnarchiveTeam.Archive_06_ArchiveorUnarchiveTeam();
 	}
+	@Test()
+	public void Archive_07_ArchiveorUnarchiveTeamTest() throws Exception 
+	{	
+		ArchiveorUnarchiveTeam ArchiveorUnarchiveTeam=new ArchiveorUnarchiveTeam(getDriver());
+		ArchiveorUnarchiveTeam.Archive_07_ArchiveorUnarchiveTeam();
+	}
 }
 
