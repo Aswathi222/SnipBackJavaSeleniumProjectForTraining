@@ -563,4 +563,88 @@ public class AddUpdateRemoveFollower extends BasePge{
 		String Email = base.GetValue(LoginPageObj.Edt_LoginEmail("emailInput"));
 		asrt.assertEquals(Email, "", "User is not able to clear the entered email after clicking on X button");	
 	}
+	// <summary>
+	// Test Case Title :Verify that the following option should be displayed when clicking on the tick button after entering the email id;
+    //1.First Name (Mandatory)
+    //2.Last Name (Optional)
+    //3.Team Name
+    //4.Jersey number (#)
+    //5.The text Send a message along with notification email 
+    //6.Field for adding message
+    //7.Add as Player/users Organization button
+	// Automation ID : Follower_15
+	// </summary>
+	public void Follower_15_AddUpdateRemoveFollower() throws InterruptedException 
+	{
+		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+		Login login = new Login(driver);
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj cad_obj=new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		AddUpdateRemoveFollower_TestData test_obj=new AddUpdateRemoveFollower_TestData();
+		ScheduleUnscheduleGames_Obj Sch_Obj =new ScheduleUnscheduleGames_Obj();
+		Registration_Obj register_obj=new Registration_Obj();
+		AddUpdateRemoveFollower_Obj follower_obj=new AddUpdateRemoveFollower_Obj();
+		CreateEditDeletePool_Obj ced_obj=new CreateEditDeletePool_Obj();
+				
+		// Step1: Enter the URL
+		// Expected:The user should be able to navigate to the  Snipback website after entering the URL
+		asrt.assertTrue(base.isExists(LoginPageObj.Ele_SnipBackHomePageLogo("light-logo")), "User is unable to navigate to SnipBack website after entering the URL");
+				
+		//Step2:Login Snipback
+		//Expected:User should able to navigate to the Film page once login with credentials
+		login.loginToApplication(CommonData.UserName,CommonData.PassWord);
+		asrt.assertTrue(base.isExists(LoginPageObj.Btn_SingnIn("nav-game-tab")),"User is unable to navigate to the Film page once login with credentials");	
+				
+		//Step3:Switch the organization if the User as Admin/Coach
+		//Expected:User should be able to switch the organization if they are an Admin or Coach
+		base.selectorByVisibleText(cad_obj.DdlOrg("form-select select-form film-organizations"),test_obj.Follower_10_SelectedValue1);
+		Thread.sleep(5000);
+		String Org_name=element.DropDownText(cad_obj.DdlOrg("form-select select-form film-organizations"));
+		asrt.assertEquals(Org_name,test_obj.Follower_15_SelectedValue1,"User is not able to switch the organisation if they are an Admin or Coach");
+						
+		//Step4:Click on Followers tab
+		//Expected:The user (Admin/Coach) should able to click on Followers tab in the Film page
+		base.buttonClick(LoginPageObj.Btn_SingnIn("nav-followers-tab"));
+		asrt.assertTrue(base.isExists(Sch_Obj.Ele_CreateGameFor("LIST OF FOLLOWERS / MANAGERS")),"The user (Admin/Coach) is unable to click on Followers tab in the Film page");
+				
+		//Step5:Click on +Followers option
+		//Expected:User should be able to see the Main Heading- CREATE NEW USER,Sub heading- Add Email ID,Text field for Entering the Email ID, X mark and tick mark against the field for entering the email ID
+		base.buttonClick(register_obj.Btn_ResendOTP("addFollowerBtn"));
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("emailInput")),"User is not able to see Text field for entering the Email ID after clicking +Followers option");
+			
+		//Step6:Enter the users's email id
+		//Expected:The list of similar email ids (Email id of users already in any organization/team) should be displayed when we try to add the users as followers using that email id
+		base.setData(LoginPageObj.Edt_LoginEmail("emailInput"), test_obj.Follower_15_SelectedValue);
+		asrt.assertTrue(base.isExists(register_obj.Btn_Login("ui-corner-all",test_obj.Follower_15_SelectedValue)),"User is not able to view the list of similar email ids (Email id of users already in any organization/team) when we try to add the users as followers using that email id");
+		
+		//Step7:Click on tick option
+		//Expected:The page for entering the details of followers should be displayed when clicking on the tick option after entering the email id
+		base.buttonClick(follower_obj.Btn_TickIcon("checkMail();", "bi bi-check2"));
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("firstname")),"The page for entering the details of followers is not displayed when clicking on the tick option after entering the email id");
+		
+		//Step8:Verify that the following options(First Name (Mandatory),Last Name (Optional)Team Name,Jersey number (#),The text Send a message along with notification email ,Field for adding message,Add as Player/users Organization button) should be displayed when clicking on the tick button after entering the email id
+		//Expected:The following options(First Name (Mandatory),Last Name (Optional)Team Name,Jersey number (#),The text Send a message along with notification email ,Field for adding message,Add as Player/users Organization button) should be displayed when clicking on the tick button after entering the email id
+		List<Object[]> assertions = new ArrayList<>();
+        assertions.add(new Object[] {
+		    LoginPageObj.Edt_LoginEmail("firstname"),
+		    "User is not able to see the 'First Name' (Mandatory) field after clicking the tick button upon entering the email ID"});
+        assertions.add(new Object[] {
+		    LoginPageObj.Edt_LoginEmail("lastname"),
+		    "User is not able to see the 'Last Name' (Optional) field after clicking the tick button upon entering the email ID"});
+		assertions.add(new Object[] {
+		    follower_obj.Ele_SelectText("modal follower show", "Select"),
+		    "User is not able to see the 'Team Name' field after clicking the tick button upon entering the email ID"});
+		assertions.add(new Object[] {
+		    LoginPageObj.Edt_LoginEmail("jerseyNumber"),
+		    "User is not able to see the 'Jersey Number (#)' field after clicking the tick button upon entering the email ID"});
+		assertions.add(new Object[] {
+		    ced_obj.Ele_PoolType("modal follower show", "Send a message along with notification email."),
+		    "User is not able to see the text 'Send a message along with notification email' after clicking the tick button upon entering the email ID"});
+		assertions.add(new Object[] {
+		    follower_obj.Ele_TextArea("modal follower show", "form-control"),
+		    "User is not able to see the field for adding a message after clicking the tick button upon entering the email ID"});
+		assertions.add(new Object[] {
+		    follower_obj.Btn_AddPlayer("modal follower show", "ADD AS PLAYER / USER TO ORGANIZATION"),
+		    "User is not able to see the 'Add as Player/User to Organization' button after clicking the tick button upon entering the email ID"});
+		element.verifyElementsExist(base, assertions);
+	}
 }
