@@ -1,11 +1,13 @@
 package testPage.MavenPageObject;
 import java.util.ArrayList;
 import java.util.List;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import TestData.AddUpdateRemoveFollower_TestData;
 import TestData.CommonData;
+import objectRepository.AddUpdateDeleteDuplicateTeamGameDefaults_Obj;
 import objectRepository.AddUpdateRemoveFollower_Obj;
 import objectRepository.CreateAndAddNewMemberWithOrWithoutEmail_Obj;
 import objectRepository.CreateEditDeletePool_Obj;
@@ -395,7 +397,7 @@ public class AddUpdateRemoveFollower extends BasePge{
 		base.selectorByVisibleText(cad_obj.DdlOrg("form-select select-form film-organizations"),test_obj.Follower_10_SelectedValue1);
 		Thread.sleep(5000);
 		String Org_name=element.DropDownText(cad_obj.DdlOrg("form-select select-form film-organizations"));
-		asrt.assertEquals(Org_name,test_obj.Follower_10_SelectedValue1,"User is not able to switch the organisation if they are an Admin or Coach");
+		asrt.assertEquals(Org_name,test_obj.Follower_11_SelectedValue1,"User is not able to switch the organisation if they are an Admin or Coach");
 						
 		//Step4:Click on Followers tab
 		//Expected:The user (Admin/Coach) should able to click on Followers tab in the Film page
