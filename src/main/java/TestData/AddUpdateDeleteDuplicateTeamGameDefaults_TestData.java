@@ -99,7 +99,7 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults_TestData
 
 	//Team_25_AddUpdateDeleteDuplicateTeamGameDefaults
 	public static String Team_25_SelectedValueAdmin="C4-Org1 - 4262 CHILD 1";
-	public static String Team_25_TeamName="Team 1";
+	public static String Team_25_TeamName="TeamNames1";
 
 	//Team_26_AddUpdateDeleteDuplicateTeamGameDefaults
 	public static String Team_26_SelectedValueAdmin="C4-Org1 - 4262 CHILD 1";
@@ -112,15 +112,15 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults_TestData
 	//Team_28_AddUpdateDeleteDuplicateTeamGameDefaults
 	public static String Team_28_SelectedValueAdmin="C4-Org1 - 4262 CHILD 1";
 	public static String Team_28_TeamName="Team 1";
-	public static String Team_28_NewTeamName="TeamName";
+	public static String Team_28_NewTeamName="Team1";
 
 	//Team_29_AddUpdateDeleteDuplicateTeamGameDefaults
 	public static String Team_29_SelectedValueAdmin="C4-Org1 - 4262 CHILD 1";
 	public static String Team_29_TeamName="Team 1";
-	public static String Team_29_NewTeamName="TeamsName";
+	public static String Team_29_NewTeamName="Team1";
 
 	//Team_30_AddUpdateDeleteDuplicateTeamGameDefaults
 	public static String Team_30_SelectedValueAdmin="C4-Org1 - 4262 CHILD 1";
 	public static String Team_30_TeamName="Team 1";
-	public static String Team_30_NewTeamName="TeamName";
+	public static String Team_30_NewTeamName="TeamNames1";
 }

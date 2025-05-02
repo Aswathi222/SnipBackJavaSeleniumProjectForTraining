@@ -1597,6 +1597,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
 		Thread.sleep(3000);
 		base.buttonClick(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		Thread.sleep(1000);
 		String TeamName = base.GetText(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
 		asrt.assertEquals(TeamName,CreateAndAddNewMemberTestDataobj.WE_27_CreateandAddnewmemberTeam,"User is not able to Switch to any Team.");
 
@@ -1680,6 +1681,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 				CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("add-user-form-control add_woemail_email add_woemail_field_elements"), CreateAndAddNewMemberTestDataobj.WE_28_CreateandAddnewmemberEmail,
 				CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("add-user-form-control add_woemail_name add_woemail_field_elements"),CreateAndAddNewMemberTestDataobj.WE_28_CreateandAddnewmemberFullName,
 				CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("add-user-form-control add_woemail_jersey add_woemail_field_elements"),CreateAndAddNewMemberTestDataobj.WE_28_CreateandAddnewmemberJerseyNumber);
+		Thread.sleep(2000);
 		base.buttonClick(LoginPageObj.Btn_SingnIn("saveMutipleUsersWOEmail"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText("Users Added Successfully!")), "The user is not able to add new member.");
 	}
@@ -1783,6 +1785,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 		//Step 6 :  Select "Edit Team" option 
 		//Expected : User should be able to select "Edit Team" option.
 		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_EditTeam("475 Playmakers"));
+		Thread.sleep(2500);
 		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
 
 		//Step 7 :   Click Create&Add New Member without Email
@@ -1897,6 +1900,7 @@ public class CreateAndAddNewMemberWithOrWithoutEmail extends BasePge {
 
 		//Step 6 :  Select "Edit Team" option 
 		//Expected : User should be able to select "Edit Team" option.
+		Thread.sleep(1000);
 		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_EditTeam("475 Playmakers"));
 		asrt.assertTrue(base.isExists(CreateAndAddNewMemberWithOrWithoutEmailObj.Ele_SearchGame("form-control form-control-wrap")), "User is not able to select \"Edit Team\" option");
 
