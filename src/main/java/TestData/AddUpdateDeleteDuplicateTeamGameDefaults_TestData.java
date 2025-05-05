@@ -123,4 +123,11 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults_TestData
 	public static String Team_30_SelectedValueAdmin="C4-Org1 - 4262 CHILD 1";
 	public static String Team_30_TeamName="Team 1";
 	public static String Team_30_NewTeamName="TeamNames1";
+
+	//Team_31_AddUpdateDeleteDuplicateTeamGameDefaults
+	public static String Team_31_SelectedValueAdmin="new-organization - Test-child";
+	public static String Team_31_TeamName="Test";
+	public static String Team_31_SelectedDropdown="Tennis";
+	public static String Team_31_fullname="Testing"+BasePge.CreateRandomWithoutNumbers(3);
+	public static String Team_31_newemail="msangeet"+BasePge.CreateRandomWithoutNumbers(3)+"@gmail.com";
 }
