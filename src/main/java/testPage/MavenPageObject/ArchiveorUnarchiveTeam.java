@@ -347,5 +347,67 @@ public class ArchiveorUnarchiveTeam extends BasePge{
 		base.buttonClick(snipBackLoginObj.Btn_Signin("Yes"));
 		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("Team Archived Successfully")), "The message 'Success! Team Archived Successfully' is not showing when user click on Yes from the popup message 'Are you sure want to archive this team?'");
 	}
+	//<Summary>
+	//Test case Title:Verify that the Team should be in Archived List when click on OK from the popup message Success! Team Archived Successfully"
+	//Automation ID:Archive_09
+	//</Summary>
+	public void Archive_09_ArchiveorUnarchiveTeam() throws InterruptedException{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login=new Login(driver);
+		CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj createAndAddNewMemberWithOrWithoutEmailObj=new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		ArchiveorUnarchiveTeam_TestData archiveorUnarchiveTeamTestData=new ArchiveorUnarchiveTeam_TestData();
+		ArchiveorUnarchiveTeam_Obj archiveorUnarchiveTeamObj=new ArchiveorUnarchiveTeam_Obj();
+		SnipBackLogin_Obj snipBackLoginObj=new SnipBackLogin_Obj();
+
+		//Step 1:Enter the URL
+		//Expected : User should able to navigate to the snipback website after entering the URL
+		asrt.assertTrue(base.isExists(loginObj.Btn_Login("Login")),"User is unable to view SnipBack website after entering the URL" );
+
+		//Step 2:Login to SnipBack
+		//Expected:User should able to navigate to the Film page once login with credentials 
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertMessage("GAMES"))," User is unable to navigate to the Film page once login with credentials");
+
+		//Step 3:Switch the organization if the User as Admin/Coach
+		//Expected:User should able to switch the organisation if the user as Admin/Coach
+		base.selectorByVisibleText(createAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"),archiveorUnarchiveTeamTestData.Archive_09_ArchiveorUnarchiveTeam );
+		Thread.sleep(3000);
+		String organisation=element.DropDownText(createAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		asrt.assertEquals(organisation,archiveorUnarchiveTeamTestData.Archive_09_ArchiveorUnarchiveTeam ,"User unable to switch the organisation if the user as Admin/Coach");
+
+		//Step 4:Click search bar and enter a team
+		//Expected:User should click search bar and enter a team
+		base.setData(loginObj.Edt_LoginEmail("searchTeam"), archiveorUnarchiveTeamTestData.Archive_09_ArchiveorUnarchiveTeam_Search);
+		base.pressKey(loginObj.Edt_LoginEmail("searchTeam"),"ENTER");
+		base.scrollToElement(loginObj.Edt_AlertMessage("AA DEMO"));
+		Thread.sleep(2000);
+		String teamValue=base.GetValue(loginObj.Edt_LoginEmail("searchTeam"));
+		asrt.assertEquals(teamValue, archiveorUnarchiveTeamTestData.Archive_09_ArchiveorUnarchiveTeam_Search,"User is unable to click search bar and enter a team");
+
+		//Step 5:Click on Three dots
+		//Expected: User is able to click on three dots of the team
+		Thread.sleep(5000);
+		base.buttonClick(createAndAddNewMemberWithOrWithoutEmailObj.Btn_ThreeDots("my-team-content", "defaultDropdown-9"));
+		asrt.assertTrue(base.isExists(archiveorUnarchiveTeamObj.Ele_ArchiveOptionText("teamDropdownMenu-9","Archive Team")), "User is unable to click three dots of the team");
+
+		//Step 6:Click on Archive team
+		//Expected:User is able to click on Archive team
+		Thread.sleep(3000);
+		base.buttonClick(archiveorUnarchiveTeamObj.Ele_ArchiveOptionText("teamDropdownMenu-9","Archive Team"));
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("Are you sure want to archive this team?")), "User is unable to click on Archive team");
+
+		//Step 7:Click on Yes
+		//Expected:User should able to click Yes
+		base.buttonClick(snipBackLoginObj.Btn_Signin("Yes"));
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("Team Archived Successfully")), "User is unable to click 'Yes'");
+
+		//Step 8:Click on OK
+		//Expected:The Team should be in Archived List when click on OK from the popup message Success! Team Archived Successfully"
+		Thread.sleep(4000);
+		base.buttonClick(snipBackLoginObj.Btn_Signin("OK"));
+		asrt.assertTrue(base.isExists(archiveorUnarchiveTeamObj.Ele_ArchivedTeam("search-result-archive-wrap mt-3", "AA new")), "The Team is not in Archived List when click on OK from the popup message Success! Team Archived Successfully");
+	}
+
 }
 
