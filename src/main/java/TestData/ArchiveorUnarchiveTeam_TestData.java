@@ -22,4 +22,8 @@ public class ArchiveorUnarchiveTeam_TestData {
 	//Archive_08_ArchiveorUnarchiveTeam
 	public static String Archive_08_ArchiveorUnarchiveTeam="demo organization";
 	public static String Archive_08_ArchiveorUnarchiveTeam_Search="AA DEMO";
+	
+	//Archive_09_ArchiveorUnarchiveTeam
+	public static String Archive_09_ArchiveorUnarchiveTeam="demo organization";
+	public static String Archive_09_ArchiveorUnarchiveTeam_Search="AA new";
 }
