@@ -39,4 +39,21 @@ public class TeamInviteLink extends BasePge {
 		//Expected : User should able to navigate to the snipback website after entering the URL
 		asrt.assertTrue(base.isExists(LoginPageObj.Btn_Login("Login")),"User is not able to navigate to the snipback website after entering the URL");
 	}
+	//<summery>
+	//Test Case Title : Verify that user should able to navigate to the Film page once login with credentials
+	//Automation ID : Invitelink_02
+	//</summery>
+	public void Invitelink_02_TeamInviteLink() throws InterruptedException {	
+		Login login = new Login(driver);
+		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+
+		//Step 1 : Enter the URL
+		//Expected : User should able to navigate to the snipback website after entering the URL
+		asrt.assertTrue(base.isExists(LoginPageObj.Btn_Login("Login")),"User is not able to navigate to the snipback website after entering the URL");
+
+		//Step 2 : Login to Snipback
+		//Expected : User should able to navigate to the Film page once login with credentials
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("GAMES")), "User is not able to navigate to the Film page once login with credentials");
+	}
 }
