@@ -1448,4 +1448,58 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		String selectedDropdown=element.DropDownText(CreateEditDeletePoolObj.Sel_PoolType("category"));	
 		asrt.assertEquals(selectedDropdown ,addupdatedeleteobj.Team_31_SelectedDropdown," User is unable to Select default team type");
 	}
+
+	// <summary>
+	// Test Case Title :Verify that the Save Icon should be displayed to save/update the changes made in the team
+	// Automation ID :Team_32
+	// </summary>
+	public void Team_32_AddUpdateDeleteDuplicateTeamGameDefaults() throws InterruptedException 
+	{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login = new Login(driver);
+		CreateEditDeletePool_Obj CreateEditDeletePoolObj = new CreateEditDeletePool_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj createandaddnewmemberobj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		AddUpdateDeleteDuplicateTeamGameDefaults_TestData  addupdatedeleteobj= new AddUpdateDeleteDuplicateTeamGameDefaults_TestData();
+		Registration_Obj regObj=new Registration_Obj ();
+		SearchGameTeamAndMembers_Obj searchGameobject=new SearchGameTeamAndMembers_Obj();
+		AddUpdateDeleteDuplicateTeamGameDefaults_Obj addUpdateObject=new AddUpdateDeleteDuplicateTeamGameDefaults_Obj();
+		ScheduleUnscheduleGames_Obj scheduleobj=new ScheduleUnscheduleGames_Obj();
+
+		//Step 1 : Verify that user is able to Login Snipback
+		//Expected : User should be able to login the film page with credentials
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(loginObj.Btn_SingnIn("nav-game-tab"))," User is unable to login the film page with credentials");
+
+		//Step 2 : Switch the organization if the User as Admin/Coach
+		//Expected : User is able to Switch the organization if the User as Admin/Coach
+		base.buttonClick(CreateEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		base.selectorByVisibleText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"),addupdatedeleteobj.Team_32_SelectedValueAdmin);
+		String selectOrg=element.DropDownText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"));			
+		asrt.assertEquals(selectOrg,addupdatedeleteobj.Team_32_SelectedValueAdmin,"User is unable to Switch the organization if the User as Admin/Coach");
+
+		//Step 3 : Verify the edit team option
+		//Expected : User is able to  view edit team option when Click on three dots of the team
+		base.setData(loginObj.Edt_LoginEmail("searchTeam"),addupdatedeleteobj.Team_32_TeamName);
+		Thread.sleep(2000);
+		base.pressKey(loginObj.Edt_LoginEmail("searchTeam"), "ENTER");
+		base.excuteJsClick(regObj.Btn_ResendOTP("defaultDropdown-38"));	
+		asrt.assertTrue(base.isExists(addUpdateObject.Ele_Dropdown("dropdown-item", "team-5141")), "User is unable to view edit option when Clicking three dots of the team");
+
+		//Step 4 :  Click on Edit team option
+		//Expected :User is able to click Edit team option
+		Thread.sleep(1000);
+		base.excuteJsClick(addUpdateObject.Ele_Dropdown("dropdown-item", "team-5141"));
+		base.switchToWindowByIndex(driver, 0);
+		asrt.assertTrue(base.isExists(searchGameobject.Ele_GameSpecial("teamDiv")), "User is unable to click Edit team option");
+
+		//Step 5: Change default team type
+		//Expected :User is able to Change Default team type
+		base.selectorByVisibleText(CreateEditDeletePoolObj.Sel_PoolType("category"),addupdatedeleteobj.Team_32_SelectedDropdown);
+		String selectedDropdown=element.DropDownText(CreateEditDeletePoolObj.Sel_PoolType("category"));	
+		asrt.assertEquals(selectedDropdown ,addupdatedeleteobj.Team_32_SelectedDropdown," User is unable to Select default team type");
+
+		//Step 6 : Verify that the Save Icon should be displayed to save/update the changes made in the team
+		//Expected :The Save Icon should be displayed to save/update the changes made in the team
+		asrt.assertTrue(base.isExists(scheduleobj.Btn_EventOK("bg-red cursor-pointer update-team")), "User is unable to view Save Icon for save/update the changes made in the team");
+	}
 }
