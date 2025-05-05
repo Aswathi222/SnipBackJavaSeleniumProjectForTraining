@@ -721,5 +721,6 @@ public class AddUpdateRemoveFollower extends BasePge{
 		base.excuteJsClick(follower_obj.Btn_AddPlayer("col-sm-12 followers_totallist","REMOVE ALL"));
 		base.excuteJsClick(LoginPageObj.Btn_SignInButton("Yes"));
 		base.excuteJsClick(LoginPageObj.Btn_SignInButton("OK"));
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText("Done!")),"User is not able to remove the added follower after automation");		
 }
 }
