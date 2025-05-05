@@ -1328,4 +1328,124 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		base.buttonClick(addUpdateObject.Btn_CloseClick("modal-body","modalMessageCloseBtn"));
 		asrt.assertTrue(base.isDoesNotExistBool(addUpdateObject.Ele_Message("Data Saved Successfully"))," 'Data Saved Successfully' message is not Closed when user click Close button ");
 	}
+
+	// <summary>
+	// Test Case Title :Verify that the following updates can be made by using Edit option
+	//                   1.Add existing users & new users with or without mail id
+	//                   2.Remove User
+	//                   3.Change Default team type
+	// Automation ID :Team_31
+	// </summary>
+	public void Team_31_AddUpdateDeleteDuplicateTeamGameDefaults() throws InterruptedException 
+	{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login = new Login(driver);
+		CreateEditDeletePool_Obj CreateEditDeletePoolObj = new CreateEditDeletePool_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj createandaddnewmemberobj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		AddUpdateDeleteDuplicateTeamGameDefaults_TestData  addupdatedeleteobj= new AddUpdateDeleteDuplicateTeamGameDefaults_TestData();
+		Registration_Obj regObj=new Registration_Obj ();
+		SearchGameTeamAndMembers_Obj searchGameobject=new SearchGameTeamAndMembers_Obj();
+		AddUpdateDeleteDuplicateTeamGameDefaults_Obj addUpdateObject=new AddUpdateDeleteDuplicateTeamGameDefaults_Obj();
+		ForgotPassword_Obj forgotobj=new ForgotPassword_Obj();
+		ScheduleUnscheduleGames_Obj scheduleobj=new ScheduleUnscheduleGames_Obj();
+
+		//Step 1 : Verify that user is able to Login Snipback
+		//Expected : User should be able to login the film page with credentials
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(loginObj.Btn_SingnIn("nav-game-tab"))," User is unable to login the film page with credentials");
+
+		//Step 2 : Switch the organization if the User as Admin/Coach
+		//Expected : User is able to Switch the organization if the User as Admin/Coach
+		base.buttonClick(CreateEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		base.selectorByVisibleText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"),addupdatedeleteobj.Team_31_SelectedValueAdmin);
+		String selectOrg=element.DropDownText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"));			
+		asrt.assertEquals(selectOrg,addupdatedeleteobj.Team_31_SelectedValueAdmin,"User is unable to Switch the organization if the User as Admin/Coach");
+
+		//Step 3 : Verify the edit team option
+		//Expected : User is able to  view edit team option when Click on three dots of the team
+		base.setData(loginObj.Edt_LoginEmail("searchTeam"),addupdatedeleteobj.Team_31_TeamName);
+		Thread.sleep(2000);
+		base.pressKey(loginObj.Edt_LoginEmail("searchTeam"), "ENTER");
+		base.excuteJsClick(regObj.Btn_ResendOTP("defaultDropdown-38"));	
+		asrt.assertTrue(base.isExists(addUpdateObject.Ele_Dropdown("dropdown-item", "team-5141")), "User is unable to view edit option when Clicking three dots of the team");
+
+		//Step 4 :  Click on Edit team option
+		//Expected :User is able to click Edit team option
+		Thread.sleep(1000);
+		base.excuteJsClick(addUpdateObject.Ele_Dropdown("dropdown-item", "team-5141"));
+		base.switchToWindowByIndex(driver, 0);
+		asrt.assertTrue(base.isExists(searchGameobject.Ele_GameSpecial("teamDiv")), "User is unable to click Edit team option");
+
+		//Step 5 :Verify Add existing users with or without mail id
+		//Expected :User is able to Add existing users  with or without mail id
+		String SelectedTeam = base.GetText(loginObj.Ele_ErrorMessage("flex-column justify-content-between members-listing-details ms-3 text-start"));
+		String[] splitSelectedTeam = SelectedTeam.split("[\\s\\n]+");
+		String correctSelectedTeam = "";
+		for (String splittedValue : splitSelectedTeam) 
+		{
+			if (splittedValue.contains("@")) 
+			{
+				correctSelectedTeam = splittedValue.trim(); 			        
+				break;
+			}
+		}
+		base.selectCheckBox(addUpdateObject.Ele_CheckboxSelect(correctSelectedTeam,"checkmark"));
+		base.buttonClick(loginObj.Edt_AlertMessage("ADD"));
+		List<String> ExistingTeam=base.GetElementTexts(loginObj.Ele_ErrorMessage("flex-column justify-content-between members-listing-details ms-3 text-start"));
+		boolean teammemberExist = false;
+		for (String member : ExistingTeam) 
+		{
+			if (member.contains(correctSelectedTeam)) 
+			{
+				teammemberExist = true;
+				break;
+			}
+		}
+		asrt.assertFalse(teammemberExist, "User is unable to Add existing users with or without mail id");
+
+		//Step 5 :Verify Add new users with or without mail id
+		//Expected :User is able to Add new users  with or without mail id
+		base.buttonClick(loginObj.Edt_AlertMessage("Create & Add New Member Without Email"));
+		element.fillFormFields(loginObj.Edt_LoginEmail("email_woemail_1"), addupdatedeleteobj.Team_31_newemail,loginObj.Edt_LoginEmail("fullname_woemail_1"), addupdatedeleteobj.Team_31_fullname);
+		base.buttonClick(loginObj.Edt_LoginEmail("jersey_woemail_1"));
+		base.buttonClick(loginObj.Btn_SingnIn("saveMutipleUsersWOEmail"));
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("Users Added Successfully!")), "User is unable to Add new users  with or without mail id");
+
+		//Step 6:Verify  Remove User 
+		//Expected : User is able to Remove User
+		base.buttonClick(scheduleobj.Btn_EventOK("swal-button swal-button--confirm"));
+		String SelectedUser = base.GetText(loginObj.Ele_ErrorMessage("d-flex flex-column listing-details text-start"));
+		String[] splitSelectedUser = SelectedUser.split("[\\s\\n]+");
+		String correctSelectedUser = "";
+		for (int i = 0; i < splitSelectedUser.length; i++) 
+		{
+			if (splitSelectedUser[i].contains("@"))
+			{		   
+				if (i > 0)
+				{
+					correctSelectedUser = splitSelectedUser[i - 1].trim();
+				}
+				break;
+			}
+		}
+		base.buttonClick(addUpdateObject.Ele_Removecheckbox(correctSelectedUser,"form-check-input checkRight"));
+		base.buttonClick(forgotobj.Ele_Error("members-menu-icon-wrap members-menu-icon-red"));
+		List<String> CurrentTeams = base.GetElementTexts(loginObj.Ele_ErrorMessage("d-flex flex-column listing-details text-start"));
+		boolean teammemberExists = false;
+		for (String member : CurrentTeams) 
+		{
+			if (member.contains(correctSelectedUser)) 
+			{
+				teammemberExists = true;
+				break;
+			}
+		}
+		asrt.assertFalse(teammemberExists, "User is unable to Remove users");
+
+		//Step 7 : Verify Change Default team type
+		//Expected :User is able to Change Default team type
+		base.selectorByVisibleText(CreateEditDeletePoolObj.Sel_PoolType("category"),addupdatedeleteobj.Team_31_SelectedDropdown);
+		String selectedDropdown=element.DropDownText(CreateEditDeletePoolObj.Sel_PoolType("category"));	
+		asrt.assertEquals(selectedDropdown ,addupdatedeleteobj.Team_31_SelectedDropdown," User is unable to Select default team type");
+	}
 }
