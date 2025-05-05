@@ -1044,7 +1044,8 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		base.setData(loginObj.Edt_LoginEmail("searchTeam"),addupdatedeleteobj.Team_25_TeamName);
 		Thread.sleep(1000);
 		base.pressKey(loginObj.Edt_LoginEmail("searchTeam"), "ENTER");
-		base.buttonClick(regObj.Btn_ResendOTP("defaultDropdown-1"));	
+		Thread.sleep(1000);
+		base.excuteJsClick(regObj.Btn_ResendOTP("defaultDropdown-1"));	
 		asrt.assertTrue(base.isExists(regObj.Btn_Login("dropdown-item","Edit Team")), "User is unable to view edit option when Clicking three dots of the team");
 
 		//Step 4 :  Click on Edit team option
@@ -1087,7 +1088,8 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		base.setData(loginObj.Edt_LoginEmail("searchTeam"),addupdatedeleteobj.Team_26_TeamName);
 		Thread.sleep(1000);
 		base.pressKey(loginObj.Edt_LoginEmail("searchTeam"), "ENTER");
-		base.buttonClick(regObj.Btn_ResendOTP("defaultDropdown-1"));	
+		Thread.sleep(2000);
+		base.excuteJsClick(regObj.Btn_ResendOTP("defaultDropdown-1"));	
 		asrt.assertTrue(base.isExists(regObj.Btn_Login("dropdown-item","Edit Team")), "User is unable to view edit option when Clicking three dots of the team");
 
 		//Step 4 : Click on Edit option
@@ -1130,7 +1132,8 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		base.setData(loginObj.Edt_LoginEmail("searchTeam"),addupdatedeleteobj.Team_27_TeamName);
 		Thread.sleep(1000);
 		base.pressKey(loginObj.Edt_LoginEmail("searchTeam"), "ENTER");
-		base.buttonClick(regObj.Btn_ResendOTP("defaultDropdown-1"));	
+		Thread.sleep(2000);
+		base.excuteJsClick(regObj.Btn_ResendOTP("defaultDropdown-1"));	
 		asrt.assertTrue(base.isExists(regObj.Btn_Login("dropdown-item","Edit Team")), "User is unable to view edit option when Clicking three dots of the team");
 
 		//Step 4 :  Click on Edit team option
@@ -1293,7 +1296,7 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		base.setData(loginObj.Edt_LoginEmail("searchTeam"),addupdatedeleteobj.Team_30_TeamName);
 		Thread.sleep(1000);
 		base.pressKey(loginObj.Edt_LoginEmail("searchTeam"), "ENTER");
-		base.buttonClick(regObj.Btn_ResendOTP("defaultDropdown-1"));	
+		base.excuteJsClick(regObj.Btn_ResendOTP("defaultDropdown-1"));	
 		asrt.assertTrue(base.isExists(regObj.Btn_Login("dropdown-item","Edit Team")), "User is unable to view edit option when Clicking three dots of the team");
 
 		//Step 4 :  Click on Edit team option
