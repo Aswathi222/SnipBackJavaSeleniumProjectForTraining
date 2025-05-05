@@ -50,5 +50,12 @@ public class AddUpdateRemoveFollower_TestData {
 	//Follower_18_AddUpdateRemoveFollower
 	public static String Follower_18_SelectedValue="Test123";
 	public static String Follower_18_SelectedValue1="demo organization";
-	public static String Follower_18_SelectedValue2="jith01@gmail.com";	
+	public static String Follower_18_SelectedValue2="jith01@gmail.com";
+	
+	//Follower_19_AddUpdateRemoveFollower
+	public static String Follower_19_SelectedValue="Test123";
+	public static String Follower_19_SelectedValue1="demo organization";
+	public static String Follower_19_SelectedValue2="mango01@gmail.com";
+	public static String Follower_19_SelectedValue3="30";
+	public static String Follower_19_SelectedValue4="31";
 }
