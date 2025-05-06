@@ -122,4 +122,54 @@ public class TeamInviteLink extends BasePge {
 			threeDotButton.click();		
 		}
 	}
+	//<summery>
+	//Test Case Title : Verify that Team InviteLinks option should  be disabled in Home organization and in the Organization if the User as Player/Followers/Recruiter in the Film page
+	//Automation ID : Invitelink_04
+	//</summery>
+	public void Invitelink_04_TeamInviteLink() throws InterruptedException {	
+		Login login = new Login(driver);
+		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj CreateAndAddNewMemberWithOrWithoutEmailObj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		ArchiveorUnarchiveTeam_Obj ArchiveorUnarchiveTeamObj =new ArchiveorUnarchiveTeam_Obj();
+		TeamInviteLink_TestData TeamInviteLinkTestDataobj = new TeamInviteLink_TestData();
+		SnipBackLogin_Obj SnipBackLoginObj = new SnipBackLogin_Obj();
+
+		//Step 1 : Enter the URL
+		//Expected : User should able to navigate to the snipback website after entering the URL
+		asrt.assertTrue(base.isExists(LoginPageObj.Btn_Login("Login")),"User is not able to navigate to the snipback website after entering the URL");
+
+		//Step 2 : Login to Snipback
+		//Expected : User should able to navigate to the Film page once login with credentials
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("GAMES")), "User is not able to navigate to the Film page once login with credentials");
+
+		//Step 3 : Switch the organization if the User as Player/Followers/Recruiter
+		//Expected : User should be able to switch the organization if the User as Player/Followers/Recruiter
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), TeamInviteLinkTestDataobj.Invitelink_04_TeamInviteLinkOrganization);
+		String Text = element.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		asrt.assertEquals(Text, TeamInviteLinkTestDataobj.Invitelink_04_TeamInviteLinkOrganization, "User is not able to switch the organization if the User as Player/Followers/Recruiter");
+
+		//Step 4 : Verify the Team InviteLinks option is disabled in the Organization if the User as Player/Followers/Recruiter in the Film page
+		//Expected : Team InviteLinks option should  be disabled in the Organization if the User as Player/Followers/Recruiter in the Film page
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("GAMES"));
+		List<WebElement> GamesteamsList = base.GetElement(ArchiveorUnarchiveTeamObj.Ele_ArchiveTeam("my-team-content", "membertable game_team"));
+		for (int i = 0; i < GamesteamsList.size(); i++) {
+			WebElement teams = GamesteamsList.get(i);
+			WebElement threeDotButton = teams.findElement(ArchiveorUnarchiveTeamObj.Ele_ArchiveTeamDots("my-team-content", "all-teams-menu cursor-pointer"));
+			threeDotButton.click();
+			asrt.assertTrue(base.isDoesNotExistBool(SnipBackLoginObj.Btn_Login("Team Invite Links")),"Team InviteLinks option is not displayed in the Organization if the User as Player/Followers/Recruiter in the Film page");
+			threeDotButton.click();	
+			Thread.sleep(1000);
+		}
+
+		//Step 5 : Switch the organization to Home
+		//Expected : User should be able to switch the organization to Home
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), TeamInviteLinkTestDataobj.Invitelink_04_TeamInviteLinkHomeOrganization);
+		String HomeText = element.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		asrt.assertEquals(HomeText, TeamInviteLinkTestDataobj.Invitelink_04_TeamInviteLinkHomeOrganization, "User is not able to switch the organization if the User as Admin/Coach.");
+
+		//Step 6: Verify the Team InviteLinks option is disabled in Home organization in the Film page
+		//Expected : Team InviteLinks option should  be disabled in Home organization in the Film page
+		asrt.assertTrue(base.isDoesNotExistBool(ArchiveorUnarchiveTeamObj.Ele_ArchiveTeam("my-team-content", "membertable game_team")), "Team InviteLinks option is not displayed in Home organization in the Film page");
+	}
 }
