@@ -415,7 +415,6 @@ public class ArchiveorUnarchiveTeam extends BasePge{
 	public void Archive_10_ArchiveorUnarchiveTeam() throws InterruptedException{
 		LoginPage_Obj loginObj=new LoginPage_Obj();
 		Login login=new Login(driver);
-		CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
 		CreateAndAddNewMemberWithOrWithoutEmail_Obj createAndAddNewMemberWithOrWithoutEmailObj=new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
 		ArchiveorUnarchiveTeam_TestData archiveorUnarchiveTeamTestData=new ArchiveorUnarchiveTeam_TestData();
 		ArchiveorUnarchiveTeam_Obj archiveorUnarchiveTeamObj=new ArchiveorUnarchiveTeam_Obj();
@@ -474,5 +473,5 @@ public class ArchiveorUnarchiveTeam extends BasePge{
 		base.buttonClick(archiveorUnarchiveTeamObj.Ele_UnarchivedTeam("search-result-archive-wrap mt-3", "AA new", "all-teams-menu cursor-pointer"));
 		asrt.assertTrue(base.isExists(archiveorUnarchiveTeamObj.Ele_UnarchivedText("search-result-archive-wrap mt-3", "AA new", "Unarchive Team")), "Unarchive team option is not displayed when click on three dots against the team in the Archive List");
 	}
-}
 
+}
