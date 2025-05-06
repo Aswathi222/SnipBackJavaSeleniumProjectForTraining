@@ -172,4 +172,49 @@ public class TeamInviteLink extends BasePge {
 		//Expected : Team InviteLinks option should  be disabled in Home organization in the Film page
 		asrt.assertTrue(base.isDoesNotExistBool(ArchiveorUnarchiveTeamObj.Ele_ArchiveTeam("my-team-content", "membertable game_team")), "Team InviteLinks option is not displayed in Home organization in the Film page");
 	}
+	//<summery>
+	//Test Case Title : Verify that when click on Team InviteLinks from the three dots against the team, the following links should be displayed; 1.INVITE PLAYER with player link & the icon for copying, 2.INVITE COACH with coch link & the icon for copying, 3.INVITE FOLLOWER with Follower link & the icon for copying
+	//Automation ID : Invitelink_05
+	//</summery>
+	public void Invitelink_05_TeamInviteLink() throws InterruptedException {	
+		Login login = new Login(driver);
+		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj CreateAndAddNewMemberWithOrWithoutEmailObj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		TeamInviteLink_TestData TeamInviteLinkTestDataobj = new TeamInviteLink_TestData();
+		SnipBackLogin_Obj SnipBackLoginObj = new SnipBackLogin_Obj();
+
+		//Step 1 : Enter the URL
+		//Expected : User should able to navigate to the snipback website after entering the URL
+		asrt.assertTrue(base.isExists(LoginPageObj.Btn_Login("Login")),"User is not able to navigate to the snipback website after entering the URL");
+
+		//Step 2 : Login to Snipback
+		//Expected : User should able to navigate to the Film page once login with credentials
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertMessage("GAMES")), "User is not able to navigate to the Film page once login with credentials");
+
+		//Step 3 : Switch the organization if the User as Admin/Coach
+		//Expected : User should be able to switch the organization if the User as Admin/Coach.
+		base.selectorByVisibleText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"), TeamInviteLinkTestDataobj.Invitelink_05_TeamInviteLinkOrganization);
+		String Text = element.DropDownText(CreateAndAddNewMemberWithOrWithoutEmailObj.DdlOrg("form-select select-form film-organizations"));
+		asrt.assertEquals(Text, TeamInviteLinkTestDataobj.Invitelink_05_TeamInviteLinkOrganization, "User is not able to switch the organization if the User as Admin/Coach.");
+
+		//Step 4 : Switch to any Team
+		//Expected : User should be able to Switch to any Team.
+		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"), TeamInviteLinkTestDataobj.Invitelink_05_TeamInviteLinkTeam);
+		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"), "ENTER");
+		Thread.sleep(3000);
+		base.buttonClick(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		String TeamName = base.GetText(LoginPageObj.Edt_AlertMessage("475 Playmakers"));
+		asrt.assertEquals(TeamName,TeamInviteLinkTestDataobj.Invitelink_05_TeamInviteLinkTeam,"User is not able to Switch to any Team.");
+
+		//Step 5 : Click on three dots
+		//Expected: User should be able to click on three dots
+		base.buttonClick(CreateAndAddNewMemberWithOrWithoutEmailObj.Btn_ThreeDots("my-team-content", "defaultDropdown-1"));
+		asrt.assertTrue(base.isExists(SnipBackLoginObj.Btn_Login("Team Invite Links")),"User is not able to click on three dots");
+
+		//Step 6 : Click on Team InviteLinks
+		//Expected : When click on Team InviteLinks from the three dots against the team, the following links should be displayed; 1.INVITE PLAYER with player link & the icon for copying, 2.INVITE COACH with coch link & the icon for copying, 3.INVITE FOLLOWER with Follower link & the icon for copying 
+		base.buttonClick(SnipBackLoginObj.Btn_Login("Team Invite Links"));
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("invitePlayerUrl"))&& base.isExists(LoginPageObj.Edt_LoginEmail("inviteCoachUrl"))&& base.isExists(LoginPageObj.Edt_LoginEmail("inviteFollowerUrl")),"When click on Team InviteLinks from the three dots against the team, the following links is not displayed; 1.INVITE PLAYER with player link & the icon for copying, 2.INVITE COACH with coch link & the icon for copying, 3.INVITE FOLLOWER with Follower link & the icon for copying");
+	}
 }

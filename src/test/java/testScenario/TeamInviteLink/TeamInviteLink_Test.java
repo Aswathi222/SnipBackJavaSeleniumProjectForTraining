@@ -30,5 +30,11 @@ public class TeamInviteLink_Test extends BaseTest
 	{	
 		TeamInviteLink TeamInviteLink = new TeamInviteLink(getDriver());
 		TeamInviteLink.Invitelink_04_TeamInviteLink();			
+	}
+	@Test()
+	public void Invitelink_05_TeamInviteLinkTest() throws Exception 
+	{	
+		TeamInviteLink TeamInviteLink = new TeamInviteLink(getDriver());
+		TeamInviteLink.Invitelink_05_TeamInviteLink();			
 	} 
 }
