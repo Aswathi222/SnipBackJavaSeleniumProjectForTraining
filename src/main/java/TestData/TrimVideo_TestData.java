@@ -1,0 +1,11 @@
+package TestData;
+
+import utilPack.ElementActions;
+
+public class TrimVideo_TestData {
+
+	//TV_01_TrimVideo
+	public static String TV_01_TrimVideo="T-144";
+	public static String TV_01_UploadedVideo="QA";
+	public static String TV_01_PausedVideo="s9";	
+}
