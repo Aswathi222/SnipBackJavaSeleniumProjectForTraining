@@ -11,5 +11,5 @@ public class AddUpdateRemoveFollower_Obj {
 	public By Btn_AddPlayer(String parentClass, String buttonText) {return By.xpath("//div[@class='" + parentClass + "']//button[text()='" + buttonText + "']");}
 	public By Btn_FollowersEdit(String divId, String iconClass) {return By.xpath("//div[@id='" + divId + "']//i[@class='" + iconClass + "']");}
 	public By Chk_FollowerSelect(String siteName, String inputType) {return By.xpath("//div[@data-site='" + siteName + "']//input[@type='" + inputType + "']");}
-
+	public By Ele_TextArea2(String modalClass, String formClass, String textareaId) {return By.xpath("//div[@class='" + modalClass + "']//div[@class='" + formClass + "']//textarea[@id='" + textareaId + "']");}
 }
