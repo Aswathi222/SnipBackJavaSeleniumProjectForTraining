@@ -933,7 +933,7 @@ public class AddUpdateRemoveFollower extends BasePge{
 }
 	// <summary>
 	// Test Case Title : "Verify that  4 digit numeric should not be as Jersey number"
-	// Automation ID : Follower_20
+	// Automation ID : Follower_21
 	// </summary>
 	public void Follower_21_AddUpdateRemoveFollower() throws InterruptedException 
 	{
@@ -996,6 +996,95 @@ public class AddUpdateRemoveFollower extends BasePge{
 		base.setData(LoginPageObj.Edt_LoginEmail("jerseyNumber"), test_obj.Follower_21_SelectedValue3);
 		String jerseynum=base.GetValue(LoginPageObj.Edt_LoginEmail("jerseyNumber"));
 		asrt.assertNotEquals(jerseynum, test_obj.Follower_21_SelectedValue3,"User is able to enter 4 digit numeric as the Jersey number ");				
+}
+	// <summary>
+	// Test Case Title : "Verify that the user should added as Follower to the organization/team after entering all the required information in the page  and Click on Add Players/Users To Organization"
+	// Automation ID : Follower_22
+	// </summary>
+	public void Follower_22_AddUpdateRemoveFollower() throws InterruptedException 
+	{
+		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+		Login login = new Login(driver);
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj cad_obj=new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		AddUpdateRemoveFollower_TestData test_obj=new AddUpdateRemoveFollower_TestData();
+		ScheduleUnscheduleGames_Obj Sch_Obj =new ScheduleUnscheduleGames_Obj();
+		Registration_Obj register_obj=new Registration_Obj();
+		AddUpdateRemoveFollower_Obj follower_obj=new AddUpdateRemoveFollower_Obj();
+		AddUpdateDeleteDuplicateTeamGameDefaults_Obj del_obj=new AddUpdateDeleteDuplicateTeamGameDefaults_Obj();
+			
+		// Step1: Enter the URL
+		// Expected:The user should be able to navigate to the  Snipback website after entering the URL
+		asrt.assertTrue(base.isExists(LoginPageObj.Ele_SnipBackHomePageLogo("light-logo")), "User is unable to navigate to SnipBack website after entering the URL");
+				
+		//Step2:Login Snipback
+		//Expected:User should able to navigate to the Film page once login with credentials
+		login.loginToApplication(CommonData.UserName,CommonData.PassWord);
+		asrt.assertTrue(base.isExists(LoginPageObj.Btn_SingnIn("nav-game-tab")),"User is unable to navigate to the Film page once login with credentials");	
+				
+		//Step3:Switch the organization if the User as Admin/Coach
+		//Expected:User should be able to switch the organization if they are an Admin or Coach
+		base.selectorByVisibleText(cad_obj.DdlOrg("form-select select-form film-organizations"),test_obj.Follower_22_SelectedValue1);
+		Thread.sleep(5000);
+		String Org_name=element.DropDownText(cad_obj.DdlOrg("form-select select-form film-organizations"));
+		asrt.assertEquals(Org_name,test_obj.Follower_22_SelectedValue1,"User is not able to switch the organisation if they are an Admin or Coach");
+		
+		//Step4:Select any team
+		//Expected:User should be able to select any team after switching organisation
+		base.setData(LoginPageObj.Edt_LoginEmail("searchTeam"),test_obj.Follower_22_SelectedValue);
+		base.pressKey(LoginPageObj.Edt_LoginEmail("searchTeam"),"KEYBOARD_ENTER" );
+		Thread.sleep(2000);
+		base.excuteJsClick(LoginPageObj.Edt_AlertMessage(test_obj.Follower_22_SelectedValue));
+		String TeamName=base.GetValue(LoginPageObj.Edt_LoginEmail("searchTeam"));
+		asrt.assertEquals(TeamName,test_obj.Follower_22_SelectedValue,"User is not able to select any team after switching organisation");
+						
+		//Step5:Click on Followers tab
+		//Expected:The user (Admin/Coach) should able to click on Followers tab in the Film page
+		base.buttonClick(LoginPageObj.Btn_SingnIn("nav-followers-tab"));
+		asrt.assertTrue(base.isExists(Sch_Obj.Ele_CreateGameFor("LIST OF FOLLOWERS / MANAGERS")),"The user (Admin/Coach) is unable to click on Followers tab in the Film page");
+				
+		//Step6:Click on +Followers option
+		//Expected:User should be able to see the Main Heading- CREATE NEW USER,Sub heading- Add Email ID,Text field for Entering the Email ID, X mark and tick mark against the field for entering the email ID
+		base.buttonClick(register_obj.Btn_ResendOTP("addFollowerBtn"));
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("emailInput")),"User is not able to see Text field for entering the Email ID after clicking +Followers option");
+			
+		//Step7:Enter the  mail 
+		//Expected:User should be able to enter the EmailID
+		base.setData(LoginPageObj.Edt_LoginEmail("emailInput"), test_obj.Follower_22_SelectedValue2);
+		String value=base.GetValue(LoginPageObj.Edt_LoginEmail("emailInput"));
+		asrt.assertEquals(value, test_obj.Follower_22_SelectedValue2,"User is not able to enter the EmailID");
+		
+		//Step8:Click on tick option
+		//Expected:The page for entering the details of followers should be displayed when clicking on the tick option after entering the email id
+		base.buttonClick(follower_obj.Btn_TickIcon("checkMail();", "bi bi-check2"));
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_LoginEmail("firstname")),"The page for entering the details of followers is not displayed when clicking on the tick option after entering the email id");
+		
+		//Step 9 : Enter the Jersey number in the Jersey number field 
+		//Expected :The user should able to Enter the Jersey number in the Jersey number field 
+		base.setData(LoginPageObj.Edt_LoginEmail("jerseyNumber"), test_obj.Follower_22_SelectedValue3);
+		String jerseynum=base.GetValue(LoginPageObj.Edt_LoginEmail("jerseyNumber"));
+		asrt.assertEquals(jerseynum, test_obj.Follower_22_SelectedValue3,"User is not able to enter the Jerseynumber in the Jersey number field");
+		
+		//Step10:Enter a message to be send along with notification email   
+		//Expected:User should be able to enter a message to be sent along with notification email
+		base.setData(follower_obj.Ele_TextArea2("modal follower show","form-floating","playerCreateMessage"),test_obj.Follower_22_SelectedValue4);
+		String textValue=base.GetValue(follower_obj.Ele_TextArea2("modal follower show","form-floating","playerCreateMessage"));
+		asrt.assertEquals(textValue,test_obj.Follower_22_SelectedValue4,"User is not able to enter a message to be sent along with notification email");
+		
+		//Step11:Click on Add Players/Users To Organization
+		//Expected:User should added as follower to the organization/team after entering all the required information in the page  and Click on Add Players/Users To Organization
+		//base.scrollToElement(follower_obj.Btn_AddPlayer("modal follower show", "ADD AS PLAYER / USER TO ORGANIZATION"));
+		base.excuteJsClick(follower_obj.Btn_AddPlayer("modal follower show", "ADD AS PLAYER / USER TO ORGANIZATION"));
+		asrt.assertTrue(base.isExists(del_obj.Ele_Message("Record Updated Successfully")),"The user is not added as follower to the organization/team after entering all the required information in the page  and Click on Add Players/Users To Organization");
+		
+		//Step12:Remove Followers once automation completed(Optional)
+		//Expected:User should be able to remove the added follower after automation
+		base.excuteJsClick(LoginPageObj.Btn_SingnIn("modalMessageCloseBtn"));
+		base.buttonClick(follower_obj.Btn_FollowersEdit("nav-followers","bi bi-pencil"));
+		base.excuteJsClick(follower_obj.Chk_FollowerSelect(test_obj.Follower_22_SelectedValue5,"checkbox"));
+		base.excuteJsClick(follower_obj.Btn_AddPlayer("col-sm-12 followers_totallist","REMOVE ALL"));
+		base.excuteJsClick(LoginPageObj.Btn_SignInButton("Yes"));
+		base.excuteJsClick(LoginPageObj.Btn_SignInButton("OK"));
+		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText("Done!")),"User is not able to remove the added follower after automation");				
 }
 	
 }
