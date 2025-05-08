@@ -1664,4 +1664,53 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		base.excuteJsClick(addUpdateObject.Ele_ScrollClick("deleteTeam(5172)"));	
 		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("Are you sure want to delete this team?")) && base.isExists(scheduleobj.Btn_EventOK("swal-button swal-button--catch")) && base.isExists(scheduleobj.Btn_EventOK("swal-button swal-button--cancel")), "User is unable to view message 'Are you sure want to delete this team?' with Yes or No once clicking Delete option from the three dots against the team");
 	}
+
+	// <summary>
+	// Test Case Title :Verify that when click on No option the popup message "Are you sure want to delete this team?" should be closed 
+	// Automation ID :Team_36
+	// </summary>
+	public void Team_36_AddUpdateDeleteDuplicateTeamGameDefaults() throws InterruptedException 
+	{
+		LoginPage_Obj loginObj=new LoginPage_Obj();
+		Login login = new Login(driver);
+		CreateEditDeletePool_Obj CreateEditDeletePoolObj = new CreateEditDeletePool_Obj();
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj createandaddnewmemberobj = new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		AddUpdateDeleteDuplicateTeamGameDefaults_TestData  addupdatedeleteobj= new AddUpdateDeleteDuplicateTeamGameDefaults_TestData();
+		AddUpdateDeleteDuplicateTeamGameDefaults_Obj addUpdateObject=new AddUpdateDeleteDuplicateTeamGameDefaults_Obj();
+		ScheduleUnscheduleGames_Obj scheduleobj=new ScheduleUnscheduleGames_Obj();
+		Registration_Obj regObj=new Registration_Obj ();
+
+		//Step 1 : Verify that user is able to Login Snipback
+		//Expected : User should be able to login the film page with credentials
+		login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+		asrt.assertTrue(base.isExists(loginObj.Btn_SingnIn("nav-game-tab"))," User is unable to login the film page with credentials");
+
+		//Step 2 : Switch the organization if the User as Admin/Coach
+		//Expected : User is able to Switch the organization if the User as Admin/Coach
+		base.buttonClick(CreateEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+		base.selectorByVisibleText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"),addupdatedeleteobj.Team_36_SelectedValueAdmin);
+		String selectOrg=element.DropDownText(createandaddnewmemberobj.DdlOrg("form-select select-form film-organizations"));			
+		asrt.assertEquals(selectOrg,addupdatedeleteobj.Team_36_SelectedValueAdmin,"User is unable to Switch the organization if the User as Admin/Coach");
+
+		//Step 3 : Click on three dots 
+		//Expected : User is able to Click on three dots of the team
+		base.setData(loginObj.Edt_LoginEmail("searchTeam"),addupdatedeleteobj.Team_36_TeamName);
+		Thread.sleep(1000);
+		base.pressKey(loginObj.Edt_LoginEmail("searchTeam"), "ENTER");
+		Thread.sleep(1000);
+		base.excuteJsClick(regObj.Btn_ResendOTP("defaultDropdown-49"));	
+		asrt.assertTrue(base.isExists(addUpdateObject.Ele_Dropdown("dropdown-item", "team-5172")), " User is unable to Click on three dots of the team");
+
+		//Step 4 :  Click on Delete option
+		//Expected :User is able to view 'Are you sure want to delete this team?' message with Yes or No buttons
+		Thread.sleep(1000);
+		base.scrollToElement(addUpdateObject.Ele_ScrollClick("deleteTeam(5172)"));
+		base.excuteJsClick(addUpdateObject.Ele_ScrollClick("deleteTeam(5172)"));	
+		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("Are you sure want to delete this team?")) && base.isExists(scheduleobj.Btn_EventOK("swal-button swal-button--catch")) && base.isExists(scheduleobj.Btn_EventOK("swal-button swal-button--cancel")), "User is unable to view 'Are you sure want to delete this team?' message with Yes or No buttons");
+
+		//Step 5 : Click on No option
+		//Expected : Verify that when click on No option the popup message "Are you sure want to delete this team?" should be closed 
+		base.excuteJsClick(scheduleobj.Btn_EventOK("swal-button swal-button--cancel"));	
+		asrt.assertTrue(base.isDoesNotExistBool(loginObj.Edt_AlertText("Are you sure want to delete this team?")),"User is unable to click No option and the popup message 'Are you sure want to delete this team?' is not closed ");
+	}
 }

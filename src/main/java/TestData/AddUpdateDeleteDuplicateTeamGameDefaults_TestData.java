@@ -149,4 +149,8 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults_TestData
 	//Team_35_AddUpdateDeleteDuplicateTeamGameDefaults
 	public static String Team_35_SelectedValueAdmin="new-organization - Test-child";
 	public static String Team_35_TeamName="TestingTeam";
+
+	//Team_36_AddUpdateDeleteDuplicateTeamGameDefaults
+	public static String Team_36_SelectedValueAdmin="new-organization - Test-child";
+	public static String Team_36_TeamName="TestingTeam";
 }
