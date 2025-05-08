@@ -80,12 +80,12 @@ public class TrimVideo extends BasePge{
 		base.setData(loginObj.Edt_LoginEmail("search"), trimVideoTestData.TV_01_TrimVideo);
 		base.pressKey(loginObj.Edt_LoginEmail("search"), "ENTER");
 		Thread.sleep(3000);
-		asrt.assertTrue(base.isExists(snipBackLoginObj.Btn_Login("T-144")), "User is unable to click search bar and enter a game");
+		asrt.assertTrue(base.isExists(snipBackLoginObj.Btn_Login(trimVideoTestData.TV_01_TrimVideo)), "User is unable to click search bar and enter a game");
 
 		//step 7:Click on any completed game
 		//Expected:There should be a trimming option in the player page of a completed game.
 		Thread.sleep(3000);
-		base.buttonClick(snipBackLoginObj.Btn_Login("T-144"));
+		base.buttonClick(snipBackLoginObj.Btn_Login(trimVideoTestData.TV_01_TrimVideo));
 		base.switchToWindowByIndex(driver, 1);
 		asrt.assertTrue(base.isExists(publicGameListingObj.Img_sort("trim-btn-img")), "User is unable to view trimming option in the player page of a completed game");
 
@@ -107,12 +107,12 @@ public class TrimVideo extends BasePge{
 		base.setData(loginObj.Edt_LoginEmail("search"), trimVideoTestData.TV_01_UploadedVideo);
 		base.pressKey(loginObj.Edt_LoginEmail("search"), "ENTER");
 		Thread.sleep(3000);
-		asrt.assertTrue(base.isExists(snipBackLoginObj.Btn_Login("QA")), "User is unable to click search bar and enter a game");
+		asrt.assertTrue(base.isExists(snipBackLoginObj.Btn_Login(trimVideoTestData.TV_01_UploadedVideo)), "User is unable to click search bar and enter a game");
 
 		//step 11:Click on any uploaded game
 		//Expected:There should be a trimming option in the player page of a uploaded game.
 		Thread.sleep(3000);
-		base.buttonClick(snipBackLoginObj.Btn_Login("QA"));
+		base.buttonClick(snipBackLoginObj.Btn_Login(trimVideoTestData.TV_01_UploadedVideo));
 		base.switchToWindowByIndex(driver, 2);
 		asrt.assertTrue(base.isExists(publicGameListingObj.Img_sort("trim-btn-img")), "User is unable to view trimming option in the player page of a uploaded game");
 
@@ -134,12 +134,12 @@ public class TrimVideo extends BasePge{
 		base.setData(loginObj.Edt_LoginEmail("search"), trimVideoTestData.TV_01_PausedVideo);
 		base.pressKey(loginObj.Edt_LoginEmail("search"), "ENTER");
 		Thread.sleep(3000);
-		asrt.assertTrue(base.isExists(snipBackLoginObj.Btn_Login("s9")), "User is unable to click search bar and enter a game");
+		asrt.assertTrue(base.isExists(snipBackLoginObj.Btn_Login(trimVideoTestData.TV_01_PausedVideo)), "User is unable to click search bar and enter a game");
 
 		//step 15:Click on any paused/ in-progress game
 		//Expected:The Trimming should not available for paused/in-progress games
 		Thread.sleep(4000);
-		base.buttonClick(snipBackLoginObj.Btn_Login("s9"));
+		base.buttonClick(snipBackLoginObj.Btn_Login(trimVideoTestData.TV_01_PausedVideo));
 		base.switchToWindowByIndex(driver, 3);
 		asrt.assertTrue(base.isDoesNotExistBool(publicGameListingObj.Img_sort("trim-btn-img")), "The Trimming option is available for paused/in-progress games");
 	}
