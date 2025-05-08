@@ -18,6 +18,10 @@ public class TeamInviteLink_TestData {
 	//Invitelink_06_TeamInviteLink
 	public static String Invitelink_06_TeamInviteLinkOrganization="demo organization";
 	public static String Invitelink_06_TeamInviteLinkTeam="475 Playmakers";
+
+	//Invitelink_07_TeamInviteLink
+	public static String Invitelink_07_TeamInviteLinkOrganization="demo organization";
+	public static String Invitelink_07_TeamInviteLinkTeam="475 Playmakers";
 }
 
 
