@@ -175,6 +175,15 @@ public class ElementActions {
 	        asrt.assertTrue(base.isExists(locator), errorMessage); 
 	    }
 	}
+	// </summary>
+	//To open new tab
+	//</Summary>
+	public void NewTab(String Url) {
+		((JavascriptExecutor) driver).executeScript("window.open()");
+		ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(1));
+		driver.get(Url);
+	}
 }
 
 
