@@ -7,7 +7,7 @@
   <test thread-count="1" name="Test">
      <parameter name="Browser" value="Chrome"/>
     <classes>
-<class name="testScenario.DuplicateTeam.DuplicateTeam_Test">
+      <class name="testScenario.DuplicateTeam.DuplicateTeam_Test">
 	<methods>
 		<include name="DT_01_DuplicateTeamTest()" />
 		<include name="DT_02_DuplicateTeamTest()" />
@@ -94,12 +94,7 @@
               <include name="WE_33_CreateAndAddNewMemberWithOrWithoutEmailTest()"/>
        </methods>
        </class>
-       <class name="testScenario.TeamInviteLink.TeamInviteLink_Test">
-		  <methods>
-              <include name="Invitelink_01_TeamInviteLinkTest()"/>
-       </methods>
-       </class>
-       <class name="testScenario.ForgotPassword.ForgotPassword_Test">
+  <class name="testScenario.ForgotPassword.ForgotPassword_Test">
 		   <methods>
                <include name="FP01_ForgotPasswordTest()"/>
                <include name="FP02_ForgotPasswordTest()"/>
@@ -233,6 +228,30 @@
 <include name="AI_12_AddorEditInfoTest()"/>
                 </methods>
              </class>
+             <class name="testScenario.TeamInviteLink.TeamInviteLink_Test">
+		  <methods>
+              <include name="Invitelink_02_TeamInviteLinkTest()"/>
+              <include name="Invitelink_03_TeamInviteLinkTest()"/>
+              <include name="Invitelink_04_TeamInviteLinkTest()"/>
+              <include name="Invitelink_05_TeamInviteLinkTest()"/>
+              <include name="Invitelink_06_TeamInviteLinkTest()"/>
+              <include name="Invitelink_07_TeamInviteLinkTest()"/>
+              <include name="Invitelink_12_TeamInviteLinkTest()"/>
+              <include name="Invitelink_13_TeamInviteLinkTest()"/>
+       </methods>
+       </class>
+       <class name="testScenario.AddUpdateRemoveFollower.AddUpdateRemoveFollower_Test">
+          <methods>
+              <include name="Follower_17_AddUpdateRemoveFollowerTest()"/>
+              <include name="Follower_18_AddUpdateRemoveFollowerTest()"/>
+              <include name="Follower_19_AddUpdateRemoveFollowerTest()"/>
+              <include name="Follower_20_AddUpdateRemoveFollowerTest()"/>
+              <include name="Follower_21_AddUpdateRemoveFollowerTest()"/>
+              <include name="Follower_22_AddUpdateRemoveFollowerTest()"/>
+              <include name="Follower_23_AddUpdateRemoveFollowerTest()"/>
+              <include name="Follower_24_AddUpdateRemoveFollowerTest()"/>
+      </methods>
+      </class>
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
