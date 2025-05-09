@@ -1170,7 +1170,7 @@ public class AddUpdateRemoveFollower extends BasePge{
 		base.excuteJsClick(LoginPageObj.Btn_SingnIn("modalMessageCloseBtn"));
 		asrt.assertTrue(base.isExists(del_obj.Ele_Message(test_obj.Follower_23_SelectedValue2)),"The newly added user as Follower to the organization/team is not displayed in the Followers list in Followers tab under Film Page");
 		
-		//Step12:Remove Followers once automation completed(Optional)
+		//Step13:Remove Followers once automation completed(Optional)
 		//Expected:User should be able to remove the added follower after automation
 		base.buttonClick(follower_obj.Btn_FollowersEdit("nav-followers","bi bi-pencil"));
 		base.excuteJsClick(follower_obj.Chk_FollowerSelect(test_obj.Follower_23_SelectedValue5,"checkbox"));
@@ -1178,6 +1178,47 @@ public class AddUpdateRemoveFollower extends BasePge{
 		base.excuteJsClick(LoginPageObj.Btn_SignInButton("Yes"));
 		base.excuteJsClick(LoginPageObj.Btn_SignInButton("OK"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText("Done!")),"User is not able to remove the added follower after automation");				
+}
+	
+	// <summary>
+	// Test Case Title : "Verify that the details of the followers should be displayed when we click on the name of the follower in the followers list under film page"
+	// Automation ID : Follower_24
+	// </summary>
+	public void Follower_24_AddUpdateRemoveFollower() throws InterruptedException 
+	{
+		LoginPage_Obj LoginPageObj = new LoginPage_Obj();
+		Login login = new Login(driver);
+		CreateAndAddNewMemberWithOrWithoutEmail_Obj cad_obj=new CreateAndAddNewMemberWithOrWithoutEmail_Obj();
+		AddUpdateRemoveFollower_TestData test_obj=new AddUpdateRemoveFollower_TestData();
+		ScheduleUnscheduleGames_Obj Sch_Obj =new ScheduleUnscheduleGames_Obj();
+		AddUpdateRemoveFollower_Obj follower_obj=new AddUpdateRemoveFollower_Obj();
+		AddUpdateDeleteDuplicateTeamGameDefaults_Obj del_obj=new AddUpdateDeleteDuplicateTeamGameDefaults_Obj();
+			
+		// Step1: Enter the URL
+		// Expected:The user should be able to navigate to the  Snipback website after entering the URL
+		asrt.assertTrue(base.isExists(LoginPageObj.Ele_SnipBackHomePageLogo("light-logo")), "User is unable to navigate to SnipBack website after entering the URL");
+				
+		//Step2:Login Snipback
+		//Expected:User should able to navigate to the Film page once login with credentials
+		login.loginToApplication(CommonData.UserName,CommonData.PassWord);
+		asrt.assertTrue(base.isExists(LoginPageObj.Btn_SingnIn("nav-game-tab")),"User is unable to navigate to the Film page once login with credentials");	
+				
+		//Step3:Switch the organization if the User as Admin/Coach
+		//Expected:User should be able to switch the organization if they are an Admin or Coach
+		base.selectorByVisibleText(cad_obj.DdlOrg("form-select select-form film-organizations"),test_obj.Follower_24_SelectedValue1);
+		Thread.sleep(5000);
+		String Org_name=element.DropDownText(cad_obj.DdlOrg("form-select select-form film-organizations"));
+		asrt.assertEquals(Org_name,test_obj.Follower_24_SelectedValue1,"User is not able to switch the organisation if they are an Admin or Coach");
+					
+		//Step4:Click on Followers tab
+		//Expected:The user (Admin/Coach) should able to click on Followers tab in the Film page
+		base.buttonClick(LoginPageObj.Btn_SingnIn("nav-followers-tab"));
+		asrt.assertTrue(base.isExists(Sch_Obj.Ele_CreateGameFor("LIST OF FOLLOWERS / MANAGERS")),"The user (Admin/Coach) is unable to click on Followers tab in the Film page");
+		
+		//Step5:Click on the follower's name
+		//Expected:The details of the followers should be displayed when we click on the name of the follower in the followers list under film page
+		base.buttonClick(del_obj.Ele_Message(test_obj.Follower_24_SelectedValue2));
+		asrt.assertTrue(base.isExists(follower_obj.Ele_FollowerName("First Name")),"The details of the followers is not displayed when we click on the name of the follower in the followers list under film page");			
 }
 	
 }
