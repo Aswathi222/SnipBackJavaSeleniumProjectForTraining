@@ -88,11 +88,13 @@ public class TeamInviteLink extends BasePge {
 		//Step 4 : Verify the Team InviteLinks option in Games Tab
 		//Expected : Team InviteLinks option should be displayed in the three dots against all teams in the organization if the user as Admin/Coach in the Games tab in the Film page
 		base.buttonClick(LoginPageObj.Edt_AlertMessage("GAMES"));
-		List<WebElement> GamesteamsList = base.GetElement(ArchiveorUnarchiveTeamObj.Ele_ArchiveTeam("my-team-content", "membertable game_team"));
+		Thread.sleep(4000);
+		List<WebElement> GamesteamsList = base.GetElement(ArchiveorUnarchiveTeamObj.Ele_ArchiveTeam("my-team-content", "membertable game_team"));	
 		for (int i = 0; i < GamesteamsList.size(); i++) {
-			WebElement teams = GamesteamsList.get(i);
+			WebElement teams = GamesteamsList.get(i);		
 			WebElement threeDotButton = teams.findElement(ArchiveorUnarchiveTeamObj.Ele_ArchiveTeamDots("my-team-content", "all-teams-menu cursor-pointer"));
 			threeDotButton.click();
+			Thread.sleep(2000);
 			asrt.assertTrue(base.isExists(SnipBackLoginObj.Btn_Login("Team Invite Links")),"Team InviteLinks option is not displayed in the three dots against all teams in the organization if the user as Admin/Coach in the Games tab in the Film page");
 			threeDotButton.click();
 			Thread.sleep(1000);			
@@ -100,7 +102,7 @@ public class TeamInviteLink extends BasePge {
 		//Step 5 : Verify the Team InviteLinks option in Members Tab
 		//Expected : Team InviteLinks option should be displayed in the three dots against all teams in the organization if the user as Admin/Coach in the Members tab in the Film page
 		base.buttonClick(LoginPageObj.Edt_AlertMessage("MEMBERS"));
-		//Thread.sleep(3000);
+		Thread.sleep(4000);
 		List<WebElement> MembersteamsList = base.GetElement(ArchiveorUnarchiveTeamObj.Ele_ArchiveTeam("my-team-content", "membertable player_team"));
 		for (int i = 0; i <  MembersteamsList.size(); i++) {
 			WebElement teams =  MembersteamsList.get(i);
@@ -113,6 +115,7 @@ public class TeamInviteLink extends BasePge {
 		//Step 6 : Verify the Team InviteLinks option in Followers Tab
 		//Expected : Team InviteLinks option should be displayed in the three dots against all teams in the organization if the user as Admin/Coach in the Followers tab in the Film page
 		base.buttonClick(LoginPageObj.Edt_AlertMessage("FOLLOWERS"));
+		Thread.sleep(4000);
 		List<WebElement> FollowersteamsList = base.GetElement(ArchiveorUnarchiveTeamObj.Ele_ArchiveTeam("my-team-content", "membertable follower_team"));
 		for (int i = 0; i < FollowersteamsList.size(); i++) {
 			WebElement teams = FollowersteamsList.get(i);
@@ -156,8 +159,10 @@ public class TeamInviteLink extends BasePge {
 		for (int i = 0; i < GamesteamsList.size(); i++) {
 			WebElement teams = GamesteamsList.get(i);
 			WebElement threeDotButton = teams.findElement(ArchiveorUnarchiveTeamObj.Ele_ArchiveTeamDots("my-team-content", "all-teams-menu cursor-pointer"));
+			element.getWait();
 			threeDotButton.click();
 			asrt.assertTrue(base.isDoesNotExistBool(SnipBackLoginObj.Btn_Login("Team Invite Links")),"Team InviteLinks option is not displayed in the Organization if the User as Player/Followers/Recruiter in the Film page");
+			element.getWait();
 			threeDotButton.click();	
 			Thread.sleep(1000);
 		}

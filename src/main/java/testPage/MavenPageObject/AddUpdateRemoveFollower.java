@@ -711,6 +711,7 @@ public class AddUpdateRemoveFollower extends BasePge{
 		//Step9:Click on Add Players/Users To Organization
 		//Expected:There should not be any restriction to add same email ld  in different teams as followers
 		base.buttonClick(follower_obj.Btn_AddPlayer("modal follower show", "ADD AS PLAYER / USER TO ORGANIZATION"));
+		Thread.sleep(3000);
 		asrt.assertTrue(base.isExists(del_obj.Ele_Message("Record Updated Successfully")),"User is unable to add same email id in different teams as followers");
 		
 		//Step10:Remove Followers once automation completed(Optional)
@@ -1073,7 +1074,9 @@ public class AddUpdateRemoveFollower extends BasePge{
 		//Step11:Click on Add Players/Users To Organization
 		//Expected:User should added as follower to the organization/team after entering all the required information in the page  and Click on Add Players/Users To Organization
 		//base.scrollToElement(follower_obj.Btn_AddPlayer("modal follower show", "ADD AS PLAYER / USER TO ORGANIZATION"));
+		Thread.sleep(2000);
 		base.excuteJsClick(follower_obj.Btn_AddPlayer("modal follower show", "ADD AS PLAYER / USER TO ORGANIZATION"));
+		Thread.sleep(4000);
 		asrt.assertTrue(base.isExists(del_obj.Ele_Message("Record Updated Successfully")),"The user is not added as follower to the organization/team after entering all the required information in the page  and Click on Add Players/Users To Organization");
 		
 		//Step12:Remove Followers once automation completed(Optional)
@@ -1082,6 +1085,7 @@ public class AddUpdateRemoveFollower extends BasePge{
 		base.buttonClick(follower_obj.Btn_FollowersEdit("nav-followers","bi bi-pencil"));
 		base.excuteJsClick(follower_obj.Chk_FollowerSelect(test_obj.Follower_22_SelectedValue5,"checkbox"));
 		base.excuteJsClick(follower_obj.Btn_AddPlayer("col-sm-12 followers_totallist","REMOVE ALL"));
+		Thread.sleep(3000);
 		base.excuteJsClick(LoginPageObj.Btn_SignInButton("Yes"));
 		base.excuteJsClick(LoginPageObj.Btn_SignInButton("OK"));
 		asrt.assertTrue(base.isExists(LoginPageObj.Edt_AlertText("Done!")),"User is not able to remove the added follower after automation");				
@@ -1162,7 +1166,9 @@ public class AddUpdateRemoveFollower extends BasePge{
 		//Step11:Click on Add Players/Users To Organization
 		//Expected:User should added as follower to the organization/team after entering all the required information in the page  and Click on Add Players/Users To Organization
 		//base.scrollToElement(follower_obj.Btn_AddPlayer("modal follower show", "ADD AS PLAYER / USER TO ORGANIZATION"));
+		Thread.sleep(4000);
 		base.excuteJsClick(follower_obj.Btn_AddPlayer("modal follower show", "ADD AS PLAYER / USER TO ORGANIZATION"));
+		Thread.sleep(4000);
 		asrt.assertTrue(base.isExists(del_obj.Ele_Message("Record Updated Successfully")),"The user is not added as follower to the organization/team after entering all the required information in the page  and Click on Add Players/Users To Organization");
 		
 		//Step12:Click on Close Button
@@ -1173,6 +1179,7 @@ public class AddUpdateRemoveFollower extends BasePge{
 		//Step13:Remove Followers once automation completed(Optional)
 		//Expected:User should be able to remove the added follower after automation
 		base.buttonClick(follower_obj.Btn_FollowersEdit("nav-followers","bi bi-pencil"));
+		Thread.sleep(3000);
 		base.excuteJsClick(follower_obj.Chk_FollowerSelect(test_obj.Follower_23_SelectedValue5,"checkbox"));
 		base.excuteJsClick(follower_obj.Btn_AddPlayer("col-sm-12 followers_totallist","REMOVE ALL"));
 		base.excuteJsClick(LoginPageObj.Btn_SignInButton("Yes"));
@@ -1217,6 +1224,7 @@ public class AddUpdateRemoveFollower extends BasePge{
 		
 		//Step5:Click on the follower's name
 		//Expected:The details of the followers should be displayed when we click on the name of the follower in the followers list under film page
+		Thread.sleep(5000);
 		base.buttonClick(del_obj.Ele_Message(test_obj.Follower_24_SelectedValue2));
 		asrt.assertTrue(base.isExists(follower_obj.Ele_FollowerName("First Name")),"The details of the followers is not displayed when we click on the name of the follower in the followers list under film page");			
 }
