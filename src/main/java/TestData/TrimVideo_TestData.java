@@ -11,4 +11,7 @@ public class TrimVideo_TestData {
 	
 	//TV_02_TrimVideo
 	public static String TV_02_TrimVideo="T-12";
+	
+	//TV_03_TrimVideo
+	public static String TV_03_TrimVideo="QA";
 }

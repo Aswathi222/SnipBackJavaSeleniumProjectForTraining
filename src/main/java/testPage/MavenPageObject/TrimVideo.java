@@ -199,5 +199,61 @@ public class TrimVideo extends BasePge{
 		base.buttonClick(publicGameListingObj.Img_sort("trim-btn-img"));
 		asrt.assertTrue(base.isEnabledBy(publicGameListingObj.Img_sort("trim-btn-img")), "User is unable to click trim option");
 	}
+	//<Summary>
+		//Test case Title:To verify whether the user was navigated to video trimming page while clicking trim option
+		//Automation ID:TV_03
+		//</Summary>
+		public void TV_03_TrimVideo() throws InterruptedException{
+			LoginPage_Obj loginObj=new LoginPage_Obj();
+			Login login=new Login(driver);
+			CreateEditDeletePool_Obj createEditDeletePoolObj=new CreateEditDeletePool_Obj();
+			TrimVideo_TestData trimVideoTestData=new TrimVideo_TestData();//please change the class and object
+			SnipBackLogin_Obj snipBackLoginObj=new SnipBackLogin_Obj();
+			PublicGameListing_Obj publicGameListingObj=new PublicGameListing_Obj();
+
+			//Step 1: Navigate to Snipback page
+			//Expected : User should be able to view Snipback page
+			asrt.assertTrue(base.isExists(loginObj.Btn_Login("Login")),"User is unable to view SnipBack page" );
+
+			//Step 2: Click Login button
+			//Expected: user should be able to login to the SnipBack
+			login.loginToApplication(CommonData.UserName, CommonData.PassWord);
+			asrt.assertTrue(base.isExists(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"))," User is unable to login to SnipBack");
+
+			//step 3:Go to Film page
+			//Expected: User should be able to click film
+			base.buttonClick(createEditDeletePoolObj.Btn_Film("navbar-nav ms-auto", "Film"));
+			asrt.assertTrue(base.isExists(loginObj.Btn_SignInButton("POOLS")), "User is unable to click the Film");
+
+			//step 4:Click Games
+			//Expected:User should be able to click Games
+			base.buttonClick(loginObj.Edt_AlertMessage("GAMES"));
+			Thread.sleep(1000);
+			asrt.assertTrue(base.isExists(loginObj.Edt_LoginEmail("searchTeam")), "User is unable to click Games");
+
+			//step 5:Click Events/Practices/Scout
+			//Expected:User should be able to click Events/Practices/Scout
+			base.buttonClick(snipBackLoginObj.Btn_Signin("PRACTICES"));
+			asrt.assertTrue(base.isExists(loginObj.Edt_AlertMessage("Practice")), "User is unable to click Events/Practices/Scout");
+
+			//step 6:Click search bar and enter a game
+			//Expected:User should click search bar and enter a game
+			base.setData(loginObj.Edt_LoginEmail("search"), trimVideoTestData.TV_03_TrimVideo);
+			base.pressKey(loginObj.Edt_LoginEmail("search"), "ENTER");
+			Thread.sleep(3000);
+			asrt.assertTrue(base.isExists(snipBackLoginObj.Btn_Login(trimVideoTestData.TV_03_TrimVideo)), "User is unable to click search bar and enter a game");
+
+			//step 7:Click on any completed game
+			//Expected:User should be able to click trim option
+			Thread.sleep(3000);
+			base.buttonClick(snipBackLoginObj.Btn_Login(trimVideoTestData.TV_03_TrimVideo));
+			base.switchToWindowByIndex(driver, 1);
+			asrt.assertTrue(base.isExists(publicGameListingObj.Img_sort("trim-btn-img")), "User is unable to click trim option");
+
+			//step 8:Click trim option
+			//Expected:User should navigate to video trimming page.
+			base.buttonClick(publicGameListingObj.Img_sort("trim-btn-img"));
+			asrt.assertTrue(base.isExists(snipBackLoginObj.Btn_Login("Save")), "User is unable to navigate to video trimming page");
+		}
 }
 
