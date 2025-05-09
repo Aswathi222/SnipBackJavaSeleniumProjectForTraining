@@ -26,6 +26,15 @@ public class TeamInviteLink_TestData {
 	//Invitelink_12_TeamInviteLink
 	public static String Invitelink_12_TeamInviteLinkOrganization="demo organization";
 	public static String Invitelink_12_TeamInviteLinkTeam="475 Playmakers";
+
+	//Invitelink_13_TeamInviteLink
+	public static String Invitelink_13_TeamInviteLinkOrganization="demo organization";
+	public static String Invitelink_13_TeamInviteLinkTeam="475 Playmakers";
+	public static String Invitelink_13_TeamInviteLinkName="Test User";
+	public static String Invitelink_13_TeamInviteLinkEmail=BasePge.CreateRandom(5)+"@gmail.com";
+	public static String Invitelink_13_TeamInviteLinkUserName="TestUser123";
+	public static String Invitelink_13_TeamInviteLinkPassword="TestUser@123";
+	public static String Invitelink_13_TeamInviteLinkConfirmPassword="TestUser@123";
 }
 
 
