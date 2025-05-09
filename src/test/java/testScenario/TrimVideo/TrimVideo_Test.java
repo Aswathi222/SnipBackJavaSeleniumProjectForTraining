@@ -21,6 +21,12 @@ public class TrimVideo_Test extends BaseTest
 	{	
 		TrimVideo trimVideo=new TrimVideo(getDriver());
 		trimVideo.TV_02_TrimVideo();
-	}	
+	}
+	@Test()
+	public void TV_03_TrimVideoTest() throws Exception 
+	{	
+		TrimVideo trimVideo=new TrimVideo(getDriver());
+		trimVideo.TV_03_TrimVideo();
+	}
 }
 
