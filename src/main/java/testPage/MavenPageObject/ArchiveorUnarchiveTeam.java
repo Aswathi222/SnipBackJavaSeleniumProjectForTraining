@@ -333,7 +333,8 @@ public class ArchiveorUnarchiveTeam extends BasePge{
 		//Step 5:Click on Three dots
 		//Expected: User is able to click on three dots of the team
 		Thread.sleep(5000);
-		base.buttonClick(createAndAddNewMemberWithOrWithoutEmailObj.Btn_ThreeDots("my-team-content", "defaultDropdown-6"));
+		base.excuteJsClick(createAndAddNewMemberWithOrWithoutEmailObj.Btn_ThreeDots("my-team-content", "defaultDropdown-6"));
+		Thread.sleep(3000);
 		asrt.assertTrue(base.isExists(archiveorUnarchiveTeamObj.Ele_ArchiveOptionText("teamDropdownMenu-6","Archive Team")), "User is unable to click three dots of the team");
 
 		//Step 6:Click on Archive team
@@ -406,6 +407,7 @@ public class ArchiveorUnarchiveTeam extends BasePge{
 		//Expected:The Team should be in Archived List when click on OK from the popup message Success! Team Archived Successfully"
 		Thread.sleep(4000);
 		base.buttonClick(snipBackLoginObj.Btn_Signin("OK"));
+		Thread.sleep(2000);
 		asrt.assertTrue(base.isExists(archiveorUnarchiveTeamObj.Ele_ArchivedTeam("search-result-archive-wrap mt-3", "AA new")), "The Team is not in Archived List when click on OK from the popup message Success! Team Archived Successfully");
 	}
 	//<Summary>
@@ -466,10 +468,12 @@ public class ArchiveorUnarchiveTeam extends BasePge{
 		//Expected:User should be able to click OK
 		Thread.sleep(4000);
 		base.buttonClick(snipBackLoginObj.Btn_Signin("OK"));
+		Thread.sleep(2000);
 		asrt.assertTrue(base.isExists(archiveorUnarchiveTeamObj.Ele_ArchivedTeam("search-result-archive-wrap mt-3", "AA new")), "User is unable to click OK");
 
 		//Step 9:Click on three dots against the Archive Team
 		//Expected:Unarchive team option should be displayed when click on three dots against the team in the Archive List
+		Thread.sleep(3000);
 		base.buttonClick(archiveorUnarchiveTeamObj.Ele_UnarchivedTeam("search-result-archive-wrap mt-3", "AA new", "all-teams-menu cursor-pointer"));
 		asrt.assertTrue(base.isExists(archiveorUnarchiveTeamObj.Ele_UnarchivedText("search-result-archive-wrap mt-3", "AA new", "Unarchive Team")), "Unarchive team option is not displayed when click on three dots against the team in the Archive List");
 	}
@@ -531,6 +535,7 @@ public class ArchiveorUnarchiveTeam extends BasePge{
 		//Expected:User should be able to click OK
 		Thread.sleep(4000);
 		base.buttonClick(snipBackLoginObj.Btn_Signin("OK"));
+		Thread.sleep(2000);
 		asrt.assertTrue(base.isExists(archiveorUnarchiveTeamObj.Ele_ArchivedTeam("search-result-archive-wrap mt-3", "AA new")), "User is unable to click OK");
 
 		//Step 9:Click on three dots against the Archive Team

@@ -7,7 +7,8 @@
   <test thread-count="1" name="Test">
      <parameter name="Browser" value="Chrome"/>
     <classes>
-      <class name="testScenario.DuplicateTeam.DuplicateTeam_Test">
+
+  <class name="testScenario.DuplicateTeam.DuplicateTeam_Test">
 	<methods>
 		<include name="DT_01_DuplicateTeamTest()" />
 		<include name="DT_02_DuplicateTeamTest()" />
@@ -170,9 +171,9 @@
 					<include name="SH_10_SearchGamesTeamAndMembers()" />
 					<include name="SH_11_SearchGamesTeamAndMembers()" />
 					<include name="SH_12_SearchGamesTeamAndMembersTest()" />
-                    <include name="SH_13_SearchGamesTeamAndMembersTest()" />
-                    <include name="SH_14_SearchGamesTeamAndMembersTest()" />
-                    <include name="SH_15_SearchGamesTeamAndMembersTest()" />
+          <include name="SH_13_SearchGamesTeamAndMembersTest()" />
+          <include name="SH_14_SearchGamesTeamAndMembersTest()" />
+          <include name="SH_15_SearchGamesTeamAndMembersTest()" />
 				</methods>
 			</class>
             <class name="testScenario.CreateEditDeletePool.CreateEditDeletePool_Test">
@@ -202,31 +203,23 @@
 					<include name="TC02_SH_LoginTest()"></include>
 				</methods>
 			</class>
-			<class name="testScenario.ArchiveorUnarchiveTeam.ArchiveorUnarchiveTeam_Test">
+        
+<class name="testScenario.ArchiveorUnarchiveTeam.ArchiveorUnarchiveTeam_Test">
 <methods>
-<include name="Archive_01_ArchiveorUnarchiveTeamTest()"/>
-<include name="Archive_02_ArchiveorUnarchiveTeamTest()"/>
-<include name="Archive_03_ArchiveorUnarchiveTeamTest()"/>
-<include name="Archive_04_ArchiveorUnarchiveTeamTest()"/>
-<include name="Archive_06_ArchiveorUnarchiveTeamTest()"/>
-<include name="Archive_07_ArchiveorUnarchiveTeamTest()"/>
- 
+<include name="Archive_08_ArchiveorUnarchiveTeamTest()"/>
+<include name="Archive_09_ArchiveorUnarchiveTeamTest()"/>
+<include name="Archive_10_ArchiveorUnarchiveTeamTest()"/>
+<include name="Archive_11_ArchiveorUnarchiveTeamTest()"/>
+<include name="Archive_12_ArchiveorUnarchiveTeamTest()"/>
 </methods>
 </class>
-<class name="testScenario.AddorEditInfo.AddorEditInfo_Test">
+ <class name="testScenario.TrimVideo.TrimVideo_Test">
                 <methods>
-                     <include name="AI_01_AddorEditInfoTest()"/>
-                    <include name="AI_02_AddorEditInfoTest()"/>
-                    <include name="AI_03_AddorEditInfoTest()"/>
-                    <include name="AI_04_AddorEditInfoTest()"/>
-                    <include name="AI_05_AddorEditInfoTest()"/>
-                    <include name="AI_06_AddorEditInfoTest()"/>
-                    <include name="AI_07_AddorEditInfoTest()"/> 
-                    <include name="AI_08_AddorEditInfoTest()"/>
-<include name="AI_09_AddorEditInfoTest()"/>
-<include name="AI_10_AddorEditInfoTest()"/>
-<include name="AI_12_AddorEditInfoTest()"/>
+                    <include name="TV_01_TrimVideoTest()"/>
+                    <include name="TV_02_TrimVideoTest()"/>
+                    <include name="TV_03_TrimVideoTest()"/>
                 </methods>
+
              </class>
              <class name="testScenario.TeamInviteLink.TeamInviteLink_Test">
 		  <methods>
@@ -250,8 +243,20 @@
               <include name="Follower_22_AddUpdateRemoveFollowerTest()"/>
               <include name="Follower_23_AddUpdateRemoveFollowerTest()"/>
               <include name="Follower_24_AddUpdateRemoveFollowerTest()"/>
-      </methods>
-      </class>
+         </methods>
+             </class> 
+    <class name="testScenario.AddUpdateDeleteDuplicateTeamGameDefaults.AddUpdateDeleteDuplicateTeamGameDefaults_Test">
+<methods>
+<include name="Team_31_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+<include name="Team_32_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+<include name="Team_33_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+<include name="Team_34_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+<include name="Team_34_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+<include name="Team_36_AddUpdateDeleteDuplicateTeamGameDefaultsTest()"/>
+    
+</methods>
+</class> 
+
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
