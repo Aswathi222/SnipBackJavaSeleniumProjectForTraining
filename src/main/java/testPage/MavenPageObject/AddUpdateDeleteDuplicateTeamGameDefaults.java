@@ -1366,13 +1366,13 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		base.setData(loginObj.Edt_LoginEmail("searchTeam"),addupdatedeleteobj.Team_31_TeamName);
 		Thread.sleep(2000);
 		base.pressKey(loginObj.Edt_LoginEmail("searchTeam"), "ENTER");
-		base.excuteJsClick(regObj.Btn_ResendOTP("defaultDropdown-38"));	
-		asrt.assertTrue(base.isExists(addUpdateObject.Ele_Dropdown("dropdown-item", "team-5141")), "User is unable to view edit option when Clicking three dots of the team");
-
+		base.excuteJsClick(regObj.Btn_ResendOTP("defaultDropdown-3"));	
+		asrt.assertTrue(base.isExists(addUpdateObject.Ele_ScrollClick("loadManageTeam(5231)")), "User is unable to view edit option when Clicking three dots of the team");
+		
 		//Step 4 :  Click on Edit team option
 		//Expected :User is able to click Edit team option
 		Thread.sleep(1000);
-		base.excuteJsClick(addUpdateObject.Ele_Dropdown("dropdown-item", "team-5141"));
+		base.excuteJsClick(addUpdateObject.Ele_ScrollClick("loadManageTeam(5231)"));
 		base.switchToWindowByIndex(driver, 0);
 		asrt.assertTrue(base.isExists(searchGameobject.Ele_GameSpecial("teamDiv")), "User is unable to click Edit team option");
 
@@ -1429,7 +1429,7 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 			}
 		}
 		base.buttonClick(addUpdateObject.Ele_Removecheckbox(correctSelectedUser,"form-check-input checkRight"));
-		base.buttonClick(forgotobj.Ele_Error("members-menu-icon-wrap members-menu-icon-red"));
+		base.excuteJsClick(forgotobj.Ele_Error("members-menu-icon-wrap members-menu-icon-red"));
 		List<String> CurrentTeams = base.GetElementTexts(loginObj.Ele_ErrorMessage("d-flex flex-column listing-details text-start"));
 		boolean teammemberExists = false;
 		for (String member : CurrentTeams) 
@@ -1482,13 +1482,14 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		base.setData(loginObj.Edt_LoginEmail("searchTeam"),addupdatedeleteobj.Team_32_TeamName);
 		Thread.sleep(2000);
 		base.pressKey(loginObj.Edt_LoginEmail("searchTeam"), "ENTER");
-		base.excuteJsClick(regObj.Btn_ResendOTP("defaultDropdown-38"));	
-		asrt.assertTrue(base.isExists(addUpdateObject.Ele_Dropdown("dropdown-item", "team-5141")), "User is unable to view edit option when Clicking three dots of the team");
+		base.excuteJsClick(regObj.Btn_ResendOTP("defaultDropdown-3"));	
+		asrt.assertTrue(base.isExists(addUpdateObject.Ele_ScrollClick("loadManageTeam(5231)")), "User is unable to view edit option when Clicking three dots of the team");
+
 
 		//Step 4 :  Click on Edit team option
 		//Expected :User is able to click Edit team option
 		Thread.sleep(1000);
-		base.excuteJsClick(addUpdateObject.Ele_Dropdown("dropdown-item", "team-5141"));
+		base.excuteJsClick(addUpdateObject.Ele_ScrollClick("loadManageTeam(5231)"));
 		base.switchToWindowByIndex(driver, 0);
 		asrt.assertTrue(base.isExists(searchGameobject.Ele_GameSpecial("teamDiv")), "User is unable to click Edit team option");
 
@@ -1654,14 +1655,14 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		Thread.sleep(1000);
 		base.pressKey(loginObj.Edt_LoginEmail("searchTeam"), "ENTER");
 		Thread.sleep(1000);
-		base.excuteJsClick(regObj.Btn_ResendOTP("defaultDropdown-49"));	
-		asrt.assertTrue(base.isExists(addUpdateObject.Ele_Dropdown("dropdown-item", "team-5172")), " User is unable to Click on three dots of the team");
+		base.excuteJsClick(regObj.Btn_ResendOTP("defaultDropdown-3"));	
+		asrt.assertTrue(base.isExists(addUpdateObject.Ele_ScrollClick("loadManageTeam(5231)")), " User is unable to Click on three dots of the team");
 
 		//Step 4 :  Click on Delete 
 		//Expected :The message "Are you sure want to delete this team?" with Yes or No should be displayed once we click on Delete option from the three dots against the team
 		Thread.sleep(1000);
-		base.scrollToElement(addUpdateObject.Ele_ScrollClick("deleteTeam(5172)"));
-		base.excuteJsClick(addUpdateObject.Ele_ScrollClick("deleteTeam(5172)"));	
+		base.scrollToElement(addUpdateObject.Ele_ScrollClick("deleteTeam(5231)"));
+		base.excuteJsClick(addUpdateObject.Ele_ScrollClick("deleteTeam(5231)"));	
 		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("Are you sure want to delete this team?")) && base.isExists(scheduleobj.Btn_EventOK("swal-button swal-button--catch")) && base.isExists(scheduleobj.Btn_EventOK("swal-button swal-button--cancel")), "User is unable to view message 'Are you sure want to delete this team?' with Yes or No once clicking Delete option from the three dots against the team");
 	}
 
@@ -1698,14 +1699,14 @@ public class AddUpdateDeleteDuplicateTeamGameDefaults  extends BasePge{
 		Thread.sleep(1000);
 		base.pressKey(loginObj.Edt_LoginEmail("searchTeam"), "ENTER");
 		Thread.sleep(1000);
-		base.excuteJsClick(regObj.Btn_ResendOTP("defaultDropdown-49"));	
-		asrt.assertTrue(base.isExists(addUpdateObject.Ele_Dropdown("dropdown-item", "team-5172")), " User is unable to Click on three dots of the team");
+		base.excuteJsClick(regObj.Btn_ResendOTP("defaultDropdown-3"));	
+		asrt.assertTrue(base.isExists(addUpdateObject.Ele_ScrollClick("loadManageTeam(5231)")), " User is unable to Click on three dots of the team");
 
 		//Step 4 :  Click on Delete option
 		//Expected :User is able to view 'Are you sure want to delete this team?' message with Yes or No buttons
 		Thread.sleep(1000);
-		base.scrollToElement(addUpdateObject.Ele_ScrollClick("deleteTeam(5172)"));
-		base.excuteJsClick(addUpdateObject.Ele_ScrollClick("deleteTeam(5172)"));	
+		base.scrollToElement(addUpdateObject.Ele_ScrollClick("deleteTeam(5231)"));
+		base.excuteJsClick(addUpdateObject.Ele_ScrollClick("deleteTeam(5231)"));	
 		asrt.assertTrue(base.isExists(loginObj.Edt_AlertText("Are you sure want to delete this team?")) && base.isExists(scheduleobj.Btn_EventOK("swal-button swal-button--catch")) && base.isExists(scheduleobj.Btn_EventOK("swal-button swal-button--cancel")), "User is unable to view 'Are you sure want to delete this team?' message with Yes or No buttons");
 
 		//Step 5 : Click on No option
