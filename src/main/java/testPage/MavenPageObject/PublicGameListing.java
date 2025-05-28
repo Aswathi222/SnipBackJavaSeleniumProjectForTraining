@@ -126,6 +126,7 @@ public class PublicGameListing extends BasePge {
 		LoginPage_Obj home = new LoginPage_Obj();	
 		GameListing_Obj film = new GameListing_Obj();
 		
+		
 //		Step1: Enter snipback URL
 //		Expected Result: The user should be able to navigates to the  Snipback website after entering the URL
 		asrt.assertTrue(base.isExists(home.Ele_SnipBackHomePageLogo("light-logo")),"Unable to navigate to Snipback website");

@@ -13,6 +13,7 @@ public class PublicGameListing_Test extends BaseTest
 	@Test()
 	public void TC01_PublicGameListingTest() throws Exception 
 	{	
+		
 		PublicGameListing GameLogin = new PublicGameListing(getDriver());      //method return in basetest class,return type is a WebDriver (from Selenium).
 		GameLogin.TC01_PublicGameListing();   //calling our method using object of our created class
 		
