@@ -19,7 +19,7 @@ public class PublicGameListing extends BasePge {
 		base = new BasePge(driver);                 
 	}
 	//<summary>
-	//Test Case Title:"Verify that the user should be able to navigates to the  Snipback website after entering the URL
+	//Test Case Title: Verify that the user should be able to navigates to the  Snipback website after entering the URL
 	//Automation ID: Game Listing_01
 	//</summary>
 	public void TC01_PublicGameListing() {
@@ -27,6 +27,26 @@ public class PublicGameListing extends BasePge {
 		//Expected Result: The user should be able to navigates to the  Snipback website after entering the URL
 		LoginPage_Obj home = new LoginPage_Obj();
 		asrt.assertTrue(base.isExists(home.Ele_SnipBackHomePageLogo("light-logo")),"Unable to navigate to Snipback website");
-
+	}
+	//<summary>
+	//Test Case Title: "Verify that the user should be able to see the following Options when entering into snipaback website
+	//1.Home, 2.Film, 3.Pricing, 4.Login button"
+	//Automation ID: Game Listing_02
+	//</summary>
+	public void TC02_PublicGameListing() {
+		LoginPage_Obj home = new LoginPage_Obj();
+		Registration_Obj options = new Registration_Obj();
+		
+		//Step1: Enter snipback URL
+		//Expected Result: The user should be able to navigates to the  Snipback website after entering the URL
+		asrt.assertTrue(base.isExists(home.Ele_SnipBackHomePageLogo("light-logo")),"Unable to navigate to Snipback website");
+		
+		//Step2: Verify the Options (Home,Film, Pricing, Login Button
+		//Expected Result:The user should be able to see the following Options when entering into snipaback website
+		//1.Home 2.Film 3.Pricing 4.Login button"
+		asrt.assertTrue(base.isExists(options.Btn_Login("menu_link nav-link  active ","Home")),"Unable to find Home Option");
+		asrt.assertTrue(base.isExists(options.Btn_Login("menu_link nav-link ", "Film")),"Unable to find Film Option");
+		asrt.assertTrue(base.isExists(options.Btn_Login("menu_link nav-link ", "Pricing")),"Unable to find Pricing Option");
+		asrt.assertTrue(base.isExists(options.Btn_Login("nav-link btn btn-white sm", "Login")),"Unable to find Login Button");
 	}
 }
