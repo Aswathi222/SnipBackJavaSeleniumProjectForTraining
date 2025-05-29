@@ -67,4 +67,29 @@ public class PublicGameListing extends BasePge {
 		base.buttonClick(film.Btn_Film("nav-item", "Film"));
 		asrt.assertTrue(base.isExists(film.Ele_FilmBanner("container pb-2 bannerTexts","Powerful Multi- Camera")),"Unable to Navigate to Film Page");
 	}
+	//<summary>
+	//Test Case Title: Verify that an option Filter by date (MM/DD/YYYY) for filter the games should be displayed
+	//Automation ID: Game Listing_09
+	//</summary>
+	public void TC09_PublicGameListing() {
+		LoginPage_Obj home = new LoginPage_Obj();	
+		GameListing_Obj film = new GameListing_Obj();
+		LoginPage_Obj	filter = new LoginPage_Obj();
+		
+		
+		//Step1:Enter snipback URL
+		//Expected Result: The user should be able to navigates to the  Snipback website after entering the URL
+		asrt.assertTrue(base.isExists(home.Ele_SnipBackHomePageLogo("light-logo")),"Unable to navigate to Snipback website");
+		
+		//Step2:Click on FILM Tab
+		//Expected Result: The user should be able to click on "FILM" tab without login to snipback
+		asrt.assertTrue(base.isExists(film.Btn_Film("nav-item", "Film")),"Unable to find Film tab");
+		base.buttonClick(film.Btn_Film("nav-item", "Film"));
+		asrt.assertTrue(base.isExists(film.Ele_FilmBanner("container pb-2 bannerTexts","Powerful Multi- Camera")),"Unable to Navigate to Film Page");
+				
+		//Step3:Verify the Option "Filter by date"
+		//The option Filter by date (MM/DD/YYYY) for filter the games should be displayed
+		asrt.assertTrue(base.isExists(filter.Edt_AlertMessage("Filter by")),"'Filter By Text' is not visible");
+		asrt.assertTrue(base.isExists(film.Ele_DateInput("MM/DD/YYYY")),"'Filter by date'(MM/DD/YYYY) Option is not Visible");
+	}
 }

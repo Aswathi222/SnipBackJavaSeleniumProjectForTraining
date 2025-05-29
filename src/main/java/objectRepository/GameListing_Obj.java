@@ -8,7 +8,7 @@ public class GameListing_Obj {
 		//Ele
 		public By Ele_FilmBanner(String class1,String text) {return By.xpath("//div[@class='"+class1+"']//div[normalize-space(text())='"+text+"']");}	
 		public By Ele_Sort(String class1,String class2) {return By.xpath("//img[@class='"+class1+"']/ancestor::div[@class='"+class2+"']");}
-		
+		public By Ele_DateInput(String date) {return By.xpath("//input[@placeholder='"+date+"']");}
 		//Ddl
 		public By Ddl_Team(String class1,String id1) {return By.xpath("//div[@class='"+class1+"']//select[@id='"+id1+"']");}
 				

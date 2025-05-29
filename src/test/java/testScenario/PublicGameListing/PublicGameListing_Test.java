@@ -23,4 +23,10 @@ public class PublicGameListing_Test extends BaseTest {
 		PublicGameListing filmtab = new PublicGameListing(getDriver());      
 		filmtab.TC03_PublicGameListing();
 }
+	@Test()
+	public void TC09_PublicGameListingTest() throws Exception 
+	{	
+		PublicGameListing filmtab = new PublicGameListing(getDriver());      
+		filmtab.TC09_PublicGameListing();
+}
 }
