@@ -15,7 +15,7 @@ public class PublicGameListing extends BasePge {
 	Assert asrt;
 
 	public PublicGameListing(WebDriver driver) {    
-		super(driver);                              
+		super(driver);                            
 		base = new BasePge(driver);                 
 	}
 	//<summary>
@@ -48,5 +48,23 @@ public class PublicGameListing extends BasePge {
 		asrt.assertTrue(base.isExists(options.Btn_Login("menu_link nav-link ", "Film")),"Unable to find Film Option");
 		asrt.assertTrue(base.isExists(options.Btn_Login("menu_link nav-link ", "Pricing")),"Unable to find Pricing Option");
 		asrt.assertTrue(base.isExists(options.Btn_Login("nav-link btn btn-white sm", "Login")),"Unable to find Login Button");
+	}	
+	//<summary>
+	//Test Case Title: Verify that the user should be able to click on "FILM" tab without login to snipback
+	//Automation ID: Game Listing_03
+	//</summary>
+	public void TC03_PublicGameListing() {
+		LoginPage_Obj home = new LoginPage_Obj();	
+		GameListing_Obj film = new GameListing_Obj();
+		
+		//Step1: Enter snipback URL
+		//Expected Result: The user should be able to navigates to the  Snipback website after entering the URL
+		asrt.assertTrue(base.isExists(home.Ele_SnipBackHomePageLogo("light-logo")),"Unable to navigate to Snipback website");
+		
+		//Step2: Click on FILM Tab
+		//Expected Result: The user should be able to click on "FILM" tab without login to snipback
+		asrt.assertTrue(base.isExists(film.Btn_Film("nav-item", "Film")),"Unable to find Film tab");
+		base.buttonClick(film.Btn_Film("nav-item", "Film"));
+		asrt.assertTrue(base.isExists(film.Ele_FilmBanner("container pb-2 bannerTexts","Powerful Multi- Camera")),"Unable to Navigate to Film Page");
 	}
 }
