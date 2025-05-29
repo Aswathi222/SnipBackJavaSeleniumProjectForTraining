@@ -12,4 +12,10 @@ public class ViewProfile_Test extends BaseTest
 		ViewProfile viewprofile = new ViewProfile(getDriver());
 		viewprofile.TC01_ViewProfile();
 	}
+	@Test()
+	public void TC02_ViewProfileTest() throws Exception 
+	{	
+		ViewProfile viewprofile = new ViewProfile(getDriver());
+		viewprofile.TC02_ViewProfile();
+	}
 }
