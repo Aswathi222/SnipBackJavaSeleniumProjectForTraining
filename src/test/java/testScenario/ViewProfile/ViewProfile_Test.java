@@ -1,14 +1,11 @@
 package testScenario.ViewProfile;
 import org.testng.annotations.Test;
-
 import testPage.MavenPageObject.ViewProfile;
 import utilPack.BaseTest;
-
 
 public class ViewProfile_Test extends BaseTest 
 
 {	
-
 	@Test()
 	public void TC01_ViewProfileTest() throws Exception 
 	{	
