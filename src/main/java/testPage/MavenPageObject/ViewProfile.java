@@ -1,5 +1,4 @@
 package testPage.MavenPageObject;
-
 import static org.testng.Assert.assertTrue;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
