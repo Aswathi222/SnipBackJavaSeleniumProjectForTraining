@@ -101,19 +101,19 @@ public class PublicGameListing extends BasePge {
 		GameListing_Obj film = new GameListing_Obj();
 		LoginPage_Obj	filter = new LoginPage_Obj();
 		
-//		Step1: Enter snipback URL
+		//Step1: Enter snipback URL
 		//Expected Result: The user should be able to navigates to the  Snipback website after entering the URL
 		asrt.assertTrue(base.isExists(home.Ele_SnipBackHomePageLogo("light-logo")),"Unable to navigate to Snipback website");
 		
-//		Step2: Click on FILM Tab
+		//Step2: Click on FILM Tab
 		//Expected Result: The user should be able to click on "FILM" tab without login to snipback
 		asrt.assertTrue(base.isExists(film.Btn_Film("nav-item", "Film")),"Unable to find Film tab");
 		base.buttonClick(film.Btn_Film("nav-item", "Film"));
 		asrt.assertTrue(base.isExists(film.Ele_FilmBanner("container pb-2 bannerTexts","Powerful Multi- Camera")),"Unable to Navigate to Film Page");
 				
-//		Step3: Verify the Option "TEAM with Dropdown ALL"
-//		Expected Result: An option Team with drop down "ALL" should be displayed near to Filter by date option in the FILM page to list all the public games
-		asrt.assertTrue(base.isExists(filter.Edt_AlertText("Team")),"TEAM text is not visible");
-		asrt.assertTrue(base.isExists(film.Ddl_Team("fliter-textInput","team_id")),"Dropdown 'All' is not visible");
+		//Step3: Verify the Option "TEAM with Dropdown ALL"
+		//Expected Result: An option Team with drop down "ALL" should be displayed near to Filter by date option in the FILM page to list all the public games
+		asrt.assertTrue(base.isExists(filter.Edt_AlertText("Team")) && base.isExists(film.Ddl_Team("fliter-textInput","team_id")),"Either the filter text \"Team\" or the drop down \"ALL\" is not displayed near to Filter by date option in the FILM page");
 	}
+
 }

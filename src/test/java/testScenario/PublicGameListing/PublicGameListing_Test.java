@@ -5,6 +5,7 @@ import testPage.MavenPageObject.SnipBackLogin;
 import utilPack.BaseTest;
 
 public class PublicGameListing_Test extends BaseTest {	
+	
 	@Test()
 	public void TC01_PublicGameListingTest() throws Exception 
 	{	
