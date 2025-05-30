@@ -9,12 +9,12 @@ import objectRepository.LoginPage_Obj;
 import objectRepository.SocialMediaSignIn_Obj;
 import utilPack.BasePge;
 
-public class SocialMediaSignIn extends BasePge 
+public class SocialMediaSignIn extends BasePge
 {
 	BasePge base;
 	Assert asrt;
 
-	public SocialMediaSignIn(WebDriver driver) 
+	public SocialMediaSignIn(WebDriver driver)
 	{
 		super(driver);
 		base = new BasePge(driver);
@@ -25,7 +25,7 @@ public class SocialMediaSignIn extends BasePge
 	// Automation ID   : TC_01
 	// </summary>
 
-	public void TC01_SocialMediaSignIn() throws InterruptedException  
+	public void TC01_SocialMediaSignIn() throws InterruptedException
 	{
 		LoginPage_Obj login = new LoginPage_Obj();
 		SocialMediaSignIn_Obj socialmediasigninObj = new SocialMediaSignIn_Obj();
