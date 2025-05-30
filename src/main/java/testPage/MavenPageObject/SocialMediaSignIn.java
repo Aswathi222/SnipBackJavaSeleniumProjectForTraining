@@ -34,7 +34,7 @@ public class SocialMediaSignIn extends BasePge
 		// Expected:The User must able to view the snipback Home page.
 		asrt.assertTrue(base.isExists(login.Ele_SnipBackHomePageLogo("light-logo")), "User is unable to view the Snipback Home Page");
 
-		//Step 2:Click Login button
+		//Step 2:Click on the Login button
 		//Expected:The user must be able to click the Login button and view the SignIn google option in login page.
 		base.buttonClick(login.Btn_LoginButton("nav-link btn btn-white sm"));
 		asrt.assertTrue(base.isExists(socialmediasigninObj.Btn_SignInOption("icon icon-google-black sm")), "User is unable to click the login button and unable to view the Signin google option.");
