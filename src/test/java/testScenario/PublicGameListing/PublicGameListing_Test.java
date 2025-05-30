@@ -5,6 +5,7 @@ import testPage.MavenPageObject.SnipBackLogin;
 import utilPack.BaseTest;
 
 public class PublicGameListing_Test extends BaseTest {	
+	
 	@Test()
 	public void TC01_PublicGameListingTest() throws Exception 
 	{	
@@ -28,5 +29,11 @@ public class PublicGameListing_Test extends BaseTest {
 	{	
 		PublicGameListing filmtab = new PublicGameListing(getDriver());      
 		filmtab.TC09_PublicGameListing();
+}
+	@Test()
+	public void TC11_PublicGameListingTest() throws Exception 
+	{	
+		PublicGameListing filmtab = new PublicGameListing(getDriver());      
+		filmtab.TC11_PublicGameListing();
 }
 }
