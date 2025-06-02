@@ -17,29 +17,36 @@ public class PublicGameListing_Test extends BaseTest {
 	{	
 		PublicGameListing GameLogin = new PublicGameListing(getDriver());      
 		GameLogin.TC02_PublicGameListing();
-}
+	}
 	@Test()
 	public void TC03_PublicGameListingTest() throws Exception 
 	{	
 		PublicGameListing filmtab = new PublicGameListing(getDriver());      
 		filmtab.TC03_PublicGameListing();
-}
+	}
 	@Test()
 	public void TC09_PublicGameListingTest() throws Exception 
 	{	
 		PublicGameListing filmtab = new PublicGameListing(getDriver());      
 		filmtab.TC09_PublicGameListing();
-}
+	}
 	@Test()
 	public void TC11_PublicGameListingTest() throws Exception 
 	{	
 		PublicGameListing filmtab = new PublicGameListing(getDriver());      
 		filmtab.TC11_PublicGameListing();
-}
+	}
 	@Test()
 	public void TC17_PublicGameListingTest() throws Exception 
 	{	
 		PublicGameListing filmtab = new PublicGameListing(getDriver());      
 		filmtab.TC17_PublicGameListing();
-}
+	}
+
+	@Test()
+	public void TC12_PublicGameListingTest() throws Exception 
+	{	
+		PublicGameListing filmtab = new PublicGameListing(getDriver());      
+		filmtab.TC12_PublicGameListing();
+	}
 }
