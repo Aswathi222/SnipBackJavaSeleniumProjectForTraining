@@ -138,4 +138,29 @@ public class PublicGameListing extends BasePge {
 		//Expected Result: Search Option with search icon should displayed in the FILM Page
 		asrt.assertTrue(base.isExists(home.Edt_LoginEmail("search")) && base.isExists(film.Ele_Sort("search-img","search-textInput")),"Either the Search option or the search icon is not visible in the FILM Page");
 }
+	//<summary>
+	//Test Case Title: Verify that another option " Sort By date"  should be displayed along with Up arrow and Down arrow in the FILM Page
+	//Automation ID: Game Listing_12
+	//</summary>
+	public void TC12_PublicGameListing() {
+		LoginPage_Obj home = new LoginPage_Obj();	
+		GameListing_Obj film = new GameListing_Obj();
+		
+		//Step1: Enter snipback URL
+		//Expected Result: The user should be able to navigates to the  Snipback website after entering the URL
+		asrt.assertTrue(base.isExists(home.Ele_SnipBackHomePageLogo("light-logo")),"Unable to navigate to Snipback website");
+		
+		//Step2: Click on FILM Tab
+		//Expected Result: The user should be able to click on "FILM" tab without login to snipback
+		asrt.assertTrue(base.isExists(film.Btn_Film("nav-item", "Film")),"Unable to find Film tab");
+		base.buttonClick(film.Btn_Film("nav-item", "Film"));
+		asrt.assertTrue(base.isExists(film.Ele_FilmBanner("container pb-2 bannerTexts","Powerful Multi- Camera")),"Unable to Navigate to Film Page");
+		
+		//Step3: Verify the Option "" Sort By date"" along with Up arrow and Down arrow"
+		//Expected Result: An option " Sort By date"  should be displayed along with Up arrow and Down arrow in the FILM Page  
+		asrt.assertTrue(base.isExists(film.Ele_FilmBanner("fliter-sub","Sort by Date")),"\" Sort By date\" text is not visible near the sort option");
+		asrt.assertTrue(base.isExists(film.Ele_Sort("sort-img option-checked first","fliter-textInput")) &&base.isExists(film.Ele_Sort("sort-img second","fliter-textInput")),
+				"Either the Up arrow or Down arrow option is not visible in the Film page");
+	}
+	
 }
