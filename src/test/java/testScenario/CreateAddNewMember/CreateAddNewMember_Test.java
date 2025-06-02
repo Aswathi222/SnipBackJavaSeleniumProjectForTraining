@@ -13,4 +13,11 @@ public class CreateAddNewMember_Test extends BaseTest
 		CreateAddNewMember CreateNew = new CreateAddNewMember(getDriver());
 		CreateNew.TC01_CreateAddNewMember();	
 	}
+	
+	@Test()
+	public void TC02_CreateAddNewMember() throws Exception
+	{	
+		CreateAddNewMember CreateNew = new CreateAddNewMember(getDriver());
+		CreateNew.TC02_CreateAddNewMember();	
+	}
 }
