@@ -17,4 +17,5 @@ public class CreateAddNewMemeber_Obj
 	public By Ele_ValidationMessage(String Msg) {return By.xpath("//span[@class='"+Msg+"']"); }
 	public By Msg_ErrorMessage(String Msg) {return By.xpath("//span [contains(text(),'"+Msg+"')]");}
 }
+
 	

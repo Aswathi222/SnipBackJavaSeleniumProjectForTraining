@@ -68,7 +68,7 @@ public class CreateAddNewMember extends BasePge {
 
 		//Step 5: Switch to Any team after searching
 		//Expected : The teams and their appropriate event must load fine.
-		base.setData(CreateNewMemberObj.Edt_SearchBox("form-control input-wrap"),CreateAddNewMemeberTestData.TeamName );
+		base.setData(CreateNewMemberObj.Edt_SearchBox("form-control input-wrap"),CreateAddNewMemeberTestData.TC01_CreateAddNewMemberTeamName );
 		asrt.assertTrue(base.isExists(loginObj.Edt_AlertMessage("CreateORAddUserName")), "Searched Team is not loading properly");
 
 		//step 6: Click on the three Dots near the team name.

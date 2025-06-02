@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 public class CreateAddNewMember_TestData
 {
-	//GenericData
-	public static String TeamName = "CreateORAddUserName";
-	public static String Email = "test123@gmail.com";
-	public static String ActualErrorMessage="Please enter the valid email, the invalid characters are &/\\#,+()$~%.^':*?<>{}\"";
-	public static String InvalidEmail = "asdasdasdasdsad";
+	//TC01
+	public static String TC01_CreateAddNewMemberTeamName = "CreateORAddUserName";
 }
+
